@@ -38,7 +38,7 @@ export default function PortalSelector() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 bg-surface-page">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4">
       <div className="w-full max-w-4xl">
         {/* Header with Logo */}
         <div className="text-center mb-12">
@@ -62,7 +62,7 @@ export default function PortalSelector() {
             return (
               <Card
                 key={portal.path}
-                className="group p-8 border border-border-default bg-surface-card hover:shadow-xl hover:border-brand-soft transition-all duration-300 cursor-pointer"
+                className="group p-8 glass-card hover:shadow-xl hover:shadow-brand/10 hover:border-brand/20 transition-all duration-300 cursor-pointer rounded-xl"
                 onClick={() => navigate(portal.path)}
               >
                 <div className="flex flex-col items-center text-center space-y-4">

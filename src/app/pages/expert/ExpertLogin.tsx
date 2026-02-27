@@ -30,7 +30,7 @@ export default function ExpertLogin() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 bg-surface-page">
+    <div className="min-h-screen flex items-center justify-center px-4">
       <div className="w-full max-w-md">
         <Link
           to="/"
@@ -40,7 +40,7 @@ export default function ExpertLogin() {
           Back to Portal Selection
         </Link>
 
-        <Card className="p-8 border border-border-default bg-surface-card">
+        <Card className="p-8 glass-card rounded-xl">
           <div className="text-center mb-8">
             <img src="/logos/png-transparent/1.png" alt="BehaveBridge" className="w-20 h-20 mx-auto mb-3" />
             <h1 className="text-2xl font-bold text-text-heading mb-1">

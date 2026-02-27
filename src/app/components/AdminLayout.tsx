@@ -49,7 +49,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
     <div className="min-h-screen flex bg-surface-page">
       {/* Desktop Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 bg-brand transition-all duration-300 shadow-lg ${
+        className={`fixed inset-y-0 left-0 z-50 bg-sidebar transition-all duration-300 shadow-lg ${
           sidebarOpen ? 'w-[280px]' : 'w-[72px]'
         } md:block hidden`}
       >
@@ -133,7 +133,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
         sidebarOpen ? 'md:ml-[280px]' : 'md:ml-[72px]'
       }`}>
         {/* Mobile Header */}
-        <header className="md:hidden bg-brand px-4 py-3 flex items-center justify-between sticky top-0 z-30 shadow-sm">
+        <header className="md:hidden bg-sidebar px-4 py-3 flex items-center justify-between sticky top-0 z-30 shadow-sm">
           <button
             onClick={() => setMobileMenuOpen(true)}
             className="p-2 text-white/80 hover:text-white rounded-lg"
@@ -155,7 +155,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
 
       {/* Mobile Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 bg-brand transition-transform duration-300 w-[280px] md:hidden shadow-lg ${
+        className={`fixed inset-y-0 left-0 z-50 bg-sidebar transition-transform duration-300 w-[280px] md:hidden shadow-lg ${
           mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >

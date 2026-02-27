@@ -4,107 +4,104 @@
   --font-size: 16px;
 
   /* ============================================
-     BEHAVE BRIDGE BRAND PALETTE
-     Primary:   #1B67AB (Deep Blue)
-     Secondary: #34B7EF (Bright Blue)
-     Accent:    #51C1F0 (Sky Blue)
-     Soft:      #ACD2E7 (Light Blue)
-     White:     #FEFEFE (Near White)
+     BEHAVE BRIDGE — DARK BLUE GRADIENT THEME
+     Brand:  #1B67AB · #34B7EF · #51C1F0 · #ACD2E7
+     Base:   Deep navy gradient with glass cards
      ============================================ */
 
   /* --- Core semantic tokens (shadcn/Radix) --- */
-  --background: #FEFEFE;
-  --foreground: #0F2942;
-  --card: #FFFFFF;
-  --card-foreground: #0F2942;
-  --popover: #FFFFFF;
-  --popover-foreground: #0F2942;
-  --primary: #1B67AB;
-  --primary-foreground: #FFFFFF;
-  --secondary: #EDF5FB;
-  --secondary-foreground: #1B67AB;
-  --muted: #F0F4F8;
-  --muted-foreground: #627D98;
-  --accent: #E8F4FD;
-  --accent-foreground: #1B67AB;
-  --destructive: #DC2626;
+  --background: #0B1A2E;
+  --foreground: #E8F1F8;
+  --card: #112240;
+  --card-foreground: #E8F1F8;
+  --popover: #132C4A;
+  --popover-foreground: #E8F1F8;
+  --primary: #34B7EF;
+  --primary-foreground: #071422;
+  --secondary: #1A3352;
+  --secondary-foreground: #ACD2E7;
+  --muted: #152A45;
+  --muted-foreground: #7A8FA3;
+  --accent: #1B3A5C;
+  --accent-foreground: #51C1F0;
+  --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
-  --border: #D9E2EC;
-  --input: transparent;
-  --input-background: #F0F4F8;
-  --switch-background: #BCCCDC;
-  --ring: #1B67AB;
+  --border: rgba(255, 255, 255, 0.10);
+  --input: rgba(255, 255, 255, 0.06);
+  --input-background: #0F2236;
+  --switch-background: #1A3352;
+  --ring: #34B7EF;
 
   /* --- Chart colors (brand-derived) --- */
-  --chart-1: #1B67AB;
-  --chart-2: #34B7EF;
-  --chart-3: #51C1F0;
-  --chart-4: #ACD2E7;
-  --chart-5: #0D4A7A;
+  --chart-1: #34B7EF;
+  --chart-2: #51C1F0;
+  --chart-3: #ACD2E7;
+  --chart-4: #1B67AB;
+  --chart-5: #76D0F7;
 
   --radius: 0.625rem;
 
-  /* --- Sidebar (dark brand) --- */
-  --sidebar: #1B67AB;
-  --sidebar-foreground: #FFFFFF;
+  /* --- Sidebar (darker than page) --- */
+  --sidebar: #071422;
+  --sidebar-foreground: #E8F1F8;
   --sidebar-primary: #FFFFFF;
-  --sidebar-primary-foreground: #1B67AB;
-  --sidebar-accent: rgba(255, 255, 255, 0.12);
+  --sidebar-primary-foreground: #071422;
+  --sidebar-accent: rgba(255, 255, 255, 0.10);
   --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: rgba(255, 255, 255, 0.15);
-  --sidebar-ring: #51C1F0;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #34B7EF;
 
   /* --- Text hierarchy --- */
-  --text-heading: #0F2942;
-  --text-label: #334E68;
-  --text-body: #627D98;
-  --text-muted: #9FB3C8;
-  --text-inverse: #FFFFFF;
+  --text-heading: #FFFFFF;
+  --text-label: #ACD2E7;
+  --text-body: #8FAABE;
+  --text-muted: #5A7A90;
+  --text-inverse: #0B1A2E;
 
   /* --- Surfaces --- */
-  --surface-page: #F0F4F8;
-  --surface-card: #FFFFFF;
-  --surface-hover: #F8FAFC;
-  --surface-elevated: #E1EBF5;
+  --surface-page: #0B1A2E;
+  --surface-card: #112240;
+  --surface-hover: #1A3352;
+  --surface-elevated: #1E3A5C;
 
   /* --- Borders --- */
-  --border-default: #D9E2EC;
-  --border-light: #E4ECF2;
-  --border-strong: #9FB3C8;
+  --border-default: rgba(255, 255, 255, 0.10);
+  --border-light: rgba(255, 255, 255, 0.06);
+  --border-strong: rgba(255, 255, 255, 0.20);
 
   /* --- Brand interactive --- */
-  --brand: #1B67AB;
-  --brand-dark: #154F85;
-  --brand-light: #34B7EF;
-  --brand-accent: #51C1F0;
-  --brand-soft: #ACD2E7;
-  --brand-softer: #E8F4FD;
+  --brand: #34B7EF;
+  --brand-dark: #1B67AB;
+  --brand-light: #51C1F0;
+  --brand-accent: #76D0F7;
+  --brand-soft: #1A3352;
+  --brand-softer: #112240;
 
-  /* --- Status colors --- */
-  --status-success: #16A34A;
-  --status-success-soft: #F0FDF4;
-  --status-success-border: #BBF7D0;
-  --status-error: #DC2626;
-  --status-error-soft: #FEF2F2;
-  --status-error-border: #FECACA;
-  --status-warning: #F59E0B;
-  --status-warning-soft: #FFFBEB;
-  --status-warning-border: #FDE68A;
-  --status-info: #34B7EF;
-  --status-info-soft: #E8F4FD;
-  --status-info-border: #ACD2E7;
+  /* --- Status colors (adjusted for dark bg) --- */
+  --status-success: #4ADE80;
+  --status-success-soft: rgba(74, 222, 128, 0.12);
+  --status-success-border: rgba(74, 222, 128, 0.25);
+  --status-error: #F87171;
+  --status-error-soft: rgba(248, 113, 113, 0.12);
+  --status-error-border: rgba(248, 113, 113, 0.25);
+  --status-warning: #FBBF24;
+  --status-warning-soft: rgba(251, 191, 36, 0.12);
+  --status-warning-border: rgba(251, 191, 36, 0.25);
+  --status-info: #51C1F0;
+  --status-info-soft: rgba(81, 193, 240, 0.12);
+  --status-info-border: rgba(81, 193, 240, 0.25);
 
   /* --- Table --- */
-  --table-header-bg: #1B67AB;
+  --table-header-bg: #0D2844;
   --table-header-text: #FFFFFF;
-  --table-row-hover: #EDF5FB;
-  --table-stripe: #F8FAFC;
+  --table-row-hover: #1A3352;
+  --table-stripe: #0F2236;
 
   /* --- Badges --- */
-  --badge-high: #1B67AB;
+  --badge-high: #34B7EF;
   --badge-medium: #51C1F0;
-  --badge-low-bg: #E8F4FD;
-  --badge-low-text: #1B67AB;
+  --badge-low-bg: #1A3352;
+  --badge-low-text: #ACD2E7;
 
   /* --- Font weights --- */
   --font-weight-medium: 500;
@@ -270,6 +267,14 @@
 
   body {
     @apply bg-background text-foreground;
+    background: linear-gradient(160deg, #0B1A2E 0%, #0F2942 40%, #0D2137 100%);
+    min-height: 100vh;
+  }
+
+  .glass-card {
+    background: rgba(17, 34, 64, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   /**

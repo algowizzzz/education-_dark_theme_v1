@@ -51,7 +51,7 @@ export function TeacherLayout({ children }: TeacherLayoutProps) {
     <div className="min-h-screen flex bg-surface-page">
       {/* Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 bg-brand shadow-lg transition-all duration-300 ${
+        className={`fixed inset-y-0 left-0 z-50 bg-sidebar shadow-lg transition-all duration-300 ${
           sidebarOpen ? 'w-[280px]' : 'w-[72px]'
         } md:block hidden`}
       >
@@ -136,7 +136,7 @@ export function TeacherLayout({ children }: TeacherLayoutProps) {
         sidebarOpen ? 'md:ml-[280px]' : 'md:ml-[72px]'
       }`}>
         {/* Mobile Header */}
-        <header className="md:hidden bg-brand px-4 py-3 flex items-center justify-between sticky top-0 z-30">
+        <header className="md:hidden bg-sidebar px-4 py-3 flex items-center justify-between sticky top-0 z-30">
           <button
             onClick={() => setMobileMenuOpen(true)}
             className="p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-lg"
@@ -158,7 +158,7 @@ export function TeacherLayout({ children }: TeacherLayoutProps) {
 
       {/* Mobile Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 bg-brand shadow-lg transition-transform duration-300 w-[280px] md:hidden ${
+        className={`fixed inset-y-0 left-0 z-50 bg-sidebar shadow-lg transition-transform duration-300 w-[280px] md:hidden ${
           mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
