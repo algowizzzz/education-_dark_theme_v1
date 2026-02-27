@@ -62,34 +62,34 @@ export default function AccountSettings() {
     <TeacherLayout>
       <div className="p-8 max-w-4xl">
         <div className="mb-6">
-          <h1 className="text-2xl text-[#1A1A1A] mb-2">Account Settings</h1>
-          <p className="text-[#4A4A4A]">Manage your account information and security</p>
+          <h1 className="text-2xl text-text-heading mb-2">Account Settings</h1>
+          <p className="text-text-label">Manage your account information and security</p>
         </div>
 
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg text-[#1A1A1A]">Account Information</CardTitle>
-            <p className="text-sm text-[#757575]">Your account details are managed by your school administrator</p>
+            <CardTitle className="text-lg text-text-heading">Account Information</CardTitle>
+            <p className="text-sm text-text-body">Your account details are managed by your school administrator</p>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label className="text-[#4A4A4A] text-sm mb-2 block">Full Name</Label>
-                  <div className="p-3 bg-[#F5F5F5] rounded-lg text-[#1A1A1A]">
+                  <Label className="text-text-label text-sm mb-2 block">Full Name</Label>
+                  <div className="p-3 bg-surface-page rounded-lg text-text-heading">
                     Maria Johnson
                   </div>
                 </div>
                 <div>
-                  <Label className="text-[#4A4A4A] text-sm mb-2 block">Email</Label>
-                  <div className="p-3 bg-[#F5F5F5] rounded-lg text-[#1A1A1A]">
+                  <Label className="text-text-label text-sm mb-2 block">Email</Label>
+                  <div className="p-3 bg-surface-page rounded-lg text-text-heading">
                     maria.johnson@lincolnelementary.edu
                   </div>
                 </div>
               </div>
 
-              <div className="pt-2 border-t border-[#E0E0E0]">
-                <p className="text-sm text-[#757575]">
+              <div className="pt-2 border-t border-border-light">
+                <p className="text-sm text-text-body">
                   To update your account information, please contact your school administrator.
                 </p>
               </div>
@@ -97,15 +97,15 @@ export default function AccountSettings() {
           </CardContent>
         </Card>
 
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg text-[#1A1A1A]">Change Password</CardTitle>
-            <p className="text-sm text-[#757575]">Update your password to keep your account secure</p>
+            <CardTitle className="text-lg text-text-heading">Change Password</CardTitle>
+            <p className="text-sm text-text-body">Update your password to keep your account secure</p>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
               <div>
-                <Label htmlFor="current-password" className="text-[#4A4A4A] mb-2 block">
+                <Label htmlFor="current-password" className="text-text-label mb-2 block">
                   Current Password
                 </Label>
                 <Input
@@ -114,12 +114,12 @@ export default function AccountSettings() {
                   value={currentPassword}
                   onChange={(e) => setCurrentPassword(e.target.value)}
                   placeholder="Enter current password"
-                  className="border-[#D0D0D0] text-[#1A1A1A]"
+                  className="border-border-default text-text-heading"
                 />
               </div>
 
               <div>
-                <Label htmlFor="new-password" className="text-[#4A4A4A] mb-2 block">
+                <Label htmlFor="new-password" className="text-text-label mb-2 block">
                   New Password
                 </Label>
                 <Input
@@ -128,12 +128,12 @@ export default function AccountSettings() {
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
                   placeholder="Enter new password"
-                  className="border-[#D0D0D0] text-[#1A1A1A]"
+                  className="border-border-default text-text-heading"
                 />
               </div>
 
               <div>
-                <Label htmlFor="confirm-password" className="text-[#4A4A4A] mb-2 block">
+                <Label htmlFor="confirm-password" className="text-text-label mb-2 block">
                   Confirm New Password
                 </Label>
                 <Input
@@ -142,17 +142,17 @@ export default function AccountSettings() {
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   placeholder="Confirm new password"
-                  className="border-[#D0D0D0] text-[#1A1A1A]"
+                  className="border-border-default text-text-heading"
                 />
               </div>
 
               <div className="pt-2">
-                <p className="text-sm text-[#757575] mb-4">
+                <p className="text-sm text-text-body mb-4">
                   Password requirements: At least 8 characters, include uppercase, lowercase, number, and special character
                 </p>
                 <Button
                   onClick={handleUpdatePassword}
-                  className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+                  className="bg-brand hover:bg-brand-dark text-white shadow-sm"
                 >
                   Update Password
                 </Button>
@@ -161,42 +161,42 @@ export default function AccountSettings() {
           </CardContent>
         </Card>
 
-        <Card className="border-[#D0D0D0]">
+        <Card className="border-border-default">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg text-[#1A1A1A]">Session Management</CardTitle>
-            <p className="text-sm text-[#757575]">Manage your active sessions across devices</p>
+            <CardTitle className="text-lg text-text-heading">Session Management</CardTitle>
+            <p className="text-sm text-text-body">Manage your active sessions across devices</p>
           </CardHeader>
           <CardContent>
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-[#1A1A1A] mb-1">Active Sessions</p>
-                <p className="text-sm text-[#757575]">You are currently logged in on 2 devices</p>
+                <p className="text-text-heading mb-1">Active Sessions</p>
+                <p className="text-sm text-text-body">You are currently logged in on 2 devices</p>
               </div>
               <AlertDialog>
                 <AlertDialogTrigger asChild>
                   <Button
                     variant="outline"
-                    className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]"
+                    className="border-border-strong text-text-heading hover:bg-surface-page"
                   >
                     Logout from All Devices
                   </Button>
                 </AlertDialogTrigger>
-                <AlertDialogContent className="bg-white border-[#D0D0D0]">
+                <AlertDialogContent className="bg-surface-card border-border-default">
                   <AlertDialogHeader>
-                    <AlertDialogTitle className="text-[#1A1A1A]">
+                    <AlertDialogTitle className="text-text-heading">
                       Logout from All Devices?
                     </AlertDialogTitle>
-                    <AlertDialogDescription className="text-[#4A4A4A]">
+                    <AlertDialogDescription className="text-text-label">
                       This will log you out from all devices including this one. You'll need to sign in again to access your account.
                     </AlertDialogDescription>
                   </AlertDialogHeader>
                   <AlertDialogFooter>
-                    <AlertDialogCancel className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]">
+                    <AlertDialogCancel className="border-border-strong text-text-heading hover:bg-surface-page">
                       Cancel
                     </AlertDialogCancel>
                     <AlertDialogAction
                       onClick={handleLogoutAll}
-                      className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+                      className="bg-brand hover:bg-brand-dark text-white shadow-sm"
                     >
                       Logout All
                     </AlertDialogAction>
@@ -207,32 +207,32 @@ export default function AccountSettings() {
           </CardContent>
         </Card>
 
-        <div className="mt-8 pt-8 border-t border-[#E0E0E0]">
+        <div className="mt-8 pt-8 border-t border-border-light">
           <AlertDialog>
             <AlertDialogTrigger asChild>
               <Button
                 variant="outline"
-                className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]"
+                className="border-border-strong text-text-heading hover:bg-surface-page"
               >
                 Logout
               </Button>
             </AlertDialogTrigger>
-            <AlertDialogContent className="bg-white border-[#D0D0D0]">
+            <AlertDialogContent className="bg-surface-card border-border-default">
               <AlertDialogHeader>
-                <AlertDialogTitle className="text-[#1A1A1A]">
+                <AlertDialogTitle className="text-text-heading">
                   Confirm Logout
                 </AlertDialogTitle>
-                <AlertDialogDescription className="text-[#4A4A4A]">
+                <AlertDialogDescription className="text-text-label">
                   Are you sure you want to logout? Any unsaved changes will be lost.
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
-                <AlertDialogCancel className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]">
+                <AlertDialogCancel className="border-border-strong text-text-heading hover:bg-surface-page">
                   Cancel
                 </AlertDialogCancel>
                 <AlertDialogAction
                   onClick={handleLogout}
-                  className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+                  className="bg-brand hover:bg-brand-dark text-white shadow-sm"
                 >
                   Logout
                 </AlertDialogAction>

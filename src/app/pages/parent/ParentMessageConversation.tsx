@@ -96,21 +96,21 @@ export default function ParentMessageConversation() {
   return (
     <ParentLayout>
       <div className="max-w-4xl">
-        <Link to="/parent/messages" className="inline-flex items-center gap-2 text-[#4A4A4A] hover:text-[#1A1A1A] mb-6">
+        <Link to="/parent/messages" className="inline-flex items-center gap-2 text-text-label hover:text-text-heading mb-6">
           <ArrowLeft className="w-4 h-4" />
           Back to Messages
         </Link>
 
         {/* Conversation Header */}
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardContent className="p-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-[#E0E0E0] flex items-center justify-center">
-                <User className="w-6 h-6 text-[#757575]" />
+              <div className="w-12 h-12 rounded-full bg-surface-elevated flex items-center justify-center">
+                <User className="w-6 h-6 text-text-body" />
               </div>
               <div>
-                <h2 className="font-medium text-[#1A1A1A]">{conversation.participantName}</h2>
-                <p className="text-sm text-[#757575]">
+                <h2 className="font-medium text-text-heading">{conversation.participantName}</h2>
+                <p className="text-sm text-text-body">
                   {conversation.participantRole} • Re: {conversation.childName}
                 </p>
               </div>
@@ -128,22 +128,22 @@ export default function ParentMessageConversation() {
               <div className={`max-w-[70%] ${message.senderRole === 'parent' ? 'order-2' : 'order-1'}`}>
                 <div className="flex items-center gap-2 mb-1">
                   {message.senderRole !== 'parent' && (
-                    <div className="w-8 h-8 rounded-full bg-[#E0E0E0] flex items-center justify-center">
-                      <User className="w-4 h-4 text-[#757575]" />
+                    <div className="w-8 h-8 rounded-full bg-surface-elevated flex items-center justify-center">
+                      <User className="w-4 h-4 text-text-body" />
                     </div>
                   )}
                   <div>
-                    <div className="text-sm font-medium text-[#1A1A1A]">
+                    <div className="text-sm font-medium text-text-heading">
                       {message.senderRole === 'parent' ? 'You' : message.senderName}
                     </div>
-                    <div className="text-xs text-[#757575]">{message.timestamp}</div>
+                    <div className="text-xs text-text-body">{message.timestamp}</div>
                   </div>
                 </div>
                 <div
                   className={`p-4 rounded-lg ${
                     message.senderRole === 'parent'
-                      ? 'bg-[#333333] text-white'
-                      : 'bg-[#F5F5F5] text-[#1A1A1A]'
+                      ? 'bg-badge-high text-white'
+                      : 'bg-surface-page text-text-heading'
                   }`}
                 >
                   <p className="text-sm whitespace-pre-wrap">{message.content}</p>
@@ -154,7 +154,7 @@ export default function ParentMessageConversation() {
         </div>
 
         {/* Message Input */}
-        <Card className="border-[#D0D0D0]">
+        <Card className="border-border-default">
           <CardContent className="p-4">
             <Textarea
               placeholder="Type your message..."
@@ -162,16 +162,16 @@ export default function ParentMessageConversation() {
               onChange={(e) => setNewMessage(e.target.value)}
               onKeyPress={handleKeyPress}
               rows={4}
-              className="border-[#D0D0D0] text-[#1A1A1A] placeholder:text-[#757575] mb-3"
+              className="border-border-default text-text-heading placeholder:text-text-body mb-3"
             />
             <div className="flex justify-between items-center">
-              <p className="text-sm text-[#757575]">
+              <p className="text-sm text-text-body">
                 Press Enter to send, Shift+Enter for new line
               </p>
               <Button
                 onClick={handleSendMessage}
                 disabled={!newMessage.trim()}
-                className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+                className="bg-brand hover:bg-brand-dark text-white shadow-sm"
               >
                 <Send className="w-4 h-4 mr-2" />
                 Send Message

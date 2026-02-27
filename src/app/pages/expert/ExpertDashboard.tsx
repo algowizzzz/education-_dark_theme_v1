@@ -57,39 +57,39 @@ export default function ExpertDashboard() {
     <ExpertLayout>
       <div className="max-w-7xl mx-auto space-y-6">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-[#1A1A1A]">
+          <h1 className="text-2xl md:text-3xl font-bold text-text-heading">
             Good morning, Dr. Williams
           </h1>
-          <p className="text-sm md:text-base text-[#757575]">{today}</p>
+          <p className="text-sm md:text-base text-text-body">{today}</p>
         </div>
 
         {/* Case Statistics */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Card className="p-6 border border-[#D0D0D0] bg-white">
+          <Card className="p-6 border border-border-default bg-surface-card">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-[#757575] mb-1">Active Cases</p>
-                <p className="text-3xl font-bold text-[#1A1A1A]">
+                <p className="text-sm text-text-body mb-1">Active Cases</p>
+                <p className="text-3xl font-bold text-text-heading">
                   {caseStats.activeCases}
                 </p>
               </div>
-              <div className="w-12 h-12 rounded-full bg-[#E0E0E0] flex items-center justify-center">
-                <User className="w-6 h-6 text-[#333333]" />
+              <div className="w-12 h-12 rounded-full bg-surface-elevated flex items-center justify-center">
+                <User className="w-6 h-6 text-text-heading" />
               </div>
             </div>
           </Card>
 
-          <Card className="p-6 border border-[#D0D0D0] bg-white">
+          <Card className="p-6 border border-border-default bg-surface-card">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-[#757575] mb-1">Closed This Week</p>
-                <p className="text-3xl font-bold text-[#1A1A1A]">
+                <p className="text-sm text-text-body mb-1">Closed This Week</p>
+                <p className="text-3xl font-bold text-text-heading">
                   {caseStats.closedThisWeek}
                 </p>
               </div>
-              <div className="w-12 h-12 rounded-full bg-[#E0E0E0] flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-surface-elevated flex items-center justify-center">
                 <svg
-                  className="w-6 h-6 text-[#333333]"
+                  className="w-6 h-6 text-text-heading"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -107,15 +107,15 @@ export default function ExpertDashboard() {
         </div>
 
         {/* Escalated Cases Awaiting Review */}
-        <Card className="p-6 border border-[#D0D0D0] bg-white">
+        <Card className="p-6 border border-border-default bg-surface-card">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold text-[#1A1A1A]">
+            <h2 className="text-lg font-semibold text-text-heading">
               Escalated Cases Awaiting Review
             </h2>
             <Button
               variant="ghost"
               onClick={() => navigate('/expert/cases')}
-              className="text-[#4A4A4A] hover:text-[#1A1A1A]"
+              className="text-text-label hover:text-text-heading"
             >
               View All →
             </Button>
@@ -125,7 +125,7 @@ export default function ExpertDashboard() {
             {pendingCases.map((caseItem) => (
               <Card
                 key={caseItem.id}
-                className="p-4 border border-[#E0E0E0] hover:bg-[#F5F5F5] cursor-pointer"
+                className="p-4 border border-border-light hover:bg-surface-page cursor-pointer"
                 onClick={() => navigate(`/expert/cases/${caseItem.id}`)}
               >
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-2 space-y-2 md:space-y-0">
@@ -134,37 +134,37 @@ export default function ExpertDashboard() {
                       variant={caseItem.priority === 'High' ? 'default' : 'outline'}
                       className={
                         caseItem.priority === 'High'
-                          ? 'bg-[#333333] text-white'
-                          : 'border-[#9E9E9E] text-[#4A4A4A]'
+                          ? 'bg-badge-high text-white'
+                          : 'border-border-strong text-text-label'
                       }
                     >
                       {caseItem.priority} Priority
                     </Badge>
-                    <span className="text-sm text-[#757575]">{caseItem.id}</span>
+                    <span className="text-sm text-text-body">{caseItem.id}</span>
                   </div>
-                  <span className="text-sm text-[#757575]">
+                  <span className="text-sm text-text-body">
                     {caseItem.date} • {caseItem.time}
                   </span>
                 </div>
 
-                <h3 className="font-semibold text-[#1A1A1A] mb-1">
+                <h3 className="font-semibold text-text-heading mb-1">
                   {caseItem.student} • Grade {caseItem.grade}
                 </h3>
 
-                <p className="text-sm text-[#4A4A4A] mb-2">
+                <p className="text-sm text-text-label mb-2">
                   Escalated by: {caseItem.teacher}
                 </p>
 
-                <p className="text-sm text-[#4A4A4A] mb-3">
+                <p className="text-sm text-text-label mb-3">
                   <strong>Trigger:</strong> {caseItem.trigger}
                 </p>
 
-                <p className="text-sm text-[#757575] mb-3 line-clamp-2">
+                <p className="text-sm text-text-body mb-3 line-clamp-2">
                   <strong>Note:</strong> {caseItem.note}
                 </p>
 
                 <Button
-                  className="w-full bg-[#333333] hover:bg-[#1A1A1A] text-white rounded-lg"
+                  className="w-full bg-brand hover:bg-brand-dark text-white rounded-lg"
                   onClick={(e) => {
                     e.stopPropagation();
                     navigate(`/expert/cases/${caseItem.id}`);

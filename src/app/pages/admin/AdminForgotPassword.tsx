@@ -18,16 +18,16 @@ export default function AdminForgotPassword() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F5F5] flex items-center justify-center p-6">
+    <div className="min-h-screen bg-surface-page flex items-center justify-center p-6">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-[#1A1A1A] mb-2">BehaveBridge</h1>
-          <p className="text-[#757575]">School Admin Panel</p>
+          <h1 className="text-3xl font-bold text-text-heading mb-2">BehaveBridge</h1>
+          <p className="text-text-body">School Admin Panel</p>
         </div>
 
-        <Card className="border-[#D0D0D0]">
+        <Card className="border-border-default">
           <CardHeader>
-            <CardTitle className="text-xl text-[#1A1A1A]">
+            <CardTitle className="text-xl text-text-heading">
               {emailSent ? 'Check Your Email' : 'Reset Password'}
             </CardTitle>
           </CardHeader>
@@ -35,7 +35,7 @@ export default function AdminForgotPassword() {
             {!emailSent ? (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <Label htmlFor="email" className="text-[#4A4A4A]">
+                  <Label htmlFor="email" className="text-text-label">
                     Admin Email Address
                   </Label>
                   <Input
@@ -45,17 +45,17 @@ export default function AdminForgotPassword() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="admin@lincolnelementary.edu"
-                    className="border-[#D0D0D0] text-[#1A1A1A]"
+                    className="border-border-default text-text-heading"
                   />
                 </div>
 
-                <p className="text-sm text-[#757575]">
+                <p className="text-sm text-text-body">
                   Enter your admin email address and we'll send you instructions to reset your password.
                 </p>
 
                 <Button
                   type="submit"
-                  className="w-full bg-[#333333] hover:bg-[#1A1A1A] text-white"
+                  className="w-full bg-brand hover:bg-brand-dark text-white shadow-sm"
                 >
                   <Mail className="w-4 h-4 mr-2" />
                   Send Reset Instructions
@@ -63,7 +63,7 @@ export default function AdminForgotPassword() {
 
                 <Link
                   to="/admin/login"
-                  className="flex items-center justify-center gap-2 text-sm text-[#4A4A4A] hover:text-[#1A1A1A]"
+                  className="flex items-center justify-center gap-2 text-sm text-text-label hover:text-text-heading"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   Back to Login
@@ -71,20 +71,20 @@ export default function AdminForgotPassword() {
               </form>
             ) : (
               <div className="text-center py-6">
-                <div className="w-16 h-16 bg-[#E0E0E0] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle2 className="w-8 h-8 text-[#333333]" />
+                <div className="w-16 h-16 bg-surface-elevated rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle2 className="w-8 h-8 text-text-heading" />
                 </div>
-                <p className="text-[#1A1A1A] mb-2">
+                <p className="text-text-heading mb-2">
                   We've sent password reset instructions to:
                 </p>
-                <p className="font-medium text-[#1A1A1A] mb-4">{email}</p>
-                <p className="text-sm text-[#757575] mb-6">
+                <p className="font-medium text-text-heading mb-4">{email}</p>
+                <p className="text-sm text-text-body mb-6">
                   Please check your email and follow the instructions to reset your password.
                 </p>
                 <Link to="/admin/login">
                   <Button
                     variant="outline"
-                    className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]"
+                    className="border-border-strong text-text-heading hover:bg-surface-page"
                   >
                     Return to Login
                   </Button>
@@ -94,9 +94,9 @@ export default function AdminForgotPassword() {
           </CardContent>
         </Card>
 
-        <p className="text-center text-sm text-[#757575] mt-6">
+        <p className="text-center text-sm text-text-body mt-6">
           Need help? Contact{' '}
-          <a href="mailto:support@behavebridge.com" className="text-[#333333] hover:underline">
+          <a href="mailto:support@behavebridge.com" className="text-text-heading hover:underline">
             system support
           </a>
         </p>

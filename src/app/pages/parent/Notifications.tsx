@@ -42,15 +42,15 @@ export default function ParentNotifications() {
   const getIcon = (type: string) => {
     switch (type) {
       case 'incident':
-        return <AlertCircle className="h-5 w-5 text-[#1A1A1A]" />;
+        return <AlertCircle className="h-5 w-5 text-text-heading" />;
       case 'update':
-        return <Info className="h-5 w-5 text-[#1A1A1A]" />;
+        return <Info className="h-5 w-5 text-text-heading" />;
       case 'message':
-        return <Bell className="h-5 w-5 text-[#1A1A1A]" />;
+        return <Bell className="h-5 w-5 text-text-heading" />;
       case 'reminder':
-        return <CheckCircle className="h-5 w-5 text-[#757575]" />;
+        return <CheckCircle className="h-5 w-5 text-text-body" />;
       default:
-        return <Bell className="h-5 w-5 text-[#757575]" />;
+        return <Bell className="h-5 w-5 text-text-body" />;
     }
   };
 
@@ -77,14 +77,14 @@ export default function ParentNotifications() {
           {notifications.map((notification) => (
             <Card
               key={notification.id}
-              className={`border-[#D0D0D0] cursor-pointer transition-colors hover:bg-[#F5F5F5] ${
-                !notification.isRead ? 'bg-[#FAFAFA]' : ''
+              className={`border-border-default cursor-pointer transition-colors hover:bg-surface-page ${
+                !notification.isRead ? 'bg-surface-hover' : ''
               }`}
               onClick={() => markAsRead(notification.id)}
             >
               <CardContent className="p-4">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-[#E0E0E0] flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-surface-elevated flex items-center justify-center flex-shrink-0">
                     {getIcon(notification.type)}
                   </div>
                   <div className="flex-1 min-w-0">
@@ -93,22 +93,22 @@ export default function ParentNotifications() {
                         <div className="flex items-center gap-2 mb-1">
                           <p className="text-sm">{notification.title}</p>
                           {!notification.isRead && (
-                            <Badge variant="secondary" className="bg-[#1A1A1A] text-white text-xs">
+                            <Badge variant="secondary" className="bg-brand-dark text-white text-xs">
                               New
                             </Badge>
                           )}
                         </div>
                         {notification.childName && (
-                          <p className="text-xs text-[#757575] mb-1">
+                          <p className="text-xs text-text-body mb-1">
                             {notification.childName}
                           </p>
                         )}
                       </div>
-                      <span className="text-xs text-[#757575] whitespace-nowrap">
+                      <span className="text-xs text-text-body whitespace-nowrap">
                         {notification.timestamp}
                       </span>
                     </div>
-                    <p className="text-sm text-[#4A4A4A]">{notification.message}</p>
+                    <p className="text-sm text-text-label">{notification.message}</p>
                   </div>
                 </div>
               </CardContent>
@@ -117,10 +117,10 @@ export default function ParentNotifications() {
         </div>
 
         {notifications.length === 0 && (
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="py-12 text-center">
-              <BellOff className="h-12 w-12 text-[#D0D0D0] mx-auto mb-3" />
-              <p className="text-[#757575]">No notifications at this time</p>
+              <BellOff className="h-12 w-12 text-text-muted mx-auto mb-3" />
+              <p className="text-text-body">No notifications at this time</p>
             </CardContent>
           </Card>
         )}

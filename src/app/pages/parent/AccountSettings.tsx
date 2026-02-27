@@ -47,12 +47,12 @@ export default function ParentAccountSettings() {
         {/* Header */}
         <div className="mb-6">
           <h1 className="text-2xl mb-2">Account Settings</h1>
-          <p className="text-[#757575]">Manage your account information and preferences</p>
+          <p className="text-text-body">Manage your account information and preferences</p>
         </div>
 
         {/* Account Information (Read-Only) */}
-        <Card className="mb-6 border-[#D0D0D0]">
-          <CardHeader className="bg-[#F5F5F5]">
+        <Card className="mb-6 border-border-default">
+          <CardHeader className="bg-surface-page">
             <CardTitle className="flex items-center gap-2">
               <User className="h-5 w-5" />
               Account Information
@@ -61,33 +61,33 @@ export default function ParentAccountSettings() {
           <CardContent className="pt-6">
             <div className="space-y-4">
               <div>
-                <Label className="text-sm text-[#757575]">Account Name</Label>
-                <p className="text-sm text-[#1A1A1A] mt-1">{accountInfo.name}</p>
+                <Label className="text-sm text-text-body">Account Name</Label>
+                <p className="text-sm text-text-heading mt-1">{accountInfo.name}</p>
               </div>
               <Separator />
               <div>
-                <Label className="text-sm text-[#757575]">Linked Children</Label>
+                <Label className="text-sm text-text-body">Linked Children</Label>
                 <div className="mt-1">
                   {accountInfo.linkedChildren.map((child, idx) => (
-                    <p key={idx} className="text-sm text-[#1A1A1A]">{child}</p>
+                    <p key={idx} className="text-sm text-text-heading">{child}</p>
                   ))}
                 </div>
               </div>
               <Separator />
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label className="text-sm text-[#757575]">Account Created</Label>
-                  <p className="text-sm text-[#1A1A1A] mt-1">{accountInfo.accountCreated}</p>
+                  <Label className="text-sm text-text-body">Account Created</Label>
+                  <p className="text-sm text-text-heading mt-1">{accountInfo.accountCreated}</p>
                 </div>
                 <div>
-                  <Label className="text-sm text-[#757575]">Last Login</Label>
-                  <p className="text-sm text-[#1A1A1A] mt-1">{accountInfo.lastLogin}</p>
+                  <Label className="text-sm text-text-body">Last Login</Label>
+                  <p className="text-sm text-text-heading mt-1">{accountInfo.lastLogin}</p>
                 </div>
               </div>
             </div>
-            <Card className="mt-6 border-[#D0D0D0] bg-[#F5F5F5]">
+            <Card className="mt-6 border-border-default bg-surface-page">
               <CardContent className="py-3">
-                <p className="text-xs text-[#4A4A4A]">
+                <p className="text-xs text-text-label">
                   To update your name or add/remove linked children, please contact the school office.
                 </p>
               </CardContent>
@@ -96,8 +96,8 @@ export default function ParentAccountSettings() {
         </Card>
 
         {/* Update Contact Information */}
-        <Card className="mb-6 border-[#D0D0D0]">
-          <CardHeader className="bg-[#F5F5F5]">
+        <Card className="mb-6 border-border-default">
+          <CardHeader className="bg-surface-page">
             <CardTitle className="flex items-center gap-2">
               <Mail className="h-5 w-5" />
               Contact Information
@@ -131,7 +131,7 @@ export default function ParentAccountSettings() {
                   />
                 </div>
               </div>
-              <Button type="submit" className="mt-6 bg-[#333333] hover:bg-[#4A4A4A]">
+              <Button type="submit" className="mt-6 bg-brand hover:bg-brand-dark">
                 Save Changes
               </Button>
             </form>
@@ -139,8 +139,8 @@ export default function ParentAccountSettings() {
         </Card>
 
         {/* Change Password */}
-        <Card className="mb-6 border-[#D0D0D0]">
-          <CardHeader className="bg-[#F5F5F5]">
+        <Card className="mb-6 border-border-default">
+          <CardHeader className="bg-surface-page">
             <CardTitle className="flex items-center gap-2">
               <Lock className="h-5 w-5" />
               Change Password
@@ -172,7 +172,7 @@ export default function ParentAccountSettings() {
                     }
                     className="mt-1"
                   />
-                  <p className="text-xs text-[#757575] mt-1">
+                  <p className="text-xs text-text-body mt-1">
                     Minimum 8 characters with uppercase, lowercase, and numbers
                   </p>
                 </div>
@@ -191,7 +191,7 @@ export default function ParentAccountSettings() {
               </div>
               <Button
                 type="submit"
-                className="mt-6 bg-[#333333] hover:bg-[#4A4A4A]"
+                className="mt-6 bg-brand hover:bg-brand-dark"
                 disabled={
                   !passwordData.currentPassword ||
                   !passwordData.newPassword ||
@@ -205,12 +205,12 @@ export default function ParentAccountSettings() {
         </Card>
 
         {/* Security */}
-        <Card className="border-[#D0D0D0] bg-[#F5F5F5]">
+        <Card className="border-border-default bg-surface-page">
           <CardContent className="py-4">
             <div className="flex items-start justify-between">
               <div>
                 <p className="text-sm mb-1">Security & Privacy</p>
-                <p className="text-xs text-[#757575]">
+                <p className="text-xs text-text-body">
                   Your data is protected and only accessible to authorized school staff
                 </p>
               </div>

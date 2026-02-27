@@ -66,39 +66,39 @@ export default function NewIncidentStep2() {
       <div className="max-w-4xl mx-auto space-y-6">
         <Link
           to="/teacher/incidents/new"
-          className="inline-flex items-center text-[#4A4A4A] hover:text-[#1A1A1A]"
+          className="inline-flex items-center text-text-label hover:text-text-heading"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back
         </Link>
 
         <div>
-          <h1 className="text-3xl font-bold text-[#1A1A1A]">Log New Incident</h1>
-          <p className="text-[#757575]">Step 2 of 4: Incident Details</p>
+          <h1 className="text-3xl font-bold text-text-heading">Log New Incident</h1>
+          <p className="text-text-body">Step 2 of 4: Incident Details</p>
         </div>
 
         {/* Progress Bar */}
         <div className="flex items-center space-x-2">
-          <div className="flex-1 h-2 bg-[#333333] rounded-full"></div>
-          <div className="flex-1 h-2 bg-[#333333] rounded-full"></div>
-          <div className="flex-1 h-2 bg-[#E0E0E0] rounded-full"></div>
-          <div className="flex-1 h-2 bg-[#E0E0E0] rounded-full"></div>
+          <div className="flex-1 h-2 bg-brand rounded-full"></div>
+          <div className="flex-1 h-2 bg-brand rounded-full"></div>
+          <div className="flex-1 h-2 bg-surface-elevated rounded-full"></div>
+          <div className="flex-1 h-2 bg-surface-elevated rounded-full"></div>
         </div>
 
         {/* Student Info */}
-        <Card className="p-4 border border-[#D0D0D0] bg-[#F5F5F5]">
-          <p className="text-sm text-[#757575]">Student:</p>
-          <p className="font-semibold text-[#1A1A1A]">
+        <Card className="p-4 border border-border-default bg-surface-page">
+          <p className="text-sm text-text-body">Student:</p>
+          <p className="font-semibold text-text-heading">
             {student.name} • {student.id} • Grade {student.grade}
           </p>
         </Card>
 
         {/* Form */}
-        <Card className="p-6 border border-[#D0D0D0] bg-white space-y-6">
+        <Card className="p-6 border border-border-default bg-surface-card space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Date */}
             <div>
-              <Label htmlFor="date" className="text-[#1A1A1A]">
+              <Label htmlFor="date" className="text-text-heading">
                 Date <span className="text-red-500">*</span>
               </Label>
               <Input
@@ -106,13 +106,13 @@ export default function NewIncidentStep2() {
                 type="date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
-                className="mt-1 border-[#D0D0D0] focus:border-[#333333]"
+                className="mt-1 border-border-default focus:border-brand"
               />
             </div>
 
             {/* Time */}
             <div>
-              <Label htmlFor="time" className="text-[#1A1A1A]">
+              <Label htmlFor="time" className="text-text-heading">
                 Time <span className="text-red-500">*</span>
               </Label>
               <Input
@@ -120,18 +120,18 @@ export default function NewIncidentStep2() {
                 type="time"
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
-                className="mt-1 border-[#D0D0D0] focus:border-[#333333]"
+                className="mt-1 border-border-default focus:border-brand"
               />
             </div>
           </div>
 
           {/* Class/Period */}
           <div>
-            <Label htmlFor="class" className="text-[#1A1A1A]">
+            <Label htmlFor="class" className="text-text-heading">
               Class/Period <span className="text-red-500">*</span>
             </Label>
             <Select value={classPeriod} onValueChange={setClassPeriod}>
-              <SelectTrigger className="mt-1 border-[#D0D0D0]">
+              <SelectTrigger className="mt-1 border-border-default">
                 <SelectValue placeholder="Select class or period" />
               </SelectTrigger>
               <SelectContent>
@@ -150,11 +150,11 @@ export default function NewIncidentStep2() {
 
           {/* Location */}
           <div>
-            <Label htmlFor="location" className="text-[#1A1A1A]">
+            <Label htmlFor="location" className="text-text-heading">
               Location <span className="text-red-500">*</span>
             </Label>
             <Select value={location} onValueChange={setLocation}>
-              <SelectTrigger className="mt-1 border-[#D0D0D0]">
+              <SelectTrigger className="mt-1 border-border-default">
                 <SelectValue placeholder="Select location" />
               </SelectTrigger>
               <SelectContent>
@@ -173,11 +173,11 @@ export default function NewIncidentStep2() {
 
           {/* Behavior Category */}
           <div>
-            <Label htmlFor="category" className="text-[#1A1A1A]">
+            <Label htmlFor="category" className="text-text-heading">
               Behavior Category <span className="text-red-500">*</span>
             </Label>
             <Select value={category} onValueChange={setCategory}>
-              <SelectTrigger className="mt-1 border-[#D0D0D0]">
+              <SelectTrigger className="mt-1 border-border-default">
                 <SelectValue placeholder="Select category" />
               </SelectTrigger>
               <SelectContent>
@@ -194,37 +194,37 @@ export default function NewIncidentStep2() {
 
           {/* Severity */}
           <div>
-            <Label className="text-[#1A1A1A] mb-3 block">
+            <Label className="text-text-heading mb-3 block">
               Severity Level <span className="text-red-500">*</span>
             </Label>
             <RadioGroup value={severity} onValueChange={setSeverity}>
               <div className="space-y-3">
-                <div className="flex items-center space-x-3 p-3 border border-[#E0E0E0] rounded-lg">
+                <div className="flex items-center space-x-3 p-3 border border-border-light rounded-lg">
                   <RadioGroupItem value="low" id="low" />
                   <Label htmlFor="low" className="flex-1 cursor-pointer">
-                    <div className="font-medium text-[#1A1A1A]">Low</div>
-                    <div className="text-sm text-[#757575]">Minor disruption, easily redirected</div>
+                    <div className="font-medium text-text-heading">Low</div>
+                    <div className="text-sm text-text-body">Minor disruption, easily redirected</div>
                   </Label>
                 </div>
-                <div className="flex items-center space-x-3 p-3 border border-[#E0E0E0] rounded-lg">
+                <div className="flex items-center space-x-3 p-3 border border-border-light rounded-lg">
                   <RadioGroupItem value="medium" id="medium" />
                   <Label htmlFor="medium" className="flex-1 cursor-pointer">
-                    <div className="font-medium text-[#1A1A1A]">Medium</div>
-                    <div className="text-sm text-[#757575]">Moderate disruption, requires intervention</div>
+                    <div className="font-medium text-text-heading">Medium</div>
+                    <div className="text-sm text-text-body">Moderate disruption, requires intervention</div>
                   </Label>
                 </div>
-                <div className="flex items-center space-x-3 p-3 border border-[#E0E0E0] rounded-lg">
+                <div className="flex items-center space-x-3 p-3 border border-border-light rounded-lg">
                   <RadioGroupItem value="high" id="high" />
                   <Label htmlFor="high" className="flex-1 cursor-pointer">
-                    <div className="font-medium text-[#1A1A1A]">High</div>
-                    <div className="text-sm text-[#757575]">Significant disruption, multiple strategies needed</div>
+                    <div className="font-medium text-text-heading">High</div>
+                    <div className="text-sm text-text-body">Significant disruption, multiple strategies needed</div>
                   </Label>
                 </div>
-                <div className="flex items-center space-x-3 p-3 border border-[#E0E0E0] rounded-lg">
+                <div className="flex items-center space-x-3 p-3 border border-border-light rounded-lg">
                   <RadioGroupItem value="critical" id="critical" />
                   <Label htmlFor="critical" className="flex-1 cursor-pointer">
-                    <div className="font-medium text-[#1A1A1A]">Critical</div>
-                    <div className="text-sm text-[#757575]">Safety concern, immediate intervention required</div>
+                    <div className="font-medium text-text-heading">Critical</div>
+                    <div className="text-sm text-text-body">Safety concern, immediate intervention required</div>
                   </Label>
                 </div>
               </div>
@@ -237,7 +237,7 @@ export default function NewIncidentStep2() {
           <Button
             variant="outline"
             onClick={handleBack}
-            className="border-[#D0D0D0] text-[#333333] hover:bg-[#F5F5F5] rounded-lg"
+            className="border-border-default text-text-heading hover:bg-surface-page rounded-lg"
           >
             ← Back
           </Button>
@@ -245,13 +245,13 @@ export default function NewIncidentStep2() {
             <Button
               variant="outline"
               onClick={handleSaveDraft}
-              className="border-[#D0D0D0] text-[#333333] hover:bg-[#F5F5F5] rounded-lg"
+              className="border-border-default text-text-heading hover:bg-surface-page rounded-lg"
             >
               Save Draft
             </Button>
             <Button
               onClick={handleNext}
-              className="bg-[#333333] hover:bg-[#1A1A1A] text-white rounded-lg"
+              className="bg-brand hover:bg-brand-dark text-white rounded-lg"
             >
               Next →
             </Button>

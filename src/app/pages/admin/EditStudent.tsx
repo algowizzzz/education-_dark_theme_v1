@@ -54,25 +54,25 @@ export default function EditStudent() {
   return (
     <AdminLayout>
       <div className="max-w-4xl">
-        <Link to="/admin/students" className="inline-flex items-center gap-2 text-[#4A4A4A] hover:text-[#1A1A1A] mb-6">
+        <Link to="/admin/students" className="inline-flex items-center gap-2 text-text-label hover:text-text-heading mb-6">
           <ArrowLeft className="w-4 h-4" />
           Back to Students
         </Link>
 
         <div className="mb-6 flex items-start justify-between">
           <div>
-            <h1 className="text-2xl text-[#1A1A1A] mb-2">Edit Student</h1>
-            <p className="text-[#757575]">{formData.studentId}</p>
+            <h1 className="text-2xl text-text-heading mb-2">Edit Student</h1>
+            <p className="text-text-body">{formData.studentId}</p>
           </div>
-          <Badge className="bg-[#333333] text-white">
+          <Badge className="bg-brand text-white">
             {formData.status}
           </Badge>
         </div>
 
         {/* Quick Stats */}
-        <Card className="mb-6 border-[#333333] bg-[#FAFAFA]">
+        <Card className="mb-6 border-brand bg-surface-hover">
           <CardHeader>
-            <CardTitle className="text-lg text-[#1A1A1A] flex items-center gap-2">
+            <CardTitle className="text-lg text-text-heading flex items-center gap-2">
               <AlertCircle className="w-5 h-5" />
               Student Overview
             </CardTitle>
@@ -80,26 +80,26 @@ export default function EditStudent() {
           <CardContent>
             <div className="grid grid-cols-4 gap-4">
               <div>
-                <div className="text-sm text-[#757575] mb-1">Total Incidents</div>
-                <div className="text-2xl font-semibold text-[#1A1A1A]">
+                <div className="text-sm text-text-body mb-1">Total Incidents</div>
+                <div className="text-2xl font-semibold text-text-heading">
                   {studentStats.totalIncidents}
                 </div>
               </div>
               <div>
-                <div className="text-sm text-[#757575] mb-1">Last 30 Days</div>
-                <div className="text-2xl font-semibold text-[#1A1A1A]">
+                <div className="text-sm text-text-body mb-1">Last 30 Days</div>
+                <div className="text-2xl font-semibold text-text-heading">
                   {studentStats.recentIncidents}
                 </div>
               </div>
               <div>
-                <div className="text-sm text-[#757575] mb-1">Expert Support</div>
-                <div className="text-lg text-[#1A1A1A]">
+                <div className="text-sm text-text-body mb-1">Expert Support</div>
+                <div className="text-lg text-text-heading">
                   {studentStats.expertSupport ? 'Yes' : 'No'}
                 </div>
               </div>
               <div>
-                <div className="text-sm text-[#757575] mb-1">Last Incident</div>
-                <div className="text-lg text-[#1A1A1A]">
+                <div className="text-sm text-text-body mb-1">Last Incident</div>
+                <div className="text-lg text-text-heading">
                   {studentStats.lastIncident}
                 </div>
               </div>
@@ -108,64 +108,64 @@ export default function EditStudent() {
         </Card>
 
         <form onSubmit={handleSubmit}>
-          <Card className="mb-6 border-[#D0D0D0]">
+          <Card className="mb-6 border-border-default">
             <CardHeader>
-              <CardTitle className="text-[#1A1A1A]">Basic Information</CardTitle>
+              <CardTitle className="text-text-heading">Basic Information</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <Label htmlFor="studentId" className="text-[#4A4A4A]">Student ID</Label>
+                <Label htmlFor="studentId" className="text-text-label">Student ID</Label>
                 <Input
                   id="studentId"
                   value={formData.studentId}
                   disabled
-                  className="border-[#D0D0D0] text-[#757575] bg-[#F5F5F5]"
+                  className="border-border-default text-text-body bg-surface-page"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="firstName" className="text-[#4A4A4A]">First Name *</Label>
+                  <Label htmlFor="firstName" className="text-text-label">First Name *</Label>
                   <Input
                     id="firstName"
                     required
                     value={formData.firstName}
                     onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                    className="border-[#D0D0D0] text-[#1A1A1A]"
+                    className="border-border-default text-text-heading"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="lastName" className="text-[#4A4A4A]">Last Name *</Label>
+                  <Label htmlFor="lastName" className="text-text-label">Last Name *</Label>
                   <Input
                     id="lastName"
                     required
                     value={formData.lastName}
                     onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                    className="border-[#D0D0D0] text-[#1A1A1A]"
+                    className="border-border-default text-text-heading"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="dateOfBirth" className="text-[#4A4A4A]">Date of Birth *</Label>
+                  <Label htmlFor="dateOfBirth" className="text-text-label">Date of Birth *</Label>
                   <Input
                     id="dateOfBirth"
                     type="date"
                     required
                     value={formData.dateOfBirth}
                     onChange={(e) => setFormData({ ...formData, dateOfBirth: e.target.value })}
-                    className="border-[#D0D0D0] text-[#1A1A1A]"
+                    className="border-border-default text-text-heading"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="grade" className="text-[#4A4A4A]">Grade *</Label>
+                  <Label htmlFor="grade" className="text-text-label">Grade *</Label>
                   <select
                     id="grade"
                     required
                     value={formData.grade}
                     onChange={(e) => setFormData({ ...formData, grade: e.target.value })}
-                    className="w-full border border-[#D0D0D0] rounded-md px-3 py-2 text-[#1A1A1A]"
+                    className="w-full border border-border-default rounded-md px-3 py-2 text-text-heading"
                   >
                     <option value="K">Kindergarten</option>
                     <option value="1">1st Grade</option>
@@ -178,13 +178,13 @@ export default function EditStudent() {
               </div>
 
               <div>
-                <Label htmlFor="primaryTeacher" className="text-[#4A4A4A]">Primary Teacher *</Label>
+                <Label htmlFor="primaryTeacher" className="text-text-label">Primary Teacher *</Label>
                 <select
                   id="primaryTeacher"
                   required
                   value={formData.primaryTeacher}
                   onChange={(e) => setFormData({ ...formData, primaryTeacher: e.target.value })}
-                  className="w-full border border-[#D0D0D0] rounded-md px-3 py-2 text-[#1A1A1A]"
+                  className="w-full border border-border-default rounded-md px-3 py-2 text-text-heading"
                 >
                   <option value="TCH-001">Mrs. Maria Johnson</option>
                   <option value="TCH-002">Mr. David Chen</option>
@@ -193,13 +193,13 @@ export default function EditStudent() {
               </div>
 
               <div>
-                <Label htmlFor="status" className="text-[#4A4A4A]">Status *</Label>
+                <Label htmlFor="status" className="text-text-label">Status *</Label>
                 <select
                   id="status"
                   required
                   value={formData.status}
                   onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                  className="w-full border border-[#D0D0D0] rounded-md px-3 py-2 text-[#1A1A1A]"
+                  className="w-full border border-border-default rounded-md px-3 py-2 text-text-heading"
                 >
                   <option value="Active">Active</option>
                   <option value="Inactive">Inactive</option>
@@ -210,84 +210,84 @@ export default function EditStudent() {
             </CardContent>
           </Card>
 
-          <Card className="mb-6 border-[#D0D0D0]">
+          <Card className="mb-6 border-border-default">
             <CardHeader>
-              <CardTitle className="text-[#1A1A1A]">Guardian Information</CardTitle>
+              <CardTitle className="text-text-heading">Guardian Information</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <Label htmlFor="guardianName" className="text-[#4A4A4A]">Primary Guardian Name *</Label>
+                <Label htmlFor="guardianName" className="text-text-label">Primary Guardian Name *</Label>
                 <Input
                   id="guardianName"
                   required
                   value={formData.guardianName}
                   onChange={(e) => setFormData({ ...formData, guardianName: e.target.value })}
-                  className="border-[#D0D0D0] text-[#1A1A1A]"
+                  className="border-border-default text-text-heading"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="guardianEmail" className="text-[#4A4A4A]">Guardian Email *</Label>
+                  <Label htmlFor="guardianEmail" className="text-text-label">Guardian Email *</Label>
                   <Input
                     id="guardianEmail"
                     type="email"
                     required
                     value={formData.guardianEmail}
                     onChange={(e) => setFormData({ ...formData, guardianEmail: e.target.value })}
-                    className="border-[#D0D0D0] text-[#1A1A1A]"
+                    className="border-border-default text-text-heading"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="guardianPhone" className="text-[#4A4A4A]">Guardian Phone *</Label>
+                  <Label htmlFor="guardianPhone" className="text-text-label">Guardian Phone *</Label>
                   <Input
                     id="guardianPhone"
                     type="tel"
                     required
                     value={formData.guardianPhone}
                     onChange={(e) => setFormData({ ...formData, guardianPhone: e.target.value })}
-                    className="border-[#D0D0D0] text-[#1A1A1A]"
+                    className="border-border-default text-text-heading"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="emergencyContact" className="text-[#4A4A4A]">Emergency Contact Name</Label>
+                  <Label htmlFor="emergencyContact" className="text-text-label">Emergency Contact Name</Label>
                   <Input
                     id="emergencyContact"
                     value={formData.emergencyContact}
                     onChange={(e) => setFormData({ ...formData, emergencyContact: e.target.value })}
-                    className="border-[#D0D0D0] text-[#1A1A1A]"
+                    className="border-border-default text-text-heading"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="emergencyPhone" className="text-[#4A4A4A]">Emergency Phone</Label>
+                  <Label htmlFor="emergencyPhone" className="text-text-label">Emergency Phone</Label>
                   <Input
                     id="emergencyPhone"
                     type="tel"
                     value={formData.emergencyPhone}
                     onChange={(e) => setFormData({ ...formData, emergencyPhone: e.target.value })}
-                    className="border-[#D0D0D0] text-[#1A1A1A]"
+                    className="border-border-default text-text-heading"
                   />
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="mb-6 border-[#D0D0D0]">
+          <Card className="mb-6 border-border-default">
             <CardHeader>
-              <CardTitle className="text-[#1A1A1A]">Special Education & Medical</CardTitle>
+              <CardTitle className="text-text-heading">Special Education & Medical</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="iepStatus" className="text-[#4A4A4A]">IEP Status</Label>
+                  <Label htmlFor="iepStatus" className="text-text-label">IEP Status</Label>
                   <select
                     id="iepStatus"
                     value={formData.iepStatus}
                     onChange={(e) => setFormData({ ...formData, iepStatus: e.target.value })}
-                    className="w-full border border-[#D0D0D0] rounded-md px-3 py-2 text-[#1A1A1A]"
+                    className="w-full border border-border-default rounded-md px-3 py-2 text-text-heading"
                   >
                     <option value="None">None</option>
                     <option value="Active">Active IEP</option>
@@ -300,22 +300,22 @@ export default function EditStudent() {
                     id="section504"
                     checked={formData.section504}
                     onChange={(e) => setFormData({ ...formData, section504: e.target.checked })}
-                    className="w-4 h-4 text-[#333333] border-[#D0D0D0] rounded"
+                    className="w-4 h-4 text-text-heading border-border-default rounded"
                   />
-                  <Label htmlFor="section504" className="text-[#4A4A4A] cursor-pointer">
+                  <Label htmlFor="section504" className="text-text-label cursor-pointer">
                     Has 504 Plan
                   </Label>
                 </div>
               </div>
 
               <div>
-                <Label htmlFor="medicalNotes" className="text-[#4A4A4A]">Medical Notes / Accommodations</Label>
+                <Label htmlFor="medicalNotes" className="text-text-label">Medical Notes / Accommodations</Label>
                 <textarea
                   id="medicalNotes"
                   value={formData.medicalNotes}
                   onChange={(e) => setFormData({ ...formData, medicalNotes: e.target.value })}
                   rows={4}
-                  className="w-full border border-[#D0D0D0] rounded-md px-3 py-2 text-[#1A1A1A]"
+                  className="w-full border border-border-default rounded-md px-3 py-2 text-text-heading"
                 />
               </div>
             </CardContent>
@@ -325,7 +325,7 @@ export default function EditStudent() {
             <div className="flex gap-3">
               <Button
                 type="submit"
-                className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+                className="bg-brand hover:bg-brand-dark text-white shadow-sm"
               >
                 Save Changes
               </Button>
@@ -333,7 +333,7 @@ export default function EditStudent() {
                 type="button"
                 variant="outline"
                 onClick={() => navigate('/admin/students')}
-                className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]"
+                className="border-border-strong text-text-heading hover:bg-surface-page"
               >
                 Cancel
               </Button>
@@ -342,7 +342,7 @@ export default function EditStudent() {
               type="button"
               variant="outline"
               onClick={handleArchive}
-              className="border-[#9E9E9E] text-[#757575] hover:bg-[#F5F5F5] hover:text-[#1A1A1A]"
+              className="border-border-strong text-text-body hover:bg-surface-page hover:text-text-heading"
             >
               Archive Student
             </Button>

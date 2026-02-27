@@ -27,27 +27,28 @@ export default function ParentLogin() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 bg-[#F5F5F5]">
+    <div className="min-h-screen flex items-center justify-center px-4 bg-surface-page">
       <div className="w-full max-w-md">
         <Link
           to="/"
-          className="inline-flex items-center text-[#4A4A4A] hover:text-[#1A1A1A] mb-6"
+          className="inline-flex items-center text-text-label hover:text-brand mb-6"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to Portal Selection
         </Link>
 
-        <Card className="p-8 border border-[#D0D0D0] bg-white">
+        <Card className="p-8 border border-border-default bg-surface-card">
           <div className="text-center mb-8">
-            <h1 className="text-2xl font-bold text-[#1A1A1A] mb-1">
+            <img src="/logos/png-transparent/1.png" alt="BehaveBridge" className="w-20 h-20 mx-auto mb-3" />
+            <h1 className="text-2xl font-bold text-text-heading mb-1">
               BehaveBridge
             </h1>
-            <h2 className="text-lg text-[#4A4A4A]">Parent Portal</h2>
+            <h2 className="text-lg text-text-label">Parent Portal</h2>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <Label htmlFor="email" className="text-[#1A1A1A]">
+              <Label htmlFor="email" className="text-text-heading">
                 Email Address
               </Label>
               <Input
@@ -56,16 +57,16 @@ export default function ParentLogin() {
                 placeholder="your.email@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="mt-1 border-[#D0D0D0] focus:border-[#333333]"
+                className="mt-1 border-border-default focus:border-brand"
                 required
               />
-              <p className="text-xs text-[#757575] mt-1">
+              <p className="text-xs text-text-body mt-1">
                 Use: lisa.thompson@gmail.com
               </p>
             </div>
 
             <div>
-              <Label htmlFor="password" className="text-[#1A1A1A]">
+              <Label htmlFor="password" className="text-text-heading">
                 Password
               </Label>
               <div className="relative mt-1">
@@ -75,13 +76,13 @@ export default function ParentLogin() {
                   placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="border-[#D0D0D0] focus:border-[#333333] pr-10"
+                  className="border-border-default focus:border-brand pr-10"
                   required
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#757575] hover:text-[#333333]"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-text-body hover:text-text-heading"
                 >
                   {showPassword ? (
                     <EyeOff className="w-4 h-4" />
@@ -100,7 +101,7 @@ export default function ParentLogin() {
               />
               <Label
                 htmlFor="remember"
-                className="text-sm text-[#4A4A4A] cursor-pointer"
+                className="text-sm text-text-label cursor-pointer"
               >
                 Remember this device
               </Label>
@@ -108,7 +109,7 @@ export default function ParentLogin() {
 
             <Button
               type="submit"
-              className="w-full bg-[#333333] hover:bg-[#1A1A1A] text-white rounded-full"
+              className="w-full bg-brand hover:bg-brand-dark text-white rounded-full"
             >
               Sign In
             </Button>
@@ -116,13 +117,13 @@ export default function ParentLogin() {
             <div className="text-center space-y-2">
               <Link
                 to="/parent/forgot-password"
-                className="block text-sm text-[#4A4A4A] hover:text-[#1A1A1A] underline"
+                className="block text-sm text-text-label hover:text-text-heading underline"
               >
                 Forgot your password?
               </Link>
             </div>
 
-            <div className="text-center text-xs text-[#757575] pt-4 border-t border-[#E0E0E0]">
+            <div className="text-center text-xs text-text-body pt-4 border-t border-border-light">
               Session timeout: 30 minutes of inactivity
             </div>
           </form>

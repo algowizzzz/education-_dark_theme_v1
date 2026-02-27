@@ -67,26 +67,26 @@ export default function ChildIncidentsList() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'Resolved':
-        return 'bg-[#757575] text-white';
+        return 'bg-badge-medium text-white';
       case 'Escalated':
-        return 'bg-[#1A1A1A] text-white';
+        return 'bg-badge-medium text-white';
       case 'Under Review':
-        return 'bg-[#9E9E9E] text-white';
+        return 'bg-badge-medium text-white';
       default:
-        return 'bg-[#E0E0E0] text-[#4A4A4A]';
+        return 'bg-surface-elevated text-text-label';
     }
   };
 
   const getSeverityColor = (severity: string) => {
     switch (severity) {
       case 'High':
-        return 'bg-[#333333] text-white';
+        return 'bg-badge-high text-white';
       case 'Medium':
-        return 'bg-[#757575] text-white';
+        return 'bg-badge-medium text-white';
       case 'Low':
-        return 'bg-[#E0E0E0] text-[#4A4A4A]';
+        return 'bg-surface-elevated text-text-label';
       default:
-        return 'bg-[#F5F5F5] text-[#4A4A4A]';
+        return 'bg-surface-page text-text-label';
     }
   };
 
@@ -95,15 +95,15 @@ export default function ChildIncidentsList() {
       <div className="p-8">
         <Link 
           to={`/parent/children/${id}`}
-          className="inline-flex items-center gap-2 text-[#4A4A4A] hover:text-[#1A1A1A] mb-6"
+          className="inline-flex items-center gap-2 text-text-label hover:text-text-heading mb-6"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to {student.firstName}'s Profile
         </Link>
 
         <div className="mb-6">
-          <h1 className="text-2xl text-[#1A1A1A] mb-2">Incidents for {student.firstName}</h1>
-          <p className="text-[#4A4A4A]">
+          <h1 className="text-2xl text-text-heading mb-2">Incidents for {student.firstName}</h1>
+          <p className="text-text-label">
             View all behavioral incidents for your child
           </p>
         </div>
@@ -111,18 +111,18 @@ export default function ChildIncidentsList() {
         {/* Filters */}
         <div className="flex flex-col md:flex-row gap-4 mb-6">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#757575]" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-text-body" />
             <Input
               placeholder="Search by incident ID or trigger..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 border-[#D0D0D0]"
+              className="pl-10 border-border-default"
             />
           </div>
 
           <div className="w-full md:w-48">
             <Select value={dateFilter} onValueChange={setDateFilter}>
-              <SelectTrigger className="border-[#D0D0D0] text-[#1A1A1A]">
+              <SelectTrigger className="border-border-default text-text-heading">
                 <SelectValue placeholder="Date Range" />
               </SelectTrigger>
               <SelectContent>
@@ -135,7 +135,7 @@ export default function ChildIncidentsList() {
 
           <div className="w-full md:w-48">
             <Select value={statusFilter} onValueChange={setStatusFilter}>
-              <SelectTrigger className="border-[#D0D0D0] text-[#1A1A1A]">
+              <SelectTrigger className="border-border-default text-text-heading">
                 <SelectValue placeholder="Status" />
               </SelectTrigger>
               <SelectContent>
@@ -151,16 +151,16 @@ export default function ChildIncidentsList() {
 
         {/* Incident Count */}
         <div className="mb-4">
-          <p className="text-sm text-[#4A4A4A]">
+          <p className="text-sm text-text-label">
             Showing {filteredIncidents.length} of {incidents.length} incidents
           </p>
         </div>
 
         {/* Incidents Table */}
         {filteredIncidents.length === 0 ? (
-          <Card className="border-[#D0D0D0] p-12">
+          <Card className="border-border-default p-12">
             <div className="text-center">
-              <p className="text-[#757575] mb-4">
+              <p className="text-text-body mb-4">
                 No incidents found with the selected filters
               </p>
               <Button
@@ -170,33 +170,33 @@ export default function ChildIncidentsList() {
                   setDateFilter('all');
                 }}
                 variant="outline"
-                className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]"
+                className="border-border-strong text-text-heading hover:bg-surface-page"
               >
                 Clear Filters
               </Button>
             </div>
           </Card>
         ) : (
-          <div className="bg-white border border-[#D0D0D0] rounded-lg overflow-hidden">
+          <div className="bg-surface-card border border-border-default rounded-lg overflow-hidden">
             <table className="w-full">
               <thead>
-                <tr className="bg-[#F5F5F5] border-b border-[#D0D0D0]">
-                  <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">
+                <tr className="bg-table-header-bg">
+                  <th className="text-left p-4 text-sm font-semibold text-table-header-text">
                     Date/Time
                   </th>
-                  <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">
+                  <th className="text-left p-4 text-sm font-semibold text-table-header-text">
                     Trigger
                   </th>
-                  <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">
+                  <th className="text-left p-4 text-sm font-semibold text-table-header-text">
                     Severity
                   </th>
-                  <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">
+                  <th className="text-left p-4 text-sm font-semibold text-table-header-text">
                     Status
                   </th>
-                  <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">
+                  <th className="text-left p-4 text-sm font-semibold text-table-header-text">
                     Acknowledgment
                   </th>
-                  <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">
+                  <th className="text-left p-4 text-sm font-semibold text-table-header-text">
                     Action
                   </th>
                 </tr>
@@ -205,23 +205,23 @@ export default function ChildIncidentsList() {
                 {filteredIncidents.map((incident, index) => (
                   <tr
                     key={incident.id}
-                    className={`border-b border-[#E0E0E0] hover:bg-[#FAFAFA] ${
-                      index % 2 === 0 ? 'bg-white' : 'bg-[#FAFAFA]'
+                    className={`border-b border-border-light hover:bg-table-row-hover ${
+                      index % 2 === 0 ? 'bg-surface-card' : 'bg-table-stripe'
                     }`}
                   >
                     <td className="p-4">
-                      <div className="text-[#1A1A1A] font-medium">
+                      <div className="text-text-heading font-medium">
                         {new Date(incident.date).toLocaleDateString('en-US', {
                           month: 'short',
                           day: 'numeric',
                           year: 'numeric',
                         })}
                       </div>
-                      <div className="text-sm text-[#757575]">
+                      <div className="text-sm text-text-body">
                         {incident.time}
                       </div>
                     </td>
-                    <td className="p-4 text-[#4A4A4A]">{incident.trigger}</td>
+                    <td className="p-4 text-text-label">{incident.trigger}</td>
                     <td className="p-4">
                       <Badge className={getSeverityColor(incident.severity)}>
                         {incident.severity}
@@ -234,11 +234,11 @@ export default function ChildIncidentsList() {
                     </td>
                     <td className="p-4">
                       {incident.parentAcknowledged ? (
-                        <Badge className="bg-[#757575] text-white">
+                        <Badge className="bg-brand-dark text-white">
                           Acknowledged
                         </Badge>
                       ) : (
-                        <Badge className="bg-[#E0E0E0] text-[#4A4A4A]">
+                        <Badge className="bg-surface-elevated text-text-label">
                           Pending
                         </Badge>
                       )}
@@ -248,7 +248,7 @@ export default function ChildIncidentsList() {
                         <Button
                           variant="outline"
                           size="sm"
-                          className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]"
+                          className="border-border-strong text-text-heading hover:bg-surface-page"
                         >
                           View Details
                         </Button>

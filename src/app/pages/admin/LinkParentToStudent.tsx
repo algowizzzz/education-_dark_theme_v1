@@ -39,65 +39,65 @@ export default function LinkParentToStudent() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F5F5]">
-      <header className="bg-white border-b border-[#D0D0D0] px-8 py-4 mb-8">
+    <div className="min-h-screen bg-surface-page">
+      <header className="bg-surface-card border-b border-border-default px-8 py-4 mb-8">
         <div>
-          <Link to="/admin/parents" className="text-[#4A4A4A] hover:text-[#1A1A1A] text-sm mb-2 block">
+          <Link to="/admin/parents" className="text-text-label hover:text-text-heading text-sm mb-2 block">
             ← Back to Parent Management
           </Link>
-          <h1 className="text-2xl text-[#1A1A1A]">Link Student to Parent Account</h1>
-          <p className="text-sm text-[#757575] mt-1">Parent: {parentName} (ID: {id})</p>
+          <h1 className="text-2xl text-text-heading">Link Student to Parent Account</h1>
+          <p className="text-sm text-text-body mt-1">Parent: {parentName} (ID: {id})</p>
         </div>
       </header>
 
       <div className="px-8 pb-8 max-w-4xl">
-        <Card className="border-[#D0D0D0] p-6 mb-6">
+        <Card className="border-border-default p-6 mb-6">
           <div className="flex items-center gap-3 mb-4">
-            <UserPlus className="w-5 h-5 text-[#333333]" />
+            <UserPlus className="w-5 h-5 text-text-heading" />
             <div>
-              <h2 className="text-lg font-medium text-[#1A1A1A]">Link Additional Student</h2>
-              <p className="text-sm text-[#757575]">
+              <h2 className="text-lg font-medium text-text-heading">Link Additional Student</h2>
+              <p className="text-sm text-text-body">
                 Select a student to link to this parent's account
               </p>
             </div>
           </div>
 
-          <div className="bg-[#F5F5F5] p-4 rounded-lg mb-6">
-            <p className="text-sm text-[#757575] mb-1">Currently Linked Students</p>
-            <p className="text-[#1A1A1A] font-medium">
+          <div className="bg-surface-page p-4 rounded-lg mb-6">
+            <p className="text-sm text-text-body mb-1">Currently Linked Students</p>
+            <p className="text-text-heading font-medium">
               {currentlyLinkedStudents.length} student(s) already linked
             </p>
           </div>
         </Card>
 
         <div className="relative mb-6">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#757575]" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-text-body" />
           <Input
             placeholder="Search students by name or ID..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="pl-10 border-[#D0D0D0] text-[#1A1A1A]"
+            className="pl-10 border-border-default text-text-heading"
           />
         </div>
 
         {filteredStudents.length === 0 ? (
-          <Card className="border-[#D0D0D0] p-12">
+          <Card className="border-border-default p-12">
             <div className="text-center">
-              <p className="text-[#757575] mb-2">No available students found</p>
-              <p className="text-sm text-[#757575]">All students may already be linked to this account</p>
+              <p className="text-text-body mb-2">No available students found</p>
+              <p className="text-sm text-text-body">All students may already be linked to this account</p>
             </div>
           </Card>
         ) : (
-          <div className="bg-white border border-[#D0D0D0] rounded-lg overflow-hidden mb-6">
+          <div className="bg-surface-card border border-border-default rounded-lg overflow-hidden mb-6">
             <div className="max-h-[500px] overflow-y-auto">
               <table className="w-full">
-                <thead className="sticky top-0 bg-[#F5F5F5] border-b border-[#D0D0D0]">
-                  <tr>
-                    <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">Student Name</th>
-                    <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">Student ID</th>
-                    <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">Grade</th>
-                    <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">Primary Teacher</th>
-                    <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">Action</th>
+                <thead className="sticky top-0 bg-surface-page border-b border-border-default">
+                  <tr className="bg-table-header-bg">
+                    <th className="text-left p-4 text-sm font-semibold text-table-header-text">Student Name</th>
+                    <th className="text-left p-4 text-sm font-semibold text-table-header-text">Student ID</th>
+                    <th className="text-left p-4 text-sm font-semibold text-table-header-text">Grade</th>
+                    <th className="text-left p-4 text-sm font-semibold text-table-header-text">Primary Teacher</th>
+                    <th className="text-left p-4 text-sm font-semibold text-table-header-text">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -106,22 +106,22 @@ export default function LinkParentToStudent() {
                     return (
                       <tr
                         key={student.id}
-                        className={`border-b border-[#E0E0E0] hover:bg-[#FAFAFA] ${
-                          index % 2 === 0 ? 'bg-white' : 'bg-[#FAFAFA]'
-                        } ${isSelected ? 'bg-[#E0E0E0]' : ''}`}
+                        className={`border-b border-border-light hover:bg-table-row-hover ${
+                          index % 2 === 0 ? 'bg-surface-card' : 'bg-table-stripe'
+                        } ${isSelected ? 'bg-surface-elevated' : ''}`}
                       >
-                        <td className="p-4 text-[#1A1A1A] font-medium">{student.name}</td>
-                        <td className="p-4 text-[#4A4A4A]">{student.id}</td>
-                        <td className="p-4 text-[#4A4A4A]">Grade {student.grade}</td>
-                        <td className="p-4 text-[#757575]">{student.primaryTeacher}</td>
+                        <td className="p-4 text-text-heading font-medium">{student.name}</td>
+                        <td className="p-4 text-text-label">{student.id}</td>
+                        <td className="p-4 text-text-label">Grade {student.grade}</td>
+                        <td className="p-4 text-text-body">{student.primaryTeacher}</td>
                         <td className="p-4">
                           <Button
                             variant={isSelected ? 'default' : 'outline'}
                             size="sm"
                             onClick={() => setSelectedStudent(student.id)}
                             className={isSelected 
-                              ? 'bg-[#333333] hover:bg-[#1A1A1A] text-white'
-                              : 'border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]'
+                              ? 'bg-brand hover:bg-brand-dark text-white'
+                              : 'border-border-strong text-text-heading hover:bg-surface-page'
                             }
                           >
                             {isSelected ? 'Selected' : 'Select'}
@@ -140,14 +140,14 @@ export default function LinkParentToStudent() {
           <Button
             variant="outline"
             onClick={() => navigate('/admin/parents')}
-            className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]"
+            className="border-border-strong text-text-heading hover:bg-surface-page"
           >
             Cancel
           </Button>
           <Button
             onClick={handleLink}
             disabled={!selectedStudent}
-            className="bg-[#333333] hover:bg-[#1A1A1A] text-white disabled:opacity-50 disabled:cursor-not-allowed"
+            className="bg-brand hover:bg-brand-dark text-white disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Link Selected Student
           </Button>

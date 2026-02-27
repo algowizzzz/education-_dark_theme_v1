@@ -150,7 +150,7 @@ export function EditStudentProfile() {
       <div className="max-w-5xl">
         <Link
           to={`/expert/students/${id}`}
-          className="inline-flex items-center gap-2 text-[#4A4A4A] hover:text-[#1A1A1A] mb-6"
+          className="inline-flex items-center gap-2 text-text-label hover:text-text-heading mb-6"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Student Profile
@@ -158,10 +158,10 @@ export function EditStudentProfile() {
 
         <div className="flex items-start justify-between mb-6">
           <div>
-            <h1 className="text-2xl font-semibold text-[#1A1A1A] mb-2">
+            <h1 className="text-2xl font-semibold text-text-heading mb-2">
               Edit Student Profile
             </h1>
-            <div className="flex items-center gap-4 text-sm text-[#4A4A4A]">
+            <div className="flex items-center gap-4 text-sm text-text-label">
               <span>{student.name}</span>
               <span>•</span>
               <span>{student.studentId}</span>
@@ -172,7 +172,7 @@ export function EditStudentProfile() {
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <TabsList className="bg-[#F5F5F5]">
+          <TabsList className="bg-surface-page">
             <TabsTrigger value="general">General</TabsTrigger>
             <TabsTrigger value="triggers">Triggers</TabsTrigger>
             <TabsTrigger value="strategies">Strategies</TabsTrigger>
@@ -182,34 +182,34 @@ export function EditStudentProfile() {
             <Card className="p-6">
               <div className="space-y-4">
                 <div>
-                  <h3 className="text-sm font-medium text-[#1A1A1A] mb-4">
+                  <h3 className="text-sm font-medium text-text-heading mb-4">
                     Student Information (Read-only)
                   </h3>
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div>
-                      <span className="text-[#757575]">Name:</span>
-                      <span className="ml-2 text-[#1A1A1A]">{student.name}</span>
+                      <span className="text-text-body">Name:</span>
+                      <span className="ml-2 text-text-heading">{student.name}</span>
                     </div>
                     <div>
-                      <span className="text-[#757575]">Student ID:</span>
-                      <span className="ml-2 text-[#1A1A1A]">{student.studentId}</span>
+                      <span className="text-text-body">Student ID:</span>
+                      <span className="ml-2 text-text-heading">{student.studentId}</span>
                     </div>
                     <div>
-                      <span className="text-[#757575]">Grade:</span>
-                      <span className="ml-2 text-[#1A1A1A]">{student.grade}</span>
+                      <span className="text-text-body">Grade:</span>
+                      <span className="ml-2 text-text-heading">{student.grade}</span>
                     </div>
                     <div>
-                      <span className="text-[#757575]">Primary Teacher:</span>
-                      <span className="ml-2 text-[#1A1A1A]">{student.teacher}</span>
+                      <span className="text-text-body">Primary Teacher:</span>
+                      <span className="ml-2 text-text-heading">{student.teacher}</span>
                     </div>
                   </div>
-                  <p className="text-xs text-[#757575] mt-3">
+                  <p className="text-xs text-text-body mt-3">
                     Contact admin to update student information
                   </p>
                 </div>
 
-                <div className="border-t border-[#D0D0D0] pt-4">
-                  <Label htmlFor="behavioral-notes" className="text-sm font-medium text-[#1A1A1A] mb-2">
+                <div className="border-t border-border-default pt-4">
+                  <Label htmlFor="behavioral-notes" className="text-sm font-medium text-text-heading mb-2">
                     Behavioral Notes
                   </Label>
                   <Textarea
@@ -219,7 +219,7 @@ export function EditStudentProfile() {
                     placeholder="Add behavioral observations, patterns, and expert notes..."
                     className="min-h-[150px] mt-2"
                   />
-                  <p className="text-xs text-[#757575] mt-2">
+                  <p className="text-xs text-text-body mt-2">
                     These notes are visible to all teachers and experts
                   </p>
                 </div>
@@ -231,8 +231,8 @@ export function EditStudentProfile() {
             <Card className="p-6">
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <h3 className="text-sm font-medium text-[#1A1A1A]">Identified Triggers</h3>
-                  <p className="text-xs text-[#757575] mt-1">
+                  <h3 className="text-sm font-medium text-text-heading">Identified Triggers</h3>
+                  <p className="text-xs text-text-body mt-1">
                     Drag to reorder by frequency/importance
                   </p>
                 </div>
@@ -251,22 +251,22 @@ export function EditStudentProfile() {
                 {triggers.map((trigger, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-3 p-3 bg-[#F5F5F5] rounded border border-[#E0E0E0]"
+                    className="flex items-center gap-3 p-3 bg-surface-page rounded border border-border-light"
                   >
-                    <GripVertical className="w-4 h-4 text-[#757575] cursor-move" />
-                    <span className="flex-1 text-sm text-[#1A1A1A]">{trigger}</span>
+                    <GripVertical className="w-4 h-4 text-text-body cursor-move" />
+                    <span className="flex-1 text-sm text-text-heading">{trigger}</span>
                     <Button
                       variant="ghost"
                       size="sm"
                       onClick={() => removeTrigger(trigger)}
-                      className="text-[#757575] hover:text-[#1A1A1A]"
+                      className="text-text-body hover:text-text-heading"
                     >
                       <Trash2 className="w-4 h-4" />
                     </Button>
                   </div>
                 ))}
                 {triggers.length === 0 && (
-                  <p className="text-sm text-[#757575] text-center py-8">
+                  <p className="text-sm text-text-body text-center py-8">
                     No triggers identified yet. Add triggers to help track behavioral patterns.
                   </p>
                 )}
@@ -278,8 +278,8 @@ export function EditStudentProfile() {
             <Card className="p-6">
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <h3 className="text-sm font-medium text-[#1A1A1A]">Recommended Strategies</h3>
-                  <p className="text-xs text-[#757575] mt-1">
+                  <h3 className="text-sm font-medium text-text-heading">Recommended Strategies</h3>
+                  <p className="text-xs text-text-body mt-1">
                     Drag to reorder by priority. Toggle active/inactive status.
                   </p>
                 </div>
@@ -298,23 +298,23 @@ export function EditStudentProfile() {
                 {strategies.map((strategy, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-3 p-3 bg-[#F5F5F5] rounded border border-[#E0E0E0]"
+                    className="flex items-center gap-3 p-3 bg-surface-page rounded border border-border-light"
                   >
-                    <GripVertical className="w-4 h-4 text-[#757575] cursor-move" />
-                    <span className="flex-1 text-sm text-[#1A1A1A]">{strategy.name}</span>
+                    <GripVertical className="w-4 h-4 text-text-body cursor-move" />
+                    <span className="flex-1 text-sm text-text-heading">{strategy.name}</span>
                     <div className="flex items-center gap-2">
                       <Switch
                         checked={strategy.active}
                         onCheckedChange={() => toggleStrategyActive(strategy.name)}
                       />
-                      <span className="text-xs text-[#757575] w-16">
+                      <span className="text-xs text-text-body w-16">
                         {strategy.active ? 'Active' : 'Inactive'}
                       </span>
                       <Button
                         variant="ghost"
                         size="sm"
                         onClick={() => removeStrategy(strategy.name)}
-                        className="text-[#757575] hover:text-[#1A1A1A]"
+                        className="text-text-body hover:text-text-heading"
                       >
                         <Trash2 className="w-4 h-4" />
                       </Button>
@@ -323,30 +323,30 @@ export function EditStudentProfile() {
                 ))}
               </div>
 
-              <div className="border-t border-[#D0D0D0] pt-4">
-                <h3 className="text-sm font-medium text-[#1A1A1A] mb-3">Strategies to Avoid</h3>
+              <div className="border-t border-border-default pt-4">
+                <h3 className="text-sm font-medium text-text-heading mb-3">Strategies to Avoid</h3>
                 <div className="space-y-2">
                   {strategiesToAvoid.map((strategy, index) => (
                     <div
                       key={index}
-                      className="flex items-center gap-3 p-3 bg-white rounded border border-[#E0E0E0]"
+                      className="flex items-center gap-3 p-3 bg-surface-card rounded border border-border-light"
                     >
-                      <Badge variant="outline" className="bg-[#F5F5F5] text-[#757575]">
+                      <Badge variant="outline" className="bg-surface-page text-text-body">
                         Avoid
                       </Badge>
-                      <span className="flex-1 text-sm text-[#1A1A1A]">{strategy}</span>
+                      <span className="flex-1 text-sm text-text-heading">{strategy}</span>
                       <Button
                         variant="ghost"
                         size="sm"
                         onClick={() => removeAvoidStrategy(strategy)}
-                        className="text-[#757575] hover:text-[#1A1A1A]"
+                        className="text-text-body hover:text-text-heading"
                       >
                         <Trash2 className="w-4 h-4" />
                       </Button>
                     </div>
                   ))}
                   {strategiesToAvoid.length === 0 && (
-                    <p className="text-sm text-[#757575] text-center py-4">
+                    <p className="text-sm text-text-body text-center py-4">
                       No avoided strategies listed
                     </p>
                   )}
@@ -361,14 +361,14 @@ export function EditStudentProfile() {
             type="button"
             variant="outline"
             onClick={() => navigate(`/expert/students/${id}`)}
-            className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]"
+            className="border-border-strong text-text-heading hover:bg-surface-page"
           >
             <X className="w-4 h-4 mr-2" />
             Cancel
           </Button>
           <Button
             onClick={handleSave}
-            className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+            className="bg-brand hover:bg-brand-dark text-white shadow-sm"
           >
             <Save className="w-4 h-4 mr-2" />
             Save Changes
@@ -393,21 +393,21 @@ export function EditStudentProfile() {
                 className="mt-2"
               />
             </div>
-            <div className="max-h-48 overflow-y-auto space-y-1 border border-[#D0D0D0] rounded p-2">
+            <div className="max-h-48 overflow-y-auto space-y-1 border border-border-default rounded p-2">
               {filteredTriggers.map((trigger) => (
                 <button
                   key={trigger}
                   onClick={() => handleAddTrigger(trigger)}
-                  className="w-full text-left px-3 py-2 text-sm hover:bg-[#F5F5F5] rounded"
+                  className="w-full text-left px-3 py-2 text-sm hover:bg-surface-page rounded"
                 >
                   {trigger}
                 </button>
               ))}
               {filteredTriggers.length === 0 && (
-                <p className="text-sm text-[#757575] text-center py-4">No triggers found</p>
+                <p className="text-sm text-text-body text-center py-4">No triggers found</p>
               )}
             </div>
-            <div className="border-t border-[#D0D0D0] pt-4">
+            <div className="border-t border-border-default pt-4">
               <Label htmlFor="custom-trigger">Or Add Custom Trigger</Label>
               <div className="flex gap-2 mt-2">
                 <Input
@@ -419,7 +419,7 @@ export function EditStudentProfile() {
                 <Button
                   onClick={() => handleAddTrigger(customTrigger)}
                   disabled={!customTrigger.trim()}
-                  className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+                  className="bg-brand hover:bg-brand-dark text-white shadow-sm"
                 >
                   Add
                 </Button>
@@ -455,21 +455,21 @@ export function EditStudentProfile() {
                 className="mt-2"
               />
             </div>
-            <div className="max-h-48 overflow-y-auto space-y-1 border border-[#D0D0D0] rounded p-2">
+            <div className="max-h-48 overflow-y-auto space-y-1 border border-border-default rounded p-2">
               {filteredStrategies.map((strategy) => (
                 <button
                   key={strategy}
                   onClick={() => handleAddStrategy(strategy, false)}
-                  className="w-full text-left px-3 py-2 text-sm hover:bg-[#F5F5F5] rounded"
+                  className="w-full text-left px-3 py-2 text-sm hover:bg-surface-page rounded"
                 >
                   {strategy}
                 </button>
               ))}
               {filteredStrategies.length === 0 && (
-                <p className="text-sm text-[#757575] text-center py-4">No strategies found</p>
+                <p className="text-sm text-text-body text-center py-4">No strategies found</p>
               )}
             </div>
-            <div className="border-t border-[#D0D0D0] pt-4">
+            <div className="border-t border-border-default pt-4">
               <Label htmlFor="custom-strategy">Or Add Custom Strategy</Label>
               <div className="flex gap-2 mt-2">
                 <Input
@@ -481,13 +481,13 @@ export function EditStudentProfile() {
                 <Button
                   onClick={() => handleAddStrategy(customStrategy, false)}
                   disabled={!customStrategy.trim()}
-                  className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+                  className="bg-brand hover:bg-brand-dark text-white shadow-sm"
                 >
                   Add
                 </Button>
               </div>
             </div>
-            <div className="border-t border-[#D0D0D0] pt-4">
+            <div className="border-t border-border-default pt-4">
               <Button
                 onClick={() => {
                   if (customStrategy.trim()) {

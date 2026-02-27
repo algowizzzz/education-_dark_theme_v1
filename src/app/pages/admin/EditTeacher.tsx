@@ -42,93 +42,93 @@ export default function EditTeacher() {
   return (
     <AdminLayout>
       <div className="max-w-4xl">
-        <Link to="/admin/teachers" className="inline-flex items-center gap-2 text-[#4A4A4A] hover:text-[#1A1A1A] mb-6">
+        <Link to="/admin/teachers" className="inline-flex items-center gap-2 text-text-label hover:text-text-heading mb-6">
           <ArrowLeft className="w-4 h-4" />
           Back to Teachers
         </Link>
 
-        <h1 className="text-2xl text-[#1A1A1A] mb-6">Edit Teacher</h1>
+        <h1 className="text-2xl text-text-heading mb-6">Edit Teacher</h1>
 
         <form onSubmit={handleSubmit}>
-          <Card className="mb-6 border-[#D0D0D0]">
+          <Card className="mb-6 border-border-default">
             <CardHeader>
-              <CardTitle className="text-[#1A1A1A]">Basic Information</CardTitle>
+              <CardTitle className="text-text-heading">Basic Information</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <Label htmlFor="teacherId" className="text-[#4A4A4A]">Teacher ID</Label>
+                <Label htmlFor="teacherId" className="text-text-label">Teacher ID</Label>
                 <Input
                   id="teacherId"
                   value={formData.teacherId}
                   disabled
-                  className="border-[#D0D0D0] text-[#757575] bg-[#F5F5F5]"
+                  className="border-border-default text-text-body bg-surface-page"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="firstName" className="text-[#4A4A4A]">First Name *</Label>
+                  <Label htmlFor="firstName" className="text-text-label">First Name *</Label>
                   <Input
                     id="firstName"
                     required
                     value={formData.firstName}
                     onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                    className="border-[#D0D0D0] text-[#1A1A1A]"
+                    className="border-border-default text-text-heading"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="lastName" className="text-[#4A4A4A]">Last Name *</Label>
+                  <Label htmlFor="lastName" className="text-text-label">Last Name *</Label>
                   <Input
                     id="lastName"
                     required
                     value={formData.lastName}
                     onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                    className="border-[#D0D0D0] text-[#1A1A1A]"
+                    className="border-border-default text-text-heading"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="email" className="text-[#4A4A4A]">Email *</Label>
+                  <Label htmlFor="email" className="text-text-label">Email *</Label>
                   <Input
                     id="email"
                     type="email"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="border-[#D0D0D0] text-[#1A1A1A]"
+                    className="border-border-default text-text-heading"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="phone" className="text-[#4A4A4A]">Phone *</Label>
+                  <Label htmlFor="phone" className="text-text-label">Phone *</Label>
                   <Input
                     id="phone"
                     type="tel"
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="border-[#D0D0D0] text-[#1A1A1A]"
+                    className="border-border-default text-text-heading"
                   />
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="mb-6 border-[#D0D0D0]">
+          <Card className="mb-6 border-border-default">
             <CardHeader>
-              <CardTitle className="text-[#1A1A1A]">Assignment Details</CardTitle>
+              <CardTitle className="text-text-heading">Assignment Details</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-3 gap-4">
                 <div>
-                  <Label htmlFor="grade" className="text-[#4A4A4A]">Grade Level *</Label>
+                  <Label htmlFor="grade" className="text-text-label">Grade Level *</Label>
                   <select
                     id="grade"
                     required
                     value={formData.grade}
                     onChange={(e) => setFormData({ ...formData, grade: e.target.value })}
-                    className="w-full border border-[#D0D0D0] rounded-md px-3 py-2 text-[#1A1A1A]"
+                    className="w-full border border-border-default rounded-md px-3 py-2 text-text-heading"
                   >
                     <option value="Kindergarten">Kindergarten</option>
                     <option value="1st Grade">1st Grade</option>
@@ -139,53 +139,53 @@ export default function EditTeacher() {
                   </select>
                 </div>
                 <div>
-                  <Label htmlFor="subject" className="text-[#4A4A4A]">Subject Area *</Label>
+                  <Label htmlFor="subject" className="text-text-label">Subject Area *</Label>
                   <Input
                     id="subject"
                     required
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="border-[#D0D0D0] text-[#1A1A1A]"
+                    className="border-border-default text-text-heading"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="classroom" className="text-[#4A4A4A]">Classroom *</Label>
+                  <Label htmlFor="classroom" className="text-text-label">Classroom *</Label>
                   <Input
                     id="classroom"
                     required
                     value={formData.classroom}
                     onChange={(e) => setFormData({ ...formData, classroom: e.target.value })}
-                    className="border-[#D0D0D0] text-[#1A1A1A]"
+                    className="border-border-default text-text-heading"
                   />
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="mb-6 border-[#D0D0D0]">
+          <Card className="mb-6 border-border-default">
             <CardHeader>
-              <CardTitle className="text-[#1A1A1A]">Professional Information</CardTitle>
+              <CardTitle className="text-text-heading">Professional Information</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="yearsExperience" className="text-[#4A4A4A]">Years of Experience</Label>
+                  <Label htmlFor="yearsExperience" className="text-text-label">Years of Experience</Label>
                   <Input
                     id="yearsExperience"
                     type="number"
                     value={formData.yearsExperience}
                     onChange={(e) => setFormData({ ...formData, yearsExperience: e.target.value })}
-                    className="border-[#D0D0D0] text-[#1A1A1A]"
+                    className="border-border-default text-text-heading"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="status" className="text-[#4A4A4A]">Status *</Label>
+                  <Label htmlFor="status" className="text-text-label">Status *</Label>
                   <select
                     id="status"
                     required
                     value={formData.status}
                     onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                    className="w-full border border-[#D0D0D0] rounded-md px-3 py-2 text-[#1A1A1A]"
+                    className="w-full border border-border-default rounded-md px-3 py-2 text-text-heading"
                   >
                     <option value="Active">Active</option>
                     <option value="Inactive">Inactive</option>
@@ -195,12 +195,12 @@ export default function EditTeacher() {
               </div>
 
               <div>
-                <Label htmlFor="certifications" className="text-[#4A4A4A]">Certifications</Label>
+                <Label htmlFor="certifications" className="text-text-label">Certifications</Label>
                 <Input
                   id="certifications"
                   value={formData.certifications}
                   onChange={(e) => setFormData({ ...formData, certifications: e.target.value })}
-                  className="border-[#D0D0D0] text-[#1A1A1A]"
+                  className="border-border-default text-text-heading"
                   placeholder="Comma-separated list of certifications"
                 />
               </div>
@@ -211,7 +211,7 @@ export default function EditTeacher() {
             <div className="flex gap-3">
               <Button
                 type="submit"
-                className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+                className="bg-brand hover:bg-brand-dark text-white shadow-sm"
               >
                 Save Changes
               </Button>
@@ -219,7 +219,7 @@ export default function EditTeacher() {
                 type="button"
                 variant="outline"
                 onClick={() => navigate('/admin/teachers')}
-                className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]"
+                className="border-border-strong text-text-heading hover:bg-surface-page"
               >
                 Cancel
               </Button>
@@ -228,7 +228,7 @@ export default function EditTeacher() {
               type="button"
               variant="outline"
               onClick={handleDelete}
-              className="border-[#9E9E9E] text-[#757575] hover:bg-[#F5F5F5] hover:text-[#1A1A1A]"
+              className="border-border-strong text-text-body hover:bg-surface-page hover:text-text-heading"
             >
               Deactivate Teacher
             </Button>

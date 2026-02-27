@@ -67,62 +67,62 @@ export default function AddParent() {
   return (
     <AdminLayout>
       <div className="max-w-4xl">
-        <Link to="/admin/parents" className="inline-flex items-center gap-2 text-[#4A4A4A] hover:text-[#1A1A1A] mb-6">
+        <Link to="/admin/parents" className="inline-flex items-center gap-2 text-text-label hover:text-text-heading mb-6">
           <ArrowLeft className="w-4 h-4" />
           Back to Parents/Guardians
         </Link>
 
-        <h1 className="text-2xl text-[#1A1A1A] mb-6">Add New Parent/Guardian</h1>
+        <h1 className="text-2xl text-text-heading mb-6">Add New Parent/Guardian</h1>
 
         <form onSubmit={handleSubmit}>
-          <Card className="mb-6 border-[#D0D0D0]">
+          <Card className="mb-6 border-border-default">
             <CardHeader>
-              <CardTitle className="text-[#1A1A1A]">Basic Information</CardTitle>
+              <CardTitle className="text-text-heading">Basic Information</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <Label htmlFor="parentId" className="text-[#4A4A4A]">Parent ID *</Label>
+                <Label htmlFor="parentId" className="text-text-label">Parent ID *</Label>
                 <Input
                   id="parentId"
                   required
                   value={formData.parentId}
                   onChange={(e) => setFormData({ ...formData, parentId: e.target.value })}
-                  className="border-[#D0D0D0] text-[#1A1A1A]"
+                  className="border-border-default text-text-heading"
                   placeholder="PAR-001"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="firstName" className="text-[#4A4A4A]">First Name *</Label>
+                  <Label htmlFor="firstName" className="text-text-label">First Name *</Label>
                   <Input
                     id="firstName"
                     required
                     value={formData.firstName}
                     onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                    className="border-[#D0D0D0] text-[#1A1A1A]"
+                    className="border-border-default text-text-heading"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="lastName" className="text-[#4A4A4A]">Last Name *</Label>
+                  <Label htmlFor="lastName" className="text-text-label">Last Name *</Label>
                   <Input
                     id="lastName"
                     required
                     value={formData.lastName}
                     onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                    className="border-[#D0D0D0] text-[#1A1A1A]"
+                    className="border-border-default text-text-heading"
                   />
                 </div>
               </div>
 
               <div>
-                <Label htmlFor="relationship" className="text-[#4A4A4A]">Relationship to Student *</Label>
+                <Label htmlFor="relationship" className="text-text-label">Relationship to Student *</Label>
                 <select
                   id="relationship"
                   required
                   value={formData.relationship}
                   onChange={(e) => setFormData({ ...formData, relationship: e.target.value })}
-                  className="w-full border border-[#D0D0D0] rounded-md px-3 py-2 text-[#1A1A1A]"
+                  className="w-full border border-border-default rounded-md px-3 py-2 text-text-heading"
                 >
                   <option value="Mother">Mother</option>
                   <option value="Father">Father</option>
@@ -134,74 +134,74 @@ export default function AddParent() {
             </CardContent>
           </Card>
 
-          <Card className="mb-6 border-[#D0D0D0]">
+          <Card className="mb-6 border-border-default">
             <CardHeader>
-              <CardTitle className="text-[#1A1A1A]">Contact Information</CardTitle>
+              <CardTitle className="text-text-heading">Contact Information</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="email" className="text-[#4A4A4A]">Email *</Label>
+                  <Label htmlFor="email" className="text-text-label">Email *</Label>
                   <Input
                     id="email"
                     type="email"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="border-[#D0D0D0] text-[#1A1A1A]"
+                    className="border-border-default text-text-heading"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="phone" className="text-[#4A4A4A]">Phone *</Label>
+                  <Label htmlFor="phone" className="text-text-label">Phone *</Label>
                   <Input
                     id="phone"
                     type="tel"
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="border-[#D0D0D0] text-[#1A1A1A]"
+                    className="border-border-default text-text-heading"
                     placeholder="(555) 123-4567"
                   />
                 </div>
               </div>
 
               <div>
-                <Label htmlFor="address" className="text-[#4A4A4A]">Street Address</Label>
+                <Label htmlFor="address" className="text-text-label">Street Address</Label>
                 <Input
                   id="address"
                   value={formData.address}
                   onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                  className="border-[#D0D0D0] text-[#1A1A1A]"
+                  className="border-border-default text-text-heading"
                 />
               </div>
 
               <div className="grid grid-cols-3 gap-4">
                 <div>
-                  <Label htmlFor="city" className="text-[#4A4A4A]">City</Label>
+                  <Label htmlFor="city" className="text-text-label">City</Label>
                   <Input
                     id="city"
                     value={formData.city}
                     onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                    className="border-[#D0D0D0] text-[#1A1A1A]"
+                    className="border-border-default text-text-heading"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="state" className="text-[#4A4A4A]">State</Label>
+                  <Label htmlFor="state" className="text-text-label">State</Label>
                   <Input
                     id="state"
                     value={formData.state}
                     onChange={(e) => setFormData({ ...formData, state: e.target.value })}
-                    className="border-[#D0D0D0] text-[#1A1A1A]"
+                    className="border-border-default text-text-heading"
                     placeholder="CA"
                   />
                 </div>
                 <div>
-                  <Label htmlFor="zipCode" className="text-[#4A4A4A]">ZIP Code</Label>
+                  <Label htmlFor="zipCode" className="text-text-label">ZIP Code</Label>
                   <Input
                     id="zipCode"
                     value={formData.zipCode}
                     onChange={(e) => setFormData({ ...formData, zipCode: e.target.value })}
-                    className="border-[#D0D0D0] text-[#1A1A1A]"
+                    className="border-border-default text-text-heading"
                     placeholder="12345"
                   />
                 </div>
@@ -209,24 +209,24 @@ export default function AddParent() {
             </CardContent>
           </Card>
 
-          <Card className="mb-6 border-[#D0D0D0]">
+          <Card className="mb-6 border-border-default">
             <CardHeader>
-              <CardTitle className="text-[#1A1A1A]">Linked Students *</CardTitle>
+              <CardTitle className="text-text-heading">Linked Students *</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              <p className="text-sm text-[#757575] mb-3">
+              <p className="text-sm text-text-body mb-3">
                 Select all students this parent/guardian is responsible for
               </p>
               {availableStudents.map((student) => (
-                <div key={student.id} className="flex items-center gap-3 p-3 bg-[#F5F5F5] rounded-lg">
+                <div key={student.id} className="flex items-center gap-3 p-3 bg-surface-page rounded-lg">
                   <input
                     type="checkbox"
                     id={`student-${student.id}`}
                     checked={formData.linkedStudents.includes(student.id)}
                     onChange={() => handleStudentToggle(student.id)}
-                    className="w-4 h-4 text-[#333333] border-[#D0D0D0] rounded"
+                    className="w-4 h-4 text-text-heading border-border-default rounded"
                   />
-                  <Label htmlFor={`student-${student.id}`} className="text-[#1A1A1A] cursor-pointer flex-1">
+                  <Label htmlFor={`student-${student.id}`} className="text-text-heading cursor-pointer flex-1">
                     {student.name} ({student.id})
                   </Label>
                 </div>
@@ -234,40 +234,40 @@ export default function AddParent() {
             </CardContent>
           </Card>
 
-          <Card className="mb-6 border-[#D0D0D0]">
+          <Card className="mb-6 border-border-default">
             <CardHeader>
-              <CardTitle className="text-[#1A1A1A]">Permissions & Access</CardTitle>
+              <CardTitle className="text-text-heading">Permissions & Access</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              <div className="flex items-center gap-3 p-3 bg-[#F5F5F5] rounded-lg">
+              <div className="flex items-center gap-3 p-3 bg-surface-page rounded-lg">
                 <input
                   type="checkbox"
                   id="emergencyContact"
                   checked={formData.emergencyContact}
                   onChange={(e) => setFormData({ ...formData, emergencyContact: e.target.checked })}
-                  className="w-4 h-4 text-[#333333] border-[#D0D0D0] rounded"
+                  className="w-4 h-4 text-text-heading border-border-default rounded"
                 />
                 <div>
-                  <Label htmlFor="emergencyContact" className="text-[#1A1A1A] cursor-pointer">
+                  <Label htmlFor="emergencyContact" className="text-text-heading cursor-pointer">
                     Emergency Contact
                   </Label>
-                  <p className="text-sm text-[#757575]">Authorized to be contacted in emergencies</p>
+                  <p className="text-sm text-text-body">Authorized to be contacted in emergencies</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 p-3 bg-[#F5F5F5] rounded-lg">
+              <div className="flex items-center gap-3 p-3 bg-surface-page rounded-lg">
                 <input
                   type="checkbox"
                   id="portalAccess"
                   checked={formData.portalAccess}
                   onChange={(e) => setFormData({ ...formData, portalAccess: e.target.checked })}
-                  className="w-4 h-4 text-[#333333] border-[#D0D0D0] rounded"
+                  className="w-4 h-4 text-text-heading border-border-default rounded"
                 />
                 <div>
-                  <Label htmlFor="portalAccess" className="text-[#1A1A1A] cursor-pointer">
+                  <Label htmlFor="portalAccess" className="text-text-heading cursor-pointer">
                     Parent Portal Access
                   </Label>
-                  <p className="text-sm text-[#757575]">Grant access to the parent portal</p>
+                  <p className="text-sm text-text-body">Grant access to the parent portal</p>
                 </div>
               </div>
             </CardContent>
@@ -276,7 +276,7 @@ export default function AddParent() {
           <div className="flex gap-3">
             <Button
               type="submit"
-              className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+              className="bg-brand hover:bg-brand-dark text-white shadow-sm"
             >
               Add Parent/Guardian
             </Button>
@@ -284,7 +284,7 @@ export default function AddParent() {
               type="button"
               variant="outline"
               onClick={() => navigate('/admin/parents')}
-              className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]"
+              className="border-border-strong text-text-heading hover:bg-surface-page"
             >
               Cancel
             </Button>

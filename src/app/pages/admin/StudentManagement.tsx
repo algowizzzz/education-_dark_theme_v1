@@ -108,13 +108,13 @@ export default function StudentManagement() {
         <div className="mb-6">
           <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
             <div>
-              <h1 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-2">Student Management</h1>
-              <p className="text-sm md:text-base text-[#757575]">Manage student accounts, assignments, and status</p>
+              <h1 className="text-2xl md:text-3xl font-bold text-text-heading mb-2">Student Management</h1>
+              <p className="text-sm md:text-base text-text-body">Manage student accounts, assignments, and status</p>
             </div>
             <div className="flex gap-2">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="outline" className="border-[#D0D0D0]">
+                  <Button variant="outline" className="border-border-default">
                     <Upload className="w-4 h-4 md:mr-2" />
                     <span className="hidden md:inline">Bulk Actions</span>
                   </Button>
@@ -136,7 +136,7 @@ export default function StudentManagement() {
               </DropdownMenu>
               <Button
                 onClick={() => navigate('/admin/students/new')}
-                className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+                className="bg-brand hover:bg-brand-dark text-white shadow-sm"
               >
                 <Plus className="w-4 h-4 md:mr-2" />
                 <span className="hidden md:inline">Add Student</span>
@@ -147,17 +147,17 @@ export default function StudentManagement() {
 
         <div className="flex flex-col md:flex-row gap-4 mb-6">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#757575]" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-text-body" />
             <Input
               placeholder="Search by name or ID..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 border-[#D0D0D0] text-[#1A1A1A]"
+              className="pl-10 border-border-default text-text-heading"
             />
           </div>
           <div className="flex gap-2">
             <Select value={gradeFilter} onValueChange={setGradeFilter}>
-              <SelectTrigger className="w-full md:w-36 border-[#D0D0D0] text-[#1A1A1A]">
+              <SelectTrigger className="w-full md:w-36 border-border-default text-text-heading">
                 <SelectValue placeholder="Grade" />
               </SelectTrigger>
               <SelectContent>
@@ -169,7 +169,7 @@ export default function StudentManagement() {
               </SelectContent>
             </Select>
             <Select value={statusFilter} onValueChange={setStatusFilter}>
-              <SelectTrigger className="w-full md:w-36 border-[#D0D0D0] text-[#1A1A1A]">
+              <SelectTrigger className="w-full md:w-36 border-border-default text-text-heading">
                 <SelectValue placeholder="Status" />
               </SelectTrigger>
               <SelectContent>
@@ -183,17 +183,17 @@ export default function StudentManagement() {
 
         {/* Bulk Actions Bar */}
         {selectedStudents.length > 0 && (
-          <div className="mb-4 p-3 bg-[#F5F5F5] border border-[#D0D0D0] rounded-lg flex items-center justify-between">
+          <div className="mb-4 p-3 bg-surface-page border border-border-default rounded-lg flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <CheckSquare className="w-5 h-5 text-[#333333]" />
-              <span className="text-sm font-medium text-[#1A1A1A]">
+              <CheckSquare className="w-5 h-5 text-text-heading" />
+              <span className="text-sm font-medium text-text-heading">
                 {selectedStudents.length} student{selectedStudents.length > 1 ? 's' : ''} selected
               </span>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={clearSelection}
-                className="text-[#757575] hover:text-[#1A1A1A] text-xs"
+                className="text-text-body hover:text-text-heading text-xs"
               >
                 Clear selection
               </Button>
@@ -201,14 +201,14 @@ export default function StudentManagement() {
             <div className="flex gap-2">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="outline" size="sm" className="border-[#D0D0D0]">
+                  <Button variant="outline" size="sm" className="border-border-default">
                     Bulk Actions
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                   <DropdownMenuItem
                     onClick={() => setShowBulkSuspendModal(true)}
-                    className="text-[#757575]"
+                    className="text-text-body"
                   >
                     Suspend Selected
                   </DropdownMenuItem>
@@ -218,14 +218,14 @@ export default function StudentManagement() {
           </div>
         )}
 
-        <div className="mb-4 text-sm text-[#757575]">
+        <div className="mb-4 text-sm text-text-body">
           Showing {filteredStudents.length} of {studentsWithStatus.length} students
         </div>
 
         {filteredStudents.length === 0 ? (
-          <Card className="border-[#D0D0D0] p-12">
+          <Card className="border-border-default p-12">
             <div className="text-center">
-              <p className="text-[#757575] mb-4">No students found matching your criteria</p>
+              <p className="text-text-body mb-4">No students found matching your criteria</p>
               <Button
                 onClick={() => {
                   setSearchTerm('');
@@ -233,7 +233,7 @@ export default function StudentManagement() {
                   setStatusFilter('all');
                 }}
                 variant="outline"
-                className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]"
+                className="border-border-strong text-text-heading hover:bg-surface-page"
               >
                 Clear Filters
               </Button>
@@ -246,7 +246,7 @@ export default function StudentManagement() {
               {filteredStudents.map((student) => (
                 <div
                   key={student.id}
-                  className="bg-white border border-[#D0D0D0] rounded-lg p-4"
+                  className="bg-surface-card border border-border-default rounded-lg p-4"
                 >
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex items-center space-x-3">
@@ -254,12 +254,12 @@ export default function StudentManagement() {
                         checked={selectedStudents.includes(student.id)}
                         onCheckedChange={() => toggleStudentSelection(student.id)}
                       />
-                      <div className="w-10 h-10 rounded-full bg-[#E0E0E0] flex items-center justify-center flex-shrink-0">
-                        <User className="w-5 h-5 text-[#757575]" />
+                      <div className="w-10 h-10 rounded-full bg-surface-elevated flex items-center justify-center flex-shrink-0">
+                        <User className="w-5 h-5 text-text-body" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-[#1A1A1A]">{student.name}</h3>
-                        <p className="text-sm text-[#757575]">Grade {student.grade}</p>
+                        <h3 className="font-semibold text-text-heading">{student.name}</h3>
+                        <p className="text-sm text-text-body">Grade {student.grade}</p>
                       </div>
                     </div>
                     <DropdownMenu>
@@ -286,7 +286,7 @@ export default function StudentManagement() {
                         </DropdownMenuItem>
                         {student.status === 'Active' ? (
                           <DropdownMenuItem
-                            className="text-[#757575]"
+                            className="text-text-body"
                             onClick={() => {
                               setSelectedStudent(student.id);
                               setShowSuspendModal(true);
@@ -296,7 +296,7 @@ export default function StudentManagement() {
                           </DropdownMenuItem>
                         ) : (
                           <DropdownMenuItem
-                            className="text-green-600"
+                            className="text-status-success"
                             onClick={() => {
                               setSelectedStudent(student.id);
                               setShowActivateModal(true);
@@ -308,43 +308,43 @@ export default function StudentManagement() {
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </div>
-                  <div className="flex items-center justify-between text-sm border-t border-[#E0E0E0] pt-3">
-                    <div className="text-[#757575]">
+                  <div className="flex items-center justify-between text-sm border-t border-border-light pt-3">
+                    <div className="text-text-body">
                       <span>{student.id}</span>
                       <span className="mx-2">•</span>
                       <span>{student.primaryTeacher}</span>
                     </div>
-                    <Badge className="bg-[#333333] text-white">{student.status}</Badge>
+                    <Badge className="bg-brand text-white">{student.status}</Badge>
                   </div>
                 </div>
               ))}
             </div>
 
             {/* Desktop Table View */}
-            <div className="hidden md:block bg-white border border-[#D0D0D0] rounded-lg overflow-hidden">
+            <div className="hidden md:block bg-surface-card border border-border-default rounded-lg overflow-hidden">
               <table className="w-full">
                 <thead>
-                  <tr className="bg-[#F5F5F5] border-b border-[#D0D0D0]">
-                    <th className="text-left p-4 text-sm font-medium text-[#4A4A4A] w-12">
+                  <tr className="bg-table-header-bg">
+                    <th className="text-left p-4 text-sm font-semibold text-table-header-text w-12">
                       <Checkbox
                         checked={selectedStudents.length === filteredStudents.length && filteredStudents.length > 0}
                         onCheckedChange={toggleAllStudents}
                       />
                     </th>
-                    <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">Name</th>
-                    <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">Student ID</th>
-                    <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">Grade</th>
-                    <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">Primary Teacher</th>
-                    <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">Status</th>
-                    <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">Actions</th>
+                    <th className="text-left p-4 text-sm font-semibold text-table-header-text">Name</th>
+                    <th className="text-left p-4 text-sm font-semibold text-table-header-text">Student ID</th>
+                    <th className="text-left p-4 text-sm font-semibold text-table-header-text">Grade</th>
+                    <th className="text-left p-4 text-sm font-semibold text-table-header-text">Primary Teacher</th>
+                    <th className="text-left p-4 text-sm font-semibold text-table-header-text">Status</th>
+                    <th className="text-left p-4 text-sm font-semibold text-table-header-text">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {filteredStudents.map((student, index) => (
                     <tr
                       key={student.id}
-                      className={`border-b border-[#E0E0E0] hover:bg-[#FAFAFA] ${
-                        index % 2 === 0 ? 'bg-white' : 'bg-[#FAFAFA]'
+                      className={`border-b border-border-light hover:bg-table-row-hover ${
+                        index % 2 === 0 ? 'bg-surface-card' : 'bg-table-stripe'
                       }`}
                     >
                       <td className="p-4">
@@ -353,12 +353,12 @@ export default function StudentManagement() {
                           onCheckedChange={() => toggleStudentSelection(student.id)}
                         />
                       </td>
-                      <td className="p-4 text-[#1A1A1A] font-medium">{student.name}</td>
-                      <td className="p-4 text-[#4A4A4A]">{student.id}</td>
-                      <td className="p-4 text-[#4A4A4A]">Grade {student.grade}</td>
-                      <td className="p-4 text-[#4A4A4A]">{student.primaryTeacher}</td>
+                      <td className="p-4 text-text-heading font-medium">{student.name}</td>
+                      <td className="p-4 text-text-label">{student.id}</td>
+                      <td className="p-4 text-text-label">Grade {student.grade}</td>
+                      <td className="p-4 text-text-label">{student.primaryTeacher}</td>
                       <td className="p-4">
-                        <Badge className="bg-[#333333] text-white">{student.status}</Badge>
+                        <Badge className="bg-brand text-white">{student.status}</Badge>
                       </td>
                       <td className="p-4">
                         <DropdownMenu>
@@ -385,7 +385,7 @@ export default function StudentManagement() {
                             </DropdownMenuItem>
                             {student.status === 'Active' ? (
                               <DropdownMenuItem
-                                className="text-[#757575]"
+                                className="text-text-body"
                                 onClick={() => {
                                   setSelectedStudent(student.id);
                                   setShowSuspendModal(true);
@@ -395,7 +395,7 @@ export default function StudentManagement() {
                               </DropdownMenuItem>
                             ) : (
                               <DropdownMenuItem
-                                className="text-green-600"
+                                className="text-status-success"
                                 onClick={() => {
                                   setSelectedStudent(student.id);
                                   setShowActivateModal(true);

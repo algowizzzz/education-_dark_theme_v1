@@ -100,11 +100,11 @@ export default function AIInsights() {
     <ExpertLayout>
       <div className="max-w-6xl">
         <div className="mb-6">
-          <h1 className="text-2xl text-[#1A1A1A] mb-2 flex items-center gap-2">
+          <h1 className="text-2xl text-text-heading mb-2 flex items-center gap-2">
             <Sparkles className="w-6 h-6" />
             AI-Powered Insights
           </h1>
-          <p className="text-[#757575]">
+          <p className="text-text-body">
             Pattern detection, predictive analytics, and data-driven recommendations
           </p>
         </div>
@@ -116,8 +116,8 @@ export default function AIInsights() {
             variant={timeRange === 'week' ? 'default' : 'outline'}
             className={
               timeRange === 'week'
-                ? 'bg-[#333333] hover:bg-[#1A1A1A] text-white'
-                : 'border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]'
+                ? 'bg-brand hover:bg-brand-dark text-white'
+                : 'border-border-strong text-text-heading hover:bg-surface-page'
             }
           >
             This Week
@@ -127,8 +127,8 @@ export default function AIInsights() {
             variant={timeRange === 'month' ? 'default' : 'outline'}
             className={
               timeRange === 'month'
-                ? 'bg-[#333333] hover:bg-[#1A1A1A] text-white'
-                : 'border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]'
+                ? 'bg-brand hover:bg-brand-dark text-white'
+                : 'border-border-strong text-text-heading hover:bg-surface-page'
             }
           >
             This Month
@@ -138,8 +138,8 @@ export default function AIInsights() {
             variant={timeRange === 'quarter' ? 'default' : 'outline'}
             className={
               timeRange === 'quarter'
-                ? 'bg-[#333333] hover:bg-[#1A1A1A] text-white'
-                : 'border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]'
+                ? 'bg-brand hover:bg-brand-dark text-white'
+                : 'border-border-strong text-text-heading hover:bg-surface-page'
             }
           >
             This Quarter
@@ -148,56 +148,56 @@ export default function AIInsights() {
 
         {/* School-wide Metrics */}
         <div className="grid grid-cols-4 gap-4 mb-6">
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="p-4">
-              <div className="text-sm text-[#757575] mb-1">Total Incidents</div>
+              <div className="text-sm text-text-body mb-1">Total Incidents</div>
               <div className="flex items-baseline gap-2">
-                <div className="text-2xl font-semibold text-[#1A1A1A]">
+                <div className="text-2xl font-semibold text-text-heading">
                   {schoolwideMetrics.totalIncidents}
                 </div>
-                <div className={`text-sm ${schoolwideMetrics.change < 0 ? 'text-[#4A4A4A]' : 'text-[#757575]'}`}>
+                <div className={`text-sm ${schoolwideMetrics.change < 0 ? 'text-text-label' : 'text-text-body'}`}>
                   {schoolwideMetrics.change > 0 ? '+' : ''}{schoolwideMetrics.change}%
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="p-4">
-              <div className="text-sm text-[#757575] mb-1">Avg Response Time</div>
+              <div className="text-sm text-text-body mb-1">Avg Response Time</div>
               <div className="flex items-baseline gap-2">
-                <div className="text-2xl font-semibold text-[#1A1A1A]">
+                <div className="text-2xl font-semibold text-text-heading">
                   {schoolwideMetrics.avgResponseTime}
                 </div>
-                <div className={`text-sm ${schoolwideMetrics.responseChange < 0 ? 'text-[#4A4A4A]' : 'text-[#757575]'}`}>
+                <div className={`text-sm ${schoolwideMetrics.responseChange < 0 ? 'text-text-label' : 'text-text-body'}`}>
                   {schoolwideMetrics.responseChange > 0 ? '+' : ''}{schoolwideMetrics.responseChange} min
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="p-4">
-              <div className="text-sm text-[#757575] mb-1">Success Rate</div>
+              <div className="text-sm text-text-body mb-1">Success Rate</div>
               <div className="flex items-baseline gap-2">
-                <div className="text-2xl font-semibold text-[#1A1A1A]">
+                <div className="text-2xl font-semibold text-text-heading">
                   {schoolwideMetrics.interventionSuccess}%
                 </div>
-                <div className={`text-sm ${schoolwideMetrics.successChange > 0 ? 'text-[#4A4A4A]' : 'text-[#757575]'}`}>
+                <div className={`text-sm ${schoolwideMetrics.successChange > 0 ? 'text-text-label' : 'text-text-body'}`}>
                   {schoolwideMetrics.successChange > 0 ? '+' : ''}{schoolwideMetrics.successChange}%
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="p-4">
-              <div className="text-sm text-[#757575] mb-1">Active Cases</div>
+              <div className="text-sm text-text-body mb-1">Active Cases</div>
               <div className="flex items-baseline gap-2">
-                <div className="text-2xl font-semibold text-[#1A1A1A]">
+                <div className="text-2xl font-semibold text-text-heading">
                   {schoolwideMetrics.expertCases}
                 </div>
-                <div className={`text-sm ${schoolwideMetrics.casesChange > 0 ? 'text-[#757575]' : 'text-[#4A4A4A]'}`}>
+                <div className={`text-sm ${schoolwideMetrics.casesChange > 0 ? 'text-text-body' : 'text-text-label'}`}>
                   {schoolwideMetrics.casesChange > 0 ? '+' : ''}{schoolwideMetrics.casesChange}
                 </div>
               </div>
@@ -206,27 +206,27 @@ export default function AIInsights() {
         </div>
 
         {/* Predictive Alerts */}
-        <Card className="mb-6 border-[#333333] bg-[#FAFAFA]">
+        <Card className="mb-6 border-brand bg-surface-hover">
           <CardHeader>
-            <CardTitle className="text-lg text-[#1A1A1A] flex items-center gap-2">
+            <CardTitle className="text-lg text-text-heading flex items-center gap-2">
               <AlertTriangle className="w-5 h-5" />
               Predictive Alerts
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             {predictiveAlerts.map((alert) => (
-              <div key={alert.id} className="p-4 bg-white rounded-lg border border-[#D0D0D0]">
+              <div key={alert.id} className="p-4 bg-surface-card rounded-lg border border-border-default">
                 <div className="flex items-start justify-between mb-3">
                   <div>
-                    <h3 className="font-medium text-[#1A1A1A] mb-1">{alert.student}</h3>
-                    <p className="text-sm text-[#4A4A4A]">{alert.prediction}</p>
+                    <h3 className="font-medium text-text-heading mb-1">{alert.student}</h3>
+                    <p className="text-sm text-text-label">{alert.prediction}</p>
                   </div>
                   <Badge 
                     variant="outline" 
                     className={
                       alert.risk === 'High' 
-                        ? 'border-[#1A1A1A] text-[#1A1A1A]' 
-                        : 'border-[#9E9E9E] text-[#4A4A4A]'
+                        ? 'border-brand-dark text-text-heading' 
+                        : 'border-border-strong text-text-label'
                     }
                   >
                     {alert.risk} Risk
@@ -234,11 +234,11 @@ export default function AIInsights() {
                 </div>
 
                 <div className="mb-3">
-                  <div className="text-sm font-medium text-[#4A4A4A] mb-2">Contributing Factors:</div>
+                  <div className="text-sm font-medium text-text-label mb-2">Contributing Factors:</div>
                   <ul className="space-y-1">
                     {alert.factors.map((factor, idx) => (
-                      <li key={idx} className="text-sm text-[#757575] flex items-start gap-2">
-                        <span className="text-[#D0D0D0] mt-1">•</span>
+                      <li key={idx} className="text-sm text-text-body flex items-start gap-2">
+                        <span className="text-text-muted mt-1">•</span>
                         <span>{factor}</span>
                       </li>
                     ))}
@@ -246,11 +246,11 @@ export default function AIInsights() {
                 </div>
 
                 <div>
-                  <div className="text-sm font-medium text-[#4A4A4A] mb-2">Suggested Actions:</div>
+                  <div className="text-sm font-medium text-text-label mb-2">Suggested Actions:</div>
                   <ul className="space-y-1">
                     {alert.suggestedActions.map((action, idx) => (
-                      <li key={idx} className="text-sm text-[#757575] flex items-start gap-2">
-                        <Target className="w-4 h-4 text-[#4A4A4A] mt-0.5 flex-shrink-0" />
+                      <li key={idx} className="text-sm text-text-body flex items-start gap-2">
+                        <Target className="w-4 h-4 text-text-label mt-0.5 flex-shrink-0" />
                         <span>{action}</span>
                       </li>
                     ))}
@@ -262,48 +262,48 @@ export default function AIInsights() {
         </Card>
 
         {/* Pattern Detection */}
-        <Card className="border-[#D0D0D0]">
+        <Card className="border-border-default">
           <CardHeader>
-            <CardTitle className="text-lg text-[#1A1A1A] flex items-center gap-2">
+            <CardTitle className="text-lg text-text-heading flex items-center gap-2">
               <TrendingUp className="w-5 h-5" />
               Detected Patterns
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             {patterns.map((pattern) => (
-              <div key={pattern.id} className="p-4 bg-[#F5F5F5] rounded-lg">
+              <div key={pattern.id} className="p-4 bg-surface-page rounded-lg">
                 <div className="flex items-start justify-between mb-3">
                   <div>
                     <Badge 
                       variant="outline" 
-                      className="border-[#9E9E9E] text-[#4A4A4A] mb-2"
+                      className="border-border-strong text-text-label mb-2"
                     >
                       {pattern.type}
                     </Badge>
-                    <h3 className="font-medium text-[#1A1A1A] mb-1">{pattern.title}</h3>
-                    <p className="text-sm text-[#4A4A4A]">{pattern.description}</p>
+                    <h3 className="font-medium text-text-heading mb-1">{pattern.title}</h3>
+                    <p className="text-sm text-text-label">{pattern.description}</p>
                   </div>
                   <div className="text-right">
-                    <div className="text-sm text-[#757575]">Confidence</div>
-                    <div className="text-lg font-semibold text-[#1A1A1A]">{pattern.confidence}%</div>
+                    <div className="text-sm text-text-body">Confidence</div>
+                    <div className="text-lg font-semibold text-text-heading">{pattern.confidence}%</div>
                   </div>
                 </div>
 
                 <div className="mb-3 flex items-center gap-2 text-sm">
-                  <Users className="w-4 h-4 text-[#757575]" />
-                  <span className="text-[#757575]">
+                  <Users className="w-4 h-4 text-text-body" />
+                  <span className="text-text-body">
                     Affects: {pattern.students.join(', ')}
                   </span>
                 </div>
 
-                <div className="p-3 bg-white rounded border border-[#D0D0D0] mb-3">
-                  <div className="text-sm font-medium text-[#4A4A4A] mb-1">AI Recommendation:</div>
-                  <p className="text-sm text-[#1A1A1A]">{pattern.recommendation}</p>
+                <div className="p-3 bg-surface-card rounded border border-border-default mb-3">
+                  <div className="text-sm font-medium text-text-label mb-1">AI Recommendation:</div>
+                  <p className="text-sm text-text-heading">{pattern.recommendation}</p>
                 </div>
 
                 <Link 
                   to={pattern.link}
-                  className="inline-flex items-center gap-1 text-sm text-[#333333] hover:text-[#1A1A1A] underline"
+                  className="inline-flex items-center gap-1 text-sm text-text-heading hover:text-text-heading underline"
                 >
                   View Related Data
                   <ArrowRight className="w-4 h-4" />

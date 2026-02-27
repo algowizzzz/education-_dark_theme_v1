@@ -62,16 +62,16 @@ export function AdminAccountSettings() {
     <AdminLayout>
       <div className="max-w-4xl">
         <div className="mb-6">
-          <h1 className="text-2xl font-semibold text-[#1A1A1A] mb-2">
+          <h1 className="text-2xl font-semibold text-text-heading mb-2">
             Account Settings
           </h1>
-          <p className="text-[#4A4A4A]">Manage your administrator account</p>
+          <p className="text-text-label">Manage your administrator account</p>
         </div>
 
         <div className="space-y-6">
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardHeader>
-              <CardTitle className="text-lg text-[#1A1A1A] flex items-center gap-2">
+              <CardTitle className="text-lg text-text-heading flex items-center gap-2">
                 <User className="w-5 h-5" />
                 Account Information
               </CardTitle>
@@ -79,50 +79,50 @@ export function AdminAccountSettings() {
             <CardContent className="space-y-4">
               <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <Label className="text-sm text-[#757575]">Name</Label>
-                  <p className="text-[#1A1A1A] mt-1">{adminInfo.name}</p>
+                  <Label className="text-sm text-text-body">Name</Label>
+                  <p className="text-text-heading mt-1">{adminInfo.name}</p>
                 </div>
                 <div>
-                  <Label className="text-sm text-[#757575]">Admin ID</Label>
-                  <p className="text-[#1A1A1A] mt-1">{adminInfo.adminId}</p>
+                  <Label className="text-sm text-text-body">Admin ID</Label>
+                  <p className="text-text-heading mt-1">{adminInfo.adminId}</p>
                 </div>
                 <div>
-                  <Label className="text-sm text-[#757575]">Email</Label>
-                  <p className="text-[#1A1A1A] mt-1">{adminInfo.email}</p>
+                  <Label className="text-sm text-text-body">Email</Label>
+                  <p className="text-text-heading mt-1">{adminInfo.email}</p>
                 </div>
                 <div>
-                  <Label className="text-sm text-[#757575]">Role</Label>
-                  <p className="text-[#1A1A1A] mt-1">{adminInfo.role}</p>
+                  <Label className="text-sm text-text-body">Role</Label>
+                  <p className="text-text-heading mt-1">{adminInfo.role}</p>
                 </div>
                 <div>
-                  <Label className="text-sm text-[#757575]">Last Login</Label>
-                  <p className="text-[#1A1A1A] mt-1">{adminInfo.lastLogin}</p>
+                  <Label className="text-sm text-text-body">Last Login</Label>
+                  <p className="text-text-heading mt-1">{adminInfo.lastLogin}</p>
                 </div>
                 <div>
-                  <Label className="text-sm text-[#757575]">Account Created</Label>
-                  <p className="text-[#1A1A1A] mt-1">{adminInfo.accountCreated}</p>
+                  <Label className="text-sm text-text-body">Account Created</Label>
+                  <p className="text-text-heading mt-1">{adminInfo.accountCreated}</p>
                 </div>
               </div>
-              <div className="pt-4 border-t border-[#D0D0D0]">
-                <p className="text-sm text-[#757575]">
+              <div className="pt-4 border-t border-border-default">
+                <p className="text-sm text-text-body">
                   To update your name or email, contact your system administrator.
                 </p>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardHeader>
-              <CardTitle className="text-lg text-[#1A1A1A] flex items-center gap-2">
+              <CardTitle className="text-lg text-text-heading flex items-center gap-2">
                 <Shield className="w-5 h-5" />
                 Security
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="flex items-center justify-between p-4 bg-[#F5F5F5] rounded">
+              <div className="flex items-center justify-between p-4 bg-surface-page rounded">
                 <div>
-                  <p className="font-medium text-[#1A1A1A] mb-1">Password</p>
-                  <p className="text-sm text-[#757575]">
+                  <p className="font-medium text-text-heading mb-1">Password</p>
+                  <p className="text-sm text-text-body">
                     Last changed 30 days ago
                   </p>
                 </div>
@@ -136,10 +136,10 @@ export function AdminAccountSettings() {
                 </Button>
               </div>
 
-              <div className="flex items-center justify-between p-4 bg-[#F5F5F5] rounded">
+              <div className="flex items-center justify-between p-4 bg-surface-page rounded">
                 <div>
-                  <p className="font-medium text-[#1A1A1A] mb-1">Active Sessions</p>
-                  <p className="text-sm text-[#757575]">
+                  <p className="font-medium text-text-heading mb-1">Active Sessions</p>
+                  <p className="text-sm text-text-body">
                     Currently logged in on 1 device
                   </p>
                 </div>
@@ -153,9 +153,9 @@ export function AdminAccountSettings() {
             </CardContent>
           </Card>
 
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardHeader>
-              <CardTitle className="text-lg text-[#1A1A1A] flex items-center gap-2">
+              <CardTitle className="text-lg text-text-heading flex items-center gap-2">
                 <LogOut className="w-5 h-5" />
                 Session
               </CardTitle>
@@ -210,7 +210,7 @@ export function AdminAccountSettings() {
                   required
                   className="mt-2"
                 />
-                <p className="text-xs text-[#757575] mt-1">
+                <p className="text-xs text-text-body mt-1">
                   Must be at least 8 characters with uppercase, lowercase, and number
                 </p>
               </div>
@@ -238,7 +238,7 @@ export function AdminAccountSettings() {
               </Button>
               <Button
                 type="submit"
-                className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+                className="bg-brand hover:bg-brand-dark text-white shadow-sm"
               >
                 Change Password
               </Button>
@@ -266,7 +266,7 @@ export function AdminAccountSettings() {
             </Button>
             <Button
               onClick={handleLogout}
-              className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+              className="bg-brand hover:bg-brand-dark text-white shadow-sm"
             >
               Logout
             </Button>
@@ -294,7 +294,7 @@ export function AdminAccountSettings() {
             </Button>
             <Button
               onClick={handleLogoutAll}
-              className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+              className="bg-brand hover:bg-brand-dark text-white shadow-sm"
             >
               Logout from All Devices
             </Button>

@@ -39,30 +39,31 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 bg-[#F5F5F5]">
+    <div className="min-h-screen flex items-center justify-center px-4 bg-surface-page">
       <div className="w-full max-w-md">
         {/* Back to Portal Selection */}
         <Link
           to="/"
-          className="inline-flex items-center text-[#4A4A4A] hover:text-[#1A1A1A] mb-6"
+          className="inline-flex items-center text-text-label hover:text-brand mb-6"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to Portal Selection
         </Link>
 
-        <Card className="p-8 border border-[#D0D0D0] bg-white">
+        <Card className="p-8 border border-border-default bg-surface-card">
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-2xl font-bold text-[#1A1A1A] mb-1">
+            <img src="/logos/png-transparent/1.png" alt="BehaveBridge" className="w-20 h-20 mx-auto mb-3" />
+            <h1 className="text-2xl font-bold text-text-heading mb-1">
               BehaveBridge
             </h1>
-            <h2 className="text-lg text-[#4A4A4A]">School Admin Panel</h2>
+            <h2 className="text-lg text-text-label">School Admin Panel</h2>
           </div>
 
           {/* Login Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <Label htmlFor="email" className="text-[#1A1A1A]">
+              <Label htmlFor="email" className="text-text-heading">
                 Email / Admin ID
               </Label>
               <Input
@@ -71,17 +72,17 @@ export default function AdminLogin() {
                 placeholder="admin@lincolnelementary.edu"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="mt-1 border-[#D0D0D0] focus:border-[#333333]"
+                className="mt-1 border-border-default focus:border-brand"
                 required
                 disabled={failedAttempts >= 3}
               />
-              <p className="text-xs text-[#757575] mt-1">
+              <p className="text-xs text-text-body mt-1">
                 Admin ID: ADM-2024-0001
               </p>
             </div>
 
             <div>
-              <Label htmlFor="password" className="text-[#1A1A1A]">
+              <Label htmlFor="password" className="text-text-heading">
                 Password
               </Label>
               <div className="relative mt-1">
@@ -91,14 +92,14 @@ export default function AdminLogin() {
                   placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="border-[#D0D0D0] focus:border-[#333333] pr-10"
+                  className="border-border-default focus:border-brand pr-10"
                   required
                   disabled={failedAttempts >= 3}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#757575] hover:text-[#333333]"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-text-body hover:text-text-heading"
                 >
                   {showPassword ? (
                     <EyeOff className="w-4 h-4" />
@@ -118,7 +119,7 @@ export default function AdminLogin() {
               />
               <Label
                 htmlFor="remember"
-                className="text-sm text-[#4A4A4A] cursor-pointer"
+                className="text-sm text-text-label cursor-pointer"
               >
                 Remember this device
               </Label>
@@ -126,7 +127,7 @@ export default function AdminLogin() {
 
             <Button
               type="submit"
-              className="w-full bg-[#333333] hover:bg-[#1A1A1A] text-white rounded-full"
+              className="w-full bg-brand hover:bg-brand-dark text-white rounded-full"
               disabled={failedAttempts >= 3}
             >
               Sign In
@@ -135,13 +136,13 @@ export default function AdminLogin() {
             <div className="text-center">
               <Link
                 to="/admin/forgot-password"
-                className="text-sm text-[#4A4A4A] hover:text-[#1A1A1A] underline"
+                className="text-sm text-text-label hover:text-text-heading underline"
               >
                 Forgot your password?
               </Link>
             </div>
 
-            <div className="text-center text-xs text-[#757575] pt-4 border-t border-[#E0E0E0]">
+            <div className="text-center text-xs text-text-body pt-4 border-t border-border-light">
               Session timeout: 30 minutes of inactivity
             </div>
           </form>

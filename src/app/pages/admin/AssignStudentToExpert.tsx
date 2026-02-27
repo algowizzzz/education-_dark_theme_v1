@@ -75,51 +75,51 @@ export default function AssignStudentToExpert() {
           <Button
             variant="ghost"
             onClick={() => navigate('/admin/students')}
-            className="mb-4 text-[#4A4A4A] hover:text-[#1A1A1A]"
+            className="mb-4 text-text-label hover:text-text-heading"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Students
           </Button>
           <h1 className="text-2xl mb-2">Assign Student to Behavioral Expert</h1>
-          <p className="text-[#757575]">Select a behavioral expert to support {student.name}</p>
+          <p className="text-text-body">Select a behavioral expert to support {student.name}</p>
         </div>
 
         {/* Student Info Card */}
-        <Card className="border-[#D0D0D0] mb-6">
+        <Card className="border-border-default mb-6">
           <CardHeader className="pb-3">
             <CardTitle className="text-lg">Student Information</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <Label className="text-sm text-[#757575]">Name</Label>
-                <p className="text-[#1A1A1A]">{student.name}</p>
+                <Label className="text-sm text-text-body">Name</Label>
+                <p className="text-text-heading">{student.name}</p>
               </div>
               <div>
-                <Label className="text-sm text-[#757575]">Student ID</Label>
-                <p className="text-[#1A1A1A]">{student.id}</p>
+                <Label className="text-sm text-text-body">Student ID</Label>
+                <p className="text-text-heading">{student.id}</p>
               </div>
               <div>
-                <Label className="text-sm text-[#757575]">Grade</Label>
-                <p className="text-[#1A1A1A]">Grade {student.grade}</p>
+                <Label className="text-sm text-text-body">Grade</Label>
+                <p className="text-text-heading">Grade {student.grade}</p>
               </div>
               <div>
-                <Label className="text-sm text-[#757575]">Primary Teacher</Label>
-                <p className="text-[#1A1A1A]">{student.primaryTeacher}</p>
+                <Label className="text-sm text-text-body">Primary Teacher</Label>
+                <p className="text-text-heading">{student.primaryTeacher}</p>
               </div>
             </div>
           </CardContent>
         </Card>
 
         {/* Expert Selection */}
-        <Card className="border-[#D0D0D0]">
+        <Card className="border-border-default">
           <CardHeader className="pb-3">
             <CardTitle className="text-lg">Select Behavioral Expert</CardTitle>
           </CardHeader>
           <CardContent>
             {/* Search */}
             <div className="relative mb-4">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-[#757575]" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-text-body" />
               <Input
                 type="text"
                 placeholder="Search experts by name or specialization..."
@@ -137,26 +137,26 @@ export default function AssignStudentToExpert() {
                   onClick={() => setSelectedExpert(expert.id)}
                   className={`p-4 border rounded-lg cursor-pointer transition-colors ${
                     selectedExpert === expert.id
-                      ? 'border-[#1A1A1A] bg-[#F5F5F5]'
-                      : 'border-[#D0D0D0] hover:border-[#9E9E9E]'
+                      ? 'border-brand-dark bg-surface-page'
+                      : 'border-border-default hover:border-border-strong'
                   }`}
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
-                        <p className="font-medium text-[#1A1A1A]">{expert.name}</p>
+                        <p className="font-medium text-text-heading">{expert.name}</p>
                         {selectedExpert === expert.id && (
-                          <div className="w-5 h-5 rounded-full bg-[#1A1A1A] flex items-center justify-center">
+                          <div className="w-5 h-5 rounded-full bg-brand-dark flex items-center justify-center">
                             <Check className="w-3 h-3 text-white" />
                           </div>
                         )}
                       </div>
-                      <p className="text-sm text-[#757575]">{expert.role}</p>
+                      <p className="text-sm text-text-body">{expert.role}</p>
 
                       {/* Specializations */}
                       <div className="flex flex-wrap gap-1 mt-2">
                         {expert.specializations.map((spec, idx) => (
-                          <Badge key={idx} variant="secondary" className="text-xs bg-[#F5F5F5] text-[#4A4A4A]">
+                          <Badge key={idx} variant="secondary" className="text-xs bg-surface-page text-text-label">
                             {spec}
                           </Badge>
                         ))}
@@ -165,11 +165,11 @@ export default function AssignStudentToExpert() {
 
                     {/* Current Students Count */}
                     <div className="text-right ml-4">
-                      <div className="flex items-center gap-1 text-sm text-[#4A4A4A]">
-                        <Users className="w-4 h-4 text-[#757575]" />
+                      <div className="flex items-center gap-1 text-sm text-text-label">
+                        <Users className="w-4 h-4 text-text-body" />
                         <span>{expert.assignedStudents} students</span>
                       </div>
-                      <p className="text-xs text-[#757575] mt-1">currently assigned</p>
+                      <p className="text-xs text-text-body mt-1">currently assigned</p>
                     </div>
                   </div>
                 </div>
@@ -177,15 +177,15 @@ export default function AssignStudentToExpert() {
             </div>
 
             {filteredExperts.length === 0 && (
-              <p className="text-center text-[#757575] py-8">No experts found</p>
+              <p className="text-center text-text-body py-8">No experts found</p>
             )}
           </CardContent>
         </Card>
 
         {/* Info Card */}
-        <Card className="mt-4 border-[#D0D0D0] bg-[#F5F5F5]">
+        <Card className="mt-4 border-border-default bg-surface-page">
           <CardContent className="py-4">
-            <p className="text-sm text-[#4A4A4A]">
+            <p className="text-sm text-text-label">
               <strong>Note:</strong> Assigning a behavioral expert will allow them to view
               the student's behavior profile, incident history, and provide specialized
               intervention support. The expert will be notified of this assignment.
@@ -198,14 +198,14 @@ export default function AssignStudentToExpert() {
           <Button
             variant="outline"
             onClick={() => navigate('/admin/students')}
-            className="border-[#D0D0D0]"
+            className="border-border-default"
           >
             Cancel
           </Button>
           <Button
             onClick={handleAssign}
             disabled={!selectedExpert}
-            className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+            className="bg-brand hover:bg-brand-dark text-white shadow-sm"
           >
             Assign Expert
           </Button>

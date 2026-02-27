@@ -63,10 +63,10 @@ export default function AISupport() {
       <TeacherLayout>
         <div className="flex flex-col items-center justify-center min-h-[60vh]">
           <div className="flex items-center gap-3 mb-4">
-            <Sparkles className="w-8 h-8 text-[#333333] animate-pulse" />
-            <div className="text-xl text-[#1A1A1A]">Analyzing {student?.firstName}'s profile...</div>
+            <Sparkles className="w-8 h-8 text-text-heading animate-pulse" />
+            <div className="text-xl text-text-heading">Analyzing {student?.firstName}'s profile...</div>
           </div>
-          <div className="text-[#757575]">Reviewing incident history and effective strategies</div>
+          <div className="text-text-body">Reviewing incident history and effective strategies</div>
         </div>
       </TeacherLayout>
     );
@@ -75,22 +75,22 @@ export default function AISupport() {
   return (
     <TeacherLayout>
       <div className="p-8 max-w-5xl">
-        <Link to={`/teacher/students/${id}`} className="inline-flex items-center gap-2 text-[#4A4A4A] hover:text-[#1A1A1A] mb-6">
+        <Link to={`/teacher/students/${id}`} className="inline-flex items-center gap-2 text-text-label hover:text-text-heading mb-6">
           <ArrowLeft className="w-4 h-4" />
           Back to Student Profile
         </Link>
 
         <div className="mb-6">
           <div className="flex items-center gap-3 mb-2">
-            <Sparkles className="w-6 h-6 text-[#333333]" />
-            <h1 className="text-2xl text-[#1A1A1A]">AI Decision Support</h1>
+            <Sparkles className="w-6 h-6 text-text-heading" />
+            <h1 className="text-2xl text-text-heading">AI Decision Support</h1>
           </div>
-          <p className="text-[#4A4A4A]">Get personalized intervention suggestions for {student?.name}</p>
+          <p className="text-text-label">Get personalized intervention suggestions for {student?.name}</p>
         </div>
 
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg text-[#1A1A1A]">Describe the Current Situation</CardTitle>
+            <CardTitle className="text-lg text-text-heading">Describe the Current Situation</CardTitle>
           </CardHeader>
           <CardContent>
             <Textarea
@@ -98,12 +98,12 @@ export default function AISupport() {
               value={situationDescription}
               onChange={(e) => setSituationDescription(e.target.value)}
               rows={6}
-              className="border-[#D0D0D0] text-[#1A1A1A] placeholder:text-[#757575] mb-4"
+              className="border-border-default text-text-heading placeholder:text-text-body mb-4"
             />
             <Button
               onClick={handleGetSuggestions}
               disabled={!situationDescription.trim() || showRecommendations}
-              className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+              className="bg-brand hover:bg-brand-dark text-white shadow-sm"
             >
               <Sparkles className="w-4 h-4 mr-2" />
               Get Intervention Suggestions
@@ -113,18 +113,18 @@ export default function AISupport() {
 
         {showRecommendations && (
           <>
-            <Card className="mb-6 border-[#D0D0D0]">
+            <Card className="mb-6 border-border-default">
               <CardHeader className="pb-4">
-                <CardTitle className="text-lg text-[#1A1A1A] flex items-center gap-2">
+                <CardTitle className="text-lg text-text-heading flex items-center gap-2">
                   <ThumbsUp className="w-5 h-5" />
                   Suggested Immediate Actions
                 </CardTitle>
-                <p className="text-sm text-[#757575]">Based on {student?.firstName}'s behavioral profile and incident history</p>
+                <p className="text-sm text-text-body">Based on {student?.firstName}'s behavioral profile and incident history</p>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   {aiRecommendations.map((rec, index) => (
-                    <div key={index} className="flex items-start gap-4 p-4 bg-[#F5F5F5] rounded-lg">
+                    <div key={index} className="flex items-start gap-4 p-4 bg-surface-page rounded-lg">
                       <Checkbox
                         id={`action-${index}`}
                         checked={triedActions.includes(rec.action)}
@@ -135,17 +135,17 @@ export default function AISupport() {
                             setTriedActions(triedActions.filter(a => a !== rec.action));
                           }
                         }}
-                        className="mt-1 border-[#9E9E9E]"
+                        className="mt-1 border-border-strong"
                       />
                       <div className="flex-1">
                         <label htmlFor={`action-${index}`} className="cursor-pointer">
                           <div className="flex items-start justify-between gap-4 mb-2">
-                            <p className="text-[#1A1A1A] font-medium">{index + 1}. {rec.action}</p>
-                            <Badge variant="outline" className="border-[#9E9E9E] text-[#4A4A4A] shrink-0">
+                            <p className="text-text-heading font-medium">{index + 1}. {rec.action}</p>
+                            <Badge variant="outline" className="border-border-strong text-text-label shrink-0">
                               {rec.successRate}% success
                             </Badge>
                           </div>
-                          <p className="text-sm text-[#757575]">{rec.rationale}</p>
+                          <p className="text-sm text-text-body">{rec.rationale}</p>
                         </label>
                       </div>
                     </div>
@@ -154,10 +154,10 @@ export default function AISupport() {
               </CardContent>
             </Card>
 
-            <Card className="mb-6 border-[#D0D0D0] bg-[#FAFAFA]">
+            <Card className="mb-6 border-border-default bg-surface-hover">
               <CardHeader className="pb-4">
-                <CardTitle className="text-lg text-[#1A1A1A] flex items-center gap-2">
-                  <ThumbsDown className="w-5 h-5 text-[#4A4A4A]" />
+                <CardTitle className="text-lg text-text-heading flex items-center gap-2">
+                  <ThumbsDown className="w-5 h-5 text-text-label" />
                   Consider Escalation If:
                 </CardTitle>
               </CardHeader>
@@ -165,16 +165,16 @@ export default function AISupport() {
                 <ul className="space-y-2">
                   {escalationCriteria.map((criteria, index) => (
                     <li key={index} className="flex items-start gap-2">
-                      <span className="text-[#4A4A4A] mt-1">•</span>
-                      <span className="text-[#4A4A4A]">{criteria}</span>
+                      <span className="text-text-label mt-1">•</span>
+                      <span className="text-text-label">{criteria}</span>
                     </li>
                   ))}
                 </ul>
-                <div className="mt-6 pt-4 border-t border-[#D0D0D0] flex gap-3">
+                <div className="mt-6 pt-4 border-t border-border-default flex gap-3">
                   <Button
                     variant="outline"
                     onClick={() => navigate(`/teacher/incidents/new/step1?studentId=${id}`)}
-                    className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]"
+                    className="border-border-strong text-text-heading hover:bg-surface-page"
                   >
                     Request Expert Review
                   </Button>
@@ -185,14 +185,14 @@ export default function AISupport() {
             <div className="flex gap-3">
               <Button
                 onClick={() => navigate(`/teacher/incidents/new/step2?studentId=${id}`)}
-                className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+                className="bg-brand hover:bg-brand-dark text-white shadow-sm"
               >
                 Save to Incident Record
               </Button>
               <Button
                 variant="outline"
                 onClick={() => navigate(`/teacher/students/${id}`)}
-                className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]"
+                className="border-border-strong text-text-heading hover:bg-surface-page"
               >
                 Return to Profile
               </Button>

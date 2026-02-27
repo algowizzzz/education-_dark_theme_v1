@@ -93,48 +93,48 @@ export default function NewIncidentStep4Triggers() {
       <div className="max-w-4xl mx-auto space-y-6">
         <Link
           to={`/teacher/incidents/new/step3?${searchParams.toString()}`}
-          className="inline-flex items-center text-[#4A4A4A] hover:text-[#1A1A1A]"
+          className="inline-flex items-center text-text-label hover:text-text-heading"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back
         </Link>
 
         <div>
-          <h1 className="text-3xl font-bold text-[#1A1A1A]">Log New Incident</h1>
-          <p className="text-[#757575]">Step 4 of 5: Triggers & Strategies</p>
+          <h1 className="text-3xl font-bold text-text-heading">Log New Incident</h1>
+          <p className="text-text-body">Step 4 of 5: Triggers & Strategies</p>
         </div>
 
         {/* Progress Bar */}
         <div className="flex items-center space-x-2">
-          <div className="flex-1 h-2 bg-[#333333] rounded-full"></div>
-          <div className="flex-1 h-2 bg-[#333333] rounded-full"></div>
-          <div className="flex-1 h-2 bg-[#333333] rounded-full"></div>
-          <div className="flex-1 h-2 bg-[#333333] rounded-full"></div>
-          <div className="flex-1 h-2 bg-[#E0E0E0] rounded-full"></div>
+          <div className="flex-1 h-2 bg-brand rounded-full"></div>
+          <div className="flex-1 h-2 bg-brand rounded-full"></div>
+          <div className="flex-1 h-2 bg-brand rounded-full"></div>
+          <div className="flex-1 h-2 bg-brand rounded-full"></div>
+          <div className="flex-1 h-2 bg-surface-elevated rounded-full"></div>
         </div>
 
         {/* Student Info */}
-        <Card className="p-4 border border-[#D0D0D0] bg-[#F5F5F5]">
-          <p className="text-sm text-[#757575]">Student:</p>
-          <p className="font-semibold text-[#1A1A1A]">
+        <Card className="p-4 border border-border-default bg-surface-page">
+          <p className="text-sm text-text-body">Student:</p>
+          <p className="font-semibold text-text-heading">
             {student.name} • {student.id} • Grade {student.grade}
           </p>
         </Card>
 
         {/* Triggers Section */}
-        <Card className="p-6 border border-[#D0D0D0] bg-white space-y-4">
+        <Card className="p-6 border border-border-default bg-surface-card space-y-4">
           <div>
-            <h2 className="text-lg font-semibold text-[#1A1A1A] mb-1">
+            <h2 className="text-lg font-semibold text-text-heading mb-1">
               Antecedent Triggers <span className="text-red-500">*</span>
             </h2>
-            <p className="text-sm text-[#757575]">
+            <p className="text-sm text-text-body">
               What was happening before the behavior occurred?
             </p>
           </div>
 
           {/* Common Triggers */}
           <div>
-            <Label className="text-sm font-medium text-[#1A1A1A]">
+            <Label className="text-sm font-medium text-text-heading">
               Common Triggers
             </Label>
             <div className="mt-2 space-y-2">
@@ -147,7 +147,7 @@ export default function NewIncidentStep4Triggers() {
                   />
                   <Label
                     htmlFor={`trigger-${trigger}`}
-                    className="text-[#1A1A1A] cursor-pointer"
+                    className="text-text-heading cursor-pointer"
                   >
                     {trigger}
                   </Label>
@@ -159,7 +159,7 @@ export default function NewIncidentStep4Triggers() {
                 variant="ghost"
                 size="sm"
                 onClick={() => setShowAllTriggers(!showAllTriggers)}
-                className="mt-2 text-[#4A4A4A] hover:text-[#1A1A1A]"
+                className="mt-2 text-text-label hover:text-text-heading"
               >
                 {showAllTriggers ? (
                   <>
@@ -176,7 +176,7 @@ export default function NewIncidentStep4Triggers() {
 
           {/* Custom Trigger */}
           <div>
-            <Label className="text-sm font-medium text-[#1A1A1A]">
+            <Label className="text-sm font-medium text-text-heading">
               Add Custom Trigger
             </Label>
             <div className="mt-2 flex gap-2">
@@ -184,7 +184,7 @@ export default function NewIncidentStep4Triggers() {
                 value={customTrigger}
                 onChange={(e) => setCustomTrigger(e.target.value)}
                 placeholder="Enter a custom trigger..."
-                className="border-[#D0D0D0] focus:border-[#333333]"
+                className="border-border-default focus:border-brand"
                 onKeyPress={(e) => {
                   if (e.key === 'Enter') {
                     e.preventDefault();
@@ -195,7 +195,7 @@ export default function NewIncidentStep4Triggers() {
               <Button
                 onClick={addCustomTrigger}
                 variant="outline"
-                className="border-[#D0D0D0] text-[#333333] hover:bg-[#F5F5F5]"
+                className="border-border-default text-text-heading hover:bg-surface-page"
               >
                 <Plus className="w-4 h-4" />
               </Button>
@@ -205,19 +205,19 @@ export default function NewIncidentStep4Triggers() {
           {/* Selected Triggers */}
           {selectedTriggers.length > 0 && (
             <div>
-              <Label className="text-sm font-medium text-[#1A1A1A]">
+              <Label className="text-sm font-medium text-text-heading">
                 Selected Triggers ({selectedTriggers.length})
               </Label>
               <div className="mt-2 flex flex-wrap gap-2">
                 {selectedTriggers.map((trigger) => (
                   <div
                     key={trigger}
-                    className="inline-flex items-center gap-1 px-3 py-1 bg-[#F5F5F5] border border-[#D0D0D0] rounded-full text-sm"
+                    className="inline-flex items-center gap-1 px-3 py-1 bg-surface-page border border-border-default rounded-full text-sm"
                   >
-                    <span className="text-[#1A1A1A]">{trigger}</span>
+                    <span className="text-text-heading">{trigger}</span>
                     <button
                       onClick={() => removeTrigger(trigger)}
-                      className="text-[#757575] hover:text-[#1A1A1A]"
+                      className="text-text-body hover:text-text-heading"
                     >
                       <X className="w-3 h-3" />
                     </button>
@@ -229,19 +229,19 @@ export default function NewIncidentStep4Triggers() {
         </Card>
 
         {/* Strategies Section */}
-        <Card className="p-6 border border-[#D0D0D0] bg-white space-y-4">
+        <Card className="p-6 border border-border-default bg-surface-card space-y-4">
           <div>
-            <h2 className="text-lg font-semibold text-[#1A1A1A] mb-1">
+            <h2 className="text-lg font-semibold text-text-heading mb-1">
               Intervention Strategies Used <span className="text-red-500">*</span>
             </h2>
-            <p className="text-sm text-[#757575]">
+            <p className="text-sm text-text-body">
               What strategies did you try to address the behavior?
             </p>
           </div>
 
           {/* Common Strategies */}
           <div>
-            <Label className="text-sm font-medium text-[#1A1A1A]">
+            <Label className="text-sm font-medium text-text-heading">
               Common Strategies
             </Label>
             <div className="mt-2 space-y-2">
@@ -254,7 +254,7 @@ export default function NewIncidentStep4Triggers() {
                   />
                   <Label
                     htmlFor={`strategy-${strategy}`}
-                    className="text-[#1A1A1A] cursor-pointer"
+                    className="text-text-heading cursor-pointer"
                   >
                     {strategy}
                   </Label>
@@ -266,7 +266,7 @@ export default function NewIncidentStep4Triggers() {
                 variant="ghost"
                 size="sm"
                 onClick={() => setShowAllStrategies(!showAllStrategies)}
-                className="mt-2 text-[#4A4A4A] hover:text-[#1A1A1A]"
+                className="mt-2 text-text-label hover:text-text-heading"
               >
                 {showAllStrategies ? (
                   <>
@@ -283,7 +283,7 @@ export default function NewIncidentStep4Triggers() {
 
           {/* Custom Strategy */}
           <div>
-            <Label className="text-sm font-medium text-[#1A1A1A]">
+            <Label className="text-sm font-medium text-text-heading">
               Add Custom Strategy
             </Label>
             <div className="mt-2 flex gap-2">
@@ -291,7 +291,7 @@ export default function NewIncidentStep4Triggers() {
                 value={customStrategy}
                 onChange={(e) => setCustomStrategy(e.target.value)}
                 placeholder="Enter a custom strategy..."
-                className="border-[#D0D0D0] focus:border-[#333333]"
+                className="border-border-default focus:border-brand"
                 onKeyPress={(e) => {
                   if (e.key === 'Enter') {
                     e.preventDefault();
@@ -302,7 +302,7 @@ export default function NewIncidentStep4Triggers() {
               <Button
                 onClick={addCustomStrategy}
                 variant="outline"
-                className="border-[#D0D0D0] text-[#333333] hover:bg-[#F5F5F5]"
+                className="border-border-default text-text-heading hover:bg-surface-page"
               >
                 <Plus className="w-4 h-4" />
               </Button>
@@ -312,19 +312,19 @@ export default function NewIncidentStep4Triggers() {
           {/* Selected Strategies */}
           {selectedStrategies.length > 0 && (
             <div>
-              <Label className="text-sm font-medium text-[#1A1A1A]">
+              <Label className="text-sm font-medium text-text-heading">
                 Selected Strategies ({selectedStrategies.length})
               </Label>
               <div className="mt-2 flex flex-wrap gap-2">
                 {selectedStrategies.map((strategy) => (
                   <div
                     key={strategy}
-                    className="inline-flex items-center gap-1 px-3 py-1 bg-[#F5F5F5] border border-[#D0D0D0] rounded-full text-sm"
+                    className="inline-flex items-center gap-1 px-3 py-1 bg-surface-page border border-border-default rounded-full text-sm"
                   >
-                    <span className="text-[#1A1A1A]">{strategy}</span>
+                    <span className="text-text-heading">{strategy}</span>
                     <button
                       onClick={() => removeStrategy(strategy)}
-                      className="text-[#757575] hover:text-[#1A1A1A]"
+                      className="text-text-body hover:text-text-heading"
                     >
                       <X className="w-3 h-3" />
                     </button>
@@ -340,13 +340,13 @@ export default function NewIncidentStep4Triggers() {
           <Button
             variant="outline"
             onClick={handleBack}
-            className="border-[#D0D0D0] text-[#333333] hover:bg-[#F5F5F5] rounded-lg"
+            className="border-border-default text-text-heading hover:bg-surface-page rounded-lg"
           >
             ← Back
           </Button>
           <Button
             onClick={handleNext}
-            className="bg-[#333333] hover:bg-[#1A1A1A] text-white rounded-lg"
+            className="bg-brand hover:bg-brand-dark text-white rounded-lg"
           >
             Next →
           </Button>

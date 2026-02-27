@@ -60,18 +60,18 @@ export default function CaseManagement() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F5F5]">
+    <div className="min-h-screen bg-surface-page">
       {/* Header */}
-      <header className="bg-white border-b border-[#D0D0D0] px-8 py-4 mb-8">
+      <header className="bg-surface-card border-b border-border-default px-8 py-4 mb-8">
         <div className="flex items-center justify-between">
           <div>
             <Link
               to="/expert/dashboard"
-              className="text-[#4A4A4A] hover:text-[#1A1A1A] text-sm mb-2 block"
+              className="text-text-label hover:text-text-heading text-sm mb-2 block"
             >
               ← Back to Dashboard
             </Link>
-            <h1 className="text-2xl text-[#1A1A1A]">Case Management</h1>
+            <h1 className="text-2xl text-text-heading">Case Management</h1>
           </div>
         </div>
       </header>
@@ -80,12 +80,12 @@ export default function CaseManagement() {
         {/* Search */}
         <div className="mb-6">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#757575]" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-text-body" />
             <Input
               placeholder="Search cases by student name..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 border-[#D0D0D0] text-[#1A1A1A]"
+              className="pl-10 border-border-default text-text-heading"
             />
           </div>
         </div>
@@ -93,13 +93,13 @@ export default function CaseManagement() {
         {/* Cases List */}
         <div className="grid gap-4">
           {filteredCases.map((caseItem) => (
-            <Card key={caseItem.id} className="p-6 border-[#D0D0D0] bg-white">
+            <Card key={caseItem.id} className="p-6 border-border-default bg-surface-card">
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <h3 className="text-lg font-semibold text-[#1A1A1A] mb-1">
+                  <h3 className="text-lg font-semibold text-text-heading mb-1">
                     {caseItem.name}
                   </h3>
-                  <p className="text-sm text-[#757575]">
+                  <p className="text-sm text-text-body">
                     Grade {caseItem.grade} • {caseItem.incidentCount} incidents
                   </p>
                 </div>
@@ -107,10 +107,10 @@ export default function CaseManagement() {
                   variant="outline"
                   className={
                     caseItem.caseStatus === 'Active'
-                      ? 'border-[#333333] text-[#333333]'
+                      ? 'border-brand text-text-heading'
                       : caseItem.caseStatus === 'Monitoring'
-                      ? 'border-[#757575] text-[#757575]'
-                      : 'border-[#9E9E9E] text-[#9E9E9E]'
+                      ? 'border-border-strong text-text-body'
+                      : 'border-border-strong text-text-muted'
                   }
                 >
                   {caseItem.caseStatus}
@@ -119,19 +119,19 @@ export default function CaseManagement() {
 
               <div className="space-y-2 mb-4">
                 <div className="flex justify-between text-sm">
-                  <span className="text-[#757575]">Last Updated:</span>
-                  <span className="text-[#1A1A1A]">{caseItem.lastUpdate}</span>
+                  <span className="text-text-body">Last Updated:</span>
+                  <span className="text-text-heading">{caseItem.lastUpdate}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-[#757575]">Risk Level:</span>
-                  <span className="text-[#1A1A1A]">{caseItem.riskLevel}</span>
+                  <span className="text-text-body">Risk Level:</span>
+                  <span className="text-text-heading">{caseItem.riskLevel}</span>
                 </div>
               </div>
 
               <div className="flex gap-2">
                 <Button
                   asChild
-                  className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+                  className="bg-brand hover:bg-brand-dark text-white shadow-sm"
                 >
                   <Link to={`/expert/cases/${caseItem.id}`}>Review Case</Link>
                 </Button>
@@ -143,7 +143,7 @@ export default function CaseManagement() {
                         setSelectedStudent(caseItem.id);
                         setShowMonitoringModal(true);
                       }}
-                      className="border-[#D0D0D0] text-[#333333] hover:bg-[#F5F5F5]"
+                      className="border-border-default text-text-heading hover:bg-surface-page"
                     >
                       <Flag className="w-4 h-4 mr-2" />
                       Set Monitoring
@@ -154,7 +154,7 @@ export default function CaseManagement() {
                         setSelectedStudent(caseItem.id);
                         setShowCloseModal(true);
                       }}
-                      className="border-[#D0D0D0] text-[#333333] hover:bg-[#F5F5F5]"
+                      className="border-border-default text-text-heading hover:bg-surface-page"
                     >
                       <Archive className="w-4 h-4 mr-2" />
                       Close Case
@@ -169,12 +169,12 @@ export default function CaseManagement() {
 
       {/* Set Monitoring Modal */}
       <Dialog open={showMonitoringModal} onOpenChange={setShowMonitoringModal}>
-        <DialogContent className="sm:max-w-[500px] bg-white border-[#D0D0D0]">
+        <DialogContent className="sm:max-w-[500px] bg-surface-card border-border-default">
           <DialogHeader>
-            <DialogTitle className="text-xl text-[#1A1A1A]">
+            <DialogTitle className="text-xl text-text-heading">
               Set Monitoring Flag
             </DialogTitle>
-            <DialogDescription className="text-[#4A4A4A] text-base pt-2">
+            <DialogDescription className="text-text-label text-base pt-2">
               Mark this case for continued monitoring. The student will remain in your
               caseload with reduced check-in frequency.
             </DialogDescription>
@@ -182,9 +182,9 @@ export default function CaseManagement() {
           
           <div className="space-y-4 py-4">
             <div>
-              <Label className="text-[#1A1A1A] mb-2 block">Monitoring Duration</Label>
+              <Label className="text-text-heading mb-2 block">Monitoring Duration</Label>
               <Select value={monitoringDuration} onValueChange={setMonitoringDuration}>
-                <SelectTrigger className="border-[#D0D0D0] text-[#1A1A1A]">
+                <SelectTrigger className="border-border-default text-text-heading">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -197,12 +197,12 @@ export default function CaseManagement() {
             </div>
 
             <div>
-              <Label className="text-[#1A1A1A] mb-2 block">Monitoring Notes</Label>
+              <Label className="text-text-heading mb-2 block">Monitoring Notes</Label>
               <Textarea
                 value={monitoringNotes}
                 onChange={(e) => setMonitoringNotes(e.target.value)}
                 placeholder="Document the reason for monitoring and any specific behaviors to watch for..."
-                className="min-h-[120px] border-[#D0D0D0] text-[#1A1A1A]"
+                className="min-h-[120px] border-border-default text-text-heading"
               />
             </div>
           </div>
@@ -211,13 +211,13 @@ export default function CaseManagement() {
             <Button
               variant="outline"
               onClick={() => setShowMonitoringModal(false)}
-              className="border-[#D0D0D0] text-[#333333] hover:bg-[#F5F5F5]"
+              className="border-border-default text-text-heading hover:bg-surface-page"
             >
               Cancel
             </Button>
             <Button
               onClick={handleSetMonitoring}
-              className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+              className="bg-brand hover:bg-brand-dark text-white shadow-sm"
             >
               Set Monitoring
             </Button>
@@ -227,24 +227,24 @@ export default function CaseManagement() {
 
       {/* Close Case Modal */}
       <Dialog open={showCloseModal} onOpenChange={setShowCloseModal}>
-        <DialogContent className="sm:max-w-[500px] bg-white border-[#D0D0D0]">
+        <DialogContent className="sm:max-w-[500px] bg-surface-card border-border-default">
           <DialogHeader>
-            <DialogTitle className="text-xl text-[#1A1A1A]">
+            <DialogTitle className="text-xl text-text-heading">
               Close Case
             </DialogTitle>
-            <DialogDescription className="text-[#4A4A4A] text-base pt-2">
+            <DialogDescription className="text-text-label text-base pt-2">
               Closing this case will remove the student from your active caseload. You can
               add final notes to document the case resolution.
             </DialogDescription>
           </DialogHeader>
           
           <div className="py-4">
-            <Label className="text-[#1A1A1A] mb-2 block">Final Case Notes</Label>
+            <Label className="text-text-heading mb-2 block">Final Case Notes</Label>
             <Textarea
               value={closingNotes}
               onChange={(e) => setClosingNotes(e.target.value)}
               placeholder="Document the case outcome, resolution strategies used, and recommendations for future..."
-              className="min-h-[150px] border-[#D0D0D0] text-[#1A1A1A]"
+              className="min-h-[150px] border-border-default text-text-heading"
             />
           </div>
 
@@ -252,13 +252,13 @@ export default function CaseManagement() {
             <Button
               variant="outline"
               onClick={() => setShowCloseModal(false)}
-              className="border-[#D0D0D0] text-[#333333] hover:bg-[#F5F5F5]"
+              className="border-border-default text-text-heading hover:bg-surface-page"
             >
               Cancel
             </Button>
             <Button
               onClick={handleCloseCase}
-              className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+              className="bg-brand hover:bg-brand-dark text-white shadow-sm"
             >
               Confirm Close
             </Button>

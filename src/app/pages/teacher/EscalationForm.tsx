@@ -49,21 +49,21 @@ export default function EscalationForm() {
   return (
     <TeacherLayout>
       <div className="p-8 max-w-4xl">
-        <Link to={`/teacher/incidents/${incidentId}`} className="inline-flex items-center gap-2 text-[#4A4A4A] hover:text-[#1A1A1A] mb-6">
+        <Link to={`/teacher/incidents/${incidentId}`} className="inline-flex items-center gap-2 text-text-label hover:text-text-heading mb-6">
           <ArrowLeft className="w-4 h-4" />
           Back to Incident
         </Link>
 
         <div className="mb-6">
-          <h1 className="text-2xl text-[#1A1A1A] mb-2">Escalate to Behavioral Expert</h1>
-          <p className="text-[#4A4A4A]">Request expert review and support for Incident {incidentId}</p>
+          <h1 className="text-2xl text-text-heading mb-2">Escalate to Behavioral Expert</h1>
+          <p className="text-text-label">Request expert review and support for Incident {incidentId}</p>
         </div>
 
-        <Card className="mb-6 border-[#D0D0D0] bg-[#FAFAFA]">
+        <Card className="mb-6 border-border-default bg-surface-hover">
           <CardContent className="pt-6">
             <div className="flex gap-3">
-              <AlertTriangle className="w-5 h-5 text-[#4A4A4A] shrink-0 mt-0.5" />
-              <div className="text-sm text-[#4A4A4A]">
+              <AlertTriangle className="w-5 h-5 text-text-label shrink-0 mt-0.5" />
+              <div className="text-sm text-text-label">
                 <p className="font-medium mb-1">When to escalate:</p>
                 <ul className="list-disc list-inside space-y-1">
                   <li>Behavior persists despite multiple interventions</li>
@@ -76,10 +76,10 @@ export default function EscalationForm() {
           </CardContent>
         </Card>
 
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg text-[#1A1A1A]">Select Behavioral Expert</CardTitle>
-            <p className="text-sm text-[#757575]">Choose the expert best suited for this situation</p>
+            <CardTitle className="text-lg text-text-heading">Select Behavioral Expert</CardTitle>
+            <p className="text-sm text-text-body">Choose the expert best suited for this situation</p>
           </CardHeader>
           <CardContent>
             <RadioGroup value={selectedExpert} onValueChange={setSelectedExpert}>
@@ -88,9 +88,9 @@ export default function EscalationForm() {
                   <div key={expert.id} className="flex items-start gap-3">
                     <RadioGroupItem value={expert.id} id={expert.id} className="mt-1" />
                     <Label htmlFor={expert.id} className="flex-1 cursor-pointer">
-                      <div className="font-medium text-[#1A1A1A]">{expert.name}</div>
-                      <div className="text-sm text-[#757575] mb-1">{expert.role}</div>
-                      <div className="text-sm text-[#4A4A4A]">
+                      <div className="font-medium text-text-heading">{expert.name}</div>
+                      <div className="text-sm text-text-body mb-1">{expert.role}</div>
+                      <div className="text-sm text-text-label">
                         <span className="font-medium">Specialization:</span> {expert.specialization}
                       </div>
                     </Label>
@@ -101,10 +101,10 @@ export default function EscalationForm() {
           </CardContent>
         </Card>
 
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg text-[#1A1A1A]">Escalation Note</CardTitle>
-            <p className="text-sm text-[#757575]">Describe why you're requesting expert support</p>
+            <CardTitle className="text-lg text-text-heading">Escalation Note</CardTitle>
+            <p className="text-sm text-text-body">Describe why you're requesting expert support</p>
           </CardHeader>
           <CardContent>
             <Textarea
@@ -113,9 +113,9 @@ export default function EscalationForm() {
               onChange={(e) => setEscalationNote(e.target.value)}
               rows={6}
               maxLength={500}
-              className="border-[#D0D0D0] text-[#1A1A1A] placeholder:text-[#757575] mb-2"
+              className="border-border-default text-text-heading placeholder:text-text-body mb-2"
             />
-            <div className="text-sm text-[#757575] text-right">
+            <div className="text-sm text-text-body text-right">
               {escalationNote.length}/500 characters
             </div>
           </CardContent>
@@ -125,14 +125,14 @@ export default function EscalationForm() {
           <Button
             onClick={handleSubmit}
             disabled={!selectedExpert || !escalationNote.trim()}
-            className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+            className="bg-brand hover:bg-brand-dark text-white shadow-sm"
           >
             Submit Escalation
           </Button>
           <Button
             variant="outline"
             onClick={() => navigate(`/teacher/incidents/${incidentId}`)}
-            className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]"
+            className="border-border-strong text-text-heading hover:bg-surface-page"
           >
             Cancel
           </Button>

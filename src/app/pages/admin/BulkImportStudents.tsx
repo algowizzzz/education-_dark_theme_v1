@@ -140,13 +140,13 @@ export default function BulkImportStudents() {
           <Button
             variant="ghost"
             onClick={() => navigate('/admin/students')}
-            className="mb-4 text-[#4A4A4A] hover:text-[#1A1A1A]"
+            className="mb-4 text-text-label hover:text-text-heading"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Students
           </Button>
           <h1 className="text-2xl mb-2">Bulk Import Students</h1>
-          <p className="text-[#757575]">Add multiple students at once manually or via CSV upload</p>
+          <p className="text-text-body">Add multiple students at once manually or via CSV upload</p>
         </div>
 
         {/* Import Mode Toggle */}
@@ -154,7 +154,7 @@ export default function BulkImportStudents() {
           <Button
             variant={importMode === 'manual' ? 'default' : 'outline'}
             onClick={() => setImportMode('manual')}
-            className={importMode === 'manual' ? 'bg-[#333333] text-white' : 'border-[#D0D0D0]'}
+            className={importMode === 'manual' ? 'bg-brand text-white' : 'border-border-default'}
           >
             <Plus className="w-4 h-4 mr-2" />
             Manual Entry
@@ -162,7 +162,7 @@ export default function BulkImportStudents() {
           <Button
             variant={importMode === 'csv' ? 'default' : 'outline'}
             onClick={() => setImportMode('csv')}
-            className={importMode === 'csv' ? 'bg-[#333333] text-white' : 'border-[#D0D0D0]'}
+            className={importMode === 'csv' ? 'bg-brand text-white' : 'border-border-default'}
           >
             <FileSpreadsheet className="w-4 h-4 mr-2" />
             CSV Import
@@ -171,17 +171,17 @@ export default function BulkImportStudents() {
 
         {/* CSV Import Mode */}
         {importMode === 'csv' && (
-          <Card className="border-[#D0D0D0] mb-6">
+          <Card className="border-border-default mb-6">
             <CardHeader>
               <CardTitle className="text-lg">Import from CSV</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <div className="p-4 bg-[#F5F5F5] rounded-lg">
-                  <p className="text-sm text-[#4A4A4A] mb-2">
+                <div className="p-4 bg-surface-page rounded-lg">
+                  <p className="text-sm text-text-label mb-2">
                     <strong>CSV Format:</strong> First Name, Last Name, Grade, Teacher ID
                   </p>
-                  <p className="text-xs text-[#757575]">
+                  <p className="text-xs text-text-body">
                     Example: John,Smith,4,1
                   </p>
                 </div>
@@ -193,10 +193,10 @@ export default function BulkImportStudents() {
                     placeholder="FirstName,LastName,Grade,TeacherID
 John,Smith,4,1
 Jane,Doe,3,2"
-                    className="w-full h-40 mt-2 p-3 border border-[#D0D0D0] rounded-lg text-sm font-mono"
+                    className="w-full h-40 mt-2 p-3 border border-border-default rounded-lg text-sm font-mono"
                   />
                 </div>
-                <Button onClick={handleCSVParse} className="bg-[#333333] text-white">
+                <Button onClick={handleCSVParse} className="bg-brand text-white">
                   <Upload className="w-4 h-4 mr-2" />
                   Parse CSV Data
                 </Button>
@@ -207,7 +207,7 @@ Jane,Doe,3,2"
 
         {/* Manual Entry Mode */}
         {importMode === 'manual' && (
-          <Card className="border-[#D0D0D0] mb-6">
+          <Card className="border-border-default mb-6">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <CardTitle className="text-lg">Student Entries ({students.length})</CardTitle>
@@ -215,7 +215,7 @@ Jane,Doe,3,2"
                   variant="outline"
                   size="sm"
                   onClick={addStudentRow}
-                  className="border-[#D0D0D0]"
+                  className="border-border-default"
                 >
                   <Plus className="w-4 h-4 mr-1" />
                   Add Row
@@ -224,13 +224,13 @@ Jane,Doe,3,2"
             </CardHeader>
             <CardContent>
               {validationResults && (
-                <div className="mb-4 p-3 rounded-lg flex items-center gap-4 bg-[#F5F5F5]">
-                  <div className="flex items-center gap-2 text-green-600">
+                <div className="mb-4 p-3 rounded-lg flex items-center gap-4 bg-surface-page">
+                  <div className="flex items-center gap-2 text-status-success">
                     <CheckCircle className="w-4 h-4" />
                     <span className="text-sm">{validationResults.valid} valid</span>
                   </div>
                   {validationResults.invalid > 0 && (
-                    <div className="flex items-center gap-2 text-red-600">
+                    <div className="flex items-center gap-2 text-status-error">
                       <AlertCircle className="w-4 h-4" />
                       <span className="text-sm">{validationResults.invalid} with errors</span>
                     </div>
@@ -251,7 +251,7 @@ Jane,Doe,3,2"
                   </TableHeader>
                   <TableBody>
                     {students.map((student) => (
-                      <TableRow key={student.id} className={student.errors?.length ? 'bg-red-50' : ''}>
+                      <TableRow key={student.id} className={student.errors?.length ? 'bg-status-error-soft' : ''}>
                         <TableCell>
                           <Input
                             value={student.firstName}
@@ -309,7 +309,7 @@ Jane,Doe,3,2"
                             size="sm"
                             onClick={() => removeStudentRow(student.id)}
                             disabled={students.length === 1}
-                            className="text-[#757575] hover:text-red-600"
+                            className="text-text-body hover:text-status-error"
                           >
                             <Trash2 className="w-4 h-4" />
                           </Button>
@@ -324,7 +324,7 @@ Jane,Doe,3,2"
                 <Button
                   variant="outline"
                   onClick={addStudentRow}
-                  className="border-dashed border-[#D0D0D0]"
+                  className="border-dashed border-border-default"
                 >
                   <Plus className="w-4 h-4 mr-2" />
                   Add Another Student
@@ -339,14 +339,14 @@ Jane,Doe,3,2"
           <Button
             variant="outline"
             onClick={() => navigate('/admin/students')}
-            className="border-[#D0D0D0]"
+            className="border-border-default"
           >
             Cancel
           </Button>
           <Button
             onClick={handleSubmit}
             disabled={students.length === 0}
-            className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+            className="bg-brand hover:bg-brand-dark text-white shadow-sm"
           >
             Import {students.length} Student{students.length > 1 ? 's' : ''}
           </Button>

@@ -58,51 +58,51 @@ export default function AssignStudentToTeacher() {
           <Button
             variant="ghost"
             onClick={() => navigate('/admin/students')}
-            className="mb-4 text-[#4A4A4A] hover:text-[#1A1A1A]"
+            className="mb-4 text-text-label hover:text-text-heading"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Students
           </Button>
           <h1 className="text-2xl mb-2">Assign Student to Teacher</h1>
-          <p className="text-[#757575]">Select a teacher to assign to {student.name}</p>
+          <p className="text-text-body">Select a teacher to assign to {student.name}</p>
         </div>
 
         {/* Student Info Card */}
-        <Card className="border-[#D0D0D0] mb-6">
+        <Card className="border-border-default mb-6">
           <CardHeader className="pb-3">
             <CardTitle className="text-lg">Student Information</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <Label className="text-sm text-[#757575]">Name</Label>
-                <p className="text-[#1A1A1A]">{student.name}</p>
+                <Label className="text-sm text-text-body">Name</Label>
+                <p className="text-text-heading">{student.name}</p>
               </div>
               <div>
-                <Label className="text-sm text-[#757575]">Student ID</Label>
-                <p className="text-[#1A1A1A]">{student.id}</p>
+                <Label className="text-sm text-text-body">Student ID</Label>
+                <p className="text-text-heading">{student.id}</p>
               </div>
               <div>
-                <Label className="text-sm text-[#757575]">Grade</Label>
-                <p className="text-[#1A1A1A]">Grade {student.grade}</p>
+                <Label className="text-sm text-text-body">Grade</Label>
+                <p className="text-text-heading">Grade {student.grade}</p>
               </div>
               <div>
-                <Label className="text-sm text-[#757575]">Current Teacher</Label>
-                <p className="text-[#1A1A1A]">{student.primaryTeacher}</p>
+                <Label className="text-sm text-text-body">Current Teacher</Label>
+                <p className="text-text-heading">{student.primaryTeacher}</p>
               </div>
             </div>
           </CardContent>
         </Card>
 
         {/* Teacher Selection */}
-        <Card className="border-[#D0D0D0]">
+        <Card className="border-border-default">
           <CardHeader className="pb-3">
             <CardTitle className="text-lg">Select Teacher</CardTitle>
           </CardHeader>
           <CardContent>
             {/* Search */}
             <div className="relative mb-4">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-[#757575]" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-text-body" />
               <Input
                 type="text"
                 placeholder="Search teachers..."
@@ -120,17 +120,17 @@ export default function AssignStudentToTeacher() {
                   onClick={() => setSelectedTeacher(teacher.id)}
                   className={`p-4 border rounded-lg cursor-pointer transition-colors ${
                     selectedTeacher === teacher.id
-                      ? 'border-[#1A1A1A] bg-[#F5F5F5]'
-                      : 'border-[#D0D0D0] hover:border-[#9E9E9E]'
+                      ? 'border-brand-dark bg-surface-page'
+                      : 'border-border-default hover:border-border-strong'
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="font-medium text-[#1A1A1A]">{teacher.name}</p>
-                      <p className="text-sm text-[#757575]">{teacher.role}</p>
+                      <p className="font-medium text-text-heading">{teacher.name}</p>
+                      <p className="text-sm text-text-body">{teacher.role}</p>
                     </div>
                     {selectedTeacher === teacher.id && (
-                      <div className="w-6 h-6 rounded-full bg-[#1A1A1A] flex items-center justify-center">
+                      <div className="w-6 h-6 rounded-full bg-brand-dark flex items-center justify-center">
                         <Check className="w-4 h-4 text-white" />
                       </div>
                     )}
@@ -140,7 +140,7 @@ export default function AssignStudentToTeacher() {
             </div>
 
             {filteredTeachers.length === 0 && (
-              <p className="text-center text-[#757575] py-8">No teachers found</p>
+              <p className="text-center text-text-body py-8">No teachers found</p>
             )}
           </CardContent>
         </Card>
@@ -150,14 +150,14 @@ export default function AssignStudentToTeacher() {
           <Button
             variant="outline"
             onClick={() => navigate('/admin/students')}
-            className="border-[#D0D0D0]"
+            className="border-border-default"
           >
             Cancel
           </Button>
           <Button
             onClick={handleAssign}
             disabled={!selectedTeacher}
-            className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+            className="bg-brand hover:bg-brand-dark text-white shadow-sm"
           >
             Assign Teacher
           </Button>

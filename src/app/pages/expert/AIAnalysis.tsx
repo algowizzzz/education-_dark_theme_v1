@@ -137,7 +137,7 @@ export default function AIAnalysis() {
           <div className="flex items-start justify-between">
             <div>
               <h1 className="text-2xl mb-1">AI Pattern Analysis</h1>
-              <p className="text-[#757575]">{studentData.name} - {studentData.grade} Grade</p>
+              <p className="text-text-body">{studentData.name} - {studentData.grade} Grade</p>
             </div>
             <div className="flex gap-2">
               <Button variant="outline">
@@ -153,7 +153,7 @@ export default function AIAnalysis() {
         </div>
 
         {applied && (
-          <Alert className="mb-6 bg-[#F5F5F5]">
+          <Alert className="mb-6 bg-surface-page">
             <CheckCircle2 className="h-4 w-4" />
             <AlertDescription>
               Recommendations have been applied to {studentData.name}'s profile. Teachers will be notified of the updates.
@@ -162,21 +162,21 @@ export default function AIAnalysis() {
         )}
 
         {/* Analysis Period */}
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardContent className="py-4">
             <div className="flex items-center justify-between">
-              <p className="text-sm text-[#757575]">
-                Analysis Period: <span className="text-[#1A1A1A]">Last 30 Days</span> | 
-                Total Incidents: <span className="text-[#1A1A1A]">20</span> | 
-                Last Updated: <span className="text-[#1A1A1A]">Today at 9:00 AM</span>
+              <p className="text-sm text-text-body">
+                Analysis Period: <span className="text-text-heading">Last 30 Days</span> | 
+                Total Incidents: <span className="text-text-heading">20</span> | 
+                Last Updated: <span className="text-text-heading">Today at 9:00 AM</span>
               </p>
             </div>
           </CardContent>
         </Card>
 
         {/* Trigger Correlation Analysis */}
-        <Card className="mb-6 border-[#D0D0D0]">
-          <CardHeader className="bg-[#F5F5F5]">
+        <Card className="mb-6 border-border-default">
+          <CardHeader className="bg-surface-page">
             <CardTitle>Trigger Correlation Analysis</CardTitle>
           </CardHeader>
           <CardContent className="pt-6">
@@ -188,17 +188,17 @@ export default function AIAnalysis() {
                       <div className="flex items-center gap-2 mb-1">
                         <p className="text-sm">{item.trigger}</p>
                         {item.trend === 'up' && (
-                          <TrendingUp className="h-4 w-4 text-[#1A1A1A]" />
+                          <TrendingUp className="h-4 w-4 text-text-heading" />
                         )}
                         {item.trend === 'down' && (
-                          <TrendingDown className="h-4 w-4 text-[#757575]" />
+                          <TrendingDown className="h-4 w-4 text-text-body" />
                         )}
                       </div>
-                      <p className="text-xs text-[#757575]">{item.timePattern}</p>
+                      <p className="text-xs text-text-body">{item.timePattern}</p>
                     </div>
                     <div className="text-right">
                       <p className="text-sm">{item.percentage}%</p>
-                      <p className="text-xs text-[#757575]">{item.incidents} incidents</p>
+                      <p className="text-xs text-text-body">{item.incidents} incidents</p>
                     </div>
                   </div>
                   <Progress value={item.percentage} className="h-2" />
@@ -209,8 +209,8 @@ export default function AIAnalysis() {
         </Card>
 
         {/* Strategy Effectiveness */}
-        <Card className="mb-6 border-[#D0D0D0]">
-          <CardHeader className="bg-[#F5F5F5]">
+        <Card className="mb-6 border-border-default">
+          <CardHeader className="bg-surface-page">
             <CardTitle>Strategy Effectiveness</CardTitle>
           </CardHeader>
           <CardContent className="pt-6">
@@ -222,24 +222,24 @@ export default function AIAnalysis() {
                       <div className="flex items-center gap-2 mb-1">
                         <p className="text-sm">{item.strategy}</p>
                         {item.trend === 'up' && (
-                          <TrendingUp className="h-4 w-4 text-[#1A1A1A]" />
+                          <TrendingUp className="h-4 w-4 text-text-heading" />
                         )}
                         {item.trend === 'down' && (
-                          <TrendingDown className="h-4 w-4 text-[#757575]" />
+                          <TrendingDown className="h-4 w-4 text-text-body" />
                         )}
                         {item.successRate >= 80 && (
-                          <Badge variant="secondary" className="bg-[#1A1A1A] text-white text-xs">
+                          <Badge variant="secondary" className="bg-brand-dark text-white text-xs">
                             Highly Effective
                           </Badge>
                         )}
                       </div>
-                      <p className="text-xs text-[#757575]">
+                      <p className="text-xs text-text-body">
                         Used {item.timesUsed} times | Avg. Duration: {item.avgDuration}
                       </p>
                     </div>
                     <div className="text-right">
                       <p className="text-sm">{item.successRate}%</p>
-                      <p className="text-xs text-[#757575]">success rate</p>
+                      <p className="text-xs text-text-body">success rate</p>
                     </div>
                   </div>
                   <Progress value={item.successRate} className="h-2" />
@@ -250,8 +250,8 @@ export default function AIAnalysis() {
         </Card>
 
         {/* AI Recommendations */}
-        <Card className="mb-6 border-[#D0D0D0]">
-          <CardHeader className="bg-[#F5F5F5]">
+        <Card className="mb-6 border-border-default">
+          <CardHeader className="bg-surface-page">
             <div className="flex items-center justify-between">
               <CardTitle className="flex items-center gap-2">
                 <Lightbulb className="h-5 w-5" />
@@ -260,7 +260,7 @@ export default function AIAnalysis() {
               <Button
                 onClick={handleApplyRecommendations}
                 disabled={isApplying || applied}
-                className="bg-[#333333] hover:bg-[#4A4A4A]"
+                className="bg-brand hover:bg-brand-dark"
               >
                 {isApplying ? 'Applying...' : applied ? 'Applied' : 'Apply Recommendations to Profile'}
               </Button>
@@ -271,7 +271,7 @@ export default function AIAnalysis() {
               {recommendations.map((rec) => (
                 <div
                   key={rec.id}
-                  className="p-4 border border-[#D0D0D0] rounded-lg"
+                  className="p-4 border border-border-default rounded-lg"
                 >
                   <div className="flex items-start justify-between mb-2">
                     <h4 className="text-sm">{rec.title}</h4>
@@ -280,10 +280,10 @@ export default function AIAnalysis() {
                         variant="secondary"
                         className={`text-xs ${
                           rec.priority === 'high'
-                            ? 'bg-[#1A1A1A] text-white'
+                            ? 'bg-badge-medium text-white'
                             : rec.priority === 'medium'
-                            ? 'bg-[#757575] text-white'
-                            : 'bg-[#D0D0D0] text-[#1A1A1A]'
+                            ? 'bg-badge-medium text-white'
+                            : 'bg-border-default text-text-heading'
                         }`}
                       >
                         {rec.priority.toUpperCase()}
@@ -293,7 +293,7 @@ export default function AIAnalysis() {
                       </Badge>
                     </div>
                   </div>
-                  <p className="text-sm text-[#4A4A4A] leading-relaxed">
+                  <p className="text-sm text-text-label leading-relaxed">
                     {rec.rationale}
                   </p>
                 </div>
@@ -303,9 +303,9 @@ export default function AIAnalysis() {
         </Card>
 
         {/* Data Insights */}
-        <Card className="border-[#D0D0D0] bg-[#F5F5F5]">
+        <Card className="border-border-default bg-surface-page">
           <CardContent className="py-4">
-            <p className="text-sm text-[#4A4A4A]">
+            <p className="text-sm text-text-label">
               <strong>About This Analysis:</strong> AI recommendations are generated using pattern
               recognition across incident data, strategy outcomes, and temporal correlations. Always
               use professional judgment when implementing suggested changes.

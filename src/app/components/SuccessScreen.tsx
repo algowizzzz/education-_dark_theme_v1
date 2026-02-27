@@ -28,23 +28,23 @@ export function SuccessScreen({
   details,
 }: SuccessScreenProps) {
   return (
-    <div className="min-h-screen bg-[#F5F5F5] flex items-center justify-center p-4">
-      <Card className="max-w-lg w-full p-8 border-[#D0D0D0] bg-white text-center">
+    <div className="min-h-screen bg-surface-page flex items-center justify-center p-4">
+      <Card className="max-w-lg w-full p-8 border-border-default bg-surface-card text-center">
         <div className="flex justify-center mb-6">
-          <div className="rounded-full bg-[#E0E0E0] p-4">
-            <CheckCircle className="w-16 h-16 text-[#333333]" />
+          <div className="rounded-full bg-surface-elevated p-4">
+            <CheckCircle className="w-16 h-16 text-text-heading" />
           </div>
         </div>
         
-        <h1 className="text-2xl font-bold text-[#1A1A1A] mb-4">{title}</h1>
-        <p className="text-[#4A4A4A] mb-6">{message}</p>
+        <h1 className="text-2xl font-bold text-text-heading mb-4">{title}</h1>
+        <p className="text-text-label mb-6">{message}</p>
 
         {details && details.length > 0 && (
-          <div className="bg-[#F5F5F5] rounded-lg p-4 mb-6 space-y-2">
+          <div className="bg-surface-page rounded-lg p-4 mb-6 space-y-2">
             {details.map((detail, index) => (
               <div key={index} className="flex justify-between items-center">
-                <span className="text-sm text-[#757575]">{detail.label}:</span>
-                <span className="text-sm font-medium text-[#1A1A1A]">{detail.value}</span>
+                <span className="text-sm text-text-body">{detail.label}:</span>
+                <span className="text-sm font-medium text-text-heading">{detail.value}</span>
               </div>
             ))}
           </div>
@@ -54,7 +54,7 @@ export function SuccessScreen({
           {primaryAction && (
             <Button
               asChild
-              className="bg-[#333333] hover:bg-[#1A1A1A] text-white w-full"
+              className="bg-brand hover:bg-brand-dark text-white w-full"
             >
               <Link to={primaryAction.to}>{primaryAction.label}</Link>
             </Button>
@@ -63,7 +63,7 @@ export function SuccessScreen({
             <Button
               asChild
               variant="outline"
-              className="border-[#D0D0D0] text-[#333333] hover:bg-[#F5F5F5] w-full"
+              className="border-border-default text-text-heading hover:bg-surface-page w-full"
             >
               <Link to={secondaryAction.to}>{secondaryAction.label}</Link>
             </Button>

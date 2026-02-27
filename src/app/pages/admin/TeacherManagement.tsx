@@ -141,44 +141,44 @@ export default function TeacherManagement() {
       <div className="p-6 max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-6">
-          <h1 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-2">Teacher Management</h1>
-          <p className="text-sm md:text-base text-[#757575]">Manage teacher accounts, assignments, and access permissions</p>
+          <h1 className="text-2xl md:text-3xl font-bold text-text-heading mb-2">Teacher Management</h1>
+          <p className="text-sm md:text-base text-text-body">Manage teacher accounts, assignments, and access permissions</p>
         </div>
 
         {/* Stats Cards */}
         <div className="grid grid-cols-3 gap-2 md:gap-4 mb-6">
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-[#757575]">Total Teachers</p>
+                  <p className="text-sm text-text-body">Total Teachers</p>
                   <p className="text-2xl">{teachers.length}</p>
                 </div>
-                <UserCheck className="h-8 w-8 text-[#757575]" />
+                <UserCheck className="h-8 w-8 text-text-body" />
               </div>
             </CardContent>
           </Card>
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-[#757575]">Active</p>
+                  <p className="text-sm text-text-body">Active</p>
                   <p className="text-2xl">{teachers.filter(t => t.status === 'Active').length}</p>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-[#1A1A1A] flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-brand-dark flex items-center justify-center">
                   <UserCheck className="h-6 w-6 text-white" />
                 </div>
               </div>
             </CardContent>
           </Card>
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-[#757575]">Inactive</p>
+                  <p className="text-sm text-text-body">Inactive</p>
                   <p className="text-2xl">{teachers.filter(t => t.status === 'Inactive').length}</p>
                 </div>
-                <UserX className="h-8 w-8 text-[#757575]" />
+                <UserX className="h-8 w-8 text-text-body" />
               </div>
             </CardContent>
           </Card>
@@ -187,7 +187,7 @@ export default function TeacherManagement() {
         {/* Actions Bar */}
         <div className="flex flex-col md:flex-row gap-3 mb-6">
           <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-[#757575]" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-text-body" />
             <Input
               type="text"
               placeholder="Search by name or email..."
@@ -210,14 +210,14 @@ export default function TeacherManagement() {
             <Button
               variant="outline"
               onClick={() => navigate('/admin/teachers/bulk-import')}
-              className="border-[#D0D0D0]"
+              className="border-border-default"
             >
               <Upload className="h-4 w-4 md:mr-2" />
               <span className="hidden md:inline">Bulk Import</span>
             </Button>
             <Button
               onClick={() => navigate('/admin/teachers/new')}
-              className="bg-[#333333] hover:bg-[#4A4A4A]"
+              className="bg-brand hover:bg-brand-dark"
             >
               <Plus className="h-4 w-4 md:mr-2" />
               <span className="hidden md:inline">Add Teacher</span>
@@ -229,16 +229,16 @@ export default function TeacherManagement() {
         {/* Mobile Card View */}
         <div className="md:hidden space-y-3">
           {filteredTeachers.map((teacher) => (
-            <Card key={teacher.id} className="border-[#D0D0D0]">
+            <Card key={teacher.id} className="border-border-default">
               <CardContent className="p-4">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 rounded-full bg-[#E0E0E0] flex items-center justify-center flex-shrink-0">
-                      <User className="w-5 h-5 text-[#757575]" />
+                    <div className="w-10 h-10 rounded-full bg-surface-elevated flex items-center justify-center flex-shrink-0">
+                      <User className="w-5 h-5 text-text-body" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-[#1A1A1A]">{teacher.name}</h3>
-                      <p className="text-sm text-[#757575]">{teacher.role}</p>
+                      <h3 className="font-semibold text-text-heading">{teacher.name}</h3>
+                      <p className="text-sm text-text-body">{teacher.role}</p>
                     </div>
                   </div>
                   <DropdownMenu>
@@ -266,9 +266,9 @@ export default function TeacherManagement() {
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </div>
-                <div className="mt-3 pt-3 border-t border-[#E0E0E0] flex items-center justify-between text-sm">
-                  <span className="text-[#757575] truncate max-w-[200px]">{teacher.email}</span>
-                  <Badge className={teacher.status === 'Active' ? 'bg-[#333333] text-white' : 'bg-[#9E9E9E] text-white'}>
+                <div className="mt-3 pt-3 border-t border-border-light flex items-center justify-between text-sm">
+                  <span className="text-text-body truncate max-w-[200px]">{teacher.email}</span>
+                  <Badge className={teacher.status === 'Active' ? 'bg-badge-high text-white' : 'bg-badge-medium text-white'}>
                     {teacher.status}
                   </Badge>
                 </div>
@@ -278,11 +278,11 @@ export default function TeacherManagement() {
         </div>
 
         {/* Desktop Table View */}
-        <Card className="border-[#D0D0D0] hidden md:block">
+        <Card className="border-border-default hidden md:block">
           <CardContent className="p-0">
             <Table>
               <TableHeader>
-                <TableRow className="bg-[#F5F5F5]">
+                <TableRow className="bg-surface-page">
                   <TableHead>Name</TableHead>
                   <TableHead>Role</TableHead>
                   <TableHead className="w-[80px]">Actions</TableHead>
@@ -294,7 +294,7 @@ export default function TeacherManagement() {
                     <TableCell>
                       <div>
                         <p className="text-sm">{teacher.name}</p>
-                        <p className="text-xs text-[#757575]">{teacher.email}</p>
+                        <p className="text-xs text-text-body">{teacher.email}</p>
                       </div>
                     </TableCell>
                     <TableCell className="text-sm">{teacher.role}</TableCell>
@@ -332,9 +332,9 @@ export default function TeacherManagement() {
         </Card>
 
         {filteredTeachers.length === 0 && (
-          <Card className="border-[#D0D0D0] mt-4">
+          <Card className="border-border-default mt-4">
             <CardContent className="py-12 text-center">
-              <p className="text-[#757575]">No teachers found matching your criteria</p>
+              <p className="text-text-body">No teachers found matching your criteria</p>
             </CardContent>
           </Card>
         )}
@@ -344,50 +344,50 @@ export default function TeacherManagement() {
       <Dialog open={resetPasswordOpen} onOpenChange={setResetPasswordOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle className="text-[#1A1A1A]">Reset Password</DialogTitle>
+            <DialogTitle className="text-text-heading">Reset Password</DialogTitle>
           </DialogHeader>
           <div className="space-y-4 py-4">
-            <div className="bg-[#F5F5F5] p-3 rounded-lg">
-              <p className="text-sm text-[#757575]">Account</p>
-              <p className="text-[#1A1A1A] font-medium">{selectedTeacher?.name}</p>
-              <p className="text-sm text-[#757575]">{selectedTeacher?.email}</p>
+            <div className="bg-surface-page p-3 rounded-lg">
+              <p className="text-sm text-text-body">Account</p>
+              <p className="text-text-heading font-medium">{selectedTeacher?.name}</p>
+              <p className="text-sm text-text-body">{selectedTeacher?.email}</p>
             </div>
             <div>
-              <Label htmlFor="newPassword" className="text-[#4A4A4A]">New Password</Label>
+              <Label htmlFor="newPassword" className="text-text-label">New Password</Label>
               <div className="relative mt-1">
                 <Input
                   id="newPassword"
                   type={showPassword ? 'text' : 'password'}
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
-                  className="border-[#D0D0D0] pr-10"
+                  className="border-border-default pr-10"
                   placeholder="Enter new password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#757575] hover:text-[#1A1A1A]"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-text-body hover:text-text-heading"
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
-              <p className="text-xs text-[#757575] mt-1">Minimum 8 characters</p>
+              <p className="text-xs text-text-body mt-1">Minimum 8 characters</p>
             </div>
             <div>
-              <Label htmlFor="confirmPassword" className="text-[#4A4A4A]">Confirm Password</Label>
+              <Label htmlFor="confirmPassword" className="text-text-label">Confirm Password</Label>
               <div className="relative mt-1">
                 <Input
                   id="confirmPassword"
                   type={showConfirmPassword ? 'text' : 'password'}
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
-                  className="border-[#D0D0D0] pr-10"
+                  className="border-border-default pr-10"
                   placeholder="Confirm new password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#757575] hover:text-[#1A1A1A]"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-text-body hover:text-text-heading"
                 >
                   {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -398,13 +398,13 @@ export default function TeacherManagement() {
             <Button
               variant="outline"
               onClick={() => setResetPasswordOpen(false)}
-              className="border-[#9E9E9E] text-[#333333]"
+              className="border-border-strong text-text-heading"
             >
               Cancel
             </Button>
             <Button
               onClick={handleSubmitResetPassword}
-              className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+              className="bg-brand hover:bg-brand-dark text-white shadow-sm"
             >
               Reset Password
             </Button>
@@ -416,12 +416,12 @@ export default function TeacherManagement() {
       <Dialog open={deactivateOpen} onOpenChange={setDeactivateOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle className="text-[#1A1A1A]">
+            <DialogTitle className="text-text-heading">
               {teacherToDeactivate?.status === 'Active' ? 'Deactivate' : 'Reactivate'} Account
             </DialogTitle>
           </DialogHeader>
           <div className="py-4">
-            <p className="text-[#4A4A4A]">
+            <p className="text-text-label">
               {teacherToDeactivate?.status === 'Active'
                 ? `Are you sure you want to deactivate ${teacherToDeactivate?.name}'s account? They will no longer be able to access the teacher portal.`
                 : `Are you sure you want to reactivate ${teacherToDeactivate?.name}'s account? They will regain access to the teacher portal.`}
@@ -431,13 +431,13 @@ export default function TeacherManagement() {
             <Button
               variant="outline"
               onClick={() => setDeactivateOpen(false)}
-              className="border-[#9E9E9E] text-[#333333]"
+              className="border-border-strong text-text-heading"
             >
               Cancel
             </Button>
             <Button
               onClick={handleConfirmDeactivate}
-              className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+              className="bg-brand hover:bg-brand-dark text-white shadow-sm"
             >
               {teacherToDeactivate?.status === 'Active' ? 'Deactivate' : 'Reactivate'}
             </Button>

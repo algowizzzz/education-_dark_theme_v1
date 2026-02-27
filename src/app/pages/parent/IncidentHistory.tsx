@@ -104,9 +104,9 @@ export default function IncidentHistory() {
 
   const getSeverityBadge = (severity: Incident['severity']) => {
     const styles = {
-      low: 'border-[#9E9E9E] text-[#757575]',
-      medium: 'border-[#4A4A4A] text-[#1A1A1A]',
-      high: 'border-[#333333] text-[#333333] bg-[#F5F5F5]'
+      low: 'border-border-strong text-text-body',
+      medium: 'border-brand-dark text-text-heading',
+      high: 'border-brand text-text-heading bg-surface-page'
     };
     return (
       <Badge variant="outline" className={styles[severity]}>
@@ -121,8 +121,8 @@ export default function IncidentHistory() {
       new: 'Expert Support'
     };
     const styles = {
-      acknowledged: 'border-[#9E9E9E] text-[#4A4A4A]',
-      new: 'border-[#333333] text-[#333333] bg-[#F5F5F5]'
+      acknowledged: 'border-border-strong text-text-label',
+      new: 'border-brand text-text-heading bg-surface-page'
     };
     return (
       <Badge variant="outline" className={styles[status]}>
@@ -134,14 +134,14 @@ export default function IncidentHistory() {
   return (
     <ParentLayout>
       <div className="max-w-4xl">
-        <Link to={`/parent/children/${id}`} className="inline-flex items-center gap-2 text-[#4A4A4A] hover:text-[#1A1A1A] mb-6">
+        <Link to={`/parent/children/${id}`} className="inline-flex items-center gap-2 text-text-label hover:text-text-heading mb-6">
           <ArrowLeft className="w-4 h-4" />
           Back to {childName}'s Profile
         </Link>
 
         <div className="mb-6">
-          <h1 className="text-2xl text-[#1A1A1A] mb-2">Incident History</h1>
-          <p className="text-[#757575]">{childName}</p>
+          <h1 className="text-2xl text-text-heading mb-2">Incident History</h1>
+          <p className="text-text-body">{childName}</p>
         </div>
 
         {/* Time Range Selector */}
@@ -151,8 +151,8 @@ export default function IncidentHistory() {
             variant={timeRange === 'week' ? 'default' : 'outline'}
             className={
               timeRange === 'week'
-                ? 'bg-[#333333] hover:bg-[#1A1A1A] text-white'
-                : 'border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]'
+                ? 'bg-brand hover:bg-brand-dark text-white'
+                : 'border-border-strong text-text-heading hover:bg-surface-page'
             }
           >
             This Week
@@ -162,8 +162,8 @@ export default function IncidentHistory() {
             variant={timeRange === 'month' ? 'default' : 'outline'}
             className={
               timeRange === 'month'
-                ? 'bg-[#333333] hover:bg-[#1A1A1A] text-white'
-                : 'border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]'
+                ? 'bg-brand hover:bg-brand-dark text-white'
+                : 'border-border-strong text-text-heading hover:bg-surface-page'
             }
           >
             This Month
@@ -173,8 +173,8 @@ export default function IncidentHistory() {
             variant={timeRange === 'quarter' ? 'default' : 'outline'}
             className={
               timeRange === 'quarter'
-                ? 'bg-[#333333] hover:bg-[#1A1A1A] text-white'
-                : 'border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]'
+                ? 'bg-brand hover:bg-brand-dark text-white'
+                : 'border-border-strong text-text-heading hover:bg-surface-page'
             }
           >
             This Quarter
@@ -184,8 +184,8 @@ export default function IncidentHistory() {
             variant={timeRange === 'year' ? 'default' : 'outline'}
             className={
               timeRange === 'year'
-                ? 'bg-[#333333] hover:bg-[#1A1A1A] text-white'
-                : 'border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]'
+                ? 'bg-brand hover:bg-brand-dark text-white'
+                : 'border-border-strong text-text-heading hover:bg-surface-page'
             }
           >
             This Year
@@ -194,39 +194,39 @@ export default function IncidentHistory() {
 
         {/* Summary Stats */}
         <div className="grid grid-cols-4 gap-4 mb-6">
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="p-4">
-              <div className="text-sm text-[#757575] mb-1">Total Incidents</div>
-              <div className="text-2xl font-semibold text-[#1A1A1A]">
+              <div className="text-sm text-text-body mb-1">Total Incidents</div>
+              <div className="text-2xl font-semibold text-text-heading">
                 {stats.total}
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="p-4">
-              <div className="text-sm text-[#757575] mb-1">This Month</div>
-              <div className="text-2xl font-semibold text-[#1A1A1A]">
+              <div className="text-sm text-text-body mb-1">This Month</div>
+              <div className="text-2xl font-semibold text-text-heading">
                 {stats.thisMonth}
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="p-4">
-              <div className="text-sm text-[#757575] mb-1">Expert Support</div>
-              <div className="text-2xl font-semibold text-[#1A1A1A]">
+              <div className="text-sm text-text-body mb-1">Expert Support</div>
+              <div className="text-2xl font-semibold text-text-heading">
                 {stats.escalated}
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="p-4">
-              <div className="text-sm text-[#757575] mb-1">Trend</div>
+              <div className="text-sm text-text-body mb-1">Trend</div>
               <div className="flex items-center gap-1">
-                <TrendingDown className="w-5 h-5 text-[#4A4A4A]" />
-                <span className="text-2xl font-semibold text-[#1A1A1A]">
+                <TrendingDown className="w-5 h-5 text-text-label" />
+                <span className="text-2xl font-semibold text-text-heading">
                   {Math.abs(stats.trend)}%
                 </span>
               </div>
@@ -235,9 +235,9 @@ export default function IncidentHistory() {
         </div>
 
         {/* Timeline */}
-        <Card className="border-[#D0D0D0]">
+        <Card className="border-border-default">
           <CardHeader>
-            <CardTitle className="text-lg text-[#1A1A1A] flex items-center gap-2">
+            <CardTitle className="text-lg text-text-heading flex items-center gap-2">
               <Calendar className="w-5 h-5" />
               Incident Timeline
             </CardTitle>
@@ -248,7 +248,7 @@ export default function IncidentHistory() {
                 <div key={incident.id} className="relative">
                   {/* Timeline Line */}
                   {index < incidents.length - 1 && (
-                    <div className="absolute left-6 top-12 bottom-0 w-px bg-[#D0D0D0]" />
+                    <div className="absolute left-6 top-12 bottom-0 w-px bg-border-default" />
                   )}
 
                   <div className="flex gap-4">
@@ -256,24 +256,24 @@ export default function IncidentHistory() {
                     <div className="flex flex-col items-center">
                       <div className={`w-12 h-12 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
                         incident.status === 'new' 
-                          ? 'border-[#333333] bg-[#333333]' 
-                          : 'border-[#D0D0D0] bg-white'
+                          ? 'border-brand bg-brand' 
+                          : 'border-border-default bg-surface-card'
                       }`}>
                         <AlertCircle className={`w-6 h-6 ${
-                          incident.status === 'new' ? 'text-white' : 'text-[#757575]'
+                          incident.status === 'new' ? 'text-white' : 'text-text-body'
                         }`} />
                       </div>
                     </div>
 
                     {/* Incident Content */}
                     <div className="flex-1 pb-8">
-                      <div className="p-4 bg-[#F5F5F5] rounded-lg border border-[#E0E0E0]">
+                      <div className="p-4 bg-surface-page rounded-lg border border-border-light">
                         <div className="flex items-start justify-between mb-2">
                           <div>
-                            <h3 className="font-medium text-[#1A1A1A] mb-1">
+                            <h3 className="font-medium text-text-heading mb-1">
                               {incident.type}
                             </h3>
-                            <div className="flex items-center gap-2 text-sm text-[#757575] mb-2">
+                            <div className="flex items-center gap-2 text-sm text-text-body mb-2">
                               <Clock className="w-4 h-4" />
                               <span>{incident.date} at {incident.time}</span>
                             </div>
@@ -284,19 +284,19 @@ export default function IncidentHistory() {
                           </div>
                         </div>
 
-                        <p className="text-sm text-[#4A4A4A] mb-3">
+                        <p className="text-sm text-text-label mb-3">
                           {incident.description}
                         </p>
 
-                        <div className="flex items-center justify-between pt-3 border-t border-[#D0D0D0]">
-                          <div className="text-sm text-[#757575]">
-                            <span className="font-medium text-[#1A1A1A]">{incident.teacher}</span>
+                        <div className="flex items-center justify-between pt-3 border-t border-border-default">
+                          <div className="text-sm text-text-body">
+                            <span className="font-medium text-text-heading">{incident.teacher}</span>
                             <span className="mx-2">•</span>
                             <span>{incident.location}</span>
                           </div>
                           <Link 
                             to={`/parent/children/${id}/incidents/${incident.id}`}
-                            className="inline-flex items-center gap-1 text-sm text-[#333333] hover:text-[#1A1A1A] underline"
+                            className="inline-flex items-center gap-1 text-sm text-text-heading hover:text-text-heading underline"
                           >
                             View Details
                             <ArrowRight className="w-4 h-4" />

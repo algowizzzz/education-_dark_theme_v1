@@ -27,17 +27,17 @@ export default function ViewExpertAccount() {
       <div className="p-6 max-w-5xl">
         {/* Header */}
         <div className="mb-6">
-          <Link to="/admin/experts" className="inline-flex items-center gap-2 text-[#4A4A4A] hover:text-[#1A1A1A] text-sm mb-4">
+          <Link to="/admin/experts" className="inline-flex items-center gap-2 text-text-label hover:text-text-heading text-sm mb-4">
             <ArrowLeft className="w-4 h-4" />
             Back to Expert Management
           </Link>
           <div className="flex items-start justify-between">
             <div>
-              <h1 className="text-2xl text-[#1A1A1A]">{expert.name}</h1>
-              <p className="text-sm text-[#757575] mt-1">Behavioral Expert Account Details</p>
+              <h1 className="text-2xl text-text-heading">{expert.name}</h1>
+              <p className="text-sm text-text-body mt-1">Behavioral Expert Account Details</p>
             </div>
             <Badge className={`${
-              expert.status === 'Active' ? 'bg-[#333333]' : 'bg-[#757575]'
+              expert.status === 'Active' ? 'bg-brand' : 'bg-brand-dark'
             } text-white`}>
               {expert.status}
             </Badge>
@@ -46,49 +46,49 @@ export default function ViewExpertAccount() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           {/* Account Information */}
-          <Card className="border-[#D0D0D0] p-6">
+          <Card className="border-border-default p-6">
             <div className="flex items-center gap-3 mb-4">
-              <User className="w-5 h-5 text-[#333333]" />
-              <h2 className="text-lg font-medium text-[#1A1A1A]">Account Information</h2>
+              <User className="w-5 h-5 text-text-heading" />
+              <h2 className="text-lg font-medium text-text-heading">Account Information</h2>
             </div>
             <div className="space-y-3">
               <div>
-                <p className="text-sm text-[#757575]">Full Name</p>
-                <p className="text-[#1A1A1A] font-medium">{expert.name}</p>
+                <p className="text-sm text-text-body">Full Name</p>
+                <p className="text-text-heading font-medium">{expert.name}</p>
               </div>
               <div>
-                <p className="text-sm text-[#757575]">Expert ID</p>
-                <p className="text-[#1A1A1A] font-medium">{expert.expertId}</p>
+                <p className="text-sm text-text-body">Expert ID</p>
+                <p className="text-text-heading font-medium">{expert.expertId}</p>
               </div>
               <div>
-                <p className="text-sm text-[#757575]">Specialization</p>
-                <p className="text-[#1A1A1A]">{expert.specialization}</p>
+                <p className="text-sm text-text-body">Specialization</p>
+                <p className="text-text-heading">{expert.specialization}</p>
               </div>
               <div>
-                <p className="text-sm text-[#757575]">Credentials</p>
-                <p className="text-[#1A1A1A]">{expert.credentials}</p>
+                <p className="text-sm text-text-body">Credentials</p>
+                <p className="text-text-heading">{expert.credentials}</p>
               </div>
               <div>
-                <p className="text-sm text-[#757575]">Years of Experience</p>
-                <p className="text-[#1A1A1A]">{expert.yearsExperience} years</p>
+                <p className="text-sm text-text-body">Years of Experience</p>
+                <p className="text-text-heading">{expert.yearsExperience} years</p>
               </div>
             </div>
           </Card>
 
           {/* Contact Information */}
-          <Card className="border-[#D0D0D0] p-6">
+          <Card className="border-border-default p-6">
             <div className="flex items-center gap-3 mb-4">
-              <Mail className="w-5 h-5 text-[#333333]" />
-              <h2 className="text-lg font-medium text-[#1A1A1A]">Contact Information</h2>
+              <Mail className="w-5 h-5 text-text-heading" />
+              <h2 className="text-lg font-medium text-text-heading">Contact Information</h2>
             </div>
             <div className="space-y-3">
               <div>
-                <p className="text-sm text-[#757575]">Email Address</p>
-                <p className="text-[#1A1A1A] break-all">{expert.email}</p>
+                <p className="text-sm text-text-body">Email Address</p>
+                <p className="text-text-heading break-all">{expert.email}</p>
               </div>
               <div>
-                <p className="text-sm text-[#757575]">Phone Number</p>
-                <p className="text-[#1A1A1A]">{expert.phone}</p>
+                <p className="text-sm text-text-body">Phone Number</p>
+                <p className="text-text-heading">{expert.phone}</p>
               </div>
             </div>
           </Card>
@@ -99,13 +99,13 @@ export default function ViewExpertAccount() {
           <Button
             variant="outline"
             onClick={() => navigate('/admin/experts')}
-            className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]"
+            className="border-border-strong text-text-heading hover:bg-surface-page"
           >
             Back to List
           </Button>
           <Button
             onClick={() => navigate(`/admin/experts/${id}/edit`)}
-            className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+            className="bg-brand hover:bg-brand-dark text-white shadow-sm"
           >
             Edit Expert
           </Button>

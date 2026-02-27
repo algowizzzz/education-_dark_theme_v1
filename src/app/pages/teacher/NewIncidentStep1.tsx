@@ -35,43 +35,43 @@ export default function NewIncidentStep1() {
       <div className="max-w-4xl mx-auto space-y-6">
         <Link
           to="/teacher/dashboard"
-          className="inline-flex items-center text-[#4A4A4A] hover:text-[#1A1A1A]"
+          className="inline-flex items-center text-text-label hover:text-text-heading"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Cancel
         </Link>
 
         <div>
-          <h1 className="text-3xl font-bold text-[#1A1A1A]">Log New Incident</h1>
-          <p className="text-[#757575]">Step 1 of 5: Select Student</p>
+          <h1 className="text-3xl font-bold text-text-heading">Log New Incident</h1>
+          <p className="text-text-body">Step 1 of 5: Select Student</p>
         </div>
 
         {/* Progress Bar */}
         <div className="flex items-center space-x-2">
-          <div className="flex-1 h-2 bg-[#333333] rounded-full"></div>
-          <div className="flex-1 h-2 bg-[#E0E0E0] rounded-full"></div>
-          <div className="flex-1 h-2 bg-[#E0E0E0] rounded-full"></div>
-          <div className="flex-1 h-2 bg-[#E0E0E0] rounded-full"></div>
-          <div className="flex-1 h-2 bg-[#E0E0E0] rounded-full"></div>
+          <div className="flex-1 h-2 bg-brand rounded-full"></div>
+          <div className="flex-1 h-2 bg-surface-elevated rounded-full"></div>
+          <div className="flex-1 h-2 bg-surface-elevated rounded-full"></div>
+          <div className="flex-1 h-2 bg-surface-elevated rounded-full"></div>
+          <div className="flex-1 h-2 bg-surface-elevated rounded-full"></div>
         </div>
 
         {/* Search */}
-        <Card className="p-6 border border-[#D0D0D0] bg-white">
+        <Card className="p-6 border border-border-default bg-surface-card">
           <div className="relative mb-6">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#757575]" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-text-body" />
             <Input
               type="text"
               placeholder="Search by name or student ID..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 border-[#D0D0D0] focus:border-[#333333]"
+              className="pl-10 border-border-default focus:border-brand"
             />
           </div>
 
           {/* Recently Accessed */}
           {!searchTerm && (
             <div className="mb-6">
-              <h3 className="text-sm font-semibold text-[#1A1A1A] mb-3">
+              <h3 className="text-sm font-semibold text-text-heading mb-3">
                 Recently Accessed Students
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -81,17 +81,17 @@ export default function NewIncidentStep1() {
                     onClick={() => setSelectedStudent(student.id)}
                     className={`p-4 border rounded-lg text-left transition-colors ${
                       selectedStudent === student.id
-                        ? 'border-[#333333] bg-[#F5F5F5]'
-                        : 'border-[#D0D0D0] hover:bg-[#F5F5F5]'
+                        ? 'border-brand bg-surface-page'
+                        : 'border-border-default hover:bg-surface-page'
                     }`}
                   >
                     <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 rounded-full bg-[#E0E0E0] flex items-center justify-center">
-                        <User className="w-5 h-5 text-[#757575]" />
+                      <div className="w-10 h-10 rounded-full bg-surface-elevated flex items-center justify-center">
+                        <User className="w-5 h-5 text-text-body" />
                       </div>
                       <div>
-                        <p className="font-medium text-[#1A1A1A]">{student.name}</p>
-                        <p className="text-sm text-[#757575]">Grade {student.grade}</p>
+                        <p className="font-medium text-text-heading">{student.name}</p>
+                        <p className="text-sm text-text-body">Grade {student.grade}</p>
                       </div>
                     </div>
                   </button>
@@ -102,7 +102,7 @@ export default function NewIncidentStep1() {
 
           {/* All Students */}
           <div>
-            <h3 className="text-sm font-semibold text-[#1A1A1A] mb-3">
+            <h3 className="text-sm font-semibold text-text-heading mb-3">
               {searchTerm ? 'Search Results' : 'All Assigned Students'}
             </h3>
             <RadioGroup value={selectedStudent} onValueChange={setSelectedStudent}>
@@ -110,17 +110,17 @@ export default function NewIncidentStep1() {
                 {filteredStudents.map((student) => (
                   <div
                     key={student.id}
-                    className="flex items-center space-x-3 p-3 border border-[#E0E0E0] rounded-lg hover:bg-[#F5F5F5]"
+                    className="flex items-center space-x-3 p-3 border border-border-light rounded-lg hover:bg-surface-page"
                   >
                     <RadioGroupItem value={student.id} id={student.id} />
                     <Label
                       htmlFor={student.id}
                       className="flex-1 cursor-pointer flex items-center justify-between"
                     >
-                      <span className="font-medium text-[#1A1A1A]">
+                      <span className="font-medium text-text-heading">
                         {student.name}
                       </span>
-                      <span className="text-sm text-[#757575]">
+                      <span className="text-sm text-text-body">
                         {student.id} • Grade {student.grade}
                       </span>
                     </Label>
@@ -136,14 +136,14 @@ export default function NewIncidentStep1() {
           <Button
             variant="outline"
             onClick={() => navigate('/teacher/dashboard')}
-            className="border-[#D0D0D0] text-[#333333] hover:bg-[#F5F5F5] rounded-lg"
+            className="border-border-default text-text-heading hover:bg-surface-page rounded-lg"
           >
             Cancel
           </Button>
           <Button
             onClick={handleNext}
             disabled={!selectedStudent}
-            className="bg-[#333333] hover:bg-[#1A1A1A] text-white rounded-lg disabled:opacity-50"
+            className="bg-brand hover:bg-brand-dark text-white rounded-lg disabled:opacity-50"
           >
             Next →
           </Button>

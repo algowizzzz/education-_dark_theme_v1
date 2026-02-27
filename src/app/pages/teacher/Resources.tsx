@@ -134,26 +134,26 @@ export default function Resources() {
     <TeacherLayout>
       <div className="max-w-6xl">
         <div className="mb-6">
-          <h1 className="text-2xl text-[#1A1A1A] mb-2 flex items-center gap-2">
+          <h1 className="text-2xl text-text-heading mb-2 flex items-center gap-2">
             <BookOpen className="w-6 h-6" />
             Teacher Resources
           </h1>
-          <p className="text-[#757575]">
+          <p className="text-text-body">
             Helpful guides, templates, and tools for classroom behavior management
           </p>
         </div>
 
         {/* Search and Filter */}
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardContent className="p-4">
             <div className="grid grid-cols-2 gap-4">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-[#757575]" />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-text-body" />
                 <Input
                   placeholder="Search resources..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 border-[#D0D0D0] text-[#1A1A1A]"
+                  className="pl-10 border-border-default text-text-heading"
                 />
               </div>
 
@@ -161,7 +161,7 @@ export default function Resources() {
                 <select
                   value={filterCategory}
                   onChange={(e) => setFilterCategory(e.target.value)}
-                  className="w-full border border-[#D0D0D0] rounded-md px-3 py-2 text-[#1A1A1A]"
+                  className="w-full border border-border-default rounded-md px-3 py-2 text-text-heading"
                 >
                   {categories.map(cat => (
                     <option key={cat} value={cat}>
@@ -178,33 +178,33 @@ export default function Resources() {
         <div className="grid grid-cols-2 gap-4">
           {filteredResources.length === 0 ? (
             <div className="col-span-2">
-              <Card className="border-[#D0D0D0]">
+              <Card className="border-border-default">
                 <CardContent className="p-12 text-center">
-                  <BookOpen className="w-12 h-12 text-[#D0D0D0] mx-auto mb-4" />
-                  <p className="text-[#757575]">No resources match your search</p>
+                  <BookOpen className="w-12 h-12 text-text-muted mx-auto mb-4" />
+                  <p className="text-text-body">No resources match your search</p>
                 </CardContent>
               </Card>
             </div>
           ) : (
             filteredResources.map((resource) => (
-              <Card key={resource.id} className="border-[#D0D0D0] hover:border-[#9E9E9E] transition-colors">
+              <Card key={resource.id} className="border-border-default hover:border-border-strong transition-colors">
                 <CardHeader>
                   <div className="flex items-start gap-3">
-                    <div className="p-2 bg-[#F5F5F5] rounded border border-[#E0E0E0]">
+                    <div className="p-2 bg-surface-page rounded border border-border-light">
                       {getTypeIcon(resource.type)}
                     </div>
                     <div className="flex-1">
-                      <CardTitle className="text-base text-[#1A1A1A] mb-1">
+                      <CardTitle className="text-base text-text-heading mb-1">
                         {resource.title}
                       </CardTitle>
-                      <Badge variant="outline" className="border-[#9E9E9E] text-[#757575] text-xs">
+                      <Badge variant="outline" className="border-border-strong text-text-body text-xs">
                         {resource.category}
                       </Badge>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-[#4A4A4A] mb-3">
+                  <p className="text-sm text-text-label mb-3">
                     {resource.description}
                   </p>
 
@@ -213,19 +213,19 @@ export default function Resources() {
                       <Badge 
                         key={tag} 
                         variant="outline" 
-                        className="border-[#D0D0D0] text-[#757575] text-xs"
+                        className="border-border-default text-text-body text-xs"
                       >
                         {tag}
                       </Badge>
                     ))}
                   </div>
 
-                  <div className="flex justify-end pt-3 border-t border-[#E0E0E0]">
+                  <div className="flex justify-end pt-3 border-t border-border-light">
                     {resource.downloadUrl && (
                       <Button
                         variant="outline"
                         size="sm"
-                        className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]"
+                        className="border-border-strong text-text-heading hover:bg-surface-page"
                       >
                         <Download className="w-3 h-3 mr-1" />
                         Download
@@ -235,7 +235,7 @@ export default function Resources() {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]"
+                        className="border-border-strong text-text-heading hover:bg-surface-page"
                       >
                         <ExternalLink className="w-3 h-3 mr-1" />
                         Watch

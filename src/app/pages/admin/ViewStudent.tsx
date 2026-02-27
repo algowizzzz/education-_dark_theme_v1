@@ -123,22 +123,22 @@ export default function ViewStudent() {
   return (
     <AdminLayout>
       <div className="max-w-6xl">
-        <Link to="/admin/students" className="inline-flex items-center gap-2 text-[#4A4A4A] hover:text-[#1A1A1A] mb-6">
+        <Link to="/admin/students" className="inline-flex items-center gap-2 text-text-label hover:text-text-heading mb-6">
           <ArrowLeft className="w-4 h-4" />
           Back to Students
         </Link>
 
         <div className="mb-6 flex items-start justify-between">
           <div>
-            <h1 className="text-2xl text-[#1A1A1A] mb-2">{student.fullName}</h1>
-            <p className="text-[#757575]">{student.id} • {student.grade}</p>
+            <h1 className="text-2xl text-text-heading mb-2">{student.fullName}</h1>
+            <p className="text-text-body">{student.id} • {student.grade}</p>
           </div>
           <div className="flex items-center gap-3">
-            <Badge className="bg-[#333333] text-white">
+            <Badge className="bg-brand text-white">
               {student.status}
             </Badge>
             <Link to={`/admin/students/edit/${id}`}>
-              <Button className="bg-[#333333] hover:bg-[#1A1A1A] text-white">
+              <Button className="bg-brand hover:bg-brand-dark text-white shadow-sm">
                 <Edit className="w-4 h-4 mr-2" />
                 Edit Student
               </Button>
@@ -147,9 +147,9 @@ export default function ViewStudent() {
         </div>
 
         {/* Behavior Summary */}
-        <Card className="mb-6 border-[#333333] bg-[#FAFAFA]">
+        <Card className="mb-6 border-brand bg-surface-hover">
           <CardHeader>
-            <CardTitle className="text-lg text-[#1A1A1A] flex items-center gap-2">
+            <CardTitle className="text-lg text-text-heading flex items-center gap-2">
               <AlertCircle className="w-5 h-5" />
               Behavior Summary
             </CardTitle>
@@ -157,28 +157,28 @@ export default function ViewStudent() {
           <CardContent>
             <div className="grid grid-cols-4 gap-4 mb-4">
               <div>
-                <div className="text-sm text-[#757575] mb-1">Total Incidents</div>
-                <div className="text-2xl font-semibold text-[#1A1A1A]">
+                <div className="text-sm text-text-body mb-1">Total Incidents</div>
+                <div className="text-2xl font-semibold text-text-heading">
                   {behaviorStats.totalIncidents}
                 </div>
               </div>
               <div>
-                <div className="text-sm text-[#757575] mb-1">Last 30 Days</div>
-                <div className="text-2xl font-semibold text-[#1A1A1A]">
+                <div className="text-sm text-text-body mb-1">Last 30 Days</div>
+                <div className="text-2xl font-semibold text-text-heading">
                   {behaviorStats.last30Days}
                 </div>
               </div>
               <div>
-                <div className="text-sm text-[#757575] mb-1">Last 7 Days</div>
-                <div className="text-2xl font-semibold text-[#1A1A1A]">
+                <div className="text-sm text-text-body mb-1">Last 7 Days</div>
+                <div className="text-2xl font-semibold text-text-heading">
                   {behaviorStats.last7Days}
                 </div>
               </div>
               <div>
-                <div className="text-sm text-[#757575] mb-1">Trend</div>
+                <div className="text-sm text-text-body mb-1">Trend</div>
                 <div className="flex items-center gap-1">
-                  <TrendingUp className="w-5 h-5 text-[#4A4A4A] rotate-180" />
-                  <span className="text-2xl font-semibold text-[#1A1A1A]">
+                  <TrendingUp className="w-5 h-5 text-text-label rotate-180" />
+                  <span className="text-2xl font-semibold text-text-heading">
                     {Math.abs(behaviorStats.trend)}%
                   </span>
                 </div>
@@ -186,17 +186,17 @@ export default function ViewStudent() {
             </div>
 
             {behaviorStats.expertSupport && (
-              <div className="pt-4 border-t border-[#D0D0D0]">
-                <div className="flex items-center justify-between p-3 bg-white rounded-lg border border-[#D0D0D0]">
+              <div className="pt-4 border-t border-border-default">
+                <div className="flex items-center justify-between p-3 bg-surface-card rounded-lg border border-border-default">
                   <div>
-                    <div className="text-sm font-medium text-[#1A1A1A] mb-1">
+                    <div className="text-sm font-medium text-text-heading mb-1">
                       Active Expert Support
                     </div>
-                    <div className="text-sm text-[#757575]">
+                    <div className="text-sm text-text-body">
                       {behaviorStats.expertName} • Case {behaviorStats.caseId}
                     </div>
                   </div>
-                  <Badge className="bg-[#333333] text-white">
+                  <Badge className="bg-brand text-white">
                     In Progress
                   </Badge>
                 </div>
@@ -207,132 +207,132 @@ export default function ViewStudent() {
 
         <div className="grid grid-cols-2 gap-6">
           {/* Student Information */}
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardHeader>
-              <CardTitle className="text-lg text-[#1A1A1A] flex items-center gap-2">
+              <CardTitle className="text-lg text-text-heading flex items-center gap-2">
                 <User className="w-5 h-5" />
                 Student Information
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              <div className="flex items-start justify-between py-2 border-b border-[#E0E0E0]">
-                <span className="text-sm text-[#757575]">Full Name</span>
-                <span className="text-sm font-medium text-[#1A1A1A]">{student.fullName}</span>
+              <div className="flex items-start justify-between py-2 border-b border-border-light">
+                <span className="text-sm text-text-body">Full Name</span>
+                <span className="text-sm font-medium text-text-heading">{student.fullName}</span>
               </div>
-              <div className="flex items-start justify-between py-2 border-b border-[#E0E0E0]">
-                <span className="text-sm text-[#757575]">Student ID</span>
-                <span className="text-sm font-medium text-[#1A1A1A]">{student.id}</span>
+              <div className="flex items-start justify-between py-2 border-b border-border-light">
+                <span className="text-sm text-text-body">Student ID</span>
+                <span className="text-sm font-medium text-text-heading">{student.id}</span>
               </div>
-              <div className="flex items-start justify-between py-2 border-b border-[#E0E0E0]">
-                <span className="text-sm text-[#757575]">Date of Birth</span>
-                <span className="text-sm font-medium text-[#1A1A1A]">{student.dateOfBirth} (Age {student.age})</span>
+              <div className="flex items-start justify-between py-2 border-b border-border-light">
+                <span className="text-sm text-text-body">Date of Birth</span>
+                <span className="text-sm font-medium text-text-heading">{student.dateOfBirth} (Age {student.age})</span>
               </div>
-              <div className="flex items-start justify-between py-2 border-b border-[#E0E0E0]">
-                <span className="text-sm text-[#757575]">Grade Level</span>
-                <span className="text-sm font-medium text-[#1A1A1A]">{student.grade}</span>
+              <div className="flex items-start justify-between py-2 border-b border-border-light">
+                <span className="text-sm text-text-body">Grade Level</span>
+                <span className="text-sm font-medium text-text-heading">{student.grade}</span>
               </div>
-              <div className="flex items-start justify-between py-2 border-b border-[#E0E0E0]">
-                <span className="text-sm text-[#757575]">Primary Teacher</span>
-                <span className="text-sm font-medium text-[#1A1A1A]">{student.teacher}</span>
+              <div className="flex items-start justify-between py-2 border-b border-border-light">
+                <span className="text-sm text-text-body">Primary Teacher</span>
+                <span className="text-sm font-medium text-text-heading">{student.teacher}</span>
               </div>
-              <div className="flex items-start justify-between py-2 border-b border-[#E0E0E0]">
-                <span className="text-sm text-[#757575]">Classroom</span>
-                <span className="text-sm font-medium text-[#1A1A1A]">{student.classroom}</span>
+              <div className="flex items-start justify-between py-2 border-b border-border-light">
+                <span className="text-sm text-text-body">Classroom</span>
+                <span className="text-sm font-medium text-text-heading">{student.classroom}</span>
               </div>
               <div className="flex items-start justify-between py-2">
-                <span className="text-sm text-[#757575]">Enrollment Date</span>
-                <span className="text-sm font-medium text-[#1A1A1A]">{student.enrollmentDate}</span>
+                <span className="text-sm text-text-body">Enrollment Date</span>
+                <span className="text-sm font-medium text-text-heading">{student.enrollmentDate}</span>
               </div>
             </CardContent>
           </Card>
 
           {/* Guardian Information */}
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardHeader>
-              <CardTitle className="text-lg text-[#1A1A1A] flex items-center gap-2">
+              <CardTitle className="text-lg text-text-heading flex items-center gap-2">
                 <User className="w-5 h-5" />
                 Guardian Information
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              <div className="flex items-start justify-between py-2 border-b border-[#E0E0E0]">
-                <span className="text-sm text-[#757575]">Primary Guardian</span>
-                <span className="text-sm font-medium text-[#1A1A1A]">{student.guardian.name}</span>
+              <div className="flex items-start justify-between py-2 border-b border-border-light">
+                <span className="text-sm text-text-body">Primary Guardian</span>
+                <span className="text-sm font-medium text-text-heading">{student.guardian.name}</span>
               </div>
-              <div className="flex items-start justify-between py-2 border-b border-[#E0E0E0]">
-                <span className="text-sm text-[#757575]">Relationship</span>
-                <span className="text-sm font-medium text-[#1A1A1A]">{student.guardian.relationship}</span>
+              <div className="flex items-start justify-between py-2 border-b border-border-light">
+                <span className="text-sm text-text-body">Relationship</span>
+                <span className="text-sm font-medium text-text-heading">{student.guardian.relationship}</span>
               </div>
-              <div className="flex items-start justify-between py-2 border-b border-[#E0E0E0]">
-                <span className="text-sm text-[#757575] flex items-center gap-1">
+              <div className="flex items-start justify-between py-2 border-b border-border-light">
+                <span className="text-sm text-text-body flex items-center gap-1">
                   <Mail className="w-3 h-3" />
                   Email
                 </span>
-                <span className="text-sm font-medium text-[#1A1A1A]">{student.guardian.email}</span>
+                <span className="text-sm font-medium text-text-heading">{student.guardian.email}</span>
               </div>
-              <div className="flex items-start justify-between py-2 border-b border-[#E0E0E0]">
-                <span className="text-sm text-[#757575] flex items-center gap-1">
+              <div className="flex items-start justify-between py-2 border-b border-border-light">
+                <span className="text-sm text-text-body flex items-center gap-1">
                   <Phone className="w-3 h-3" />
                   Phone
                 </span>
-                <span className="text-sm font-medium text-[#1A1A1A]">{student.guardian.phone}</span>
+                <span className="text-sm font-medium text-text-heading">{student.guardian.phone}</span>
               </div>
-              <div className="flex items-start justify-between py-2 border-b border-[#E0E0E0]">
-                <span className="text-sm text-[#757575]">Address</span>
-                <span className="text-sm font-medium text-[#1A1A1A] text-right">{student.guardian.address}</span>
+              <div className="flex items-start justify-between py-2 border-b border-border-light">
+                <span className="text-sm text-text-body">Address</span>
+                <span className="text-sm font-medium text-text-heading text-right">{student.guardian.address}</span>
               </div>
-              <div className="pt-3 mt-3 border-t border-[#D0D0D0]">
-                <div className="text-sm font-medium text-[#1A1A1A] mb-2">Emergency Contact</div>
+              <div className="pt-3 mt-3 border-t border-border-default">
+                <div className="text-sm font-medium text-text-heading mb-2">Emergency Contact</div>
                 <div className="space-y-1">
-                  <div className="text-sm text-[#4A4A4A]">{student.emergency.name} ({student.emergency.relationship})</div>
-                  <div className="text-sm text-[#757575]">{student.emergency.phone}</div>
+                  <div className="text-sm text-text-label">{student.emergency.name} ({student.emergency.relationship})</div>
+                  <div className="text-sm text-text-body">{student.emergency.phone}</div>
                 </div>
               </div>
             </CardContent>
           </Card>
 
           {/* Medical & Special Education */}
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardHeader>
-              <CardTitle className="text-lg text-[#1A1A1A] flex items-center gap-2">
+              <CardTitle className="text-lg text-text-heading flex items-center gap-2">
                 <FileText className="w-5 h-5" />
                 Medical & Special Education
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
-              <div className="flex items-start justify-between py-2 border-b border-[#E0E0E0]">
-                <span className="text-sm text-[#757575]">Medical Conditions</span>
-                <span className="text-sm font-medium text-[#1A1A1A]">{student.medical.conditions}</span>
+              <div className="flex items-start justify-between py-2 border-b border-border-light">
+                <span className="text-sm text-text-body">Medical Conditions</span>
+                <span className="text-sm font-medium text-text-heading">{student.medical.conditions}</span>
               </div>
-              <div className="flex items-start justify-between py-2 border-b border-[#E0E0E0]">
-                <span className="text-sm text-[#757575]">Medications</span>
-                <span className="text-sm font-medium text-[#1A1A1A] text-right max-w-xs">
+              <div className="flex items-start justify-between py-2 border-b border-border-light">
+                <span className="text-sm text-text-body">Medications</span>
+                <span className="text-sm font-medium text-text-heading text-right max-w-xs">
                   {student.medical.medications}
                 </span>
               </div>
-              <div className="flex items-start justify-between py-2 border-b border-[#E0E0E0]">
-                <span className="text-sm text-[#757575]">IEP Status</span>
-                <Badge variant="outline" className="border-[#333333] text-[#333333]">
+              <div className="flex items-start justify-between py-2 border-b border-border-light">
+                <span className="text-sm text-text-body">IEP Status</span>
+                <Badge variant="outline" className="border-brand text-text-heading">
                   {student.medical.iepStatus}
                 </Badge>
               </div>
-              <div className="flex items-start justify-between py-2 border-b border-[#E0E0E0]">
-                <span className="text-sm text-[#757575]">504 Plan</span>
-                <span className="text-sm font-medium text-[#1A1A1A]">
+              <div className="flex items-start justify-between py-2 border-b border-border-light">
+                <span className="text-sm text-text-body">504 Plan</span>
+                <span className="text-sm font-medium text-text-heading">
                   {student.medical.section504 ? 'Yes' : 'No'}
                 </span>
               </div>
               <div className="pt-2">
-                <div className="text-sm text-[#757575] mb-1">Accommodations</div>
-                <p className="text-sm text-[#1A1A1A]">{student.medical.accommodations}</p>
+                <div className="text-sm text-text-body mb-1">Accommodations</div>
+                <p className="text-sm text-text-heading">{student.medical.accommodations}</p>
               </div>
             </CardContent>
           </Card>
 
           {/* Recent Incidents */}
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardHeader>
-              <CardTitle className="text-lg text-[#1A1A1A] flex items-center gap-2">
+              <CardTitle className="text-lg text-text-heading flex items-center gap-2">
                 <Calendar className="w-5 h-5" />
                 Recent Incidents
               </CardTitle>
@@ -342,13 +342,13 @@ export default function ViewStudent() {
                 {recentIncidents.map((incident) => (
                   <div
                     key={incident.id}
-                    className="flex items-center justify-between p-3 bg-[#F5F5F5] rounded-lg border border-[#E0E0E0]"
+                    className="flex items-center justify-between p-3 bg-surface-page rounded-lg border border-border-light"
                   >
                     <div>
-                      <div className="text-sm font-medium text-[#1A1A1A] mb-1">
+                      <div className="text-sm font-medium text-text-heading mb-1">
                         {incident.type}
                       </div>
-                      <div className="text-xs text-[#757575]">
+                      <div className="text-xs text-text-body">
                         {incident.date} • {incident.id}
                       </div>
                     </div>
@@ -356,8 +356,8 @@ export default function ViewStudent() {
                       variant="outline"
                       className={
                         incident.severity === 'High'
-                          ? 'border-[#333333] text-[#333333]'
-                          : 'border-[#9E9E9E] text-[#757575]'
+                          ? 'border-brand text-text-heading'
+                          : 'border-border-strong text-text-body'
                       }
                     >
                       {incident.severity}
@@ -366,7 +366,7 @@ export default function ViewStudent() {
                 ))}
                 <Button
                   variant="outline"
-                  className="w-full border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]"
+                  className="w-full border-border-strong text-text-heading hover:bg-surface-page"
                 >
                   View All Incidents
                 </Button>
@@ -376,9 +376,9 @@ export default function ViewStudent() {
         </div>
 
         {/* Assignments Section */}
-        <Card className="mt-6 border-[#D0D0D0]">
+        <Card className="mt-6 border-border-default">
           <CardHeader>
-            <CardTitle className="text-lg text-[#1A1A1A] flex items-center gap-2">
+            <CardTitle className="text-lg text-text-heading flex items-center gap-2">
               <Users className="w-5 h-5" />
               Assignments
             </CardTitle>
@@ -386,32 +386,32 @@ export default function ViewStudent() {
           <CardContent>
             {/* Assigned Teachers */}
             <div className="mb-6">
-              <h3 className="text-sm font-medium text-[#4A4A4A] mb-3">Assigned Teachers</h3>
+              <h3 className="text-sm font-medium text-text-label mb-3">Assigned Teachers</h3>
               {assignedTeachers.length === 0 ? (
-                <p className="text-sm text-[#757575]">No teachers assigned</p>
+                <p className="text-sm text-text-body">No teachers assigned</p>
               ) : (
-                <div className="bg-white border border-[#D0D0D0] rounded-lg overflow-hidden">
+                <div className="bg-surface-card border border-border-default rounded-lg overflow-hidden">
                   <table className="w-full">
-                    <thead className="bg-[#F5F5F5] border-b border-[#D0D0D0]">
-                      <tr>
-                        <th className="text-left p-3 text-sm font-medium text-[#4A4A4A]">Name</th>
-                        <th className="text-left p-3 text-sm font-medium text-[#4A4A4A]">Role</th>
-                        <th className="text-left p-3 text-sm font-medium text-[#4A4A4A]">Assigned Date</th>
-                        <th className="text-left p-3 text-sm font-medium text-[#4A4A4A]">Actions</th>
+                    <thead className="bg-surface-page border-b border-border-default">
+                      <tr className="bg-table-header-bg">
+                        <th className="text-left p-3 text-sm font-semibold text-table-header-text">Name</th>
+                        <th className="text-left p-3 text-sm font-semibold text-table-header-text">Role</th>
+                        <th className="text-left p-3 text-sm font-semibold text-table-header-text">Assigned Date</th>
+                        <th className="text-left p-3 text-sm font-semibold text-table-header-text">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
                       {assignedTeachers.map((teacher, index) => (
-                        <tr key={teacher.id} className={`border-b border-[#E0E0E0] ${index % 2 === 0 ? 'bg-white' : 'bg-[#FAFAFA]'}`}>
-                          <td className="p-3 text-sm text-[#1A1A1A] font-medium">{teacher.name}</td>
-                          <td className="p-3 text-sm text-[#4A4A4A]">{teacher.role}</td>
-                          <td className="p-3 text-sm text-[#757575]">{teacher.assignedDate}</td>
+                        <tr key={teacher.id} className={`border-b border-border-light ${index % 2 === 0 ? 'bg-surface-card' : 'bg-table-stripe'}`}>
+                          <td className="p-3 text-sm text-text-heading font-medium">{teacher.name}</td>
+                          <td className="p-3 text-sm text-text-label">{teacher.role}</td>
+                          <td className="p-3 text-sm text-text-body">{teacher.assignedDate}</td>
                           <td className="p-3">
                             <Button
                               variant="ghost"
                               size="sm"
                               onClick={() => handleUnlink({ id: teacher.id, name: teacher.name }, 'teacher')}
-                              className="text-[#757575] hover:text-[#333333] hover:bg-[#F5F5F5]"
+                              className="text-text-body hover:text-text-heading hover:bg-surface-page"
                             >
                               <X className="w-4 h-4 mr-1" />
                               Unlink
@@ -427,32 +427,32 @@ export default function ViewStudent() {
 
             {/* Assigned Experts */}
             <div className="mb-6">
-              <h3 className="text-sm font-medium text-[#4A4A4A] mb-3">Assigned Behavioral Experts</h3>
+              <h3 className="text-sm font-medium text-text-label mb-3">Assigned Behavioral Experts</h3>
               {assignedExperts.length === 0 ? (
-                <p className="text-sm text-[#757575]">No experts assigned</p>
+                <p className="text-sm text-text-body">No experts assigned</p>
               ) : (
-                <div className="bg-white border border-[#D0D0D0] rounded-lg overflow-hidden">
+                <div className="bg-surface-card border border-border-default rounded-lg overflow-hidden">
                   <table className="w-full">
-                    <thead className="bg-[#F5F5F5] border-b border-[#D0D0D0]">
-                      <tr>
-                        <th className="text-left p-3 text-sm font-medium text-[#4A4A4A]">Name</th>
-                        <th className="text-left p-3 text-sm font-medium text-[#4A4A4A]">Role</th>
-                        <th className="text-left p-3 text-sm font-medium text-[#4A4A4A]">Assigned Date</th>
-                        <th className="text-left p-3 text-sm font-medium text-[#4A4A4A]">Actions</th>
+                    <thead className="bg-surface-page border-b border-border-default">
+                      <tr className="bg-table-header-bg">
+                        <th className="text-left p-3 text-sm font-semibold text-table-header-text">Name</th>
+                        <th className="text-left p-3 text-sm font-semibold text-table-header-text">Role</th>
+                        <th className="text-left p-3 text-sm font-semibold text-table-header-text">Assigned Date</th>
+                        <th className="text-left p-3 text-sm font-semibold text-table-header-text">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
                       {assignedExperts.map((expert, index) => (
-                        <tr key={expert.id} className={`border-b border-[#E0E0E0] ${index % 2 === 0 ? 'bg-white' : 'bg-[#FAFAFA]'}`}>
-                          <td className="p-3 text-sm text-[#1A1A1A] font-medium">{expert.name}</td>
-                          <td className="p-3 text-sm text-[#4A4A4A]">{expert.role}</td>
-                          <td className="p-3 text-sm text-[#757575]">{expert.assignedDate}</td>
+                        <tr key={expert.id} className={`border-b border-border-light ${index % 2 === 0 ? 'bg-surface-card' : 'bg-table-stripe'}`}>
+                          <td className="p-3 text-sm text-text-heading font-medium">{expert.name}</td>
+                          <td className="p-3 text-sm text-text-label">{expert.role}</td>
+                          <td className="p-3 text-sm text-text-body">{expert.assignedDate}</td>
                           <td className="p-3">
                             <Button
                               variant="ghost"
                               size="sm"
                               onClick={() => handleUnlink({ id: expert.id, name: expert.name }, 'expert')}
-                              className="text-[#757575] hover:text-[#333333] hover:bg-[#F5F5F5]"
+                              className="text-text-body hover:text-text-heading hover:bg-surface-page"
                             >
                               <X className="w-4 h-4 mr-1" />
                               Unlink
@@ -468,32 +468,32 @@ export default function ViewStudent() {
 
             {/* Linked Parents */}
             <div>
-              <h3 className="text-sm font-medium text-[#4A4A4A] mb-3">Linked Parents/Guardians</h3>
+              <h3 className="text-sm font-medium text-text-label mb-3">Linked Parents/Guardians</h3>
               {linkedParents.length === 0 ? (
-                <p className="text-sm text-[#757575]">No parents linked</p>
+                <p className="text-sm text-text-body">No parents linked</p>
               ) : (
-                <div className="bg-white border border-[#D0D0D0] rounded-lg overflow-hidden">
+                <div className="bg-surface-card border border-border-default rounded-lg overflow-hidden">
                   <table className="w-full">
-                    <thead className="bg-[#F5F5F5] border-b border-[#D0D0D0]">
-                      <tr>
-                        <th className="text-left p-3 text-sm font-medium text-[#4A4A4A]">Name</th>
-                        <th className="text-left p-3 text-sm font-medium text-[#4A4A4A]">Relationship</th>
-                        <th className="text-left p-3 text-sm font-medium text-[#4A4A4A]">Linked Date</th>
-                        <th className="text-left p-3 text-sm font-medium text-[#4A4A4A]">Actions</th>
+                    <thead className="bg-surface-page border-b border-border-default">
+                      <tr className="bg-table-header-bg">
+                        <th className="text-left p-3 text-sm font-semibold text-table-header-text">Name</th>
+                        <th className="text-left p-3 text-sm font-semibold text-table-header-text">Relationship</th>
+                        <th className="text-left p-3 text-sm font-semibold text-table-header-text">Linked Date</th>
+                        <th className="text-left p-3 text-sm font-semibold text-table-header-text">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
                       {linkedParents.map((parent, index) => (
-                        <tr key={parent.id} className={`border-b border-[#E0E0E0] ${index % 2 === 0 ? 'bg-white' : 'bg-[#FAFAFA]'}`}>
-                          <td className="p-3 text-sm text-[#1A1A1A] font-medium">{parent.name}</td>
-                          <td className="p-3 text-sm text-[#4A4A4A]">{parent.relationship}</td>
-                          <td className="p-3 text-sm text-[#757575]">{parent.linkedDate}</td>
+                        <tr key={parent.id} className={`border-b border-border-light ${index % 2 === 0 ? 'bg-surface-card' : 'bg-table-stripe'}`}>
+                          <td className="p-3 text-sm text-text-heading font-medium">{parent.name}</td>
+                          <td className="p-3 text-sm text-text-label">{parent.relationship}</td>
+                          <td className="p-3 text-sm text-text-body">{parent.linkedDate}</td>
                           <td className="p-3">
                             <Button
                               variant="ghost"
                               size="sm"
                               onClick={() => handleUnlink({ id: parent.id, name: parent.name }, 'parent')}
-                              className="text-[#757575] hover:text-[#333333] hover:bg-[#F5F5F5]"
+                              className="text-text-body hover:text-text-heading hover:bg-surface-page"
                             >
                               <X className="w-4 h-4 mr-1" />
                               Unlink
@@ -514,15 +514,15 @@ export default function ViewStudent() {
       <Dialog open={unlinkOpen} onOpenChange={setUnlinkOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle className="text-[#1A1A1A]">
+            <DialogTitle className="text-text-heading">
               Unlink {itemToUnlink?.type === 'teacher' ? 'Teacher' : itemToUnlink?.type === 'expert' ? 'Expert' : 'Parent'}
             </DialogTitle>
           </DialogHeader>
           <div className="py-4">
-            <p className="text-[#4A4A4A]">
+            <p className="text-text-label">
               Are you sure you want to unlink <span className="font-medium">{itemToUnlink?.name}</span> from <span className="font-medium">{student.fullName}</span>?
             </p>
-            <p className="text-sm text-[#757575] mt-2">
+            <p className="text-sm text-text-body mt-2">
               {getUnlinkMessage()}
             </p>
           </div>
@@ -530,13 +530,13 @@ export default function ViewStudent() {
             <Button
               variant="outline"
               onClick={() => setUnlinkOpen(false)}
-              className="border-[#9E9E9E] text-[#333333]"
+              className="border-border-strong text-text-heading"
             >
               Cancel
             </Button>
             <Button
               onClick={handleConfirmUnlink}
-              className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+              className="bg-brand hover:bg-brand-dark text-white shadow-sm"
             >
               Unlink
             </Button>

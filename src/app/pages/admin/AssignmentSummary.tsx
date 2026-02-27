@@ -53,7 +53,7 @@ export default function AssignmentSummary() {
         {/* Header */}
         <div className="mb-6">
           <h1 className="text-2xl mb-2">Assignment Summary</h1>
-          <p className="text-[#757575]">
+          <p className="text-text-body">
             Overview of students and parents requiring attention
           </p>
         </div>
@@ -61,84 +61,84 @@ export default function AssignmentSummary() {
         {/* Summary Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           <Card
-            className={`border-[#D0D0D0] cursor-pointer transition-colors ${
-              category === 'unassignedTeacher' ? 'border-[#333333] bg-[#F5F5F5]' : 'hover:border-[#9E9E9E]'
+            className={`border-border-default cursor-pointer transition-colors ${
+              category === 'unassignedTeacher' ? 'border-brand bg-surface-page' : 'hover:border-border-strong'
             }`}
             onClick={() => setCategory(category === 'unassignedTeacher' ? 'all' : 'unassignedTeacher')}
           >
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-[#757575]">No Teacher Assigned</p>
-                  <p className="text-2xl font-semibold text-[#1A1A1A]">
+                  <p className="text-sm text-text-body">No Teacher Assigned</p>
+                  <p className="text-2xl font-semibold text-text-heading">
                     {ASSIGNMENT_DATA.unassignedToTeacher.length}
                   </p>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-[#FFE0B2] flex items-center justify-center">
-                  <Users className="w-6 h-6 text-[#E65100]" />
+                <div className="w-12 h-12 rounded-full bg-status-warning-soft flex items-center justify-center">
+                  <Users className="w-6 h-6 text-status-warning" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
           <Card
-            className={`border-[#D0D0D0] cursor-pointer transition-colors ${
-              category === 'unassignedExpert' ? 'border-[#333333] bg-[#F5F5F5]' : 'hover:border-[#9E9E9E]'
+            className={`border-border-default cursor-pointer transition-colors ${
+              category === 'unassignedExpert' ? 'border-brand bg-surface-page' : 'hover:border-border-strong'
             }`}
             onClick={() => setCategory(category === 'unassignedExpert' ? 'all' : 'unassignedExpert')}
           >
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-[#757575]">No Expert Assigned</p>
-                  <p className="text-2xl font-semibold text-[#1A1A1A]">
+                  <p className="text-sm text-text-body">No Expert Assigned</p>
+                  <p className="text-2xl font-semibold text-text-heading">
                     {ASSIGNMENT_DATA.unassignedToExpert.length}
                   </p>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-[#E3F2FD] flex items-center justify-center">
-                  <UserCheck className="w-6 h-6 text-[#1565C0]" />
+                <div className="w-12 h-12 rounded-full bg-status-info-soft flex items-center justify-center">
+                  <UserCheck className="w-6 h-6 text-status-info" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
           <Card
-            className={`border-[#D0D0D0] cursor-pointer transition-colors ${
-              category === 'noParent' ? 'border-[#333333] bg-[#F5F5F5]' : 'hover:border-[#9E9E9E]'
+            className={`border-border-default cursor-pointer transition-colors ${
+              category === 'noParent' ? 'border-brand bg-surface-page' : 'hover:border-border-strong'
             }`}
             onClick={() => setCategory(category === 'noParent' ? 'all' : 'noParent')}
           >
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-[#757575]">No Parent Linked</p>
-                  <p className="text-2xl font-semibold text-[#1A1A1A]">
+                  <p className="text-sm text-text-body">No Parent Linked</p>
+                  <p className="text-2xl font-semibold text-text-heading">
                     {ASSIGNMENT_DATA.noParentLinked.length}
                   </p>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-[#FCE4EC] flex items-center justify-center">
-                  <Link2 className="w-6 h-6 text-[#C2185B]" />
+                <div className="w-12 h-12 rounded-full bg-status-error-soft flex items-center justify-center">
+                  <Link2 className="w-6 h-6 text-status-error" />
                 </div>
               </div>
             </CardContent>
           </Card>
 
           <Card
-            className={`border-[#D0D0D0] cursor-pointer transition-colors ${
-              category === 'orphanParent' ? 'border-[#333333] bg-[#F5F5F5]' : 'hover:border-[#9E9E9E]'
+            className={`border-border-default cursor-pointer transition-colors ${
+              category === 'orphanParent' ? 'border-brand bg-surface-page' : 'hover:border-border-strong'
             }`}
             onClick={() => setCategory(category === 'orphanParent' ? 'all' : 'orphanParent')}
           >
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-[#757575]">Unlinked Parents</p>
-                  <p className="text-2xl font-semibold text-[#1A1A1A]">
+                  <p className="text-sm text-text-body">Unlinked Parents</p>
+                  <p className="text-2xl font-semibold text-text-heading">
                     {ASSIGNMENT_DATA.orphanParents.length}
                   </p>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-[#FFF3E0] flex items-center justify-center">
-                  <AlertTriangle className="w-6 h-6 text-[#EF6C00]" />
+                <div className="w-12 h-12 rounded-full bg-status-warning-soft flex items-center justify-center">
+                  <AlertTriangle className="w-6 h-6 text-status-warning" />
                 </div>
               </div>
             </CardContent>
@@ -147,7 +147,7 @@ export default function AssignmentSummary() {
 
         {/* Filter */}
         <div className="flex items-center justify-between mb-4">
-          <p className="text-sm text-[#757575]">
+          <p className="text-sm text-text-body">
             {category === 'all'
               ? `Showing all ${totalIssues} items requiring attention`
               : `Filtered view`}
@@ -157,7 +157,7 @@ export default function AssignmentSummary() {
               variant="ghost"
               size="sm"
               onClick={() => setCategory('all')}
-              className="text-[#757575]"
+              className="text-text-body"
             >
               Show All
             </Button>
@@ -167,14 +167,14 @@ export default function AssignmentSummary() {
         {/* Students Without Teacher */}
         {(category === 'all' || category === 'unassignedTeacher') &&
           ASSIGNMENT_DATA.unassignedToTeacher.length > 0 && (
-            <Card className="border-[#D0D0D0] mb-4">
+            <Card className="border-border-default mb-4">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-lg flex items-center gap-2">
-                    <Users className="w-5 h-5 text-[#E65100]" />
+                    <Users className="w-5 h-5 text-status-warning" />
                     Students Without Teacher
                   </CardTitle>
-                  <Badge variant="secondary" className="bg-[#FFE0B2] text-[#E65100]">
+                  <Badge variant="secondary" className="bg-status-warning-soft text-status-warning">
                     {ASSIGNMENT_DATA.unassignedToTeacher.length}
                   </Badge>
                 </div>
@@ -184,11 +184,11 @@ export default function AssignmentSummary() {
                   {ASSIGNMENT_DATA.unassignedToTeacher.map((student) => (
                     <div
                       key={student.id}
-                      className="flex items-center justify-between p-3 border border-[#E0E0E0] rounded-lg hover:bg-[#FAFAFA]"
+                      className="flex items-center justify-between p-3 border border-border-light rounded-lg hover:bg-table-row-hover"
                     >
                       <div>
-                        <p className="font-medium text-[#1A1A1A]">{student.name}</p>
-                        <p className="text-sm text-[#757575]">
+                        <p className="font-medium text-text-heading">{student.name}</p>
+                        <p className="text-sm text-text-body">
                           {student.id} - Grade {student.grade}
                         </p>
                       </div>
@@ -196,7 +196,7 @@ export default function AssignmentSummary() {
                         variant="outline"
                         size="sm"
                         onClick={() => navigate(`/admin/students/${student.id}/assign-teacher`)}
-                        className="border-[#D0D0D0]"
+                        className="border-border-default"
                       >
                         Assign Teacher
                         <ChevronRight className="w-4 h-4 ml-1" />
@@ -211,14 +211,14 @@ export default function AssignmentSummary() {
         {/* Students Without Expert */}
         {(category === 'all' || category === 'unassignedExpert') &&
           ASSIGNMENT_DATA.unassignedToExpert.length > 0 && (
-            <Card className="border-[#D0D0D0] mb-4">
+            <Card className="border-border-default mb-4">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-lg flex items-center gap-2">
-                    <UserCheck className="w-5 h-5 text-[#1565C0]" />
+                    <UserCheck className="w-5 h-5 text-status-info" />
                     Students Without Behavioral Expert
                   </CardTitle>
-                  <Badge variant="secondary" className="bg-[#E3F2FD] text-[#1565C0]">
+                  <Badge variant="secondary" className="bg-status-info-soft text-status-info">
                     {ASSIGNMENT_DATA.unassignedToExpert.length}
                   </Badge>
                 </div>
@@ -228,11 +228,11 @@ export default function AssignmentSummary() {
                   {ASSIGNMENT_DATA.unassignedToExpert.map((student) => (
                     <div
                       key={student.id}
-                      className="flex items-center justify-between p-3 border border-[#E0E0E0] rounded-lg hover:bg-[#FAFAFA]"
+                      className="flex items-center justify-between p-3 border border-border-light rounded-lg hover:bg-table-row-hover"
                     >
                       <div>
-                        <p className="font-medium text-[#1A1A1A]">{student.name}</p>
-                        <p className="text-sm text-[#757575]">
+                        <p className="font-medium text-text-heading">{student.name}</p>
+                        <p className="text-sm text-text-body">
                           {student.id} - Grade {student.grade} - Teacher: {student.teacher}
                         </p>
                       </div>
@@ -240,7 +240,7 @@ export default function AssignmentSummary() {
                         variant="outline"
                         size="sm"
                         onClick={() => navigate(`/admin/students/${student.id}/assign-expert`)}
-                        className="border-[#D0D0D0]"
+                        className="border-border-default"
                       >
                         Assign Expert
                         <ChevronRight className="w-4 h-4 ml-1" />
@@ -255,14 +255,14 @@ export default function AssignmentSummary() {
         {/* Students Without Parent */}
         {(category === 'all' || category === 'noParent') &&
           ASSIGNMENT_DATA.noParentLinked.length > 0 && (
-            <Card className="border-[#D0D0D0] mb-4">
+            <Card className="border-border-default mb-4">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-lg flex items-center gap-2">
-                    <Link2 className="w-5 h-5 text-[#C2185B]" />
+                    <Link2 className="w-5 h-5 text-status-error" />
                     Students Without Parent Linked
                   </CardTitle>
-                  <Badge variant="secondary" className="bg-[#FCE4EC] text-[#C2185B]">
+                  <Badge variant="secondary" className="bg-status-error-soft text-status-error">
                     {ASSIGNMENT_DATA.noParentLinked.length}
                   </Badge>
                 </div>
@@ -272,11 +272,11 @@ export default function AssignmentSummary() {
                   {ASSIGNMENT_DATA.noParentLinked.map((student) => (
                     <div
                       key={student.id}
-                      className="flex items-center justify-between p-3 border border-[#E0E0E0] rounded-lg hover:bg-[#FAFAFA]"
+                      className="flex items-center justify-between p-3 border border-border-light rounded-lg hover:bg-table-row-hover"
                     >
                       <div>
-                        <p className="font-medium text-[#1A1A1A]">{student.name}</p>
-                        <p className="text-sm text-[#757575]">
+                        <p className="font-medium text-text-heading">{student.name}</p>
+                        <p className="text-sm text-text-body">
                           {student.id} - Grade {student.grade} - Teacher: {student.teacher}
                         </p>
                       </div>
@@ -284,7 +284,7 @@ export default function AssignmentSummary() {
                         variant="outline"
                         size="sm"
                         onClick={() => navigate(`/admin/students/${student.id}/assign-parent`)}
-                        className="border-[#D0D0D0]"
+                        className="border-border-default"
                       >
                         Link Parent
                         <ChevronRight className="w-4 h-4 ml-1" />
@@ -299,14 +299,14 @@ export default function AssignmentSummary() {
         {/* Orphan Parents */}
         {(category === 'all' || category === 'orphanParent') &&
           ASSIGNMENT_DATA.orphanParents.length > 0 && (
-            <Card className="border-[#D0D0D0] mb-4">
+            <Card className="border-border-default mb-4">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-lg flex items-center gap-2">
-                    <AlertTriangle className="w-5 h-5 text-[#EF6C00]" />
+                    <AlertTriangle className="w-5 h-5 text-status-warning" />
                     Parents Without Students Linked
                   </CardTitle>
-                  <Badge variant="secondary" className="bg-[#FFF3E0] text-[#EF6C00]">
+                  <Badge variant="secondary" className="bg-status-warning-soft text-status-warning">
                     {ASSIGNMENT_DATA.orphanParents.length}
                   </Badge>
                 </div>
@@ -316,18 +316,18 @@ export default function AssignmentSummary() {
                   {ASSIGNMENT_DATA.orphanParents.map((parent) => (
                     <div
                       key={parent.id}
-                      className="flex items-center justify-between p-3 border border-[#E0E0E0] rounded-lg hover:bg-[#FAFAFA]"
+                      className="flex items-center justify-between p-3 border border-border-light rounded-lg hover:bg-table-row-hover"
                     >
                       <div>
-                        <p className="font-medium text-[#1A1A1A]">{parent.name}</p>
-                        <p className="text-sm text-[#757575]">
+                        <p className="font-medium text-text-heading">{parent.name}</p>
+                        <p className="text-sm text-text-body">
                           {parent.email}
                           <Badge
                             variant="secondary"
                             className={`ml-2 text-xs ${
                               parent.status === 'Active'
-                                ? 'bg-[#E8F5E9] text-[#2E7D32]'
-                                : 'bg-[#FFE0B2] text-[#E65100]'
+                                ? 'bg-status-success-soft text-status-success'
+                                : 'bg-status-warning-soft text-status-warning'
                             }`}
                           >
                             {parent.status}
@@ -338,7 +338,7 @@ export default function AssignmentSummary() {
                         variant="outline"
                         size="sm"
                         onClick={() => navigate(`/admin/parents/${parent.id}/link`)}
-                        className="border-[#D0D0D0]"
+                        className="border-border-default"
                       >
                         Link to Student
                         <ChevronRight className="w-4 h-4 ml-1" />
@@ -352,13 +352,13 @@ export default function AssignmentSummary() {
 
         {/* Empty State */}
         {totalIssues === 0 && (
-          <Card className="border-[#D0D0D0] p-12">
+          <Card className="border-border-default p-12">
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-[#E8F5E9] flex items-center justify-center mx-auto mb-4">
-                <UserCheck className="w-8 h-8 text-[#2E7D32]" />
+              <div className="w-16 h-16 rounded-full bg-status-success-soft flex items-center justify-center mx-auto mb-4">
+                <UserCheck className="w-8 h-8 text-status-success" />
               </div>
-              <h3 className="text-lg font-medium text-[#1A1A1A] mb-2">All Assignments Complete</h3>
-              <p className="text-[#757575]">
+              <h3 className="text-lg font-medium text-text-heading mb-2">All Assignments Complete</h3>
+              <p className="text-text-body">
                 All students have teachers, experts, and parents assigned.
               </p>
             </div>

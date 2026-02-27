@@ -90,43 +90,43 @@ export default function NewIncidentStep3() {
       <div className="max-w-4xl mx-auto space-y-6">
         <Link
           to={`/teacher/incidents/new/details?${searchParams.toString()}`}
-          className="inline-flex items-center text-[#4A4A4A] hover:text-[#1A1A1A]"
+          className="inline-flex items-center text-text-label hover:text-text-heading"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back
         </Link>
 
         <div>
-          <h1 className="text-3xl font-bold text-[#1A1A1A]">Log New Incident</h1>
-          <p className="text-[#757575]">Step 3 of 4: Triggers & Strategies</p>
+          <h1 className="text-3xl font-bold text-text-heading">Log New Incident</h1>
+          <p className="text-text-body">Step 3 of 4: Triggers & Strategies</p>
         </div>
 
         {/* Progress Bar */}
         <div className="flex items-center space-x-2">
-          <div className="flex-1 h-2 bg-[#333333] rounded-full"></div>
-          <div className="flex-1 h-2 bg-[#333333] rounded-full"></div>
-          <div className="flex-1 h-2 bg-[#333333] rounded-full"></div>
-          <div className="flex-1 h-2 bg-[#E0E0E0] rounded-full"></div>
+          <div className="flex-1 h-2 bg-brand rounded-full"></div>
+          <div className="flex-1 h-2 bg-brand rounded-full"></div>
+          <div className="flex-1 h-2 bg-brand rounded-full"></div>
+          <div className="flex-1 h-2 bg-surface-elevated rounded-full"></div>
         </div>
 
         {/* Student Info */}
-        <Card className="p-4 border border-[#D0D0D0] bg-[#F5F5F5]">
-          <p className="text-sm text-[#757575]">Student:</p>
-          <p className="font-semibold text-[#1A1A1A]">
+        <Card className="p-4 border border-border-default bg-surface-page">
+          <p className="text-sm text-text-body">Student:</p>
+          <p className="font-semibold text-text-heading">
             {student.name} • {student.id} • Grade {student.grade}
           </p>
         </Card>
 
         {/* Triggers */}
-        <Card className="p-6 border border-[#D0D0D0] bg-white space-y-4">
-          <h3 className="text-lg font-semibold text-[#1A1A1A]">
+        <Card className="p-6 border border-border-default bg-surface-card space-y-4">
+          <h3 className="text-lg font-semibold text-text-heading">
             What triggered the behavior? <span className="text-red-500">*</span>
           </h3>
 
           {/* Known Triggers */}
           {knownTriggers.length > 0 && (
-            <div className="p-4 bg-[#F5F5F5] rounded-lg space-y-3">
-              <p className="text-sm font-medium text-[#1A1A1A]">
+            <div className="p-4 bg-surface-page rounded-lg space-y-3">
+              <p className="text-sm font-medium text-text-heading">
                 Known Triggers for {student.firstName}:
               </p>
               {knownTriggers.map((trigger) => (
@@ -138,7 +138,7 @@ export default function NewIncidentStep3() {
                   />
                   <Label
                     htmlFor={`trigger-${trigger}`}
-                    className="text-[#1A1A1A] cursor-pointer"
+                    className="text-text-heading cursor-pointer"
                   >
                     {trigger}
                   </Label>
@@ -149,7 +149,7 @@ export default function NewIncidentStep3() {
 
           {/* Other Triggers */}
           <div>
-            <p className="text-sm font-medium text-[#1A1A1A] mb-3">Other Triggers:</p>
+            <p className="text-sm font-medium text-text-heading mb-3">Other Triggers:</p>
             <div className="space-y-2">
               {STANDARD_TRIGGERS.slice(0, showAllTriggers ? undefined : 8).map((trigger) => (
                 !knownTriggers.includes(trigger) && (
@@ -161,7 +161,7 @@ export default function NewIncidentStep3() {
                     />
                     <Label
                       htmlFor={`trigger-${trigger}`}
-                      className="text-[#4A4A4A] cursor-pointer"
+                      className="text-text-label cursor-pointer"
                     >
                       {trigger}
                     </Label>
@@ -172,7 +172,7 @@ export default function NewIncidentStep3() {
             <Button
               variant="ghost"
               onClick={() => setShowAllTriggers(!showAllTriggers)}
-              className="mt-2 text-[#4A4A4A] hover:text-[#1A1A1A]"
+              className="mt-2 text-text-label hover:text-text-heading"
             >
               {showAllTriggers ? (
                 <>
@@ -195,12 +195,12 @@ export default function NewIncidentStep3() {
               value={customTrigger}
               onChange={(e) => setCustomTrigger(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && addCustomTrigger()}
-              className="flex-1 border-[#D0D0D0] focus:border-[#333333]"
+              className="flex-1 border-border-default focus:border-brand"
             />
             <Button
               onClick={addCustomTrigger}
               variant="outline"
-              className="border-[#D0D0D0] text-[#333333] hover:bg-[#F5F5F5] rounded-lg"
+              className="border-border-default text-text-heading hover:bg-surface-page rounded-lg"
             >
               Add
             </Button>
@@ -208,15 +208,15 @@ export default function NewIncidentStep3() {
         </Card>
 
         {/* Strategies */}
-        <Card className="p-6 border border-[#D0D0D0] bg-white space-y-4">
-          <h3 className="text-lg font-semibold text-[#1A1A1A]">
+        <Card className="p-6 border border-border-default bg-surface-card space-y-4">
+          <h3 className="text-lg font-semibold text-text-heading">
             What strategies were attempted? <span className="text-red-500">*</span>
           </h3>
 
           {/* Recommended Strategies */}
           {recommendedStrategies.length > 0 && (
-            <div className="p-4 bg-[#F5F5F5] rounded-lg space-y-3">
-              <p className="text-sm font-medium text-[#1A1A1A]">
+            <div className="p-4 bg-surface-page rounded-lg space-y-3">
+              <p className="text-sm font-medium text-text-heading">
                 Recommended for {student.firstName}:
               </p>
               {recommendedStrategies.map((strategy) => (
@@ -228,7 +228,7 @@ export default function NewIncidentStep3() {
                   />
                   <Label
                     htmlFor={`strategy-${strategy}`}
-                    className="text-[#1A1A1A] cursor-pointer"
+                    className="text-text-heading cursor-pointer"
                   >
                     {strategy}
                   </Label>
@@ -239,7 +239,7 @@ export default function NewIncidentStep3() {
 
           {/* Other Strategies */}
           <div>
-            <p className="text-sm font-medium text-[#1A1A1A] mb-3">Other Strategies:</p>
+            <p className="text-sm font-medium text-text-heading mb-3">Other Strategies:</p>
             <div className="space-y-2">
               {STANDARD_STRATEGIES.slice(0, showAllStrategies ? undefined : 8).map((strategy) => (
                 !recommendedStrategies.includes(strategy) && (
@@ -251,7 +251,7 @@ export default function NewIncidentStep3() {
                     />
                     <Label
                       htmlFor={`strategy-${strategy}`}
-                      className="text-[#4A4A4A] cursor-pointer"
+                      className="text-text-label cursor-pointer"
                     >
                       {strategy}
                     </Label>
@@ -262,7 +262,7 @@ export default function NewIncidentStep3() {
             <Button
               variant="ghost"
               onClick={() => setShowAllStrategies(!showAllStrategies)}
-              className="mt-2 text-[#4A4A4A] hover:text-[#1A1A1A]"
+              className="mt-2 text-text-label hover:text-text-heading"
             >
               {showAllStrategies ? (
                 <>
@@ -285,12 +285,12 @@ export default function NewIncidentStep3() {
               value={customStrategy}
               onChange={(e) => setCustomStrategy(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && addCustomStrategy()}
-              className="flex-1 border-[#D0D0D0] focus:border-[#333333]"
+              className="flex-1 border-border-default focus:border-brand"
             />
             <Button
               onClick={addCustomStrategy}
               variant="outline"
-              className="border-[#D0D0D0] text-[#333333] hover:bg-[#F5F5F5] rounded-lg"
+              className="border-border-default text-text-heading hover:bg-surface-page rounded-lg"
             >
               Add
             </Button>
@@ -302,7 +302,7 @@ export default function NewIncidentStep3() {
           <Button
             variant="outline"
             onClick={handleBack}
-            className="border-[#D0D0D0] text-[#333333] hover:bg-[#F5F5F5] rounded-lg"
+            className="border-border-default text-text-heading hover:bg-surface-page rounded-lg"
           >
             ← Back
           </Button>
@@ -310,13 +310,13 @@ export default function NewIncidentStep3() {
             <Button
               variant="outline"
               onClick={() => toast.success('Draft saved')}
-              className="border-[#D0D0D0] text-[#333333] hover:bg-[#F5F5F5] rounded-lg"
+              className="border-border-default text-text-heading hover:bg-surface-page rounded-lg"
             >
               Save Draft
             </Button>
             <Button
               onClick={handleNext}
-              className="bg-[#333333] hover:bg-[#1A1A1A] text-white rounded-lg"
+              className="bg-brand hover:bg-brand-dark text-white rounded-lg"
             >
               Next →
             </Button>

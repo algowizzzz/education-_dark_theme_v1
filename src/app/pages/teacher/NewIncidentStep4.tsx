@@ -76,48 +76,48 @@ export default function NewIncidentStep4() {
       <div className="max-w-4xl mx-auto space-y-6">
         <Link
           to={`/teacher/incidents/new/triggers?${searchParams.toString()}`}
-          className="inline-flex items-center text-[#4A4A4A] hover:text-[#1A1A1A]"
+          className="inline-flex items-center text-text-label hover:text-text-heading"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back
         </Link>
 
         <div>
-          <h1 className="text-3xl font-bold text-[#1A1A1A]">Log New Incident</h1>
-          <p className="text-[#757575]">Step 4 of 4: Notes & Outcome</p>
+          <h1 className="text-3xl font-bold text-text-heading">Log New Incident</h1>
+          <p className="text-text-body">Step 4 of 4: Notes & Outcome</p>
         </div>
 
         {/* Progress Bar */}
         <div className="flex items-center space-x-2">
-          <div className="flex-1 h-2 bg-[#333333] rounded-full"></div>
-          <div className="flex-1 h-2 bg-[#333333] rounded-full"></div>
-          <div className="flex-1 h-2 bg-[#333333] rounded-full"></div>
-          <div className="flex-1 h-2 bg-[#333333] rounded-full"></div>
+          <div className="flex-1 h-2 bg-brand rounded-full"></div>
+          <div className="flex-1 h-2 bg-brand rounded-full"></div>
+          <div className="flex-1 h-2 bg-brand rounded-full"></div>
+          <div className="flex-1 h-2 bg-brand rounded-full"></div>
         </div>
 
         {/* Student Info */}
-        <Card className="p-4 border border-[#D0D0D0] bg-[#F5F5F5]">
-          <p className="text-sm text-[#757575]">Student:</p>
-          <p className="font-semibold text-[#1A1A1A]">
+        <Card className="p-4 border border-border-default bg-surface-page">
+          <p className="text-sm text-text-body">Student:</p>
+          <p className="font-semibold text-text-heading">
             {student.name} • {student.id} • Grade {student.grade}
           </p>
         </Card>
 
         {/* AI Suggestions CTA */}
-        <Card className="p-6 border border-[#333333] bg-[#F5F5F5]">
+        <Card className="p-6 border border-brand bg-surface-page">
           <div className="flex items-start justify-between">
             <div className="flex-1">
               <div className="flex items-center space-x-2 mb-2">
-                <Sparkles className="w-5 h-5 text-[#333333]" />
-                <h3 className="font-semibold text-[#1A1A1A]">AI Decision Support</h3>
+                <Sparkles className="w-5 h-5 text-text-heading" />
+                <h3 className="font-semibold text-text-heading">AI Decision Support</h3>
               </div>
-              <p className="text-sm text-[#4A4A4A] mb-4">
+              <p className="text-sm text-text-label mb-4">
                 Get AI-powered recommendations for this situation based on {student.firstName}'s profile and similar incidents.
               </p>
               <Button
                 onClick={() => navigate(`/teacher/students/${studentId}/ai-support`)}
                 variant="outline"
-                className="border-[#333333] text-[#333333] hover:bg-[#E0E0E0] rounded-lg"
+                className="border-brand text-text-heading hover:bg-surface-elevated rounded-lg"
               >
                 <Sparkles className="w-4 h-4 mr-2" />
                 Get AI Suggestions
@@ -127,13 +127,13 @@ export default function NewIncidentStep4() {
         </Card>
 
         {/* Notes */}
-        <Card className="p-6 border border-[#D0D0D0] bg-white space-y-4">
+        <Card className="p-6 border border-border-default bg-surface-card space-y-4">
           <div>
             <div className="flex items-center justify-between mb-2">
-              <Label htmlFor="notes" className="text-[#1A1A1A]">
+              <Label htmlFor="notes" className="text-text-heading">
                 Incident Notes
               </Label>
-              <span className="text-sm text-[#757575]">
+              <span className="text-sm text-text-body">
                 {notes.length}/500
               </span>
             </div>
@@ -142,49 +142,49 @@ export default function NewIncidentStep4() {
               placeholder="Describe what happened, context, and any additional details..."
               value={notes}
               onChange={(e) => setNotes(e.target.value.slice(0, 500))}
-              className="min-h-[120px] border-[#D0D0D0] focus:border-[#333333]"
+              className="min-h-[120px] border-border-default focus:border-brand"
             />
           </div>
 
           {/* Outcome */}
           <div>
-            <Label className="text-[#1A1A1A] mb-3 block">
+            <Label className="text-text-heading mb-3 block">
               Outcome <span className="text-red-500">*</span>
             </Label>
             <RadioGroup value={outcome} onValueChange={setOutcome}>
               <div className="space-y-2">
-                <div className="flex items-center space-x-3 p-3 border border-[#E0E0E0] rounded-lg">
+                <div className="flex items-center space-x-3 p-3 border border-border-light rounded-lg">
                   <RadioGroupItem value="resolved" id="resolved" />
                   <Label htmlFor="resolved" className="flex-1 cursor-pointer">
-                    <div className="font-medium text-[#1A1A1A]">Resolved</div>
-                    <div className="text-sm text-[#757575]">
+                    <div className="font-medium text-text-heading">Resolved</div>
+                    <div className="text-sm text-text-body">
                       Behavior stopped, student returned to normal activities
                     </div>
                   </Label>
                 </div>
-                <div className="flex items-center space-x-3 p-3 border border-[#E0E0E0] rounded-lg">
+                <div className="flex items-center space-x-3 p-3 border border-border-light rounded-lg">
                   <RadioGroupItem value="partially" id="partially" />
                   <Label htmlFor="partially" className="flex-1 cursor-pointer">
-                    <div className="font-medium text-[#1A1A1A]">Partially Resolved</div>
-                    <div className="text-sm text-[#757575]">
+                    <div className="font-medium text-text-heading">Partially Resolved</div>
+                    <div className="text-sm text-text-body">
                       Behavior improved but may need follow-up
                     </div>
                   </Label>
                 </div>
-                <div className="flex items-center space-x-3 p-3 border border-[#E0E0E0] rounded-lg">
+                <div className="flex items-center space-x-3 p-3 border border-border-light rounded-lg">
                   <RadioGroupItem value="unresolved" id="unresolved" />
                   <Label htmlFor="unresolved" className="flex-1 cursor-pointer">
-                    <div className="font-medium text-[#1A1A1A]">Unresolved</div>
-                    <div className="text-sm text-[#757575]">
+                    <div className="font-medium text-text-heading">Unresolved</div>
+                    <div className="text-sm text-text-body">
                       Strategies were not effective
                     </div>
                   </Label>
                 </div>
-                <div className="flex items-center space-x-3 p-3 border border-[#E0E0E0] rounded-lg">
+                <div className="flex items-center space-x-3 p-3 border border-border-light rounded-lg">
                   <RadioGroupItem value="escalated" id="escalated" />
                   <Label htmlFor="escalated" className="flex-1 cursor-pointer">
-                    <div className="font-medium text-[#1A1A1A]">Escalated</div>
-                    <div className="text-sm text-[#757575]">
+                    <div className="font-medium text-text-heading">Escalated</div>
+                    <div className="text-sm text-text-body">
                       Requires behavioral expert intervention
                     </div>
                   </Label>
@@ -195,13 +195,13 @@ export default function NewIncidentStep4() {
 
           {/* Escalation Fields */}
           {outcome === 'escalated' && (
-            <div className="space-y-4 p-4 bg-[#F5F5F5] rounded-lg">
+            <div className="space-y-4 p-4 bg-surface-page rounded-lg">
               <div>
-                <Label htmlFor="expert" className="text-[#1A1A1A]">
+                <Label htmlFor="expert" className="text-text-heading">
                   Select Behavioral Expert <span className="text-red-500">*</span>
                 </Label>
                 <Select value={expertId} onValueChange={setExpertId}>
-                  <SelectTrigger className="mt-1 border-[#D0D0D0]">
+                  <SelectTrigger className="mt-1 border-border-default">
                     <SelectValue placeholder="Select expert" />
                   </SelectTrigger>
                   <SelectContent>
@@ -214,7 +214,7 @@ export default function NewIncidentStep4() {
                 </Select>
               </div>
               <div>
-                <Label htmlFor="escalation-note" className="text-[#1A1A1A]">
+                <Label htmlFor="escalation-note" className="text-text-heading">
                   Escalation Note
                 </Label>
                 <Textarea
@@ -222,7 +222,7 @@ export default function NewIncidentStep4() {
                   placeholder="Why are you escalating this case? What patterns or concerns prompted escalation?"
                   value={escalationNote}
                   onChange={(e) => setEscalationNote(e.target.value)}
-                  className="mt-1 min-h-[80px] border-[#D0D0D0] focus:border-[#333333]"
+                  className="mt-1 min-h-[80px] border-border-default focus:border-brand"
                 />
               </div>
             </div>
@@ -234,7 +234,7 @@ export default function NewIncidentStep4() {
           <Button
             variant="outline"
             onClick={handleBack}
-            className="border-[#D0D0D0] text-[#333333] hover:bg-[#F5F5F5] rounded-lg"
+            className="border-border-default text-text-heading hover:bg-surface-page rounded-lg"
           >
             ← Back
           </Button>
@@ -242,13 +242,13 @@ export default function NewIncidentStep4() {
             <Button
               variant="outline"
               onClick={() => toast.success('Draft saved')}
-              className="border-[#D0D0D0] text-[#333333] hover:bg-[#F5F5F5] rounded-lg"
+              className="border-border-default text-text-heading hover:bg-surface-page rounded-lg"
             >
               Save Draft
             </Button>
             <Button
               onClick={handleSubmit}
-              className="bg-[#333333] hover:bg-[#1A1A1A] text-white rounded-lg"
+              className="bg-brand hover:bg-brand-dark text-white rounded-lg"
             >
               Submit Incident
             </Button>

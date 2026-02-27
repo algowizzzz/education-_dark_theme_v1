@@ -61,32 +61,32 @@ export default function IncidentDetail() {
   return (
     <TeacherLayout>
       <div className="p-8 max-w-5xl">
-        <Link to="/teacher/incidents" className="inline-flex items-center gap-2 text-[#4A4A4A] hover:text-[#1A1A1A] mb-6">
+        <Link to="/teacher/incidents" className="inline-flex items-center gap-2 text-text-label hover:text-text-heading mb-6">
           <ArrowLeft className="w-4 h-4" />
           Back to My Incidents
         </Link>
 
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-2xl text-[#1A1A1A] mb-2">Incident Detail</h1>
-            <p className="text-[#4A4A4A]">{caseData.id}</p>
+            <h1 className="text-2xl text-text-heading mb-2">Incident Detail</h1>
+            <p className="text-text-label">{caseData.id}</p>
           </div>
         </div>
 
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg text-[#1A1A1A]">Student</CardTitle>
+            <CardTitle className="text-lg text-text-heading">Student</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-[#1A1A1A] font-medium mb-1">{caseData.student.name}</div>
-                <div className="text-sm text-[#757575]">
+                <div className="text-text-heading font-medium mb-1">{caseData.student.name}</div>
+                <div className="text-sm text-text-body">
                   {caseData.student.id} • Grade {caseData.student.grade} • {caseData.student.primaryTeacher}
                 </div>
               </div>
               <Link to={`/teacher/students/${caseData.student.id}`}>
-                <Button variant="outline" className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]">
+                <Button variant="outline" className="border-border-strong text-text-heading hover:bg-surface-page">
                   View Full Profile
                 </Button>
               </Link>
@@ -95,17 +95,17 @@ export default function IncidentDetail() {
         </Card>
 
         <div className="grid grid-cols-2 gap-6 mb-6">
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="pt-6">
-              <div className="text-sm text-[#757575] mb-1">Submitted By</div>
-              <div className="text-[#1A1A1A] font-medium">{caseData.teacher.name}</div>
+              <div className="text-sm text-text-body mb-1">Submitted By</div>
+              <div className="text-text-heading font-medium">{caseData.teacher.name}</div>
             </CardContent>
           </Card>
 
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="pt-6">
-              <div className="text-sm text-[#757575] mb-1">Submitted Date</div>
-              <div className="text-[#1A1A1A] font-medium">
+              <div className="text-sm text-text-body mb-1">Submitted Date</div>
+              <div className="text-text-heading font-medium">
                 {new Date(caseData.submittedDate).toLocaleDateString('en-US', {
                   month: 'long',
                   day: 'numeric',
@@ -116,85 +116,85 @@ export default function IncidentDetail() {
           </Card>
         </div>
 
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg text-[#1A1A1A]">Parent Acknowledgment Status</CardTitle>
+            <CardTitle className="text-lg text-text-heading">Parent Acknowledgment Status</CardTitle>
           </CardHeader>
           <CardContent>
-            <Badge className="bg-[#757575] text-white">
+            <Badge className="bg-brand-dark text-white">
               Acknowledged
             </Badge>
-            <p className="text-sm text-[#757575] mt-2">
+            <p className="text-sm text-text-body mt-2">
               Parent acknowledged this incident on Jan 15, 2026 at 3:45 PM
             </p>
           </CardContent>
         </Card>
 
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg text-[#1A1A1A]">Incident Details</CardTitle>
+            <CardTitle className="text-lg text-text-heading">Incident Details</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-2 gap-6">
               <div>
-                <div className="text-sm text-[#757575] mb-1">Date & Time</div>
-                <div className="text-[#1A1A1A] font-medium">{incidentDetails.date} at {incidentDetails.time}</div>
+                <div className="text-sm text-text-body mb-1">Date & Time</div>
+                <div className="text-text-heading font-medium">{incidentDetails.date} at {incidentDetails.time}</div>
               </div>
               <div>
-                <div className="text-sm text-[#757575] mb-1">Location</div>
-                <div className="text-[#1A1A1A] font-medium">{incidentDetails.location}</div>
+                <div className="text-sm text-text-body mb-1">Location</div>
+                <div className="text-text-heading font-medium">{incidentDetails.location}</div>
               </div>
               <div>
-                <div className="text-sm text-[#757575] mb-1">Category</div>
-                <div className="text-[#1A1A1A] font-medium">{incidentDetails.category}</div>
+                <div className="text-sm text-text-body mb-1">Category</div>
+                <div className="text-text-heading font-medium">{incidentDetails.category}</div>
               </div>
               <div>
-                <div className="text-sm text-[#757575] mb-1">Severity</div>
+                <div className="text-sm text-text-body mb-1">Severity</div>
                 <Badge className={
-                  incidentDetails.severity === 'High' ? 'bg-[#333333] text-white' :
-                  incidentDetails.severity === 'Medium' ? 'bg-[#757575] text-white' :
-                  'bg-[#E0E0E0] text-[#4A4A4A]'
+                  incidentDetails.severity === 'High' ? 'bg-badge-high text-white' :
+                  incidentDetails.severity === 'Medium' ? 'bg-badge-medium text-white' :
+                  'bg-surface-elevated text-text-label'
                 }>
                   {incidentDetails.severity}
                 </Badge>
               </div>
             </div>
             {incidentDetails.notes && (
-              <div className="mt-4 pt-4 border-t border-[#E0E0E0]">
-                <div className="text-sm text-[#757575] mb-2">Incident Notes</div>
-                <p className="text-[#1A1A1A] text-sm">{incidentDetails.notes}</p>
+              <div className="mt-4 pt-4 border-t border-border-light">
+                <div className="text-sm text-text-body mb-2">Incident Notes</div>
+                <p className="text-text-heading text-sm">{incidentDetails.notes}</p>
               </div>
             )}
           </CardContent>
         </Card>
 
         <div className="grid grid-cols-2 gap-6 mb-6">
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardHeader className="pb-4">
-              <CardTitle className="text-lg text-[#1A1A1A]">Antecedent Triggers</CardTitle>
-              <p className="text-sm text-[#757575]">Triggers identified by teacher for this incident</p>
+              <CardTitle className="text-lg text-text-heading">Antecedent Triggers</CardTitle>
+              <p className="text-sm text-text-body">Triggers identified by teacher for this incident</p>
             </CardHeader>
             <CardContent>
               <div className="space-y-2">
                 {incidentDetails.triggers.map((trigger, index) => (
-                  <div key={index} className="flex items-center gap-2 p-2 bg-[#F5F5F5] rounded-lg">
-                    <div className="text-[#1A1A1A]">{trigger}</div>
+                  <div key={index} className="flex items-center gap-2 p-2 bg-surface-page rounded-lg">
+                    <div className="text-text-heading">{trigger}</div>
                   </div>
                 ))}
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardHeader className="pb-4">
-              <CardTitle className="text-lg text-[#1A1A1A]">Intervention Strategies Used</CardTitle>
-              <p className="text-sm text-[#757575]">Strategies attempted by teacher during this incident</p>
+              <CardTitle className="text-lg text-text-heading">Intervention Strategies Used</CardTitle>
+              <p className="text-sm text-text-body">Strategies attempted by teacher during this incident</p>
             </CardHeader>
             <CardContent>
               <div className="space-y-2">
                 {incidentDetails.strategies.map((strategy, index) => (
-                  <div key={index} className="flex items-center gap-2 p-2 bg-[#F5F5F5] rounded-lg">
-                    <div className="text-[#1A1A1A]">{strategy}</div>
+                  <div key={index} className="flex items-center gap-2 p-2 bg-surface-page rounded-lg">
+                    <div className="text-text-heading">{strategy}</div>
                   </div>
                 ))}
               </div>
@@ -202,37 +202,37 @@ export default function IncidentDetail() {
           </Card>
         </div>
 
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg text-[#1A1A1A]">Incident Summary</CardTitle>
+            <CardTitle className="text-lg text-text-heading">Incident Summary</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="mb-4">
-              <div className="text-sm text-[#757575] mb-2">AI-Generated Summary</div>
-              <div className="p-4 bg-[#F5F5F5] rounded-lg border border-[#E0E0E0]">
-                <p className="text-[#1A1A1A] text-sm leading-relaxed">
+              <div className="text-sm text-text-body mb-2">AI-Generated Summary</div>
+              <div className="p-4 bg-surface-page rounded-lg border border-border-light">
+                <p className="text-text-heading text-sm leading-relaxed">
                   Student exhibited escalating frustration during timed math assessment, resulting in property destruction (crumpled paper, thrown pencil) and elopement from classroom. This represents the third similar incident within 5 days, indicating a clear pattern of academic task avoidance with increasing severity. Antecedent: time pressure on math tasks. Behavior: verbal outburst followed by physical actions. Current interventions (verbal redirection, short breaks) showing declining effectiveness.
                 </p>
               </div>
             </div>
             <div>
-              <div className="text-sm text-[#757575] mb-2">Teacher's Note</div>
-              <p className="text-[#1A1A1A]">{caseData.teacherNote}</p>
+              <div className="text-sm text-text-body mb-2">Teacher's Note</div>
+              <p className="text-text-heading">{caseData.teacherNote}</p>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg text-[#1A1A1A]">Expert Feedback</CardTitle>
-            <p className="text-sm text-[#757575]">Expert will provide analysis and recommendations</p>
+            <CardTitle className="text-lg text-text-heading">Expert Feedback</CardTitle>
+            <p className="text-sm text-text-body">Expert will provide analysis and recommendations</p>
           </CardHeader>
           <CardContent>
             {incident.expertNotes ? (
-              <p className="text-[#1A1A1A]">{incident.expertNotes}</p>
+              <p className="text-text-heading">{incident.expertNotes}</p>
             ) : (
-              <div className="p-4 bg-[#F5F5F5] rounded-lg border border-[#E0E0E0]">
-                <p className="text-sm text-[#757575]">
+              <div className="p-4 bg-surface-page rounded-lg border border-border-light">
+                <p className="text-sm text-text-body">
                   Waiting for expert feedback...
                 </p>
               </div>
@@ -240,18 +240,18 @@ export default function IncidentDetail() {
           </CardContent>
         </Card>
 
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg text-[#1A1A1A]">Follow-up Notes</CardTitle>
-            <p className="text-sm text-[#757575]">Add updates or observations related to this case</p>
+            <CardTitle className="text-lg text-text-heading">Follow-up Notes</CardTitle>
+            <p className="text-sm text-text-body">Add updates or observations related to this case</p>
           </CardHeader>
           <CardContent>
             {notes.length > 0 && (
               <div className="mb-4 space-y-3">
                 {notes.map((note, index) => (
-                  <div key={index} className={`p-4 rounded-lg ${note.role === 'teacher' ? 'bg-[#F5F5F5]' : 'bg-[#E8E8E8]'}`}>
-                    <p className="text-[#1A1A1A] mb-2">{note.text}</p>
-                    <div className="flex items-center gap-2 text-xs text-[#757575]">
+                  <div key={index} className={`p-4 rounded-lg ${note.role === 'teacher' ? 'bg-surface-page' : 'bg-surface-elevated'}`}>
+                    <p className="text-text-heading mb-2">{note.text}</p>
+                    <div className="flex items-center gap-2 text-xs text-text-body">
                       <span className="font-medium">{note.author}</span>
                       <span>•</span>
                       <span>{note.date}</span>
@@ -267,12 +267,12 @@ export default function IncidentDetail() {
               value={followUpNote}
               onChange={(e) => setFollowUpNote(e.target.value)}
               rows={3}
-              className="border-[#D0D0D0] text-[#1A1A1A] placeholder:text-[#757575] mb-3"
+              className="border-border-default text-text-heading placeholder:text-text-body mb-3"
             />
             <Button
               onClick={handleAddNote}
               disabled={!followUpNote.trim()}
-              className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+              className="bg-brand hover:bg-brand-dark text-white shadow-sm"
             >
               Add Follow-up Note
             </Button>

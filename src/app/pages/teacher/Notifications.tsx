@@ -26,15 +26,15 @@ export default function Notifications() {
   const getIcon = (type: string) => {
     switch (type) {
       case 'escalation':
-        return <AlertCircle className="w-5 h-5 text-[#4A4A4A]" />;
+        return <AlertCircle className="w-5 h-5 text-text-label" />;
       case 'incident':
-        return <CheckCircle2 className="w-5 h-5 text-[#4A4A4A]" />;
+        return <CheckCircle2 className="w-5 h-5 text-text-label" />;
       case 'message':
-        return <MessageSquare className="w-5 h-5 text-[#4A4A4A]" />;
+        return <MessageSquare className="w-5 h-5 text-text-label" />;
       case 'profile':
-        return <User className="w-5 h-5 text-[#4A4A4A]" />;
+        return <User className="w-5 h-5 text-text-label" />;
       default:
-        return <Bell className="w-5 h-5 text-[#4A4A4A]" />;
+        return <Bell className="w-5 h-5 text-text-label" />;
     }
   };
 
@@ -42,15 +42,15 @@ export default function Notifications() {
     <TeacherLayout>
       <div className="p-8 max-w-4xl">
         <div className="mb-6">
-          <h1 className="text-2xl text-[#1A1A1A] mb-2">Notifications</h1>
+          <h1 className="text-2xl text-text-heading mb-2">Notifications</h1>
         </div>
 
         <div className="space-y-2">
           {notifications.map((notification) => (
             <Card
               key={notification.id}
-              className={`border-[#D0D0D0] cursor-pointer hover:bg-[#FAFAFA] transition-colors ${
-                !notification.read ? 'bg-[#F5F5F5]' : 'bg-white'
+              className={`border-border-default cursor-pointer hover:bg-table-row-hover transition-colors ${
+                !notification.read ? 'bg-surface-page' : 'bg-surface-card'
               }`}
             >
               <CardContent className="p-4">
@@ -60,19 +60,19 @@ export default function Notifications() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between gap-3 mb-1">
-                      <h3 className="text-[#1A1A1A] font-medium">
+                      <h3 className="text-text-heading font-medium">
                         {notification.title}
                       </h3>
                       <div className="flex items-center gap-2 shrink-0">
-                        <span className="text-xs text-[#757575]">
+                        <span className="text-xs text-text-body">
                           {notification.timestamp}
                         </span>
                         {!notification.read && (
-                          <Badge className="bg-[#333333] text-white h-2 w-2 p-0 rounded-full" />
+                          <Badge className="bg-brand text-white h-2 w-2 p-0 rounded-full" />
                         )}
                       </div>
                     </div>
-                    <p className="text-sm text-[#4A4A4A]">
+                    <p className="text-sm text-text-label">
                       {notification.message}
                     </p>
                   </div>
@@ -83,10 +83,10 @@ export default function Notifications() {
         </div>
 
         {notifications.length === 0 && (
-          <Card className="border-[#D0D0D0] p-12">
+          <Card className="border-border-default p-12">
             <div className="text-center">
-              <Bell className="w-12 h-12 text-[#D0D0D0] mx-auto mb-4" />
-              <p className="text-[#757575]">No notifications yet</p>
+              <Bell className="w-12 h-12 text-text-muted mx-auto mb-4" />
+              <p className="text-text-body">No notifications yet</p>
             </div>
           </Card>
         )}

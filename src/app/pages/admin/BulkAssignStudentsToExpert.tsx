@@ -102,13 +102,13 @@ export default function BulkAssignStudentsToExpert() {
           <Button
             variant="ghost"
             onClick={() => (step === 2 ? setStep(1) : navigate('/admin/students'))}
-            className="mb-4 text-[#4A4A4A] hover:text-[#1A1A1A]"
+            className="mb-4 text-text-label hover:text-text-heading"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             {step === 2 ? 'Back to Expert Selection' : 'Back to Students'}
           </Button>
           <h1 className="text-2xl mb-2">Bulk Assign Students to Behavioral Expert</h1>
-          <p className="text-[#757575]">
+          <p className="text-text-body">
             {step === 1
               ? 'Step 1: Select a behavioral expert to assign students to'
               : `Step 2: Select students to assign to ${expert?.name}`}
@@ -119,15 +119,15 @@ export default function BulkAssignStudentsToExpert() {
         <div className="flex items-center gap-2 mb-6">
           <div
             className={`w-8 h-8 rounded-full flex items-center justify-center ${
-              step >= 1 ? 'bg-[#333333] text-white' : 'bg-[#E0E0E0] text-[#757575]'
+              step >= 1 ? 'bg-brand text-white' : 'bg-surface-elevated text-text-body'
             }`}
           >
             {step > 1 ? <Check className="w-4 h-4" /> : '1'}
           </div>
-          <div className={`flex-1 h-1 ${step > 1 ? 'bg-[#333333]' : 'bg-[#E0E0E0]'}`} />
+          <div className={`flex-1 h-1 ${step > 1 ? 'bg-brand' : 'bg-surface-elevated'}`} />
           <div
             className={`w-8 h-8 rounded-full flex items-center justify-center ${
-              step >= 2 ? 'bg-[#333333] text-white' : 'bg-[#E0E0E0] text-[#757575]'
+              step >= 2 ? 'bg-brand text-white' : 'bg-surface-elevated text-text-body'
             }`}
           >
             2
@@ -136,7 +136,7 @@ export default function BulkAssignStudentsToExpert() {
 
         {/* Step 1: Select Expert */}
         {step === 1 && (
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardHeader>
               <CardTitle className="text-lg">Select Behavioral Expert</CardTitle>
             </CardHeader>
@@ -148,21 +148,21 @@ export default function BulkAssignStudentsToExpert() {
                     onClick={() => setSelectedExpert(e.id)}
                     className={`p-4 border rounded-lg cursor-pointer transition-colors ${
                       selectedExpert === e.id
-                        ? 'border-[#333333] bg-[#F5F5F5]'
-                        : 'border-[#D0D0D0] hover:border-[#9E9E9E]'
+                        ? 'border-brand bg-surface-page'
+                        : 'border-border-default hover:border-border-strong'
                     }`}
                   >
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
-                          <p className="font-medium text-[#1A1A1A]">{e.name}</p>
+                          <p className="font-medium text-text-heading">{e.name}</p>
                           {selectedExpert === e.id && (
-                            <div className="w-5 h-5 rounded-full bg-[#333333] flex items-center justify-center">
+                            <div className="w-5 h-5 rounded-full bg-brand flex items-center justify-center">
                               <Check className="w-3 h-3 text-white" />
                             </div>
                           )}
                         </div>
-                        <p className="text-sm text-[#757575]">{e.role}</p>
+                        <p className="text-sm text-text-body">{e.role}</p>
 
                         {/* Specializations */}
                         <div className="flex flex-wrap gap-1 mt-2">
@@ -170,7 +170,7 @@ export default function BulkAssignStudentsToExpert() {
                             <Badge
                               key={idx}
                               variant="secondary"
-                              className="text-xs bg-[#F5F5F5] text-[#4A4A4A]"
+                              className="text-xs bg-surface-page text-text-label"
                             >
                               {spec}
                             </Badge>
@@ -180,11 +180,11 @@ export default function BulkAssignStudentsToExpert() {
 
                       {/* Current Students Count */}
                       <div className="text-right ml-4">
-                        <div className="flex items-center gap-1 text-sm text-[#4A4A4A]">
-                          <Users className="w-4 h-4 text-[#757575]" />
+                        <div className="flex items-center gap-1 text-sm text-text-label">
+                          <Users className="w-4 h-4 text-text-body" />
                           <span>{e.assignedStudents} students</span>
                         </div>
-                        <p className="text-xs text-[#757575] mt-1">currently assigned</p>
+                        <p className="text-xs text-text-body mt-1">currently assigned</p>
                       </div>
                     </div>
                   </div>
@@ -195,7 +195,7 @@ export default function BulkAssignStudentsToExpert() {
                 <Button
                   onClick={() => setStep(2)}
                   disabled={!selectedExpert}
-                  className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+                  className="bg-brand hover:bg-brand-dark text-white shadow-sm"
                 >
                   Continue to Select Students
                   <ChevronRight className="w-4 h-4 ml-2" />
@@ -209,22 +209,22 @@ export default function BulkAssignStudentsToExpert() {
         {step === 2 && (
           <>
             {/* Selected Expert Info */}
-            <Card className="border-[#D0D0D0] mb-4">
+            <Card className="border-border-default mb-4">
               <CardContent className="py-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-[#E3F2FD] flex items-center justify-center">
-                      <Brain className="w-5 h-5 text-[#1565C0]" />
+                    <div className="w-10 h-10 rounded-full bg-status-info-soft flex items-center justify-center">
+                      <Brain className="w-5 h-5 text-status-info" />
                     </div>
                     <div>
-                      <p className="text-sm text-[#757575]">Assigning to:</p>
-                      <p className="font-medium text-[#1A1A1A]">{expert?.name}</p>
-                      <p className="text-sm text-[#757575]">{expert?.role}</p>
+                      <p className="text-sm text-text-body">Assigning to:</p>
+                      <p className="font-medium text-text-heading">{expert?.name}</p>
+                      <p className="text-sm text-text-body">{expert?.role}</p>
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="flex items-center gap-1 text-sm text-[#4A4A4A]">
-                      <Users className="w-4 h-4 text-[#757575]" />
+                    <div className="flex items-center gap-1 text-sm text-text-label">
+                      <Users className="w-4 h-4 text-text-body" />
                       <span>{expert?.assignedStudents} students currently assigned</span>
                     </div>
                   </div>
@@ -235,16 +235,16 @@ export default function BulkAssignStudentsToExpert() {
             {/* Search and Filters */}
             <div className="flex gap-4 mb-4">
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#757575]" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-body" />
                 <Input
                   placeholder="Search students..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 border-[#D0D0D0]"
+                  className="pl-10 border-border-default"
                 />
               </div>
               <Select value={gradeFilter} onValueChange={setGradeFilter}>
-                <SelectTrigger className="w-40 border-[#D0D0D0]">
+                <SelectTrigger className="w-40 border-border-default">
                   <SelectValue placeholder="All Grades" />
                 </SelectTrigger>
                 <SelectContent>
@@ -259,15 +259,15 @@ export default function BulkAssignStudentsToExpert() {
 
             {/* Selection Summary */}
             {selectedStudents.length > 0 && (
-              <div className="mb-4 p-3 bg-[#F5F5F5] border border-[#D0D0D0] rounded-lg flex items-center justify-between">
-                <span className="text-sm font-medium text-[#1A1A1A]">
+              <div className="mb-4 p-3 bg-surface-page border border-border-default rounded-lg flex items-center justify-between">
+                <span className="text-sm font-medium text-text-heading">
                   {selectedStudents.length} student{selectedStudents.length > 1 ? 's' : ''} selected
                 </span>
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={() => setSelectedStudents([])}
-                  className="text-[#757575]"
+                  className="text-text-body"
                 >
                   Clear selection
                 </Button>
@@ -275,7 +275,7 @@ export default function BulkAssignStudentsToExpert() {
             )}
 
             {/* Student List */}
-            <Card className="border-[#D0D0D0]">
+            <Card className="border-border-default">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-lg">Select Students</CardTitle>
@@ -283,7 +283,7 @@ export default function BulkAssignStudentsToExpert() {
                     variant="outline"
                     size="sm"
                     onClick={toggleAllFiltered}
-                    className="border-[#D0D0D0]"
+                    className="border-border-default"
                   >
                     {filteredStudents.every((s) => selectedStudents.includes(s.id))
                       ? 'Deselect All'
@@ -301,14 +301,14 @@ export default function BulkAssignStudentsToExpert() {
                         onClick={() => toggleStudent(student.id)}
                         className={`p-3 border rounded-lg cursor-pointer transition-colors flex items-center gap-3 ${
                           isSelected
-                            ? 'border-[#333333] bg-[#F5F5F5]'
-                            : 'border-[#D0D0D0] hover:border-[#9E9E9E]'
+                            ? 'border-brand bg-surface-page'
+                            : 'border-border-default hover:border-border-strong'
                         }`}
                       >
                         <Checkbox checked={isSelected} />
                         <div className="flex-1">
-                          <p className="font-medium text-[#1A1A1A]">{student.name}</p>
-                          <p className="text-sm text-[#757575]">
+                          <p className="font-medium text-text-heading">{student.name}</p>
+                          <p className="text-sm text-text-body">
                             {student.id} - Grade {student.grade} - Teacher: {student.primaryTeacher}
                           </p>
                         </div>
@@ -318,15 +318,15 @@ export default function BulkAssignStudentsToExpert() {
                 </div>
 
                 {filteredStudents.length === 0 && (
-                  <p className="text-center text-[#757575] py-8">No students found</p>
+                  <p className="text-center text-text-body py-8">No students found</p>
                 )}
               </CardContent>
             </Card>
 
             {/* Info Card */}
-            <Card className="mt-4 border-[#D0D0D0] bg-[#F5F5F5]">
+            <Card className="mt-4 border-border-default bg-surface-page">
               <CardContent className="py-4">
-                <p className="text-sm text-[#4A4A4A]">
+                <p className="text-sm text-text-label">
                   <strong>Note:</strong> Assigning students to a behavioral expert will allow them
                   to view the students' behavior profiles, incident history, and provide
                   specialized intervention support. The expert will be notified of these
@@ -340,14 +340,14 @@ export default function BulkAssignStudentsToExpert() {
               <Button
                 variant="outline"
                 onClick={() => navigate('/admin/students')}
-                className="border-[#D0D0D0]"
+                className="border-border-default"
               >
                 Cancel
               </Button>
               <Button
                 onClick={handleAssign}
                 disabled={selectedStudents.length === 0}
-                className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+                className="bg-brand hover:bg-brand-dark text-white shadow-sm"
               >
                 Assign {selectedStudents.length} Student{selectedStudents.length > 1 ? 's' : ''}
               </Button>

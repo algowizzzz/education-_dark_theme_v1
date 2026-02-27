@@ -154,13 +154,13 @@ export default function BulkLinkParentsToStudents() {
           <Button
             variant="ghost"
             onClick={() => navigate('/admin/parents')}
-            className="mb-4 text-[#4A4A4A] hover:text-[#1A1A1A]"
+            className="mb-4 text-text-label hover:text-text-heading"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Parents
           </Button>
           <h1 className="text-2xl mb-2">Bulk Link Parents to Students</h1>
-          <p className="text-[#757575]">Create multiple parent-student links at once</p>
+          <p className="text-text-body">Create multiple parent-student links at once</p>
         </div>
 
         {/* Import Mode Toggle */}
@@ -168,7 +168,7 @@ export default function BulkLinkParentsToStudents() {
           <Button
             variant={importMode === 'manual' ? 'default' : 'outline'}
             onClick={() => setImportMode('manual')}
-            className={importMode === 'manual' ? 'bg-[#333333] text-white' : 'border-[#D0D0D0]'}
+            className={importMode === 'manual' ? 'bg-brand text-white' : 'border-border-default'}
           >
             <Link2 className="w-4 h-4 mr-2" />
             Manual Linking
@@ -176,7 +176,7 @@ export default function BulkLinkParentsToStudents() {
           <Button
             variant={importMode === 'csv' ? 'default' : 'outline'}
             onClick={() => setImportMode('csv')}
-            className={importMode === 'csv' ? 'bg-[#333333] text-white' : 'border-[#D0D0D0]'}
+            className={importMode === 'csv' ? 'bg-brand text-white' : 'border-border-default'}
           >
             <FileSpreadsheet className="w-4 h-4 mr-2" />
             CSV Import
@@ -185,17 +185,17 @@ export default function BulkLinkParentsToStudents() {
 
         {/* CSV Import Mode */}
         {importMode === 'csv' && (
-          <Card className="border-[#D0D0D0] mb-6">
+          <Card className="border-border-default mb-6">
             <CardHeader>
               <CardTitle className="text-lg">Import Links from CSV</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <div className="p-4 bg-[#F5F5F5] rounded-lg">
-                  <p className="text-sm text-[#4A4A4A] mb-2">
+                <div className="p-4 bg-surface-page rounded-lg">
+                  <p className="text-sm text-text-label mb-2">
                     <strong>CSV Format:</strong> Parent ID, Student ID
                   </p>
-                  <p className="text-xs text-[#757575]">
+                  <p className="text-xs text-text-body">
                     Example: P-001,STU-001
                   </p>
                 </div>
@@ -207,10 +207,10 @@ export default function BulkLinkParentsToStudents() {
                     placeholder="ParentID,StudentID
 P-001,STU-001
 P-002,STU-002"
-                    className="w-full h-40 mt-2 p-3 border border-[#D0D0D0] rounded-lg text-sm font-mono"
+                    className="w-full h-40 mt-2 p-3 border border-border-default rounded-lg text-sm font-mono"
                   />
                 </div>
-                <Button onClick={handleCSVParse} className="bg-[#333333] text-white">
+                <Button onClick={handleCSVParse} className="bg-brand text-white">
                   <Upload className="w-4 h-4 mr-2" />
                   Parse CSV Data
                 </Button>
@@ -221,7 +221,7 @@ P-002,STU-002"
 
         {/* Manual Linking Mode */}
         {importMode === 'manual' && (
-          <Card className="border-[#D0D0D0] mb-6">
+          <Card className="border-border-default mb-6">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <CardTitle className="text-lg">Parent-Student Links ({links.length})</CardTitle>
@@ -229,7 +229,7 @@ P-002,STU-002"
                   variant="outline"
                   size="sm"
                   onClick={addLinkRow}
-                  className="border-[#D0D0D0]"
+                  className="border-border-default"
                 >
                   <Plus className="w-4 h-4 mr-1" />
                   Add Link
@@ -238,13 +238,13 @@ P-002,STU-002"
             </CardHeader>
             <CardContent>
               {validationResults && (
-                <div className="mb-4 p-3 rounded-lg flex items-center gap-4 bg-[#F5F5F5]">
-                  <div className="flex items-center gap-2 text-green-600">
+                <div className="mb-4 p-3 rounded-lg flex items-center gap-4 bg-surface-page">
+                  <div className="flex items-center gap-2 text-status-success">
                     <CheckCircle className="w-4 h-4" />
                     <span className="text-sm">{validationResults.valid} valid</span>
                   </div>
                   {validationResults.invalid > 0 && (
-                    <div className="flex items-center gap-2 text-red-600">
+                    <div className="flex items-center gap-2 text-status-error">
                       <AlertCircle className="w-4 h-4" />
                       <span className="text-sm">{validationResults.invalid} with errors</span>
                     </div>
@@ -263,7 +263,7 @@ P-002,STU-002"
                   </TableHeader>
                   <TableBody>
                     {links.map((link) => (
-                      <TableRow key={link.id} className={link.errors?.length ? 'bg-red-50' : ''}>
+                      <TableRow key={link.id} className={link.errors?.length ? 'bg-status-error-soft' : ''}>
                         <TableCell>
                           <Select
                             value={link.parentId}
@@ -281,7 +281,7 @@ P-002,STU-002"
                                 <SelectItem key={parent.id} value={parent.id}>
                                   <div>
                                     <span>{parent.name}</span>
-                                    <span className="text-xs text-[#757575] ml-2">
+                                    <span className="text-xs text-text-body ml-2">
                                       ({parent.email})
                                     </span>
                                   </div>
@@ -307,7 +307,7 @@ P-002,STU-002"
                                 <SelectItem key={student.id} value={student.id}>
                                   <div>
                                     <span>{student.name}</span>
-                                    <span className="text-xs text-[#757575] ml-2">
+                                    <span className="text-xs text-text-body ml-2">
                                       (Grade {student.grade})
                                     </span>
                                   </div>
@@ -322,7 +322,7 @@ P-002,STU-002"
                             size="sm"
                             onClick={() => removeLinkRow(link.id)}
                             disabled={links.length === 1}
-                            className="text-[#757575] hover:text-red-600"
+                            className="text-text-body hover:text-status-error"
                           >
                             <Trash2 className="w-4 h-4" />
                           </Button>
@@ -337,7 +337,7 @@ P-002,STU-002"
                 <Button
                   variant="outline"
                   onClick={addLinkRow}
-                  className="border-dashed border-[#D0D0D0]"
+                  className="border-dashed border-border-default"
                 >
                   <Plus className="w-4 h-4 mr-2" />
                   Add Another Link
@@ -349,7 +349,7 @@ P-002,STU-002"
 
         {/* Preview Card */}
         {links.some((l) => l.parentId && l.studentId) && (
-          <Card className="border-[#D0D0D0] mb-6">
+          <Card className="border-border-default mb-6">
             <CardHeader>
               <CardTitle className="text-lg">Link Preview</CardTitle>
             </CardHeader>
@@ -360,13 +360,13 @@ P-002,STU-002"
                   .map((link) => (
                     <div
                       key={link.id}
-                      className="flex items-center gap-3 p-3 bg-[#F5F5F5] rounded-lg"
+                      className="flex items-center gap-3 p-3 bg-surface-page rounded-lg"
                     >
-                      <Badge variant="secondary" className="bg-white">
+                      <Badge variant="secondary" className="bg-surface-card">
                         {getParentName(link.parentId)}
                       </Badge>
-                      <Link2 className="w-4 h-4 text-[#757575]" />
-                      <Badge variant="secondary" className="bg-white">
+                      <Link2 className="w-4 h-4 text-text-body" />
+                      <Badge variant="secondary" className="bg-surface-card">
                         {getStudentName(link.studentId)}
                       </Badge>
                     </div>
@@ -377,9 +377,9 @@ P-002,STU-002"
         )}
 
         {/* Info Card */}
-        <Card className="border-[#D0D0D0] bg-[#F5F5F5] mb-6">
+        <Card className="border-border-default bg-surface-page mb-6">
           <CardContent className="py-4">
-            <p className="text-sm text-[#4A4A4A]">
+            <p className="text-sm text-text-label">
               <strong>Note:</strong> Linking a parent to a student will give the parent access to
               view their child's behavior profile, incidents, and communication from teachers and
               behavioral experts. Parents will be notified of new links via email.
@@ -392,14 +392,14 @@ P-002,STU-002"
           <Button
             variant="outline"
             onClick={() => navigate('/admin/parents')}
-            className="border-[#D0D0D0]"
+            className="border-border-default"
           >
             Cancel
           </Button>
           <Button
             onClick={handleSubmit}
             disabled={links.length === 0}
-            className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+            className="bg-brand hover:bg-brand-dark text-white shadow-sm"
           >
             Create {links.length} Link{links.length > 1 ? 's' : ''}
           </Button>

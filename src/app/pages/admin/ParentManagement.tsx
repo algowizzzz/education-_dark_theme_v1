@@ -158,54 +158,54 @@ export default function ParentManagement() {
         {/* Header */}
         <div className="mb-6">
           <h1 className="text-2xl mb-2">Parent Account Management</h1>
-          <p className="text-[#757575]">Manage parent accounts, activations, and student linkages</p>
+          <p className="text-text-body">Manage parent accounts, activations, and student linkages</p>
         </div>
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-[#757575]">Total Parents</p>
+                  <p className="text-sm text-text-body">Total Parents</p>
                   <p className="text-2xl">{parents.length}</p>
                 </div>
-                <Users className="h-8 w-8 text-[#757575]" />
+                <Users className="h-8 w-8 text-text-body" />
               </div>
             </CardContent>
           </Card>
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-[#757575]">Activated</p>
+                  <p className="text-sm text-text-body">Activated</p>
                   <p className="text-2xl">{activatedCount}</p>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-[#1A1A1A] flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-brand-dark flex items-center justify-center">
                   <MailCheck className="h-6 w-6 text-white" />
                 </div>
               </div>
             </CardContent>
           </Card>
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-[#757575]">Pending Activation</p>
+                  <p className="text-sm text-text-body">Pending Activation</p>
                   <p className="text-2xl">{pendingCount}</p>
                 </div>
-                <MailCheck className="h-8 w-8 text-[#757575]" />
+                <MailCheck className="h-8 w-8 text-text-body" />
               </div>
             </CardContent>
           </Card>
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-[#757575]">Active</p>
+                  <p className="text-sm text-text-body">Active</p>
                   <p className="text-2xl">{parents.filter(p => p.status === 'Active').length}</p>
                 </div>
-                <UserCheck className="h-8 w-8 text-[#757575]" />
+                <UserCheck className="h-8 w-8 text-text-body" />
               </div>
             </CardContent>
           </Card>
@@ -214,7 +214,7 @@ export default function ParentManagement() {
         {/* Actions Bar */}
         <div className="flex gap-3 mb-6">
           <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-[#757575]" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-text-body" />
             <Input
               type="text"
               placeholder="Search by name, email, or linked student..."
@@ -247,14 +247,14 @@ export default function ParentManagement() {
             <Button
               variant="outline"
               onClick={() => navigate('/admin/parents/bulk-link')}
-              className="border-[#D0D0D0]"
+              className="border-border-default"
             >
               <Link2 className="h-4 w-4 mr-2" />
               Bulk Link
             </Button>
             <Button
               onClick={() => navigate('/admin/parents/new')}
-              className="bg-[#333333] hover:bg-[#4A4A4A]"
+              className="bg-brand hover:bg-brand-dark"
             >
               <Plus className="h-4 w-4 mr-2" />
               Add Parent
@@ -263,11 +263,11 @@ export default function ParentManagement() {
         </div>
 
         {/* Parents Table */}
-        <Card className="border-[#D0D0D0]">
+        <Card className="border-border-default">
           <CardContent className="p-0">
             <Table>
               <TableHeader>
-                <TableRow className="bg-[#F5F5F5]">
+                <TableRow className="bg-surface-page">
                   <TableHead>Name</TableHead>
                   <TableHead>Contact</TableHead>
                   <TableHead>Linked Students</TableHead>
@@ -284,14 +284,14 @@ export default function ParentManagement() {
                     </TableCell>
                     <TableCell>
                       <div className="text-sm">
-                        <p className="text-[#4A4A4A]">{parent.email}</p>
-                        <p className="text-[#757575] text-xs">{parent.phone}</p>
+                        <p className="text-text-label">{parent.email}</p>
+                        <p className="text-text-body text-xs">{parent.phone}</p>
                       </div>
                     </TableCell>
                     <TableCell>
                       <div className="text-sm">
                         {parent.linkedStudents.map((student, idx) => (
-                          <p key={idx} className="text-[#4A4A4A]">
+                          <p key={idx} className="text-text-label">
                             {student}
                           </p>
                         ))}
@@ -302,8 +302,8 @@ export default function ParentManagement() {
                         variant="secondary"
                         className={`${
                           parent.isActivated
-                            ? 'bg-[#1A1A1A] text-white'
-                            : 'bg-[#D0D0D0] text-[#4A4A4A]'
+                            ? 'bg-badge-medium text-white'
+                            : 'bg-badge-low-bg text-badge-low-text'
                         }`}
                       >
                         {parent.isActivated ? 'Yes' : 'Pending'}
@@ -314,8 +314,8 @@ export default function ParentManagement() {
                         variant="secondary"
                         className={`${
                           parent.status === 'Active'
-                            ? 'bg-[#1A1A1A] text-white'
-                            : 'bg-[#D0D0D0] text-[#4A4A4A]'
+                            ? 'bg-badge-medium text-white'
+                            : 'bg-badge-low-bg text-badge-low-text'
                         }`}
                       >
                         {parent.status}
@@ -360,17 +360,17 @@ export default function ParentManagement() {
         </Card>
 
         {filteredParents.length === 0 && (
-          <Card className="border-[#D0D0D0] mt-4">
+          <Card className="border-border-default mt-4">
             <CardContent className="py-12 text-center">
-              <p className="text-[#757575]">No parent accounts found matching your criteria</p>
+              <p className="text-text-body">No parent accounts found matching your criteria</p>
             </CardContent>
           </Card>
         )}
 
         {/* Info Card */}
-        <Card className="mt-6 border-[#D0D0D0] bg-[#F5F5F5]">
+        <Card className="mt-6 border-border-default bg-surface-page">
           <CardContent className="py-4">
-            <p className="text-sm text-[#4A4A4A]">
+            <p className="text-sm text-text-label">
               <strong>Parent Activation:</strong> New parent accounts require activation via email.
               Parents must set their password and complete activation before accessing the portal.
               You can resend activation emails for accounts that haven't been activated yet.
@@ -383,50 +383,50 @@ export default function ParentManagement() {
       <Dialog open={resetPasswordOpen} onOpenChange={setResetPasswordOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle className="text-[#1A1A1A]">Reset Password</DialogTitle>
+            <DialogTitle className="text-text-heading">Reset Password</DialogTitle>
           </DialogHeader>
           <div className="space-y-4 py-4">
-            <div className="bg-[#F5F5F5] p-3 rounded-lg">
-              <p className="text-sm text-[#757575]">Account</p>
-              <p className="text-[#1A1A1A] font-medium">{selectedParent?.name}</p>
-              <p className="text-sm text-[#757575]">{selectedParent?.email}</p>
+            <div className="bg-surface-page p-3 rounded-lg">
+              <p className="text-sm text-text-body">Account</p>
+              <p className="text-text-heading font-medium">{selectedParent?.name}</p>
+              <p className="text-sm text-text-body">{selectedParent?.email}</p>
             </div>
             <div>
-              <Label htmlFor="newPassword" className="text-[#4A4A4A]">New Password</Label>
+              <Label htmlFor="newPassword" className="text-text-label">New Password</Label>
               <div className="relative mt-1">
                 <Input
                   id="newPassword"
                   type={showPassword ? 'text' : 'password'}
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
-                  className="border-[#D0D0D0] pr-10"
+                  className="border-border-default pr-10"
                   placeholder="Enter new password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#757575] hover:text-[#1A1A1A]"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-text-body hover:text-text-heading"
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
-              <p className="text-xs text-[#757575] mt-1">Minimum 8 characters</p>
+              <p className="text-xs text-text-body mt-1">Minimum 8 characters</p>
             </div>
             <div>
-              <Label htmlFor="confirmPassword" className="text-[#4A4A4A]">Confirm Password</Label>
+              <Label htmlFor="confirmPassword" className="text-text-label">Confirm Password</Label>
               <div className="relative mt-1">
                 <Input
                   id="confirmPassword"
                   type={showConfirmPassword ? 'text' : 'password'}
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
-                  className="border-[#D0D0D0] pr-10"
+                  className="border-border-default pr-10"
                   placeholder="Confirm new password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#757575] hover:text-[#1A1A1A]"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-text-body hover:text-text-heading"
                 >
                   {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -437,13 +437,13 @@ export default function ParentManagement() {
             <Button
               variant="outline"
               onClick={() => setResetPasswordOpen(false)}
-              className="border-[#9E9E9E] text-[#333333]"
+              className="border-border-strong text-text-heading"
             >
               Cancel
             </Button>
             <Button
               onClick={handleSubmitResetPassword}
-              className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+              className="bg-brand hover:bg-brand-dark text-white shadow-sm"
             >
               Reset Password
             </Button>
@@ -455,12 +455,12 @@ export default function ParentManagement() {
       <Dialog open={deactivateOpen} onOpenChange={setDeactivateOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle className="text-[#1A1A1A]">
+            <DialogTitle className="text-text-heading">
               {parentToDeactivate?.status === 'Active' ? 'Deactivate' : 'Reactivate'} Account
             </DialogTitle>
           </DialogHeader>
           <div className="py-4">
-            <p className="text-[#4A4A4A]">
+            <p className="text-text-label">
               {parentToDeactivate?.status === 'Active'
                 ? `Are you sure you want to deactivate ${parentToDeactivate?.name}'s account? They will no longer be able to access the parent portal.`
                 : `Are you sure you want to reactivate ${parentToDeactivate?.name}'s account? They will regain access to the parent portal.`}
@@ -470,13 +470,13 @@ export default function ParentManagement() {
             <Button
               variant="outline"
               onClick={() => setDeactivateOpen(false)}
-              className="border-[#9E9E9E] text-[#333333]"
+              className="border-border-strong text-text-heading"
             >
               Cancel
             </Button>
             <Button
               onClick={handleConfirmDeactivate}
-              className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+              className="bg-brand hover:bg-brand-dark text-white shadow-sm"
             >
               {parentToDeactivate?.status === 'Active' ? 'Deactivate' : 'Reactivate'}
             </Button>

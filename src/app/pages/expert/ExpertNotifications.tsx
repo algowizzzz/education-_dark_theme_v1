@@ -40,42 +40,42 @@ export default function ExpertNotifications() {
     <ExpertLayout>
       <div className="max-w-4xl">
         <div className="mb-6">
-          <h1 className="text-2xl text-[#1A1A1A] mb-2">Notifications</h1>
+          <h1 className="text-2xl text-text-heading mb-2">Notifications</h1>
         </div>
 
         <div className="space-y-3">
           {notifications.length === 0 ? (
-            <Card className="border-[#D0D0D0]">
+            <Card className="border-border-default">
               <CardContent className="p-12 text-center">
-                <AlertCircle className="w-12 h-12 text-[#D0D0D0] mx-auto mb-4" />
-                <p className="text-[#757575]">No notifications</p>
+                <AlertCircle className="w-12 h-12 text-text-muted mx-auto mb-4" />
+                <p className="text-text-body">No notifications</p>
               </CardContent>
             </Card>
           ) : (
             notifications.map((notification) => (
               <Card
                 key={notification.id}
-                className="border-[#D0D0D0] bg-[#F5F5F5]"
+                className="border-border-default bg-surface-page"
               >
                 <CardContent className="p-4">
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-0.5">
-                      <AlertCircle className="w-5 h-5 text-[#757575]" />
+                      <AlertCircle className="w-5 h-5 text-text-body" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-[#1A1A1A] mb-1">
+                      <h3 className="font-semibold text-text-heading mb-1">
                         {notification.title}
                       </h3>
-                      <p className="text-sm text-[#4A4A4A]">
+                      <p className="text-sm text-text-label">
                         {notification.message}
                       </p>
                     </div>
                     <div className="flex items-center gap-2 flex-shrink-0">
-                      <span className="text-sm text-[#757575]">
+                      <span className="text-sm text-text-body">
                         {notification.time}
                       </span>
                       {!notification.read && (
-                        <div className="w-2 h-2 rounded-full bg-[#1A1A1A]" />
+                        <div className="w-2 h-2 rounded-full bg-brand-dark" />
                       )}
                     </div>
                   </div>

@@ -57,25 +57,25 @@ export default function TeacherStudents() {
     <TeacherLayout>
       <div className="max-w-7xl mx-auto space-y-6">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-[#1A1A1A]">Students</h1>
-          <p className="text-sm md:text-base text-[#757575]">Search and view your assigned students</p>
+          <h1 className="text-2xl md:text-3xl font-bold text-text-heading">Students</h1>
+          <p className="text-sm md:text-base text-text-body">Search and view your assigned students</p>
         </div>
 
-        <Card className="p-6 border border-[#D0D0D0] bg-white">
+        <Card className="p-6 border border-border-default bg-surface-card">
           {/* Search and Filters */}
           <div className="flex flex-col md:flex-row gap-4 mb-6">
             <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#757575]" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-text-body" />
               <Input
                 type="text"
                 placeholder="Search by name or student ID..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 border-[#D0D0D0] focus:border-[#333333]"
+                className="pl-10 border-border-default focus:border-brand"
               />
             </div>
             <Select value={gradeFilter} onValueChange={setGradeFilter}>
-              <SelectTrigger className="w-full md:w-[180px] border-[#D0D0D0]">
+              <SelectTrigger className="w-full md:w-[180px] border-border-default">
                 <SelectValue placeholder="All Grades" />
               </SelectTrigger>
               <SelectContent>
@@ -87,7 +87,7 @@ export default function TeacherStudents() {
               </SelectContent>
             </Select>
             <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger className="w-full md:w-[180px] border-[#D0D0D0]">
+              <SelectTrigger className="w-full md:w-[180px] border-border-default">
                 <SelectValue placeholder="Sort by" />
               </SelectTrigger>
               <SelectContent>
@@ -99,7 +99,7 @@ export default function TeacherStudents() {
           </div>
 
           {/* Student Count */}
-          <p className="text-sm text-[#757575] mb-4">
+          <p className="text-sm text-text-body mb-4">
             Showing {filteredStudents.length} of {STUDENTS.length} students
           </p>
 
@@ -111,61 +111,61 @@ export default function TeacherStudents() {
                 {filteredStudents.map((student) => (
                   <div
                     key={student.id}
-                    className="p-4 border border-[#E0E0E0] rounded-lg hover:bg-[#F5F5F5] cursor-pointer active:bg-[#E0E0E0] transition-colors"
+                    className="p-4 border border-border-light rounded-lg hover:bg-surface-page cursor-pointer active:bg-surface-elevated transition-colors"
                     onClick={() => navigate(`/teacher/students/${student.id}`)}
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 rounded-full bg-[#E0E0E0] flex items-center justify-center flex-shrink-0">
-                          <User className="w-5 h-5 text-[#757575]" />
+                        <div className="w-10 h-10 rounded-full bg-surface-elevated flex items-center justify-center flex-shrink-0">
+                          <User className="w-5 h-5 text-text-body" />
                         </div>
                         <div>
-                          <h3 className="font-semibold text-[#1A1A1A]">{student.name}</h3>
-                          <p className="text-sm text-[#757575]">Grade {student.grade}</p>
+                          <h3 className="font-semibold text-text-heading">{student.name}</h3>
+                          <p className="text-sm text-text-body">Grade {student.grade}</p>
                         </div>
                       </div>
-                      <ChevronRight className="w-5 h-5 text-[#9E9E9E]" />
+                      <ChevronRight className="w-5 h-5 text-text-muted" />
                     </div>
-                    <div className="mt-3 pt-3 border-t border-[#E0E0E0] flex items-center justify-between text-sm">
-                      <span className="text-[#757575]">{student.id}</span>
-                      <span className="text-[#4A4A4A]">{student.primaryTeacher}</span>
+                    <div className="mt-3 pt-3 border-t border-border-light flex items-center justify-between text-sm">
+                      <span className="text-text-body">{student.id}</span>
+                      <span className="text-text-label">{student.primaryTeacher}</span>
                     </div>
                   </div>
                 ))}
               </div>
 
               {/* Desktop Table View */}
-              <div className="hidden md:block border border-[#E0E0E0] rounded-lg overflow-hidden">
+              <div className="hidden md:block border border-border-light rounded-lg overflow-hidden">
                 <Table>
                   <TableHeader>
-                    <TableRow className="bg-[#F5F5F5]">
-                      <TableHead className="text-[#1A1A1A] font-semibold">Name</TableHead>
-                      <TableHead className="text-[#1A1A1A] font-semibold">Student ID</TableHead>
-                      <TableHead className="text-[#1A1A1A] font-semibold">Grade</TableHead>
-                      <TableHead className="text-[#1A1A1A] font-semibold">Class</TableHead>
-                      <TableHead className="text-[#1A1A1A] font-semibold text-right">Action</TableHead>
+                    <TableRow className="bg-surface-page">
+                      <TableHead className="text-text-heading font-semibold">Name</TableHead>
+                      <TableHead className="text-text-heading font-semibold">Student ID</TableHead>
+                      <TableHead className="text-text-heading font-semibold">Grade</TableHead>
+                      <TableHead className="text-text-heading font-semibold">Class</TableHead>
+                      <TableHead className="text-text-heading font-semibold text-right">Action</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {filteredStudents.map((student) => (
                       <TableRow
                         key={student.id}
-                        className="hover:bg-[#F5F5F5] cursor-pointer"
+                        className="hover:bg-surface-page cursor-pointer"
                         onClick={() => navigate(`/teacher/students/${student.id}`)}
                       >
-                        <TableCell className="font-medium text-[#1A1A1A]">
+                        <TableCell className="font-medium text-text-heading">
                           {student.name}
                         </TableCell>
-                        <TableCell className="text-[#4A4A4A]">{student.id}</TableCell>
-                        <TableCell className="text-[#4A4A4A]">Grade {student.grade}</TableCell>
-                        <TableCell className="text-[#4A4A4A]">
+                        <TableCell className="text-text-label">{student.id}</TableCell>
+                        <TableCell className="text-text-label">Grade {student.grade}</TableCell>
+                        <TableCell className="text-text-label">
                           {student.primaryTeacher}
                         </TableCell>
                         <TableCell className="text-right">
                           <Button
                             variant="outline"
                             size="sm"
-                            className="border-[#D0D0D0] text-[#333333] hover:bg-[#F5F5F5] rounded-lg"
+                            className="border-border-default text-text-heading hover:bg-surface-page rounded-lg"
                             onClick={(e) => {
                               e.stopPropagation();
                               navigate(`/teacher/students/${student.id}`);
@@ -182,7 +182,7 @@ export default function TeacherStudents() {
             </>
           ) : (
             <div className="text-center py-12">
-              <p className="text-[#757575]">No students found matching your search.</p>
+              <p className="text-text-body">No students found matching your search.</p>
             </div>
           )}
         </Card>

@@ -1,6 +1,5 @@
 import { ReactNode, useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Button } from '@/app/components/ui/button';
 import {
   LayoutDashboard,
   Users,
@@ -47,50 +46,53 @@ export function AdminLayout({ children }: AdminLayoutProps) {
   };
 
   return (
-    <div className="min-h-screen flex bg-[#F5F5F5]">
+    <div className="min-h-screen flex bg-surface-page">
       {/* Desktop Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 bg-white border-r border-[#D0D0D0] transition-all duration-300 ${
+        className={`fixed inset-y-0 left-0 z-50 bg-brand transition-all duration-300 shadow-lg ${
           sidebarOpen ? 'w-[280px]' : 'w-[72px]'
         } md:block hidden`}
       >
         <div className="h-full flex flex-col">
           {/* Logo & Toggle */}
-          <div className="p-6 border-b border-[#E0E0E0] flex-shrink-0">
+          <div className="p-5 border-b border-white/15 flex-shrink-0">
             <div className="flex items-center justify-between">
-              {sidebarOpen && (
-                <h1 className="font-bold text-xl text-[#1A1A1A]">
-                  BehaveBridge
-                </h1>
+              {sidebarOpen ? (
+                <div className="flex items-center gap-3">
+                  <img src="/logos/png-transparent/2.png" alt="BehaveBridge" className="w-9 h-9" />
+                  <span className="font-bold text-lg text-white tracking-tight">BehaveBridge</span>
+                </div>
+              ) : (
+                <img src="/logos/png-transparent/2.png" alt="BB" className="w-9 h-9 mx-auto" />
               )}
               <button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
-                className="text-[#757575] hover:text-[#333333]"
+                className="text-white/70 hover:text-white ml-2"
               >
                 <Menu className="w-5 h-5" />
               </button>
             </div>
           </div>
 
-          {/* User Profile - Top, Non-clickable */}
-          <div className="p-4 border-b border-[#E0E0E0] flex-shrink-0">
-            <div className={`flex items-center px-4 py-3 ${!sidebarOpen && 'justify-center'}`}>
-              <div className={`rounded-full bg-[#E0E0E0] flex items-center justify-center flex-shrink-0 ${
-                sidebarOpen ? 'w-8 h-8' : 'w-[50px] h-[50px]'
+          {/* User Profile */}
+          <div className="p-4 border-b border-white/15 flex-shrink-0">
+            <div className={`flex items-center px-3 py-2 ${!sidebarOpen && 'justify-center'}`}>
+              <div className={`rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 ${
+                sidebarOpen ? 'w-9 h-9' : 'w-11 h-11'
               }`}>
-                <UserCircle className={sidebarOpen ? "w-5 h-5 text-[#333333]" : "w-[30px] h-[30px] text-[#333333]"} />
+                <UserCircle className={sidebarOpen ? "w-5 h-5 text-white" : "w-7 h-7 text-white"} />
               </div>
               {sidebarOpen && (
                 <div className="ml-3">
-                  <div className="text-sm font-medium text-[#1A1A1A]">Admin User</div>
-                  <div className="text-xs text-[#757575]">Administrator</div>
+                  <div className="text-sm font-medium text-white">Admin User</div>
+                  <div className="text-xs text-white/60">Administrator</div>
                 </div>
               )}
             </div>
           </div>
 
           {/* Navigation */}
-          <nav className={sidebarOpen ? "flex-1 p-4 space-y-2 overflow-hidden" : "flex-1 px-2 py-4 space-y-2 overflow-hidden"}>
+          <nav className={sidebarOpen ? "flex-1 p-3 space-y-1 overflow-hidden" : "flex-1 px-2 py-3 space-y-1 overflow-hidden"}>
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = location.pathname === item.path;
@@ -98,29 +100,29 @@ export function AdminLayout({ children }: AdminLayoutProps) {
                 <button
                   key={item.path}
                   onClick={() => navigate(item.path)}
-                  className={`flex items-center w-full rounded-lg transition-colors ${
+                  className={`flex items-center w-full rounded-lg transition-all duration-200 ${
                     isActive
-                      ? 'bg-[#E0E0E0] text-[#1A1A1A]'
-                      : 'text-[#4A4A4A] hover:bg-[#F5F5F5]'
-                  } ${sidebarOpen ? 'px-4 py-3' : 'py-4 justify-center'}`}
+                      ? 'bg-white/20 text-white shadow-sm'
+                      : 'text-white/70 hover:bg-white/10 hover:text-white'
+                  } ${sidebarOpen ? 'px-4 py-2.5' : 'py-3 justify-center'}`}
                 >
                   <Icon className={sidebarOpen ? "w-5 h-5" : "w-6 h-6"} />
-                  {sidebarOpen && <span className="ml-3">{item.label}</span>}
+                  {sidebarOpen && <span className="ml-3 text-sm">{item.label}</span>}
                 </button>
               );
             })}
           </nav>
 
-          {/* Logout Button - Bottom */}
-          <div className={sidebarOpen ? "p-4 border-t border-[#E0E0E0] flex-shrink-0" : "px-2 py-4 border-t border-[#E0E0E0] flex-shrink-0"}>
+          {/* Logout */}
+          <div className={sidebarOpen ? "p-3 border-t border-white/15 flex-shrink-0" : "px-2 py-3 border-t border-white/15 flex-shrink-0"}>
             <button
               onClick={handleLogout}
-              className={`flex items-center w-full rounded-lg transition-colors text-[#4A4A4A] hover:bg-[#F5F5F5] ${
-                sidebarOpen ? 'px-4 py-3' : 'py-4 justify-center'
+              className={`flex items-center w-full rounded-lg transition-colors text-white/70 hover:bg-white/10 hover:text-white ${
+                sidebarOpen ? 'px-4 py-2.5' : 'py-3 justify-center'
               }`}
             >
               <LogOut className={sidebarOpen ? "w-5 h-5" : "w-6 h-6"} />
-              {sidebarOpen && <span className="ml-3">Logout</span>}
+              {sidebarOpen && <span className="ml-3 text-sm">Logout</span>}
             </button>
           </div>
         </div>
@@ -131,60 +133,61 @@ export function AdminLayout({ children }: AdminLayoutProps) {
         sidebarOpen ? 'md:ml-[280px]' : 'md:ml-[72px]'
       }`}>
         {/* Mobile Header */}
-        <header className="md:hidden bg-white border-b border-[#D0D0D0] px-4 py-3 flex items-center justify-between sticky top-0 z-30">
+        <header className="md:hidden bg-brand px-4 py-3 flex items-center justify-between sticky top-0 z-30 shadow-sm">
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="p-2 text-[#757575] hover:text-[#333333] hover:bg-[#F5F5F5] rounded-lg"
+            className="p-2 text-white/80 hover:text-white rounded-lg"
           >
             <Menu className="w-6 h-6" />
           </button>
-          <h1 className="font-bold text-lg text-[#1A1A1A]">BehaveBridge</h1>
-          <div className="w-8 h-8 rounded-full bg-[#E0E0E0] flex items-center justify-center">
-            <UserCircle className="w-5 h-5 text-[#333333]" />
+          <div className="flex items-center gap-2">
+            <img src="/logos/png-transparent/2.png" alt="BB" className="w-7 h-7" />
+            <h1 className="font-bold text-lg text-white">BehaveBridge</h1>
+          </div>
+          <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+            <UserCircle className="w-5 h-5 text-white" />
           </div>
         </header>
 
-        {/* Page Content - Scrollable */}
+        {/* Page Content */}
         <main className="flex-1 p-4 md:p-6 overflow-y-auto">{children}</main>
       </div>
 
       {/* Mobile Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 bg-white border-r border-[#D0D0D0] transition-transform duration-300 w-[280px] md:hidden ${
+        className={`fixed inset-y-0 left-0 z-50 bg-brand transition-transform duration-300 w-[280px] md:hidden shadow-lg ${
           mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         <div className="h-full flex flex-col">
-          {/* Logo & Toggle */}
-          <div className="p-6 border-b border-[#E0E0E0] flex-shrink-0">
+          <div className="p-5 border-b border-white/15 flex-shrink-0">
             <div className="flex items-center justify-between">
-              <h1 className="font-bold text-xl text-[#1A1A1A]">
-                BehaveBridge
-              </h1>
+              <div className="flex items-center gap-3">
+                <img src="/logos/png-transparent/2.png" alt="BehaveBridge" className="w-9 h-9" />
+                <span className="font-bold text-lg text-white tracking-tight">BehaveBridge</span>
+              </div>
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#757575] hover:text-[#333333]"
+                className="text-white/70 hover:text-white"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
           </div>
 
-          {/* User Profile - Top, Non-clickable */}
-          <div className="p-4 border-b border-[#E0E0E0] flex-shrink-0">
-            <div className="flex items-center px-4 py-3">
-              <div className="w-8 h-8 rounded-full bg-[#E0E0E0] flex items-center justify-center flex-shrink-0">
-                <UserCircle className="w-5 h-5 text-[#333333]" />
+          <div className="p-4 border-b border-white/15 flex-shrink-0">
+            <div className="flex items-center px-3 py-2">
+              <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                <UserCircle className="w-5 h-5 text-white" />
               </div>
               <div className="ml-3">
-                <div className="text-sm font-medium text-[#1A1A1A]">Admin User</div>
-                <div className="text-xs text-[#757575]">Administrator</div>
+                <div className="text-sm font-medium text-white">Admin User</div>
+                <div className="text-xs text-white/60">Administrator</div>
               </div>
             </div>
           </div>
 
-          {/* Navigation */}
-          <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
+          <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = location.pathname === item.path;
@@ -195,27 +198,26 @@ export function AdminLayout({ children }: AdminLayoutProps) {
                     navigate(item.path);
                     setMobileMenuOpen(false);
                   }}
-                  className={`flex items-center w-full px-4 py-3 rounded-lg transition-colors ${
+                  className={`flex items-center w-full px-4 py-2.5 rounded-lg transition-all duration-200 ${
                     isActive
-                      ? 'bg-[#E0E0E0] text-[#1A1A1A]'
-                      : 'text-[#4A4A4A] hover:bg-[#F5F5F5]'
+                      ? 'bg-white/20 text-white shadow-sm'
+                      : 'text-white/70 hover:bg-white/10 hover:text-white'
                   }`}
                 >
                   <Icon className="w-5 h-5" />
-                  <span className="ml-3">{item.label}</span>
+                  <span className="ml-3 text-sm">{item.label}</span>
                 </button>
               );
             })}
           </nav>
 
-          {/* Logout Button - Bottom */}
-          <div className="p-4 border-t border-[#E0E0E0] flex-shrink-0">
+          <div className="p-3 border-t border-white/15 flex-shrink-0">
             <button
               onClick={handleLogout}
-              className="flex items-center w-full px-4 py-3 text-[#4A4A4A] hover:bg-[#F5F5F5] rounded-lg transition-colors"
+              className="flex items-center w-full px-4 py-2.5 text-white/70 hover:bg-white/10 hover:text-white rounded-lg transition-colors"
             >
               <LogOut className="w-5 h-5" />
-              <span className="ml-3">Logout</span>
+              <span className="ml-3 text-sm">Logout</span>
             </button>
           </div>
         </div>
@@ -224,7 +226,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
       {/* Mobile Overlay */}
       {mobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          className="fixed inset-0 bg-black/50 z-40 md:hidden"
           onClick={() => setMobileMenuOpen(false)}
         />
       )}

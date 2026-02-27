@@ -61,31 +61,31 @@ export default function CaseAssessment() {
             Back to Case Details
           </Button>
           <h1 className="text-2xl mb-2">Case Assessment</h1>
-          <p className="text-[#757575]">Complete review and submit assessment for Case {caseData.id}</p>
+          <p className="text-text-body">Complete review and submit assessment for Case {caseData.id}</p>
         </div>
 
         {/* Case Summary */}
-        <Card className="mb-6 border-[#D0D0D0]">
-          <CardHeader className="bg-[#F5F5F5]">
+        <Card className="mb-6 border-border-default">
+          <CardHeader className="bg-surface-page">
             <CardTitle className="text-base">Case Summary</CardTitle>
           </CardHeader>
           <CardContent className="pt-4">
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div>
-                <p className="text-[#757575]">Student</p>
-                <p className="text-[#1A1A1A]">{caseData.student} (ID: {caseData.studentId})</p>
+                <p className="text-text-body">Student</p>
+                <p className="text-text-heading">{caseData.student} (ID: {caseData.studentId})</p>
               </div>
               <div>
-                <p className="text-[#757575]">Teacher</p>
-                <p className="text-[#1A1A1A]">{caseData.teacher}</p>
+                <p className="text-text-body">Teacher</p>
+                <p className="text-text-heading">{caseData.teacher}</p>
               </div>
               <div>
-                <p className="text-[#757575]">Escalation Date</p>
-                <p className="text-[#1A1A1A]">{caseData.date}</p>
+                <p className="text-text-body">Escalation Date</p>
+                <p className="text-text-heading">{caseData.date}</p>
               </div>
               <div>
-                <p className="text-[#757575]">Priority</p>
-                <span className="inline-flex items-center px-2 py-1 rounded text-xs bg-[#1A1A1A] text-white">
+                <p className="text-text-body">Priority</p>
+                <span className="inline-flex items-center px-2 py-1 rounded text-xs bg-brand-dark text-white">
                   {caseData.priority}
                 </span>
               </div>
@@ -94,7 +94,7 @@ export default function CaseAssessment() {
         </Card>
 
         {/* Assessment Form */}
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader>
             <CardTitle>Expert Assessment Notes</CardTitle>
           </CardHeader>
@@ -106,12 +106,12 @@ export default function CaseAssessment() {
               className="min-h-[200px] mb-2"
               maxLength={1000}
             />
-            <p className="text-sm text-[#757575] text-right">{assessmentNotes.length}/1000 characters</p>
+            <p className="text-sm text-text-body text-right">{assessmentNotes.length}/1000 characters</p>
           </CardContent>
         </Card>
 
         {/* Recommended Profile Updates */}
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader>
             <CardTitle>Recommended Profile Updates</CardTitle>
           </CardHeader>
@@ -128,7 +128,7 @@ export default function CaseAssessment() {
                 <Label htmlFor="addTrigger" className="cursor-pointer">
                   Add "Academic Frustration - Math" as new trigger
                 </Label>
-                <p className="text-sm text-[#757575]">Based on incident pattern analysis</p>
+                <p className="text-sm text-text-body">Based on incident pattern analysis</p>
               </div>
             </div>
             <div className="flex items-start space-x-2">
@@ -143,7 +143,7 @@ export default function CaseAssessment() {
                 <Label htmlFor="updateStrategy" className="cursor-pointer">
                   Update strategy priority: Move "Short Break" to #1 position
                 </Label>
-                <p className="text-sm text-[#757575]">85% success rate in recent incidents</p>
+                <p className="text-sm text-text-body">85% success rate in recent incidents</p>
               </div>
             </div>
             <div className="flex items-start space-x-2">
@@ -158,7 +158,7 @@ export default function CaseAssessment() {
                 <Label htmlFor="removeAvoid" className="cursor-pointer">
                   Remove "Peer Buddy System" from strategies to avoid
                 </Label>
-                <p className="text-sm text-[#757575]">Recent success suggests reconsideration</p>
+                <p className="text-sm text-text-body">Recent success suggests reconsideration</p>
               </div>
             </div>
 
@@ -176,7 +176,7 @@ export default function CaseAssessment() {
         </Card>
 
         {/* Case Resolution */}
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader>
             <CardTitle>Case Resolution</CardTitle>
           </CardHeader>
@@ -214,7 +214,7 @@ export default function CaseAssessment() {
         </Card>
 
         {/* Parent Notification */}
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader>
             <CardTitle>Parent Notification</CardTitle>
           </CardHeader>
@@ -278,7 +278,7 @@ export default function CaseAssessment() {
           <Button
             onClick={handleSubmit}
             disabled={assessmentNotes.length < 50}
-            className="flex-1 bg-[#333333] hover:bg-[#4A4A4A]"
+            className="flex-1 bg-brand hover:bg-brand-dark"
           >
             Submit Assessment
           </Button>
@@ -299,20 +299,20 @@ export default function CaseAssessment() {
                   <h4 className="text-sm mb-2">Triggers</h4>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <p className="text-xs text-[#757575] mb-2">Current</p>
+                      <p className="text-xs text-text-body mb-2">Current</p>
                       <div className="space-y-1">
-                        <div className="text-sm bg-[#F5F5F5] px-3 py-2 rounded">Peer Conflict</div>
-                        <div className="text-sm bg-[#F5F5F5] px-3 py-2 rounded">Loud Noises</div>
-                        <div className="text-sm bg-[#F5F5F5] px-3 py-2 rounded">Transitions</div>
+                        <div className="text-sm bg-surface-page px-3 py-2 rounded">Peer Conflict</div>
+                        <div className="text-sm bg-surface-page px-3 py-2 rounded">Loud Noises</div>
+                        <div className="text-sm bg-surface-page px-3 py-2 rounded">Transitions</div>
                       </div>
                     </div>
                     <div>
-                      <p className="text-xs text-[#757575] mb-2">After Changes</p>
+                      <p className="text-xs text-text-body mb-2">After Changes</p>
                       <div className="space-y-1">
-                        <div className="text-sm bg-[#F5F5F5] px-3 py-2 rounded">Peer Conflict</div>
-                        <div className="text-sm bg-[#F5F5F5] px-3 py-2 rounded">Loud Noises</div>
-                        <div className="text-sm bg-[#F5F5F5] px-3 py-2 rounded">Transitions</div>
-                        <div className="text-sm bg-[#E0E0E0] px-3 py-2 rounded border-2 border-[#1A1A1A]">
+                        <div className="text-sm bg-surface-page px-3 py-2 rounded">Peer Conflict</div>
+                        <div className="text-sm bg-surface-page px-3 py-2 rounded">Loud Noises</div>
+                        <div className="text-sm bg-surface-page px-3 py-2 rounded">Transitions</div>
+                        <div className="text-sm bg-surface-elevated px-3 py-2 rounded border-2 border-brand-dark">
                           Academic Frustration - Math (New)
                         </div>
                       </div>
@@ -326,21 +326,21 @@ export default function CaseAssessment() {
                   <h4 className="text-sm mb-2">Strategy Priority</h4>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <p className="text-xs text-[#757575] mb-2">Current</p>
+                      <p className="text-xs text-text-body mb-2">Current</p>
                       <div className="space-y-1">
-                        <div className="text-sm bg-[#F5F5F5] px-3 py-2 rounded">1. Verbal Redirection</div>
-                        <div className="text-sm bg-[#F5F5F5] px-3 py-2 rounded">2. Short Break</div>
-                        <div className="text-sm bg-[#F5F5F5] px-3 py-2 rounded">3. Quiet Corner</div>
+                        <div className="text-sm bg-surface-page px-3 py-2 rounded">1. Verbal Redirection</div>
+                        <div className="text-sm bg-surface-page px-3 py-2 rounded">2. Short Break</div>
+                        <div className="text-sm bg-surface-page px-3 py-2 rounded">3. Quiet Corner</div>
                       </div>
                     </div>
                     <div>
-                      <p className="text-xs text-[#757575] mb-2">After Changes</p>
+                      <p className="text-xs text-text-body mb-2">After Changes</p>
                       <div className="space-y-1">
-                        <div className="text-sm bg-[#E0E0E0] px-3 py-2 rounded border-2 border-[#1A1A1A]">
+                        <div className="text-sm bg-surface-elevated px-3 py-2 rounded border-2 border-brand-dark">
                           1. Short Break (Updated)
                         </div>
-                        <div className="text-sm bg-[#F5F5F5] px-3 py-2 rounded">2. Verbal Redirection</div>
-                        <div className="text-sm bg-[#F5F5F5] px-3 py-2 rounded">3. Quiet Corner</div>
+                        <div className="text-sm bg-surface-page px-3 py-2 rounded">2. Verbal Redirection</div>
+                        <div className="text-sm bg-surface-page px-3 py-2 rounded">3. Quiet Corner</div>
                       </div>
                     </div>
                   </div>

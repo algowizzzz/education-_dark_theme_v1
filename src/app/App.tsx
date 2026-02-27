@@ -123,7 +123,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <RouteLogger />
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-surface-card">
         <Routes>
           {/* Phase 0: Portal Selector */}
           <Route path="/" element={<PortalSelector />} />

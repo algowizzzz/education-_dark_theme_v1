@@ -36,10 +36,10 @@ export function ConfirmationModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[425px] bg-white border-[#D0D0D0]">
+      <DialogContent className="sm:max-w-[425px] bg-surface-card border-border-default">
         <DialogHeader>
-          <DialogTitle className="text-xl text-[#1A1A1A]">{title}</DialogTitle>
-          <DialogDescription className="text-[#4A4A4A] text-base pt-2">
+          <DialogTitle className="text-xl text-text-heading">{title}</DialogTitle>
+          <DialogDescription className="text-text-label text-base pt-2">
             {description}
           </DialogDescription>
         </DialogHeader>
@@ -47,7 +47,7 @@ export function ConfirmationModal({
           <Button
             variant="outline"
             onClick={() => onOpenChange(false)}
-            className="border-[#D0D0D0] text-[#333333] hover:bg-[#F5F5F5]"
+            className="border-border-default text-text-heading hover:bg-surface-page"
           >
             {cancelText}
           </Button>
@@ -55,8 +55,8 @@ export function ConfirmationModal({
             onClick={handleConfirm}
             className={
               variant === 'destructive'
-                ? 'bg-[#1A1A1A] hover:bg-[#333333] text-white'
-                : 'bg-[#333333] hover:bg-[#1A1A1A] text-white'
+                ? 'bg-brand-dark hover:bg-brand text-white'
+                : 'bg-brand hover:bg-brand-dark text-white'
             }
           >
             {confirmText}

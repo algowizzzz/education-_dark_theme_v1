@@ -12,71 +12,71 @@ export default function AssessmentConfirmation() {
       <div className="p-6 max-w-3xl mx-auto">
         {/* Success Message */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-[#1A1A1A] rounded-full mb-4">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-dark rounded-full mb-4">
             <CheckCircle2 className="h-8 w-8 text-white" />
           </div>
           <h1 className="text-2xl mb-2">Assessment Submitted Successfully</h1>
-          <p className="text-[#757575]">
+          <p className="text-text-body">
             Your assessment for Case ESC-2024-0298 has been processed and all parties have been notified.
           </p>
         </div>
 
         {/* Status Updates */}
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardContent className="pt-6">
             <h3 className="text-base mb-4">Status Updates</h3>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#F5F5F5] flex items-center justify-center flex-shrink-0">
-                  <FileText className="h-4 w-4 text-[#1A1A1A]" />
+                <div className="w-8 h-8 rounded-full bg-surface-page flex items-center justify-center flex-shrink-0">
+                  <FileText className="h-4 w-4 text-text-heading" />
                 </div>
                 <div className="flex-1">
                   <p className="text-sm">
-                    <span className="text-[#1A1A1A]">Profile Updated</span>
+                    <span className="text-text-heading">Profile Updated</span>
                   </p>
-                  <p className="text-sm text-[#757575]">
+                  <p className="text-sm text-text-body">
                     Marcus Thompson's behavioral profile has been updated with new triggers and strategy priorities
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#F5F5F5] flex items-center justify-center flex-shrink-0">
-                  <UserCheck className="h-4 w-4 text-[#1A1A1A]" />
+                <div className="w-8 h-8 rounded-full bg-surface-page flex items-center justify-center flex-shrink-0">
+                  <UserCheck className="h-4 w-4 text-text-heading" />
                 </div>
                 <div className="flex-1">
                   <p className="text-sm">
-                    <span className="text-[#1A1A1A]">Teacher Notified</span>
+                    <span className="text-text-heading">Teacher Notified</span>
                   </p>
-                  <p className="text-sm text-[#757575]">
+                  <p className="text-sm text-text-body">
                     Mrs. Maria Johnson has been notified of the assessment and updated strategies
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#F5F5F5] flex items-center justify-center flex-shrink-0">
-                  <Bell className="h-4 w-4 text-[#1A1A1A]" />
+                <div className="w-8 h-8 rounded-full bg-surface-page flex items-center justify-center flex-shrink-0">
+                  <Bell className="h-4 w-4 text-text-heading" />
                 </div>
                 <div className="flex-1">
                   <p className="text-sm">
-                    <span className="text-[#1A1A1A]">Parent Message Sent</span>
+                    <span className="text-text-heading">Parent Message Sent</span>
                   </p>
-                  <p className="text-sm text-[#757575]">
+                  <p className="text-sm text-text-body">
                     Lisa & Robert Thompson have received a notification with incident summary and meeting request
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#F5F5F5] flex items-center justify-center flex-shrink-0">
-                  <Flag className="h-4 w-4 text-[#1A1A1A]" />
+                <div className="w-8 h-8 rounded-full bg-surface-page flex items-center justify-center flex-shrink-0">
+                  <Flag className="h-4 w-4 text-text-heading" />
                 </div>
                 <div className="flex-1">
                   <p className="text-sm">
-                    <span className="text-[#1A1A1A]">Monitoring Flag Set</span>
+                    <span className="text-text-heading">Monitoring Flag Set</span>
                   </p>
-                  <p className="text-sm text-[#757575]">
+                  <p className="text-sm text-text-body">
                     Case will be monitored for 1 week with automatic follow-up reminder
                   </p>
                 </div>
@@ -86,20 +86,20 @@ export default function AssessmentConfirmation() {
         </Card>
 
         {/* Next Steps */}
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardContent className="pt-6">
             <h3 className="text-base mb-4">Next Steps</h3>
-            <ul className="space-y-2 text-sm text-[#4A4A4A]">
+            <ul className="space-y-2 text-sm text-text-label">
               <li className="flex items-start gap-2">
-                <span className="text-[#1A1A1A] mt-0.5">•</span>
+                <span className="text-text-heading mt-0.5">•</span>
                 <span>Review parent responses to meeting request in Messages</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#1A1A1A] mt-0.5">•</span>
+                <span className="text-text-heading mt-0.5">•</span>
                 <span>Monitor new incidents to verify strategy effectiveness</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#1A1A1A] mt-0.5">•</span>
+                <span className="text-text-heading mt-0.5">•</span>
                 <span>You will receive a follow-up reminder on January 19, 2026</span>
               </li>
             </ul>
@@ -124,13 +124,13 @@ export default function AssessmentConfirmation() {
           </Button>
           <Button
             onClick={() => navigate('/expert/cases')}
-            className="flex-1 bg-[#333333] hover:bg-[#4A4A4A]"
+            className="flex-1 bg-brand hover:bg-brand-dark"
           >
             Back to Cases
           </Button>
           <Button
             variant="outline"
-            className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]"
+            className="border-border-strong text-text-heading hover:bg-surface-page"
           >
             Save Draft
           </Button>

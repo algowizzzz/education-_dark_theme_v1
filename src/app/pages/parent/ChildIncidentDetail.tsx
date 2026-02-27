@@ -111,7 +111,7 @@ export default function ChildIncidentDetail() {
       <div className="p-8 max-w-5xl">
         <Link 
           to={`/parent/children/${id}/incidents`}
-          className="inline-flex items-center gap-2 text-[#4A4A4A] hover:text-[#1A1A1A] mb-6"
+          className="inline-flex items-center gap-2 text-text-label hover:text-text-heading mb-6"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Incidents
@@ -119,13 +119,13 @@ export default function ChildIncidentDetail() {
 
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-2xl text-[#1A1A1A] mb-2">Case Review</h1>
-            <p className="text-[#4A4A4A]">{incidentId}</p>
+            <h1 className="text-2xl text-text-heading mb-2">Case Review</h1>
+            <p className="text-text-label">{incidentId}</p>
           </div>
           {!acknowledged && (
             <Button
               onClick={handleAcknowledge}
-              className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+              className="bg-brand hover:bg-brand-dark text-white shadow-sm"
             >
               <CheckCircle2 className="w-4 h-4 mr-2" />
               Acknowledge Case
@@ -134,9 +134,9 @@ export default function ChildIncidentDetail() {
         </div>
 
         {acknowledged && (
-          <Card className="mb-6 border-[#D0D0D0] bg-[#F5F5F5]">
+          <Card className="mb-6 border-border-default bg-surface-page">
             <CardContent className="pt-6">
-              <div className="flex items-center gap-2 text-[#1A1A1A]">
+              <div className="flex items-center gap-2 text-text-heading">
                 <CheckCircle2 className="w-5 h-5" />
                 <span className="font-medium">You acknowledged this case</span>
               </div>
@@ -144,37 +144,37 @@ export default function ChildIncidentDetail() {
           </Card>
         )}
 
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg text-[#1A1A1A]">Student</CardTitle>
+            <CardTitle className="text-lg text-text-heading">Student</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-[#1A1A1A] font-medium mb-1">{caseData.student.name}</div>
-            <div className="text-sm text-[#757575]">
+            <div className="text-text-heading font-medium mb-1">{caseData.student.name}</div>
+            <div className="text-sm text-text-body">
               {caseData.student.id} • Grade {caseData.student.grade} • {caseData.student.primaryTeacher}
             </div>
           </CardContent>
         </Card>
 
         <div className="grid grid-cols-2 gap-6 mb-6">
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="pt-6">
-              <div className="text-sm text-[#757575] mb-1">Teacher</div>
-              <div className="text-[#1A1A1A] font-medium">{caseData.teacher.name}</div>
+              <div className="text-sm text-text-body mb-1">Teacher</div>
+              <div className="text-text-heading font-medium">{caseData.teacher.name}</div>
             </CardContent>
           </Card>
 
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="pt-6">
-              <div className="text-sm text-[#757575] mb-1">Behavioral Expert</div>
-              <div className="text-[#1A1A1A] font-medium">{caseData.expert.name}</div>
+              <div className="text-sm text-text-body mb-1">Behavioral Expert</div>
+              <div className="text-text-heading font-medium">{caseData.expert.name}</div>
             </CardContent>
           </Card>
 
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="pt-6">
-              <div className="text-sm text-[#757575] mb-1">Submitted Date</div>
-              <div className="text-[#1A1A1A] font-medium">
+              <div className="text-sm text-text-body mb-1">Submitted Date</div>
+              <div className="text-text-heading font-medium">
                 {new Date(caseData.submittedDate).toLocaleDateString('en-US', {
                   month: 'long',
                   day: 'numeric',
@@ -184,93 +184,93 @@ export default function ChildIncidentDetail() {
             </CardContent>
           </Card>
 
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="pt-6">
-              <div className="text-sm text-[#757575] mb-1">Status</div>
-              <Badge className="bg-[#9E9E9E] text-white">
+              <div className="text-sm text-text-body mb-1">Status</div>
+              <Badge className="bg-badge-medium text-white">
                 {caseData.status}
               </Badge>
             </CardContent>
           </Card>
         </div>
 
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg text-[#1A1A1A]">Linked Incident</CardTitle>
+            <CardTitle className="text-lg text-text-heading">Linked Incident</CardTitle>
           </CardHeader>
           <CardContent>
             <Link 
               to={`/parent/children/${id}/incidents/${incidentId}`}
-              className="text-[#333333] hover:underline font-medium"
+              className="text-text-heading hover:underline font-medium"
             >
               {incidentId}
             </Link>
           </CardContent>
         </Card>
 
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg text-[#1A1A1A]">Incident Details</CardTitle>
+            <CardTitle className="text-lg text-text-heading">Incident Details</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-2 gap-6">
               <div>
-                <div className="text-sm text-[#757575] mb-1">Date & Time</div>
-                <div className="text-[#1A1A1A] font-medium">{incidentDetails.date} at {incidentDetails.time}</div>
+                <div className="text-sm text-text-body mb-1">Date & Time</div>
+                <div className="text-text-heading font-medium">{incidentDetails.date} at {incidentDetails.time}</div>
               </div>
               <div>
-                <div className="text-sm text-[#757575] mb-1">Location</div>
-                <div className="text-[#1A1A1A] font-medium">{incidentDetails.location}</div>
+                <div className="text-sm text-text-body mb-1">Location</div>
+                <div className="text-text-heading font-medium">{incidentDetails.location}</div>
               </div>
               <div>
-                <div className="text-sm text-[#757575] mb-1">Category</div>
-                <div className="text-[#1A1A1A] font-medium">{incidentDetails.category}</div>
+                <div className="text-sm text-text-body mb-1">Category</div>
+                <div className="text-text-heading font-medium">{incidentDetails.category}</div>
               </div>
               <div>
-                <div className="text-sm text-[#757575] mb-1">Severity</div>
+                <div className="text-sm text-text-body mb-1">Severity</div>
                 <Badge className={
-                  incidentDetails.severity === 'High' ? 'bg-[#333333] text-white' :
-                  incidentDetails.severity === 'Medium' ? 'bg-[#757575] text-white' :
-                  'bg-[#E0E0E0] text-[#4A4A4A]'
+                  incidentDetails.severity === 'High' ? 'bg-badge-high text-white' :
+                  incidentDetails.severity === 'Medium' ? 'bg-badge-medium text-white' :
+                  'bg-surface-elevated text-text-label'
                 }>
                   {incidentDetails.severity}
                 </Badge>
               </div>
             </div>
             {incidentDetails.notes && (
-              <div className="mt-4 pt-4 border-t border-[#E0E0E0]">
-                <div className="text-sm text-[#757575] mb-2">What Happened</div>
-                <p className="text-[#1A1A1A] text-sm">{incidentDetails.notes}</p>
+              <div className="mt-4 pt-4 border-t border-border-light">
+                <div className="text-sm text-text-body mb-2">What Happened</div>
+                <p className="text-text-heading text-sm">{incidentDetails.notes}</p>
               </div>
             )}
           </CardContent>
         </Card>
 
         <div className="grid grid-cols-2 gap-6 mb-6">
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardHeader className="pb-4">
-              <CardTitle className="text-lg text-[#1A1A1A]">Triggers Identified</CardTitle>
+              <CardTitle className="text-lg text-text-heading">Triggers Identified</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-2">
                 {incidentDetails.triggers.map((trigger, index) => (
-                  <div key={index} className="flex items-center gap-2 p-2 bg-[#F5F5F5] rounded-lg">
-                    <div className="text-[#1A1A1A]">{trigger}</div>
+                  <div key={index} className="flex items-center gap-2 p-2 bg-surface-page rounded-lg">
+                    <div className="text-text-heading">{trigger}</div>
                   </div>
                 ))}
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardHeader className="pb-4">
-              <CardTitle className="text-lg text-[#1A1A1A]">Strategies Used</CardTitle>
+              <CardTitle className="text-lg text-text-heading">Strategies Used</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-2">
                 {incidentDetails.strategies.map((strategy, index) => (
-                  <div key={index} className="flex items-center gap-2 p-2 bg-[#F5F5F5] rounded-lg">
-                    <div className="text-[#1A1A1A]">{strategy}</div>
+                  <div key={index} className="flex items-center gap-2 p-2 bg-surface-page rounded-lg">
+                    <div className="text-text-heading">{strategy}</div>
                   </div>
                 ))}
               </div>
@@ -278,33 +278,33 @@ export default function ChildIncidentDetail() {
           </Card>
         </div>
 
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg text-[#1A1A1A]">Teacher's Note</CardTitle>
+            <CardTitle className="text-lg text-text-heading">Teacher's Note</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-[#1A1A1A]">{caseData.teacherNote}</p>
+            <p className="text-text-heading">{caseData.teacherNote}</p>
           </CardContent>
         </Card>
 
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg text-[#1A1A1A]">Expert Recommendations</CardTitle>
-            <p className="text-sm text-[#757575]">PBIS-aligned intervention strategies</p>
+            <CardTitle className="text-lg text-text-heading">Expert Recommendations</CardTitle>
+            <p className="text-sm text-text-body">PBIS-aligned intervention strategies</p>
           </CardHeader>
           <CardContent>
-            <div className="p-4 bg-[#F5F5F5] rounded-lg border border-[#E0E0E0]">
-              <pre className="text-sm text-[#1A1A1A] whitespace-pre-wrap font-sans leading-relaxed">
+            <div className="p-4 bg-surface-page rounded-lg border border-border-light">
+              <pre className="text-sm text-text-heading whitespace-pre-wrap font-sans leading-relaxed">
                 {expertRecommendations}
               </pre>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="border-[#D0D0D0]">
+        <Card className="border-border-default">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg text-[#1A1A1A]">Conversation About This Case</CardTitle>
-            <p className="text-sm text-[#757575]">Discuss this case with the teacher and expert</p>
+            <CardTitle className="text-lg text-text-heading">Conversation About This Case</CardTitle>
+            <p className="text-sm text-text-body">Discuss this case with the teacher and expert</p>
           </CardHeader>
           <CardContent>
             {messages.length > 0 && (
@@ -313,13 +313,13 @@ export default function ChildIncidentDetail() {
                   <div 
                     key={index} 
                     className={`p-4 rounded-lg ${
-                      msg.sender === 'parent' ? 'bg-[#E8E8E8]' : 
-                      msg.sender === 'teacher' ? 'bg-[#F5F5F5]' : 
-                      'bg-[#E0E0E0]'
+                      msg.sender === 'parent' ? 'bg-surface-elevated' : 
+                      msg.sender === 'teacher' ? 'bg-surface-page' : 
+                      'bg-surface-elevated'
                     }`}
                   >
-                    <p className="text-[#1A1A1A] mb-2">{msg.message}</p>
-                    <div className="flex items-center gap-2 text-xs text-[#757575]">
+                    <p className="text-text-heading mb-2">{msg.message}</p>
+                    <div className="flex items-center gap-2 text-xs text-text-body">
                       <span className="font-medium">{msg.senderName}</span>
                       <span>•</span>
                       <span className="capitalize">{msg.sender}</span>
@@ -336,12 +336,12 @@ export default function ChildIncidentDetail() {
                 value={messageInput}
                 onChange={(e) => setMessageInput(e.target.value)}
                 rows={4}
-                className="border-[#D0D0D0] text-[#1A1A1A] placeholder:text-[#757575]"
+                className="border-border-default text-text-heading placeholder:text-text-body"
               />
               <Button
                 onClick={handleSendMessage}
                 disabled={!messageInput.trim()}
-                className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+                className="bg-brand hover:bg-brand-dark text-white shadow-sm"
               >
                 <Send className="w-4 h-4 mr-2" />
                 Send Message

@@ -19,12 +19,12 @@ export default function TeacherForgotPassword() {
 
   if (emailSent) {
     return (
-      <div className="min-h-screen flex items-center justify-center px-4 bg-[#F5F5F5]">
+      <div className="min-h-screen flex items-center justify-center px-4 bg-surface-page">
         <div className="w-full max-w-md">
-          <Card className="p-8 border border-[#D0D0D0] bg-white text-center">
-            <div className="w-16 h-16 rounded-full bg-[#E0E0E0] flex items-center justify-center mx-auto mb-4">
+          <Card className="p-8 border border-border-default bg-surface-card text-center">
+            <div className="w-16 h-16 rounded-full bg-surface-elevated flex items-center justify-center mx-auto mb-4">
               <svg
-                className="w-8 h-8 text-[#333333]"
+                className="w-8 h-8 text-text-heading"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -37,26 +37,26 @@ export default function TeacherForgotPassword() {
                 />
               </svg>
             </div>
-            <h2 className="text-2xl font-bold text-[#1A1A1A] mb-2">
+            <h2 className="text-2xl font-bold text-text-heading mb-2">
               Reset Link Sent
             </h2>
-            <p className="text-[#4A4A4A] mb-6">
+            <p className="text-text-label mb-6">
               We've sent a password reset link to <strong>{email}</strong>
             </p>
-            <p className="text-sm text-[#757575] mb-6">
+            <p className="text-sm text-text-body mb-6">
               The link will expire in 30 minutes. Please check your inbox and spam folder.
             </p>
             <div className="space-y-3">
               <Button
                 onClick={() => setEmailSent(false)}
                 variant="outline"
-                className="w-full border-[#D0D0D0] text-[#333333] hover:bg-[#F5F5F5] rounded-full"
+                className="w-full border-border-default text-text-heading hover:bg-surface-page rounded-full"
               >
                 Resend Link
               </Button>
               <Link to="/teacher/login" className="block">
                 <Button
-                  className="w-full bg-[#333333] hover:bg-[#1A1A1A] text-white rounded-full"
+                  className="w-full bg-brand hover:bg-brand-dark text-white rounded-full"
                 >
                   Return to Login
                 </Button>
@@ -69,29 +69,29 @@ export default function TeacherForgotPassword() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 bg-[#F5F5F5]">
+    <div className="min-h-screen flex items-center justify-center px-4 bg-surface-page">
       <div className="w-full max-w-md">
         <Link
           to="/teacher/login"
-          className="inline-flex items-center text-[#4A4A4A] hover:text-[#1A1A1A] mb-6"
+          className="inline-flex items-center text-text-label hover:text-text-heading mb-6"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to Login
         </Link>
 
-        <Card className="p-8 border border-[#D0D0D0] bg-white">
+        <Card className="p-8 border border-border-default bg-surface-card">
           <div className="text-center mb-8">
-            <h1 className="text-2xl font-bold text-[#1A1A1A] mb-1">
+            <h1 className="text-2xl font-bold text-text-heading mb-1">
               Forgot Password
             </h1>
-            <p className="text-[#4A4A4A]">
+            <p className="text-text-label">
               Enter your email to reset your password
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <Label htmlFor="email" className="text-[#1A1A1A]">
+              <Label htmlFor="email" className="text-text-heading">
                 Email Address
               </Label>
               <Input
@@ -100,14 +100,14 @@ export default function TeacherForgotPassword() {
                 placeholder="your.email@lincolnelementary.edu"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="mt-1 border-[#D0D0D0] focus:border-[#333333]"
+                className="mt-1 border-border-default focus:border-brand"
                 required
               />
             </div>
 
             <Button
               type="submit"
-              className="w-full bg-[#333333] hover:bg-[#1A1A1A] text-white rounded-full"
+              className="w-full bg-brand hover:bg-brand-dark text-white rounded-full"
             >
               Send Reset Link
             </Button>
@@ -115,7 +115,7 @@ export default function TeacherForgotPassword() {
             <div className="text-center">
               <Link
                 to="/teacher/login"
-                className="text-sm text-[#4A4A4A] hover:text-[#1A1A1A] underline"
+                className="text-sm text-text-label hover:text-text-heading underline"
               >
                 Remember your password? Sign in
               </Link>

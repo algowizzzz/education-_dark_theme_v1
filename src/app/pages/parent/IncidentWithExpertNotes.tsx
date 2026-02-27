@@ -64,7 +64,7 @@ export function IncidentWithExpertNotes() {
       <div className="p-8 max-w-4xl">
         <Link
           to={`/parent/children/${childId}`}
-          className="inline-flex items-center gap-2 text-[#4A4A4A] hover:text-[#1A1A1A] mb-6"
+          className="inline-flex items-center gap-2 text-text-label hover:text-text-heading mb-6"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Profile
@@ -72,63 +72,63 @@ export function IncidentWithExpertNotes() {
 
         <div className="mb-6">
           <div className="flex items-center gap-3 mb-2">
-            <h1 className="text-2xl font-semibold text-[#1A1A1A]">{incident.date}</h1>
-            <Badge className="bg-[#F5F5F5] text-[#1A1A1A] border border-[#D0D0D0]">
+            <h1 className="text-2xl font-semibold text-text-heading">{incident.date}</h1>
+            <Badge className="bg-surface-page text-text-heading border border-border-default">
               {incident.category}
             </Badge>
           </div>
-          <p className="text-sm text-[#757575]">Incident ID: {incident.id}</p>
+          <p className="text-sm text-text-body">Incident ID: {incident.id}</p>
         </div>
 
         <div className="space-y-6">
           {/* What Happened */}
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardHeader>
-              <CardTitle className="text-lg text-[#1A1A1A]">What Happened</CardTitle>
+              <CardTitle className="text-lg text-text-heading">What Happened</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-[#757575]" />
+                  <Clock className="w-4 h-4 text-text-body" />
                   <div>
-                    <span className="text-[#757575]">Time:</span>
-                    <span className="ml-2 text-[#1A1A1A]">{incident.time}</span>
+                    <span className="text-text-body">Time:</span>
+                    <span className="ml-2 text-text-heading">{incident.time}</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-[#757575]" />
+                  <MapPin className="w-4 h-4 text-text-body" />
                   <div>
-                    <span className="text-[#757575]">Location:</span>
-                    <span className="ml-2 text-[#1A1A1A]">{incident.location}</span>
+                    <span className="text-text-body">Location:</span>
+                    <span className="ml-2 text-text-heading">{incident.location}</span>
                   </div>
                 </div>
               </div>
               <div>
-                <h4 className="text-sm font-medium text-[#1A1A1A] mb-2">Description</h4>
-                <p className="text-sm text-[#4A4A4A]">{incident.description}</p>
+                <h4 className="text-sm font-medium text-text-heading mb-2">Description</h4>
+                <p className="text-sm text-text-label">{incident.description}</p>
               </div>
             </CardContent>
           </Card>
 
           {/* What Was Tried */}
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardHeader>
-              <CardTitle className="text-lg text-[#1A1A1A]">What Was Tried</CardTitle>
+              <CardTitle className="text-lg text-text-heading">What Was Tried</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
                 {incident.strategiesTried.map((strategy, index) => (
                   <div
                     key={index}
-                    className="flex items-center justify-between p-3 bg-[#F5F5F5] rounded"
+                    className="flex items-center justify-between p-3 bg-surface-page rounded"
                   >
-                    <span className="text-sm text-[#1A1A1A]">{strategy.name}</span>
+                    <span className="text-sm text-text-heading">{strategy.name}</span>
                     <Badge
                       variant="outline"
                       className={
                         strategy.effectiveness === 'Effective'
-                          ? 'bg-[#1A1A1A] text-white border-[#1A1A1A]'
-                          : 'bg-white text-[#4A4A4A] border-[#D0D0D0]'
+                          ? 'bg-brand-dark text-white border-brand-dark'
+                          : 'bg-surface-card text-text-label border-border-default'
                       }
                     >
                       {strategy.effectiveness}
@@ -140,21 +140,21 @@ export function IncidentWithExpertNotes() {
           </Card>
 
           {/* Outcome */}
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardHeader>
-              <CardTitle className="text-lg text-[#1A1A1A]">Outcome</CardTitle>
+              <CardTitle className="text-lg text-text-heading">Outcome</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-[#4A4A4A]">{incident.outcome}</p>
+              <p className="text-sm text-text-label">{incident.outcome}</p>
             </CardContent>
           </Card>
 
           {/* Expert Assessment - NEW SECTION */}
-          <Card className="border-[#1A1A1A] border-2">
-            <CardHeader className="bg-[#F5F5F5]">
+          <Card className="border-brand-dark border-2">
+            <CardHeader className="bg-surface-page">
               <div className="flex items-center gap-2">
-                <User className="w-5 h-5 text-[#1A1A1A]" />
-                <CardTitle className="text-lg text-[#1A1A1A]">
+                <User className="w-5 h-5 text-text-heading" />
+                <CardTitle className="text-lg text-text-heading">
                   Expert Assessment
                 </CardTitle>
               </div>
@@ -163,87 +163,87 @@ export function IncidentWithExpertNotes() {
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <div>
-                    <p className="font-medium text-[#1A1A1A]">
+                    <p className="font-medium text-text-heading">
                       {expertAssessment.expertName}
                     </p>
-                    <p className="text-sm text-[#757575]">
+                    <p className="text-sm text-text-body">
                       {expertAssessment.expertRole}
                     </p>
                   </div>
-                  <p className="text-xs text-[#757575]">
+                  <p className="text-xs text-text-body">
                     {expertAssessment.assessmentDate}
                   </p>
                 </div>
               </div>
 
               <div>
-                <h4 className="text-sm font-medium text-[#1A1A1A] mb-2">
+                <h4 className="text-sm font-medium text-text-heading mb-2">
                   Expert Notes
                 </h4>
-                <p className="text-sm text-[#4A4A4A]">{expertAssessment.notes}</p>
+                <p className="text-sm text-text-label">{expertAssessment.notes}</p>
               </div>
 
               <div>
-                <h4 className="text-sm font-medium text-[#1A1A1A] mb-2">
+                <h4 className="text-sm font-medium text-text-heading mb-2">
                   Recommendations
                 </h4>
                 <ul className="space-y-2">
                   {expertAssessment.recommendations.map((rec, index) => (
                     <li key={index} className="flex items-start gap-2 text-sm">
-                      <CheckCircle className="w-4 h-4 text-[#4A4A4A] mt-0.5 flex-shrink-0" />
-                      <span className="text-[#4A4A4A]">{rec}</span>
+                      <CheckCircle className="w-4 h-4 text-text-label mt-0.5 flex-shrink-0" />
+                      <span className="text-text-label">{rec}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="pt-3 border-t border-[#D0D0D0]">
+              <div className="pt-3 border-t border-border-default">
                 <div className="flex items-start gap-2">
-                  <AlertCircle className="w-4 h-4 text-[#757575] mt-0.5" />
-                  <p className="text-sm text-[#757575]">{expertAssessment.followUp}</p>
+                  <AlertCircle className="w-4 h-4 text-text-body mt-0.5" />
+                  <p className="text-sm text-text-body">{expertAssessment.followUp}</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
           {/* Logged By */}
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardHeader>
-              <CardTitle className="text-lg text-[#1A1A1A]">Logged By</CardTitle>
+              <CardTitle className="text-lg text-text-heading">Logged By</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#E0E0E0] flex items-center justify-center">
-                  <User className="w-5 h-5 text-[#757575]" />
+                <div className="w-10 h-10 rounded-full bg-surface-elevated flex items-center justify-center">
+                  <User className="w-5 h-5 text-text-body" />
                 </div>
                 <div>
-                  <p className="font-medium text-[#1A1A1A]">{incident.loggedBy}</p>
-                  <p className="text-sm text-[#757575]">{incident.loggedRole}</p>
+                  <p className="font-medium text-text-heading">{incident.loggedBy}</p>
+                  <p className="text-sm text-text-body">{incident.loggedRole}</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
           {/* Your Acknowledgment */}
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardHeader>
-              <CardTitle className="text-lg text-[#1A1A1A]">
+              <CardTitle className="text-lg text-text-heading">
                 Your Acknowledgment
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               {acknowledged ? (
-                <div className="flex items-center gap-2 text-sm text-[#4A4A4A]">
-                  <CheckCircle className="w-5 h-5 text-[#1A1A1A]" />
+                <div className="flex items-center gap-2 text-sm text-text-label">
+                  <CheckCircle className="w-5 h-5 text-text-heading" />
                   <span>Acknowledged on {new Date().toLocaleDateString()}</span>
                 </div>
               ) : (
                 <>
-                  <p className="text-sm text-[#757575]">
-                    Status: <span className="text-[#1A1A1A]">Not yet acknowledged</span>
+                  <p className="text-sm text-text-body">
+                    Status: <span className="text-text-heading">Not yet acknowledged</span>
                   </p>
                   <div>
-                    <Label htmlFor="feedback" className="text-sm text-[#1A1A1A]">
+                    <Label htmlFor="feedback" className="text-sm text-text-heading">
                       Optional Feedback to Expert
                     </Label>
                     <Textarea
@@ -256,7 +256,7 @@ export function IncidentWithExpertNotes() {
                   </div>
                   <Button
                     onClick={handleAcknowledge}
-                    className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+                    className="bg-brand hover:bg-brand-dark text-white shadow-sm"
                   >
                     <CheckCircle className="w-4 h-4 mr-2" />
                     Mark as Acknowledged

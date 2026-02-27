@@ -46,114 +46,114 @@ export default function ParentIncidentDetail() {
   return (
     <ParentLayout>
       <div className="p-8 max-w-4xl">
-        <Link to={`/parent/children/${childId}`} className="inline-flex items-center gap-2 text-[#4A4A4A] hover:text-[#1A1A1A] mb-6">
+        <Link to={`/parent/children/${childId}`} className="inline-flex items-center gap-2 text-text-label hover:text-text-heading mb-6">
           <ArrowLeft className="w-4 h-4" />
           Back to Profile
         </Link>
 
         <div className="mb-6">
-          <h1 className="text-2xl text-[#1A1A1A] mb-2">
+          <h1 className="text-2xl text-text-heading mb-2">
             {new Date(incident.date).toLocaleDateString('en-US', { 
               month: 'long', 
               day: 'numeric', 
               year: 'numeric' 
             })}
           </h1>
-          <p className="text-[#4A4A4A]">Incident reported at {incident.time}</p>
+          <p className="text-text-label">Incident reported at {incident.time}</p>
         </div>
 
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg text-[#1A1A1A]">What Happened</CardTitle>
+            <CardTitle className="text-lg text-text-heading">What Happened</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-2 gap-4 mb-4 pb-4 border-b border-[#E0E0E0]">
+            <div className="grid grid-cols-2 gap-4 mb-4 pb-4 border-b border-border-light">
               <div>
-                <div className="text-sm text-[#757575] mb-1">Date & Time</div>
-                <div className="text-[#1A1A1A]">{incident.date} at {incident.time}</div>
+                <div className="text-sm text-text-body mb-1">Date & Time</div>
+                <div className="text-text-heading">{incident.date} at {incident.time}</div>
               </div>
               <div>
-                <div className="text-sm text-[#757575] mb-1">Location</div>
-                <div className="text-[#1A1A1A]">{incident.location}</div>
+                <div className="text-sm text-text-body mb-1">Location</div>
+                <div className="text-text-heading">{incident.location}</div>
               </div>
             </div>
             <div className="mb-4">
-              <div className="text-sm text-[#757575] mb-1">Category</div>
-              <Badge variant="outline" className="border-[#9E9E9E] text-[#4A4A4A]">
+              <div className="text-sm text-text-body mb-1">Category</div>
+              <Badge variant="outline" className="border-border-strong text-text-label">
                 {incident.category}
               </Badge>
             </div>
             <div>
-              <div className="text-sm text-[#757575] mb-2">Description</div>
-              <p className="text-[#1A1A1A]">{incident.description}</p>
+              <div className="text-sm text-text-body mb-2">Description</div>
+              <p className="text-text-heading">{incident.description}</p>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg text-[#1A1A1A]">What Was Tried</CardTitle>
+            <CardTitle className="text-lg text-text-heading">What Was Tried</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
               {incident.strategiesTried.map((strategy, index) => (
-                <div key={index} className="flex items-center justify-between p-3 bg-[#F5F5F5] rounded-lg">
-                  <span className="text-[#1A1A1A]">{strategy.name}</span>
-                  <span className="text-sm text-[#757575]">{strategy.effectiveness}</span>
+                <div key={index} className="flex items-center justify-between p-3 bg-surface-page rounded-lg">
+                  <span className="text-text-heading">{strategy.name}</span>
+                  <span className="text-sm text-text-body">{strategy.effectiveness}</span>
                 </div>
               ))}
             </div>
           </CardContent>
         </Card>
 
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg text-[#1A1A1A]">Outcome</CardTitle>
+            <CardTitle className="text-lg text-text-heading">Outcome</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-[#1A1A1A]">{incident.outcome}</p>
+            <p className="text-text-heading">{incident.outcome}</p>
           </CardContent>
         </Card>
 
         {incident.hasExpertReview && (
-          <Card className="mb-6 border-[#333333] bg-[#FAFAFA]">
+          <Card className="mb-6 border-brand bg-surface-hover">
             <CardHeader className="pb-4">
               <div className="flex items-center gap-2">
-                <AlertCircle className="w-5 h-5 text-[#4A4A4A]" />
-                <CardTitle className="text-lg text-[#1A1A1A]">Expert Assessment</CardTitle>
+                <AlertCircle className="w-5 h-5 text-text-label" />
+                <CardTitle className="text-lg text-text-heading">Expert Assessment</CardTitle>
               </div>
-              <p className="text-sm text-[#757575]">From {incident.expertName}</p>
+              <p className="text-sm text-text-body">From {incident.expertName}</p>
             </CardHeader>
             <CardContent>
-              <p className="text-[#1A1A1A]">{incident.expertNotes}</p>
+              <p className="text-text-heading">{incident.expertNotes}</p>
             </CardContent>
           </Card>
         )}
 
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg text-[#1A1A1A]">Logged By</CardTitle>
+            <CardTitle className="text-lg text-text-heading">Logged By</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-[#1A1A1A]">{incident.loggedBy}</p>
+            <p className="text-text-heading">{incident.loggedBy}</p>
           </CardContent>
         </Card>
 
-        <Card className="mb-6 border-[#D0D0D0]">
+        <Card className="mb-6 border-border-default">
           <CardHeader className="pb-4">
-            <CardTitle className="text-lg text-[#1A1A1A]">Your Acknowledgment</CardTitle>
+            <CardTitle className="text-lg text-text-heading">Your Acknowledgment</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="mb-4">
               <div className="flex items-center gap-2 mb-3">
-                <div className="text-sm text-[#757575]">Status:</div>
+                <div className="text-sm text-text-body">Status:</div>
                 {acknowledged ? (
-                  <Badge className="bg-[#333333] text-white">
+                  <Badge className="bg-brand text-white">
                     <CheckCircle2 className="w-3 h-3 mr-1" />
                     Acknowledged
                   </Badge>
                 ) : (
-                  <Badge variant="outline" className="border-[#9E9E9E] text-[#4A4A4A]">
+                  <Badge variant="outline" className="border-border-strong text-text-label">
                     Not yet acknowledged
                   </Badge>
                 )}
@@ -161,7 +161,7 @@ export default function ParentIncidentDetail() {
               {!acknowledged && (
                 <Button
                   onClick={handleAcknowledge}
-                  className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+                  className="bg-brand hover:bg-brand-dark text-white shadow-sm"
                 >
                   <CheckCircle2 className="w-4 h-4 mr-2" />
                   Mark as Acknowledged
@@ -169,8 +169,8 @@ export default function ParentIncidentDetail() {
               )}
             </div>
 
-            <div className="pt-4 border-t border-[#E0E0E0]">
-              <div className="text-sm text-[#757575] mb-2">
+            <div className="pt-4 border-t border-border-light">
+              <div className="text-sm text-text-body mb-2">
                 Optional: Share feedback or questions with {incident.expertName}
               </div>
               <Textarea
@@ -178,13 +178,13 @@ export default function ParentIncidentDetail() {
                 value={feedback}
                 onChange={(e) => setFeedback(e.target.value)}
                 rows={4}
-                className="border-[#D0D0D0] text-[#1A1A1A] placeholder:text-[#757575] mb-3"
+                className="border-border-default text-text-heading placeholder:text-text-body mb-3"
               />
               <Button
                 onClick={handleSendFeedback}
                 disabled={!feedback.trim()}
                 variant="outline"
-                className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]"
+                className="border-border-strong text-text-heading hover:bg-surface-page"
               >
                 Send Feedback to Expert
               </Button>

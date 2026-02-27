@@ -73,13 +73,13 @@ export default function AddTeacher() {
             Back to Teachers
           </Button>
           <h1 className="text-2xl mb-2">Add New Teacher</h1>
-          <p className="text-[#757575]">Create a new teacher account and configure access permissions</p>
+          <p className="text-text-body">Create a new teacher account and configure access permissions</p>
         </div>
 
         <form onSubmit={handleSubmit}>
           {/* Account Information */}
-          <Card className="mb-6 border-[#D0D0D0]">
-            <CardHeader className="bg-[#F5F5F5]">
+          <Card className="mb-6 border-border-default">
+            <CardHeader className="bg-surface-page">
               <CardTitle>Account Information</CardTitle>
             </CardHeader>
             <CardContent className="pt-6">
@@ -147,8 +147,8 @@ export default function AddTeacher() {
           </Card>
 
           {/* Role & Assignment */}
-          <Card className="mb-6 border-[#D0D0D0]">
-            <CardHeader className="bg-[#F5F5F5]">
+          <Card className="mb-6 border-border-default">
+            <CardHeader className="bg-surface-page">
               <CardTitle>Role & Assignment</CardTitle>
             </CardHeader>
             <CardContent className="pt-6">
@@ -172,7 +172,7 @@ export default function AddTeacher() {
 
               <div className="mb-4">
                 <Label>Grade Levels *</Label>
-                <p className="text-xs text-[#757575] mb-2">Select all grades this teacher will work with</p>
+                <p className="text-xs text-text-body mb-2">Select all grades this teacher will work with</p>
                 <div className="grid grid-cols-3 gap-2">
                   {gradeOptions.map((grade) => (
                     <div key={grade} className="flex items-center space-x-2">
@@ -191,7 +191,7 @@ export default function AddTeacher() {
 
               <div>
                 <Label>Class Periods</Label>
-                <p className="text-xs text-[#757575] mb-2">Select teaching schedule</p>
+                <p className="text-xs text-text-body mb-2">Select teaching schedule</p>
                 <div className="grid grid-cols-2 gap-2">
                   {periodOptions.map((period) => (
                     <div key={period} className="flex items-center space-x-2">
@@ -211,9 +211,9 @@ export default function AddTeacher() {
           </Card>
 
           {/* Additional Info */}
-          <Card className="mb-6 border-[#D0D0D0] bg-[#F5F5F5]">
+          <Card className="mb-6 border-border-default bg-surface-page">
             <CardContent className="py-4">
-              <p className="text-sm text-[#4A4A4A]">
+              <p className="text-sm text-text-label">
                 <strong>Note:</strong> After creating the account, you can assign specific students
                 to this teacher from the teacher management page. The teacher will receive login
                 credentials via email if the welcome email option is enabled.
@@ -234,7 +234,7 @@ export default function AddTeacher() {
             <Button
               type="submit"
               disabled={!formData.firstName || !formData.lastName || !formData.email || !formData.teacherType || formData.grades.length === 0}
-              className="flex-1 bg-[#333333] hover:bg-[#4A4A4A]"
+              className="flex-1 bg-brand hover:bg-brand-dark"
             >
               Create Teacher Account
             </Button>

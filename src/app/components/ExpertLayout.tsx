@@ -50,25 +50,31 @@ export function ExpertLayout({ children }: ExpertLayoutProps) {
   };
 
   return (
-    <div className="min-h-screen flex bg-[#F5F5F5]">
+    <div className="min-h-screen flex bg-surface-page">
       {/* Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 bg-white border-r border-[#D0D0D0] transition-all duration-300 ${
+        className={`fixed inset-y-0 left-0 z-50 bg-brand shadow-lg transition-all duration-300 ${
           sidebarOpen ? 'w-[280px]' : 'w-[72px]'
         } md:block hidden`}
       >
         <div className="h-full flex flex-col">
           {/* Logo & Toggle */}
-          <div className="p-6 border-b border-[#E0E0E0] flex-shrink-0">
+          <div className="p-6 border-b border-white/15 flex-shrink-0">
             <div className="flex items-center justify-between">
               {sidebarOpen && (
-                <h1 className="font-bold text-xl text-[#1A1A1A]">
-                  BehaveBridge
-                </h1>
+                <div className="flex items-center gap-2">
+                  <img src="/logos/png-transparent/2.png" alt="BehaveBridge" className="w-9 h-9" />
+                  <h1 className="font-bold text-xl text-white">
+                    BehaveBridge
+                  </h1>
+                </div>
+              )}
+              {!sidebarOpen && (
+                <img src="/logos/png-transparent/2.png" alt="BehaveBridge" className="w-9 h-9" />
               )}
               <button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
-                className="text-[#757575] hover:text-[#333333]"
+                className="text-white/70 hover:text-white"
               >
                 <Menu className="w-5 h-5" />
               </button>
@@ -76,21 +82,21 @@ export function ExpertLayout({ children }: ExpertLayoutProps) {
           </div>
 
           {/* User Profile - Top, Non-clickable */}
-          <div className="p-4 border-b border-[#E0E0E0] flex-shrink-0">
+          <div className="p-4 border-b border-white/15 flex-shrink-0">
             <div
               className={`flex items-center px-4 py-3 ${
                 !sidebarOpen && 'justify-center'
               }`}
             >
-              <Avatar className={sidebarOpen ? "w-8 h-8 bg-[#E0E0E0]" : "w-[50px] h-[50px] bg-[#E0E0E0]"}>
-                <AvatarFallback className="text-[#333333]">SW</AvatarFallback>
+              <Avatar className={sidebarOpen ? "w-8 h-8 bg-white/20" : "w-[50px] h-[50px] bg-white/20"}>
+                <AvatarFallback className="text-white">SW</AvatarFallback>
               </Avatar>
               {sidebarOpen && (
                 <div className="ml-3">
-                  <div className="text-sm font-medium text-[#1A1A1A]">
+                  <div className="text-sm font-medium text-white">
                     Dr. Sarah Williams
                   </div>
-                  <div className="text-xs text-[#757575]">Behavioral Expert</div>
+                  <div className="text-xs text-white/60">Behavioral Expert</div>
                 </div>
               )}
             </div>
@@ -107,8 +113,8 @@ export function ExpertLayout({ children }: ExpertLayoutProps) {
                   onClick={() => navigate(item.path)}
                   className={`flex items-center w-full rounded-lg transition-colors ${
                     isActive
-                      ? 'bg-[#E0E0E0] text-[#1A1A1A]'
-                      : 'text-[#4A4A4A] hover:bg-[#F5F5F5]'
+                      ? 'bg-white/20 text-white shadow-sm'
+                      : 'text-white/70 hover:bg-white/10 hover:text-white'
                   } ${sidebarOpen ? 'px-4 py-3' : 'py-4 justify-center'}`}
                 >
                   <Icon className={sidebarOpen ? "w-5 h-5" : "w-6 h-6"} />
@@ -119,10 +125,10 @@ export function ExpertLayout({ children }: ExpertLayoutProps) {
           </nav>
 
           {/* Logout Button - Bottom */}
-          <div className={sidebarOpen ? "p-4 border-t border-[#E0E0E0] flex-shrink-0" : "px-2 py-4 border-t border-[#E0E0E0] flex-shrink-0"}>
+          <div className={sidebarOpen ? "p-4 border-t border-white/15 flex-shrink-0" : "px-2 py-4 border-t border-white/15 flex-shrink-0"}>
             <button
               onClick={handleLogout}
-              className={`flex items-center w-full rounded-lg transition-colors text-[#4A4A4A] hover:bg-[#F5F5F5] ${
+              className={`flex items-center w-full rounded-lg transition-colors text-white/70 hover:bg-white/10 hover:text-white ${
                 sidebarOpen ? 'px-4 py-3' : 'py-4 justify-center'
               }`}
             >
@@ -140,16 +146,19 @@ export function ExpertLayout({ children }: ExpertLayoutProps) {
         }`}
       >
         {/* Mobile Header */}
-        <header className="md:hidden bg-white border-b border-[#D0D0D0] px-4 py-3 flex items-center justify-between sticky top-0 z-30">
+        <header className="md:hidden bg-brand px-4 py-3 flex items-center justify-between sticky top-0 z-30">
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="p-2 text-[#757575] hover:text-[#333333] hover:bg-[#F5F5F5] rounded-lg"
+            className="p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-lg"
           >
             <Menu className="w-6 h-6" />
           </button>
-          <h1 className="font-bold text-lg text-[#1A1A1A]">BehaveBridge</h1>
-          <Avatar className="w-8 h-8 bg-[#E0E0E0]">
-            <AvatarFallback className="text-[#333333] text-sm">SW</AvatarFallback>
+          <div className="flex items-center gap-2">
+            <img src="/logos/png-transparent/2.png" alt="BehaveBridge" className="w-7 h-7" />
+            <h1 className="font-bold text-lg text-white">BehaveBridge</h1>
+          </div>
+          <Avatar className="w-8 h-8 bg-white/20">
+            <AvatarFallback className="text-white text-sm">SW</AvatarFallback>
           </Avatar>
         </header>
 
@@ -159,20 +168,23 @@ export function ExpertLayout({ children }: ExpertLayoutProps) {
 
       {/* Mobile Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 bg-white border-r border-[#D0D0D0] transition-transform duration-300 w-[280px] md:hidden ${
+        className={`fixed inset-y-0 left-0 z-50 bg-brand shadow-lg transition-transform duration-300 w-[280px] md:hidden ${
           mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         <div className="h-full flex flex-col">
           {/* Logo & Toggle */}
-          <div className="p-6 border-b border-[#E0E0E0] flex-shrink-0">
+          <div className="p-6 border-b border-white/15 flex-shrink-0">
             <div className="flex items-center justify-between">
-              <h1 className="font-bold text-xl text-[#1A1A1A]">
-                BehaveBridge
-              </h1>
+              <div className="flex items-center gap-2">
+                <img src="/logos/png-transparent/2.png" alt="BehaveBridge" className="w-9 h-9" />
+                <h1 className="font-bold text-xl text-white">
+                  BehaveBridge
+                </h1>
+              </div>
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-[#757575] hover:text-[#333333]"
+                className="text-white/70 hover:text-white"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -180,16 +192,16 @@ export function ExpertLayout({ children }: ExpertLayoutProps) {
           </div>
 
           {/* User Profile - Top, Non-clickable */}
-          <div className="p-4 border-b border-[#E0E0E0] flex-shrink-0">
+          <div className="p-4 border-b border-white/15 flex-shrink-0">
             <div className="flex items-center px-4 py-3">
-              <Avatar className="w-8 h-8 bg-[#E0E0E0]">
-                <AvatarFallback className="text-[#333333]">SW</AvatarFallback>
+              <Avatar className="w-8 h-8 bg-white/20">
+                <AvatarFallback className="text-white">SW</AvatarFallback>
               </Avatar>
               <div className="ml-3">
-                <div className="text-sm font-medium text-[#1A1A1A]">
+                <div className="text-sm font-medium text-white">
                   Dr. Sarah Williams
                 </div>
-                <div className="text-xs text-[#757575]">Behavioral Expert</div>
+                <div className="text-xs text-white/60">Behavioral Expert</div>
               </div>
             </div>
           </div>
@@ -206,8 +218,8 @@ export function ExpertLayout({ children }: ExpertLayoutProps) {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`flex items-center px-4 py-3 rounded-lg transition-colors ${
                     isActive
-                      ? 'bg-[#E0E0E0] text-[#1A1A1A]'
-                      : 'text-[#4A4A4A] hover:bg-[#F5F5F5]'
+                      ? 'bg-white/20 text-white shadow-sm'
+                      : 'text-white/70 hover:bg-white/10 hover:text-white'
                   }`}
                 >
                   <Icon className="w-5 h-5" />
@@ -218,10 +230,10 @@ export function ExpertLayout({ children }: ExpertLayoutProps) {
           </nav>
 
           {/* Logout Button - Bottom */}
-          <div className="p-4 border-t border-[#E0E0E0] flex-shrink-0">
+          <div className="p-4 border-t border-white/15 flex-shrink-0">
             <button
               onClick={handleLogout}
-              className="flex items-center w-full px-4 py-3 text-[#4A4A4A] hover:bg-[#F5F5F5] rounded-lg transition-colors"
+              className="flex items-center w-full px-4 py-3 text-white/70 hover:bg-white/10 hover:text-white rounded-lg transition-colors"
             >
               <LogOut className="w-5 h-5" />
               <span className="ml-3">Logout</span>

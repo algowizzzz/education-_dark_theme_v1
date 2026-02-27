@@ -46,22 +46,22 @@ export default function ExpertStudentsList() {
     <ExpertLayout>
       <div className="p-8">
         <div className="mb-6">
-          <h1 className="text-2xl text-[#1A1A1A] mb-2">All Students</h1>
-          <p className="text-[#4A4A4A]">View and manage behavioral profiles for all assigned students</p>
+          <h1 className="text-2xl text-text-heading mb-2">All Students</h1>
+          <p className="text-text-label">View and manage behavioral profiles for all assigned students</p>
         </div>
 
         <div className="flex gap-4 mb-6">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#757575]" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-text-body" />
             <Input
               placeholder="Search by student name or ID..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 border-[#D0D0D0] text-[#1A1A1A]"
+              className="pl-10 border-border-default text-text-heading"
             />
           </div>
           <Select value={gradeFilter} onValueChange={setGradeFilter}>
-            <SelectTrigger className="w-48 border-[#D0D0D0] text-[#1A1A1A]">
+            <SelectTrigger className="w-48 border-border-default text-text-heading">
               <SelectValue placeholder="All Grades" />
             </SelectTrigger>
             <SelectContent>
@@ -73,7 +73,7 @@ export default function ExpertStudentsList() {
             </SelectContent>
           </Select>
           <Select value={caseFilter} onValueChange={setCaseFilter}>
-            <SelectTrigger className="w-48 border-[#D0D0D0] text-[#1A1A1A]">
+            <SelectTrigger className="w-48 border-border-default text-text-heading">
               <SelectValue placeholder="All Cases" />
             </SelectTrigger>
             <SelectContent>
@@ -84,14 +84,14 @@ export default function ExpertStudentsList() {
           </Select>
         </div>
 
-        <div className="mb-4 text-sm text-[#757575]">
+        <div className="mb-4 text-sm text-text-body">
           Showing {filteredStudents.length} of {studentsWithData.length} students
         </div>
 
         {filteredStudents.length === 0 ? (
-          <Card className="border-[#D0D0D0] p-12">
+          <Card className="border-border-default p-12">
             <div className="text-center">
-              <p className="text-[#757575] mb-4">No students found matching your criteria</p>
+              <p className="text-text-body mb-4">No students found matching your criteria</p>
               <Button
                 onClick={() => {
                   setSearchTerm('');
@@ -99,48 +99,48 @@ export default function ExpertStudentsList() {
                   setCaseFilter('all');
                 }}
                 variant="outline"
-                className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]"
+                className="border-border-strong text-text-heading hover:bg-surface-page"
               >
                 Clear Filters
               </Button>
             </div>
           </Card>
         ) : (
-          <div className="bg-white border border-[#D0D0D0] rounded-lg overflow-hidden">
+          <div className="bg-surface-card border border-border-default rounded-lg overflow-hidden">
             <table className="w-full">
               <thead>
-                <tr className="bg-[#F5F5F5] border-b border-[#D0D0D0]">
-                  <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">Student Name</th>
-                  <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">Student ID</th>
-                  <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">Grade</th>
-                  <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">Primary Teacher</th>
-                  <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">Incidents</th>
-                  <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">Status</th>
-                  <th className="text-left p-4 text-sm font-medium text-[#4A4A4A]">Action</th>
+                <tr className="bg-table-header-bg">
+                  <th className="text-left p-4 text-sm font-semibold text-table-header-text">Student Name</th>
+                  <th className="text-left p-4 text-sm font-semibold text-table-header-text">Student ID</th>
+                  <th className="text-left p-4 text-sm font-semibold text-table-header-text">Grade</th>
+                  <th className="text-left p-4 text-sm font-semibold text-table-header-text">Primary Teacher</th>
+                  <th className="text-left p-4 text-sm font-semibold text-table-header-text">Incidents</th>
+                  <th className="text-left p-4 text-sm font-semibold text-table-header-text">Status</th>
+                  <th className="text-left p-4 text-sm font-semibold text-table-header-text">Action</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredStudents.map((student, index) => (
                   <tr
                     key={student.id}
-                    className={`border-b border-[#E0E0E0] hover:bg-[#FAFAFA] ${
-                      index % 2 === 0 ? 'bg-white' : 'bg-[#FAFAFA]'
+                    className={`border-b border-border-light hover:bg-table-row-hover ${
+                      index % 2 === 0 ? 'bg-surface-card' : 'bg-table-stripe'
                     }`}
                   >
-                    <td className="p-4 text-[#1A1A1A] font-medium">{student.name}</td>
-                    <td className="p-4 text-[#4A4A4A]">{student.id}</td>
-                    <td className="p-4 text-[#4A4A4A]">Grade {student.grade}</td>
-                    <td className="p-4 text-[#4A4A4A]">{student.primaryTeacher}</td>
+                    <td className="p-4 text-text-heading font-medium">{student.name}</td>
+                    <td className="p-4 text-text-label">{student.id}</td>
+                    <td className="p-4 text-text-label">Grade {student.grade}</td>
+                    <td className="p-4 text-text-label">{student.primaryTeacher}</td>
                     <td className="p-4">
-                      <Badge variant="outline" className="border-[#9E9E9E] text-[#4A4A4A]">
+                      <Badge variant="outline" className="border-border-strong text-text-label">
                         {student.incidentCount}
                       </Badge>
                     </td>
                     <td className="p-4">
                       {student.hasActiveCase ? (
-                        <Badge className="bg-[#9E9E9E] text-white">Active Case</Badge>
+                        <Badge className="bg-badge-medium text-white">Active Case</Badge>
                       ) : (
-                        <span className="text-sm text-[#757575]">—</span>
+                        <span className="text-sm text-text-body">—</span>
                       )}
                     </td>
                     <td className="p-4">
@@ -148,7 +148,7 @@ export default function ExpertStudentsList() {
                         <Button
                           variant="outline"
                           size="sm"
-                          className="border-[#9E9E9E] text-[#333333] hover:bg-[#F5F5F5]"
+                          className="border-border-strong text-text-heading hover:bg-surface-page"
                         >
                           View Profile
                         </Button>

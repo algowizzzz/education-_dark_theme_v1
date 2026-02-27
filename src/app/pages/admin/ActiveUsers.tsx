@@ -82,8 +82,8 @@ export function ActiveUsers() {
     <AdminLayout>
       <div className="max-w-7xl">
         <div className="mb-6">
-          <h1 className="text-2xl font-semibold text-[#1A1A1A] mb-2">Active Users</h1>
-          <p className="text-[#4A4A4A]">
+          <h1 className="text-2xl font-semibold text-text-heading mb-2">Active Users</h1>
+          <p className="text-text-label">
             Monitor user activity and login status across all portals
           </p>
         </div>
@@ -92,24 +92,24 @@ export function ActiveUsers() {
           {userStats.map((stat) => {
             const Icon = stat.icon;
             return (
-              <Card key={stat.role} className="border-[#D0D0D0]">
+              <Card key={stat.role} className="border-border-default">
                 <CardContent className="pt-6">
                   <div className="flex items-start justify-between mb-4">
-                    <Icon className="w-8 h-8 text-[#757575]" />
+                    <Icon className="w-8 h-8 text-text-body" />
                   </div>
-                  <div className="text-2xl font-bold text-[#1A1A1A] mb-1">
+                  <div className="text-2xl font-bold text-text-heading mb-1">
                     {stat.total}
                   </div>
-                  <div className="text-sm text-[#757575] mb-3">{stat.role}</div>
+                  <div className="text-sm text-text-body mb-3">{stat.role}</div>
                   <div className="flex items-center gap-3 text-xs">
                     <div className="flex items-center gap-1">
-                      <div className="w-2 h-2 rounded-full bg-[#4A4A4A]" />
-                      <span className="text-[#4A4A4A]">{stat.active} Active</span>
+                      <div className="w-2 h-2 rounded-full bg-brand-dark" />
+                      <span className="text-text-label">{stat.active} Active</span>
                     </div>
                     {stat.inactive > 0 && (
                       <div className="flex items-center gap-1">
-                        <div className="w-2 h-2 rounded-full bg-[#D0D0D0]" />
-                        <span className="text-[#757575]">{stat.inactive} Inactive</span>
+                        <div className="w-2 h-2 rounded-full bg-border-default" />
+                        <span className="text-text-body">{stat.inactive} Inactive</span>
                       </div>
                     )}
                   </div>
@@ -119,13 +119,13 @@ export function ActiveUsers() {
           })}
         </div>
 
-        <Card className="border-[#D0D0D0]">
+        <Card className="border-border-default">
           <CardHeader>
             <div className="flex items-center justify-between">
-              <CardTitle className="text-lg text-[#1A1A1A]">
+              <CardTitle className="text-lg text-text-heading">
                 Recently Logged In
               </CardTitle>
-              <div className="flex items-center gap-2 text-sm text-[#757575]">
+              <div className="flex items-center gap-2 text-sm text-text-body">
                 <Clock className="w-4 h-4" />
                 Last 24 hours
               </div>
@@ -134,30 +134,30 @@ export function ActiveUsers() {
           <CardContent>
             <Table>
               <TableHeader>
-                <TableRow className="border-[#D0D0D0]">
-                  <TableHead className="text-[#1A1A1A]">Name</TableHead>
-                  <TableHead className="text-[#1A1A1A]">Role</TableHead>
-                  <TableHead className="text-[#1A1A1A]">Email</TableHead>
-                  <TableHead className="text-[#1A1A1A]">Last Login</TableHead>
-                  <TableHead className="text-[#1A1A1A]">Status</TableHead>
+                <TableRow className="border-border-default">
+                  <TableHead className="text-text-heading">Name</TableHead>
+                  <TableHead className="text-text-heading">Role</TableHead>
+                  <TableHead className="text-text-heading">Email</TableHead>
+                  <TableHead className="text-text-heading">Last Login</TableHead>
+                  <TableHead className="text-text-heading">Status</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {recentlyLoggedIn.map((user, index) => (
-                  <TableRow key={index} className="border-[#D0D0D0]">
-                    <TableCell className="font-medium text-[#1A1A1A]">
+                  <TableRow key={index} className="border-border-default">
+                    <TableCell className="font-medium text-text-heading">
                       {user.name}
                     </TableCell>
-                    <TableCell className="text-[#4A4A4A]">{user.role}</TableCell>
-                    <TableCell className="text-[#4A4A4A]">{user.email}</TableCell>
-                    <TableCell className="text-[#4A4A4A]">{user.lastLogin}</TableCell>
+                    <TableCell className="text-text-label">{user.role}</TableCell>
+                    <TableCell className="text-text-label">{user.email}</TableCell>
+                    <TableCell className="text-text-label">{user.lastLogin}</TableCell>
                     <TableCell>
                       <Badge
                         variant="outline"
                         className={
                           user.status === 'online'
-                            ? 'bg-[#1A1A1A] text-white border-[#1A1A1A]'
-                            : 'bg-[#F5F5F5] text-[#757575] border-[#D0D0D0]'
+                            ? 'bg-brand-dark text-white border-brand-dark'
+                            : 'bg-surface-page text-text-body border-border-default'
                         }
                       >
                         {user.status === 'online' ? 'Online' : 'Offline'}
@@ -171,24 +171,24 @@ export function ActiveUsers() {
         </Card>
 
         <div className="mt-6 grid gap-4 md:grid-cols-3">
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="pt-6">
-              <div className="text-2xl font-bold text-[#1A1A1A] mb-1">2</div>
-              <div className="text-sm text-[#757575]">Users Online Now</div>
+              <div className="text-2xl font-bold text-text-heading mb-1">2</div>
+              <div className="text-sm text-text-body">Users Online Now</div>
             </CardContent>
           </Card>
 
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="pt-6">
-              <div className="text-2xl font-bold text-[#1A1A1A] mb-1">47</div>
-              <div className="text-sm text-[#757575]">Logins Today</div>
+              <div className="text-2xl font-bold text-text-heading mb-1">47</div>
+              <div className="text-sm text-text-body">Logins Today</div>
             </CardContent>
           </Card>
 
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="pt-6">
-              <div className="text-2xl font-bold text-[#1A1A1A] mb-1">312</div>
-              <div className="text-sm text-[#757575]">Logins This Week</div>
+              <div className="text-2xl font-bold text-text-heading mb-1">312</div>
+              <div className="text-sm text-text-body">Logins This Week</div>
             </CardContent>
           </Card>
         </div>

@@ -130,54 +130,54 @@ export default function ExpertManagement() {
         {/* Header */}
         <div className="mb-6">
           <h1 className="text-2xl mb-2">Behavioral Expert Management</h1>
-          <p className="text-[#757575]">Manage behavioral expert accounts and student assignments</p>
+          <p className="text-text-body">Manage behavioral expert accounts and student assignments</p>
         </div>
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-[#757575]">Total Experts</p>
+                  <p className="text-sm text-text-body">Total Experts</p>
                   <p className="text-2xl">{experts.length}</p>
                 </div>
-                <UserCheck className="h-8 w-8 text-[#757575]" />
+                <UserCheck className="h-8 w-8 text-text-body" />
               </div>
             </CardContent>
           </Card>
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-[#757575]">Active Experts</p>
+                  <p className="text-sm text-text-body">Active Experts</p>
                   <p className="text-2xl">{experts.filter(e => e.status === 'Active').length}</p>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-[#1A1A1A] flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-brand-dark flex items-center justify-center">
                   <UserCheck className="h-6 w-6 text-white" />
                 </div>
               </div>
             </CardContent>
           </Card>
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-[#757575]">Assigned Students</p>
+                  <p className="text-sm text-text-body">Assigned Students</p>
                   <p className="text-2xl">{totalStudents}</p>
                 </div>
-                <Users className="h-8 w-8 text-[#757575]" />
+                <Users className="h-8 w-8 text-text-body" />
               </div>
             </CardContent>
           </Card>
-          <Card className="border-[#D0D0D0]">
+          <Card className="border-border-default">
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-[#757575]">Active Cases</p>
+                  <p className="text-sm text-text-body">Active Cases</p>
                   <p className="text-2xl">{totalActiveCases}</p>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-[#F5F5F5] flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-surface-page flex items-center justify-center">
                   <span className="text-lg">📋</span>
                 </div>
               </div>
@@ -188,7 +188,7 @@ export default function ExpertManagement() {
         {/* Actions Bar */}
         <div className="flex gap-3 mb-6">
           <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-[#757575]" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-text-body" />
             <Input
               type="text"
               placeholder="Search by name, Expert ID, or email..."
@@ -209,7 +209,7 @@ export default function ExpertManagement() {
           </Select>
           <Button
             onClick={() => navigate('/admin/experts/new')}
-            className="bg-[#333333] hover:bg-[#4A4A4A]"
+            className="bg-brand hover:bg-brand-dark"
           >
             <Plus className="h-4 w-4 mr-2" />
             Add Expert
@@ -217,11 +217,11 @@ export default function ExpertManagement() {
         </div>
 
         {/* Experts Table */}
-        <Card className="border-[#D0D0D0]">
+        <Card className="border-border-default">
           <CardContent className="p-0">
             <Table>
               <TableHeader>
-                <TableRow className="bg-[#F5F5F5]">
+                <TableRow className="bg-surface-page">
                   <TableHead>Name</TableHead>
                   <TableHead>Expert ID</TableHead>
                   <TableHead>Role</TableHead>
@@ -237,7 +237,7 @@ export default function ExpertManagement() {
                     <TableCell>
                       <div>
                         <p className="text-sm">{expert.name}</p>
-                        <p className="text-xs text-[#757575]">{expert.email}</p>
+                        <p className="text-xs text-text-body">{expert.email}</p>
                       </div>
                     </TableCell>
                     <TableCell className="text-sm">{expert.expertId}</TableCell>
@@ -257,8 +257,8 @@ export default function ExpertManagement() {
                         variant="secondary"
                         className={`${
                           expert.status === 'Active'
-                            ? 'bg-[#1A1A1A] text-white'
-                            : 'bg-[#D0D0D0] text-[#4A4A4A]'
+                            ? 'bg-badge-medium text-white'
+                            : 'bg-badge-low-bg text-badge-low-text'
                         }`}
                       >
                         {expert.status}
@@ -298,17 +298,17 @@ export default function ExpertManagement() {
         </Card>
 
         {filteredExperts.length === 0 && (
-          <Card className="border-[#D0D0D0] mt-4">
+          <Card className="border-border-default mt-4">
             <CardContent className="py-12 text-center">
-              <p className="text-[#757575]">No behavioral experts found matching your criteria</p>
+              <p className="text-text-body">No behavioral experts found matching your criteria</p>
             </CardContent>
           </Card>
         )}
 
         {/* Info Card */}
-        <Card className="mt-6 border-[#D0D0D0] bg-[#F5F5F5]">
+        <Card className="mt-6 border-border-default bg-surface-page">
           <CardContent className="py-4">
-            <p className="text-sm text-[#4A4A4A]">
+            <p className="text-sm text-text-label">
               <strong>Caseload Management:</strong> Behavioral experts can be assigned to
               specific students to provide specialized support and intervention strategies.
               View individual caseloads to manage student assignments and workload distribution.
@@ -321,51 +321,51 @@ export default function ExpertManagement() {
       <Dialog open={resetPasswordOpen} onOpenChange={setResetPasswordOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle className="text-[#1A1A1A]">Reset Password</DialogTitle>
+            <DialogTitle className="text-text-heading">Reset Password</DialogTitle>
           </DialogHeader>
           <div className="space-y-4 py-4">
-            <div className="bg-[#F5F5F5] p-3 rounded-lg">
-              <p className="text-sm text-[#757575]">Account</p>
-              <p className="text-[#1A1A1A] font-medium">{selectedExpert?.name}</p>
-              <p className="text-sm text-[#757575]">{selectedExpert?.email}</p>
-              <p className="text-xs text-[#9E9E9E]">{selectedExpert?.expertId}</p>
+            <div className="bg-surface-page p-3 rounded-lg">
+              <p className="text-sm text-text-body">Account</p>
+              <p className="text-text-heading font-medium">{selectedExpert?.name}</p>
+              <p className="text-sm text-text-body">{selectedExpert?.email}</p>
+              <p className="text-xs text-text-muted">{selectedExpert?.expertId}</p>
             </div>
             <div>
-              <Label htmlFor="newPassword" className="text-[#4A4A4A]">New Password</Label>
+              <Label htmlFor="newPassword" className="text-text-label">New Password</Label>
               <div className="relative mt-1">
                 <Input
                   id="newPassword"
                   type={showPassword ? 'text' : 'password'}
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
-                  className="border-[#D0D0D0] pr-10"
+                  className="border-border-default pr-10"
                   placeholder="Enter new password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#757575] hover:text-[#1A1A1A]"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-text-body hover:text-text-heading"
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
-              <p className="text-xs text-[#757575] mt-1">Minimum 8 characters</p>
+              <p className="text-xs text-text-body mt-1">Minimum 8 characters</p>
             </div>
             <div>
-              <Label htmlFor="confirmPassword" className="text-[#4A4A4A]">Confirm Password</Label>
+              <Label htmlFor="confirmPassword" className="text-text-label">Confirm Password</Label>
               <div className="relative mt-1">
                 <Input
                   id="confirmPassword"
                   type={showConfirmPassword ? 'text' : 'password'}
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
-                  className="border-[#D0D0D0] pr-10"
+                  className="border-border-default pr-10"
                   placeholder="Confirm new password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#757575] hover:text-[#1A1A1A]"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-text-body hover:text-text-heading"
                 >
                   {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -376,13 +376,13 @@ export default function ExpertManagement() {
             <Button
               variant="outline"
               onClick={() => setResetPasswordOpen(false)}
-              className="border-[#9E9E9E] text-[#333333]"
+              className="border-border-strong text-text-heading"
             >
               Cancel
             </Button>
             <Button
               onClick={handleSubmitResetPassword}
-              className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+              className="bg-brand hover:bg-brand-dark text-white shadow-sm"
             >
               Reset Password
             </Button>
@@ -394,12 +394,12 @@ export default function ExpertManagement() {
       <Dialog open={deactivateOpen} onOpenChange={setDeactivateOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle className="text-[#1A1A1A]">
+            <DialogTitle className="text-text-heading">
               {expertToDeactivate?.status === 'Active' ? 'Deactivate' : 'Reactivate'} Account
             </DialogTitle>
           </DialogHeader>
           <div className="py-4">
-            <p className="text-[#4A4A4A]">
+            <p className="text-text-label">
               {expertToDeactivate?.status === 'Active'
                 ? `Are you sure you want to deactivate ${expertToDeactivate?.name}'s account? They will no longer be able to access the expert portal.`
                 : `Are you sure you want to reactivate ${expertToDeactivate?.name}'s account? They will regain access to the expert portal.`}
@@ -409,13 +409,13 @@ export default function ExpertManagement() {
             <Button
               variant="outline"
               onClick={() => setDeactivateOpen(false)}
-              className="border-[#9E9E9E] text-[#333333]"
+              className="border-border-strong text-text-heading"
             >
               Cancel
             </Button>
             <Button
               onClick={handleConfirmDeactivate}
-              className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+              className="bg-brand hover:bg-brand-dark text-white shadow-sm"
             >
               {expertToDeactivate?.status === 'Active' ? 'Deactivate' : 'Reactivate'}
             </Button>

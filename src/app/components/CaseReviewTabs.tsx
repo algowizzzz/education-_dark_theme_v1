@@ -49,13 +49,13 @@ export function CaseReviewTabs({ caseData, recentPattern, onStartReview }: CaseR
   };
 
   return (
-    <Card className="border-[#D0D0D0] mb-6">
+    <Card className="border-border-default mb-6">
       <CardHeader className="pb-4">
-        <CardTitle className="text-lg text-[#1A1A1A]">
+        <CardTitle className="text-lg text-text-heading">
           <MessageSquare className="w-5 h-5 inline mr-2" />
           Parent Communication
         </CardTitle>
-        <p className="text-sm text-[#757575] mt-2">
+        <p className="text-sm text-text-body mt-2">
           Incident-specific messages with Lisa Thompson (Parent)
         </p>
       </CardHeader>
@@ -66,14 +66,14 @@ export function CaseReviewTabs({ caseData, recentPattern, onStartReview }: CaseR
               key={index}
               className={`p-4 rounded-lg ${
                 msg.sender === 'expert'
-                  ? 'bg-[#E0E0E0] ml-12'
-                  : 'bg-[#F5F5F5] mr-12'
+                  ? 'bg-surface-elevated ml-12'
+                  : 'bg-surface-page mr-12'
               }`}
             >
-              <div className="text-xs text-[#757575] mb-1">
+              <div className="text-xs text-text-body mb-1">
                 {msg.sender === 'expert' ? 'You (Expert)' : 'Parent'} • {msg.timestamp}
               </div>
-              <p className="text-sm text-[#1A1A1A]">{msg.message}</p>
+              <p className="text-sm text-text-heading">{msg.message}</p>
             </div>
           ))}
         </div>
@@ -89,11 +89,11 @@ export function CaseReviewTabs({ caseData, recentPattern, onStartReview }: CaseR
               }
             }}
             rows={3}
-            className="border-[#D0D0D0] text-[#1A1A1A] placeholder:text-[#757575]"
+            className="border-border-default text-text-heading placeholder:text-text-body"
           />
           <Button
             onClick={handleSendParentMessage}
-            className="bg-[#333333] hover:bg-[#1A1A1A] text-white"
+            className="bg-brand hover:bg-brand-dark text-white"
           >
             <Send className="w-4 h-4" />
           </Button>

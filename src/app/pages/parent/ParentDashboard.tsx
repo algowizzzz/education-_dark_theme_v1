@@ -68,11 +68,11 @@ export default function ParentDashboard() {
   const getSeverityBadge = (severity: string) => {
     switch (severity) {
       case 'High':
-        return <Badge className="bg-[#4A4A4A] text-white">{severity}</Badge>;
+        return <Badge className="bg-brand-dark text-white">{severity}</Badge>;
       case 'Medium':
-        return <Badge className="bg-[#9E9E9E] text-white">{severity}</Badge>;
+        return <Badge className="bg-badge-medium text-white">{severity}</Badge>;
       case 'Low':
-        return <Badge className="bg-[#E0E0E0] text-[#4A4A4A]">{severity}</Badge>;
+        return <Badge className="bg-surface-elevated text-text-label">{severity}</Badge>;
       default:
         return <Badge variant="outline">{severity}</Badge>;
     }
@@ -82,41 +82,41 @@ export default function ParentDashboard() {
     <ParentLayout>
       <div className="max-w-7xl mx-auto space-y-6">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-[#1A1A1A]">
+          <h1 className="text-2xl md:text-3xl font-bold text-text-heading">
             Welcome, Lisa
           </h1>
-          <p className="text-sm md:text-base text-[#757575]">{today}</p>
+          <p className="text-sm md:text-base text-text-body">{today}</p>
         </div>
 
         {/* Child Card */}
-        <Card className="p-6 border border-[#D0D0D0] bg-white">
+        <Card className="p-6 border border-border-default bg-surface-card">
           {/* Recent Cases */}
           <div>
-            <h3 className="font-semibold text-[#1A1A1A] mb-3">Recent Cases</h3>
+            <h3 className="font-semibold text-text-heading mb-3">Recent Cases</h3>
             <div className="space-y-3">
               {marcusCases.map((caseItem) => (
                 <div
                   key={caseItem.id}
-                  className={`p-4 border rounded-lg hover:bg-[#F5F5F5] cursor-pointer transition-colors ${
-                    !caseItem.parentAcknowledged ? 'border-[#4A4A4A] bg-[#FAFAFA]' : 'border-[#E0E0E0]'
+                  className={`p-4 border rounded-lg hover:bg-surface-page cursor-pointer transition-colors ${
+                    !caseItem.parentAcknowledged ? 'border-brand-dark bg-surface-hover' : 'border-border-light'
                   }`}
                   onClick={() => navigate(`/parent/children/${marcusChild.id}/cases/${caseItem.id}`)}
                 >
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3 space-y-2 md:space-y-0">
                     <div className="flex items-center gap-2 flex-wrap">
                       {getSeverityBadge(caseItem.severity)}
-                      <Badge className={caseItem.status === 'Under Review' ? 'bg-[#9E9E9E] text-white' : 'bg-[#757575] text-white'}>
+                      <Badge className={caseItem.status === 'Under Review' ? 'bg-badge-medium text-white' : 'bg-badge-medium text-white'}>
                         {caseItem.status}
                       </Badge>
                       {!caseItem.parentAcknowledged && (
-                        <div className="flex items-center gap-1 text-sm text-[#333333] font-medium">
+                        <div className="flex items-center gap-1 text-sm text-text-heading font-medium">
                           <AlertCircle className="w-4 h-4" />
                           <span className="hidden sm:inline">Needs Acknowledgment</span>
                           <span className="sm:hidden">Action Required</span>
                         </div>
                       )}
                     </div>
-                    <span className="text-xs text-[#757575] whitespace-nowrap">
+                    <span className="text-xs text-text-body whitespace-nowrap">
                       {new Date(caseItem.submittedDate).toLocaleDateString('en-US', {
                         month: 'short',
                         day: 'numeric',
@@ -126,18 +126,18 @@ export default function ParentDashboard() {
                   </div>
 
                   <div className="mb-2">
-                    <h4 className="font-semibold text-[#1A1A1A] mb-2">{marcusChild.name}</h4>
-                    <div className="text-sm text-[#757575] mb-1">Trigger</div>
-                    <div className="font-medium text-[#1A1A1A]">{caseItem.trigger}</div>
+                    <h4 className="font-semibold text-text-heading mb-2">{marcusChild.name}</h4>
+                    <div className="text-sm text-text-body mb-1">Trigger</div>
+                    <div className="font-medium text-text-heading">{caseItem.trigger}</div>
                   </div>
                   
-                  <p className="text-sm text-[#4A4A4A] line-clamp-2 mb-3">
+                  <p className="text-sm text-text-label line-clamp-2 mb-3">
                     {caseItem.notePreview}
                   </p>
                   
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between pt-3 border-t border-[#E0E0E0] space-y-2 sm:space-y-0">
-                    <span className="text-xs text-[#757575]">Case ID: {caseItem.id}</span>
-                    <Badge className={caseItem.parentAcknowledged ? 'bg-[#757575] text-white' : 'bg-[#E0E0E0] text-[#4A4A4A]'}>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between pt-3 border-t border-border-light space-y-2 sm:space-y-0">
+                    <span className="text-xs text-text-body">Case ID: {caseItem.id}</span>
+                    <Badge className={caseItem.parentAcknowledged ? 'bg-badge-medium text-white' : 'bg-surface-elevated text-text-label'}>
                       {caseItem.parentAcknowledged ? 'Acknowledged' : 'Not yet acknowledged'}
                     </Badge>
                   </div>
@@ -146,26 +146,26 @@ export default function ParentDashboard() {
               {emmaCases.map((caseItem) => (
                 <div
                   key={caseItem.id}
-                  className={`p-4 border rounded-lg hover:bg-[#F5F5F5] cursor-pointer transition-colors ${
-                    !caseItem.parentAcknowledged ? 'border-[#4A4A4A] bg-[#FAFAFA]' : 'border-[#E0E0E0]'
+                  className={`p-4 border rounded-lg hover:bg-surface-page cursor-pointer transition-colors ${
+                    !caseItem.parentAcknowledged ? 'border-brand-dark bg-surface-hover' : 'border-border-light'
                   }`}
                   onClick={() => navigate(`/parent/children/${emmaChild.id}/cases/${caseItem.id}`)}
                 >
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3 space-y-2 md:space-y-0">
                     <div className="flex items-center gap-2 flex-wrap">
                       {getSeverityBadge(caseItem.severity)}
-                      <Badge className={caseItem.status === 'Under Review' ? 'bg-[#9E9E9E] text-white' : 'bg-[#757575] text-white'}>
+                      <Badge className={caseItem.status === 'Under Review' ? 'bg-badge-medium text-white' : 'bg-badge-medium text-white'}>
                         {caseItem.status}
                       </Badge>
                       {!caseItem.parentAcknowledged && (
-                        <div className="flex items-center gap-1 text-sm text-[#333333] font-medium">
+                        <div className="flex items-center gap-1 text-sm text-text-heading font-medium">
                           <AlertCircle className="w-4 h-4" />
                           <span className="hidden sm:inline">Needs Acknowledgment</span>
                           <span className="sm:hidden">Action Required</span>
                         </div>
                       )}
                     </div>
-                    <span className="text-xs text-[#757575] whitespace-nowrap">
+                    <span className="text-xs text-text-body whitespace-nowrap">
                       {new Date(caseItem.submittedDate).toLocaleDateString('en-US', {
                         month: 'short',
                         day: 'numeric',
@@ -175,18 +175,18 @@ export default function ParentDashboard() {
                   </div>
 
                   <div className="mb-2">
-                    <h4 className="font-semibold text-[#1A1A1A] mb-2">{emmaChild.name}</h4>
-                    <div className="text-sm text-[#757575] mb-1">Trigger</div>
-                    <div className="font-medium text-[#1A1A1A]">{caseItem.trigger}</div>
+                    <h4 className="font-semibold text-text-heading mb-2">{emmaChild.name}</h4>
+                    <div className="text-sm text-text-body mb-1">Trigger</div>
+                    <div className="font-medium text-text-heading">{caseItem.trigger}</div>
                   </div>
                   
-                  <p className="text-sm text-[#4A4A4A] line-clamp-2 mb-3">
+                  <p className="text-sm text-text-label line-clamp-2 mb-3">
                     {caseItem.notePreview}
                   </p>
                   
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between pt-3 border-t border-[#E0E0E0] space-y-2 sm:space-y-0">
-                    <span className="text-xs text-[#757575]">Case ID: {caseItem.id}</span>
-                    <Badge className={caseItem.parentAcknowledged ? 'bg-[#757575] text-white' : 'bg-[#E0E0E0] text-[#4A4A4A]'}>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between pt-3 border-t border-border-light space-y-2 sm:space-y-0">
+                    <span className="text-xs text-text-body">Case ID: {caseItem.id}</span>
+                    <Badge className={caseItem.parentAcknowledged ? 'bg-badge-medium text-white' : 'bg-surface-elevated text-text-label'}>
                       {caseItem.parentAcknowledged ? 'Acknowledged' : 'Not yet acknowledged'}
                     </Badge>
                   </div>
@@ -196,7 +196,7 @@ export default function ParentDashboard() {
 
             <Button
               variant="outline"
-              className="w-full mt-3 border-[#D0D0D0] text-[#333333] hover:bg-[#F5F5F5] rounded-lg"
+              className="w-full mt-3 border-border-default text-text-heading hover:bg-surface-page rounded-lg"
               onClick={() => navigate(`/parent/children/${marcusChild.id}/cases`)}
             >
               View All Cases
