@@ -60,7 +60,7 @@ export default function CaseManagement() {
   };
 
   return (
-    <div className="min-h-screen bg-surface-page">
+    <div className="min-h-screen">
       {/* Header */}
       <header className="bg-surface-card border-b border-border-default px-8 py-4 mb-8">
         <div className="flex items-center justify-between">

@@ -4,9 +4,8 @@ import { AdminLayout } from '@/app/components/AdminLayout';
 import { Button } from '@/app/components/ui/button';
 import { Input } from '@/app/components/ui/input';
 import { Label } from '@/app/components/ui/label';
-import { Card, CardContent } from '@/app/components/ui/card';
+import { Card } from '@/app/components/ui/card';
 import { Badge } from '@/app/components/ui/badge';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/app/components/ui/table';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/app/components/ui/dropdown-menu';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/app/components/ui/dialog';
 import { Search, Plus, MoreVertical, UserCheck, UserX, Upload, Eye, EyeOff, User } from 'lucide-react';
@@ -147,195 +146,206 @@ export default function TeacherManagement() {
 
         {/* Stats Cards */}
         <div className="grid grid-cols-3 gap-2 md:gap-4 mb-6">
-          <Card className="border-border-default">
-            <CardContent className="pt-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-text-body">Total Teachers</p>
-                  <p className="text-2xl">{teachers.length}</p>
-                </div>
-                <UserCheck className="h-8 w-8 text-text-body" />
+          <Card className="bg-surface-card border border-surface-card-border p-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-text-body">Total Teachers</p>
+                <p className="text-2xl font-bold text-text-heading">{teachers.length}</p>
               </div>
-            </CardContent>
+              <div className="w-10 h-10 rounded-full bg-surface-elevated flex items-center justify-center">
+                <UserCheck className="h-5 w-5 text-brand" />
+              </div>
+            </div>
           </Card>
-          <Card className="border-border-default">
-            <CardContent className="pt-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-text-body">Active</p>
-                  <p className="text-2xl">{teachers.filter(t => t.status === 'Active').length}</p>
-                </div>
-                <div className="w-12 h-12 rounded-full bg-brand-dark flex items-center justify-center">
-                  <UserCheck className="h-6 w-6 text-white" />
-                </div>
+          <Card className="bg-surface-card border border-surface-card-border p-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-text-body">Active</p>
+                <p className="text-2xl font-bold text-text-heading">{teachers.filter(t => t.status === 'Active').length}</p>
               </div>
-            </CardContent>
+              <div className="w-10 h-10 rounded-full bg-surface-elevated flex items-center justify-center">
+                <UserCheck className="h-5 w-5 text-status-success" />
+              </div>
+            </div>
           </Card>
-          <Card className="border-border-default">
-            <CardContent className="pt-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-text-body">Inactive</p>
-                  <p className="text-2xl">{teachers.filter(t => t.status === 'Inactive').length}</p>
-                </div>
-                <UserX className="h-8 w-8 text-text-body" />
+          <Card className="bg-surface-card border border-surface-card-border p-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-text-body">Inactive</p>
+                <p className="text-2xl font-bold text-text-heading">{teachers.filter(t => t.status === 'Inactive').length}</p>
               </div>
-            </CardContent>
+              <div className="w-10 h-10 rounded-full bg-surface-elevated flex items-center justify-center">
+                <UserX className="h-5 w-5 text-status-error" />
+              </div>
+            </div>
           </Card>
         </div>
 
         {/* Actions Bar */}
-        <div className="flex flex-col md:flex-row gap-3 mb-6">
-          <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-text-body" />
-            <Input
-              type="text"
-              placeholder="Search by name or email..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10"
-            />
-          </div>
-          <div className="flex gap-2">
-            <Select value={statusFilter} onValueChange={setStatusFilter}>
-              <SelectTrigger className="w-full md:w-[140px]">
-                <SelectValue placeholder="Status" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Status</SelectItem>
-                <SelectItem value="active">Active</SelectItem>
-                <SelectItem value="inactive">Inactive</SelectItem>
-              </SelectContent>
-            </Select>
-            <Button
-              variant="outline"
-              onClick={() => navigate('/admin/teachers/bulk-import')}
-              className="border-border-default"
-            >
-              <Upload className="h-4 w-4 md:mr-2" />
-              <span className="hidden md:inline">Bulk Import</span>
-            </Button>
-            <Button
-              onClick={() => navigate('/admin/teachers/new')}
-              className="bg-brand hover:bg-brand-dark"
-            >
-              <Plus className="h-4 w-4 md:mr-2" />
-              <span className="hidden md:inline">Add Teacher</span>
-            </Button>
+        <div className="bg-surface-card border border-surface-card-border rounded-lg p-4 mb-6">
+          <div className="flex flex-col md:flex-row gap-3">
+            <div className="flex-1 relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-text-body" />
+              <Input
+                type="text"
+                placeholder="Search by name or email..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10"
+              />
+            </div>
+            <div className="flex gap-2">
+              <Select value={statusFilter} onValueChange={setStatusFilter}>
+                <SelectTrigger className="w-full md:w-[140px]">
+                  <SelectValue placeholder="Status" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Status</SelectItem>
+                  <SelectItem value="active">Active</SelectItem>
+                  <SelectItem value="inactive">Inactive</SelectItem>
+                </SelectContent>
+              </Select>
+              <Button
+                variant="outline"
+                onClick={() => navigate('/admin/teachers/bulk-import')}
+                className="border-border-default"
+              >
+                <Upload className="h-4 w-4 md:mr-2" />
+                <span className="hidden md:inline">Bulk Import</span>
+              </Button>
+              <Button
+                onClick={() => navigate('/admin/teachers/new')}
+                className="bg-brand hover:bg-brand-dark text-white"
+              >
+                <Plus className="h-4 w-4 md:mr-2" />
+                <span className="hidden md:inline">Add Teacher</span>
+              </Button>
+            </div>
           </div>
         </div>
 
-        {/* Teachers List */}
         {/* Mobile Card View */}
         <div className="md:hidden space-y-3">
           {filteredTeachers.map((teacher) => (
-            <Card key={teacher.id} className="border-border-default">
-              <CardContent className="p-4">
-                <div className="flex items-start justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 rounded-full bg-surface-elevated flex items-center justify-center flex-shrink-0">
-                      <User className="w-5 h-5 text-text-body" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-text-heading">{teacher.name}</h3>
-                      <p className="text-sm text-text-body">{teacher.role}</p>
-                    </div>
+            <div key={teacher.id} className="bg-surface-card border border-border-default rounded-lg p-4">
+              <div className="flex items-start justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 rounded-full bg-surface-elevated flex items-center justify-center flex-shrink-0">
+                    <User className="w-5 h-5 text-text-body" />
                   </div>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" size="sm">
-                        <MoreVertical className="h-4 w-4" />
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                      <DropdownMenuItem onClick={() => navigate(`/admin/teachers/${teacher.id}/edit`)}>
-                        Edit
-                      </DropdownMenuItem>
-                      <DropdownMenuItem onClick={() => navigate(`/admin/teachers/${teacher.id}/view`)}>
-                        View Account
-                      </DropdownMenuItem>
-                      <DropdownMenuItem onClick={() => navigate(`/admin/teachers/${teacher.id}/students`)}>
-                        Assign Students
-                      </DropdownMenuItem>
-                      <DropdownMenuItem onClick={() => handleResetPassword(teacher)}>
-                        Reset Password
-                      </DropdownMenuItem>
-                      <DropdownMenuItem onClick={() => handleDeactivate(teacher)}>
-                        {teacher.status === 'Active' ? 'Deactivate' : 'Reactivate'}
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                  <div>
+                    <h3 className="font-semibold text-text-heading">{teacher.name}</h3>
+                    <p className="text-sm text-text-body">{teacher.role}</p>
+                  </div>
                 </div>
-                <div className="mt-3 pt-3 border-t border-border-light flex items-center justify-between text-sm">
-                  <span className="text-text-body truncate max-w-[200px]">{teacher.email}</span>
-                  <Badge className={teacher.status === 'Active' ? 'bg-badge-high text-white' : 'bg-badge-medium text-white'}>
-                    {teacher.status}
-                  </Badge>
-                </div>
-              </CardContent>
-            </Card>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" size="sm">
+                      <MoreVertical className="h-4 w-4" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuItem onClick={() => navigate(`/admin/teachers/${teacher.id}/edit`)}>
+                      Edit
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => navigate(`/admin/teachers/${teacher.id}/view`)}>
+                      View Account
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => navigate(`/admin/teachers/${teacher.id}/students`)}>
+                      Assign Students
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => handleResetPassword(teacher)}>
+                      Reset Password
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => handleDeactivate(teacher)}>
+                      {teacher.status === 'Active' ? 'Deactivate' : 'Reactivate'}
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+              <div className="mt-3 pt-3 border-t border-border-light flex items-center justify-between text-sm">
+                <span className="text-text-body truncate max-w-[200px]">{teacher.email}</span>
+                <Badge className={teacher.status === 'Active'
+                  ? 'bg-status-success-soft text-status-success border border-status-success-border'
+                  : 'bg-status-error-soft text-status-error border border-status-error-border'
+                }>
+                  {teacher.status}
+                </Badge>
+              </div>
+            </div>
           ))}
         </div>
 
         {/* Desktop Table View */}
-        <Card className="border-border-default hidden md:block">
-          <CardContent className="p-0">
-            <Table>
-              <TableHeader>
-                <TableRow className="bg-surface-page">
-                  <TableHead>Name</TableHead>
-                  <TableHead>Role</TableHead>
-                  <TableHead className="w-[80px]">Actions</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {filteredTeachers.map((teacher) => (
-                  <TableRow key={teacher.id}>
-                    <TableCell>
-                      <div>
-                        <p className="text-sm">{teacher.name}</p>
-                        <p className="text-xs text-text-body">{teacher.email}</p>
-                      </div>
-                    </TableCell>
-                    <TableCell className="text-sm">{teacher.role}</TableCell>
-                    <TableCell>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button variant="ghost" size="sm">
-                            <MoreVertical className="h-4 w-4" />
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                          <DropdownMenuItem onClick={() => navigate(`/admin/teachers/${teacher.id}/edit`)}>
-                            Edit
-                          </DropdownMenuItem>
-                          <DropdownMenuItem onClick={() => navigate(`/admin/teachers/${teacher.id}/view`)}>
-                            View Account
-                          </DropdownMenuItem>
-                          <DropdownMenuItem onClick={() => navigate(`/admin/teachers/${teacher.id}/students`)}>
-                            Assign Students
-                          </DropdownMenuItem>
-                          <DropdownMenuItem onClick={() => handleResetPassword(teacher)}>
-                            Reset Password
-                          </DropdownMenuItem>
-                          <DropdownMenuItem onClick={() => handleDeactivate(teacher)}>
-                            {teacher.status === 'Active' ? 'Deactivate' : 'Reactivate'}
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </CardContent>
-        </Card>
+        <div className="hidden md:block bg-surface-card border border-surface-card-border rounded-lg overflow-hidden">
+          <table className="w-full">
+            <thead>
+              <tr className="bg-table-header-bg">
+                <th className="text-left p-4 text-sm font-semibold text-table-header-text">Name</th>
+                <th className="text-left p-4 text-sm font-semibold text-table-header-text">Email</th>
+                <th className="text-left p-4 text-sm font-semibold text-table-header-text">Role</th>
+                <th className="text-left p-4 text-sm font-semibold text-table-header-text">Grades</th>
+                <th className="text-left p-4 text-sm font-semibold text-table-header-text">Status</th>
+                <th className="text-left p-4 text-sm font-semibold text-table-header-text w-[80px]">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredTeachers.map((teacher, index) => (
+                <tr
+                  key={teacher.id}
+                  className={`border-b border-border-light hover:bg-table-row-hover ${
+                    index % 2 === 0 ? 'bg-surface-card' : 'bg-table-stripe'
+                  }`}
+                >
+                  <td className="p-4 text-text-heading font-medium">{teacher.name}</td>
+                  <td className="p-4 text-text-label text-sm">{teacher.email}</td>
+                  <td className="p-4 text-text-label text-sm">{teacher.role}</td>
+                  <td className="p-4 text-text-label text-sm">{teacher.grades}</td>
+                  <td className="p-4">
+                    <Badge className={teacher.status === 'Active'
+                      ? 'bg-status-success-soft text-status-success border border-status-success-border'
+                      : 'bg-status-error-soft text-status-error border border-status-error-border'
+                    }>
+                      {teacher.status}
+                    </Badge>
+                  </td>
+                  <td className="p-4">
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button variant="ghost" size="sm">
+                          <MoreVertical className="h-4 w-4" />
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="end">
+                        <DropdownMenuItem onClick={() => navigate(`/admin/teachers/${teacher.id}/edit`)}>
+                          Edit
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => navigate(`/admin/teachers/${teacher.id}/view`)}>
+                          View Account
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => navigate(`/admin/teachers/${teacher.id}/students`)}>
+                          Assign Students
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => handleResetPassword(teacher)}>
+                          Reset Password
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => handleDeactivate(teacher)}>
+                          {teacher.status === 'Active' ? 'Deactivate' : 'Reactivate'}
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
 
         {filteredTeachers.length === 0 && (
-          <Card className="border-border-default mt-4">
-            <CardContent className="py-12 text-center">
+          <Card className="border-border-default mt-4 p-12">
+            <div className="text-center">
               <p className="text-text-body">No teachers found matching your criteria</p>
-            </CardContent>
+            </div>
           </Card>
         )}
       </div>
@@ -347,7 +357,7 @@ export default function TeacherManagement() {
             <DialogTitle className="text-text-heading">Reset Password</DialogTitle>
           </DialogHeader>
           <div className="space-y-4 py-4">
-            <div className="bg-surface-page p-3 rounded-lg">
+            <div className="bg-card p-3 rounded-lg">
               <p className="text-sm text-text-body">Account</p>
               <p className="text-text-heading font-medium">{selectedTeacher?.name}</p>
               <p className="text-sm text-text-body">{selectedTeacher?.email}</p>

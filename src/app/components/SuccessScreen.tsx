@@ -28,7 +28,7 @@ export function SuccessScreen({
   details,
 }: SuccessScreenProps) {
   return (
-    <div className="min-h-screen bg-surface-page flex items-center justify-center p-4">
+    <div className="min-h-screen flex items-center justify-center p-4">
       <Card className="max-w-lg w-full p-8 border-border-default bg-surface-card text-center">
         <div className="flex justify-center mb-6">
           <div className="rounded-full bg-surface-elevated p-4">

@@ -39,7 +39,7 @@ export default function LinkParentToStudent() {
   };
 
   return (
-    <div className="min-h-screen bg-surface-page">
+    <div className="min-h-screen">
       <header className="bg-surface-card border-b border-border-default px-8 py-4 mb-8">
         <div>
           <Link to="/admin/parents" className="text-text-label hover:text-text-heading text-sm mb-2 block">

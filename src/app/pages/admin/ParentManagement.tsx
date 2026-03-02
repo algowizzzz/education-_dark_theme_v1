@@ -4,12 +4,11 @@ import { AdminLayout } from '@/app/components/AdminLayout';
 import { Button } from '@/app/components/ui/button';
 import { Input } from '@/app/components/ui/input';
 import { Label } from '@/app/components/ui/label';
-import { Card, CardContent } from '@/app/components/ui/card';
+import { Card } from '@/app/components/ui/card';
 import { Badge } from '@/app/components/ui/badge';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/app/components/ui/table';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/app/components/ui/dropdown-menu';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/app/components/ui/dialog';
-import { Search, Plus, MoreVertical, UserCheck, UserX, Users, MailCheck, Link2, Eye, EyeOff } from 'lucide-react';
+import { Search, Plus, MoreVertical, UserCheck, Users, MailCheck, Link2, Eye, EyeOff, User } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/components/ui/select';
 import { toast } from 'sonner';
 
@@ -157,225 +156,287 @@ export default function ParentManagement() {
       <div className="p-6 max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-6">
-          <h1 className="text-2xl mb-2">Parent Account Management</h1>
-          <p className="text-text-body">Manage parent accounts, activations, and student linkages</p>
+          <h1 className="text-2xl md:text-3xl font-bold text-text-heading mb-2">Parent Account Management</h1>
+          <p className="text-sm md:text-base text-text-body">Manage parent accounts, activations, and student linkages</p>
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-          <Card className="border-border-default">
-            <CardContent className="pt-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-text-body">Total Parents</p>
-                  <p className="text-2xl">{parents.length}</p>
-                </div>
-                <Users className="h-8 w-8 text-text-body" />
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 mb-6">
+          <Card className="bg-surface-card border border-surface-card-border p-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-text-body">Total Parents</p>
+                <p className="text-2xl font-bold text-text-heading">{parents.length}</p>
               </div>
-            </CardContent>
+              <div className="w-10 h-10 rounded-full bg-surface-elevated flex items-center justify-center">
+                <Users className="h-5 w-5 text-brand" />
+              </div>
+            </div>
           </Card>
-          <Card className="border-border-default">
-            <CardContent className="pt-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-text-body">Activated</p>
-                  <p className="text-2xl">{activatedCount}</p>
-                </div>
-                <div className="w-12 h-12 rounded-full bg-brand-dark flex items-center justify-center">
-                  <MailCheck className="h-6 w-6 text-white" />
-                </div>
+          <Card className="bg-surface-card border border-surface-card-border p-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-text-body">Activated</p>
+                <p className="text-2xl font-bold text-text-heading">{activatedCount}</p>
               </div>
-            </CardContent>
+              <div className="w-10 h-10 rounded-full bg-surface-elevated flex items-center justify-center">
+                <MailCheck className="h-5 w-5 text-status-success" />
+              </div>
+            </div>
           </Card>
-          <Card className="border-border-default">
-            <CardContent className="pt-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-text-body">Pending Activation</p>
-                  <p className="text-2xl">{pendingCount}</p>
-                </div>
-                <MailCheck className="h-8 w-8 text-text-body" />
+          <Card className="bg-surface-card border border-surface-card-border p-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-text-body">Pending</p>
+                <p className="text-2xl font-bold text-text-heading">{pendingCount}</p>
               </div>
-            </CardContent>
+              <div className="w-10 h-10 rounded-full bg-surface-elevated flex items-center justify-center">
+                <MailCheck className="h-5 w-5 text-status-warning" />
+              </div>
+            </div>
           </Card>
-          <Card className="border-border-default">
-            <CardContent className="pt-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm text-text-body">Active</p>
-                  <p className="text-2xl">{parents.filter(p => p.status === 'Active').length}</p>
-                </div>
-                <UserCheck className="h-8 w-8 text-text-body" />
+          <Card className="bg-surface-card border border-surface-card-border p-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-text-body">Active</p>
+                <p className="text-2xl font-bold text-text-heading">{parents.filter(p => p.status === 'Active').length}</p>
               </div>
-            </CardContent>
+              <div className="w-10 h-10 rounded-full bg-surface-elevated flex items-center justify-center">
+                <UserCheck className="h-5 w-5 text-brand-light" />
+              </div>
+            </div>
           </Card>
         </div>
 
         {/* Actions Bar */}
-        <div className="flex gap-3 mb-6">
-          <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-text-body" />
-            <Input
-              type="text"
-              placeholder="Search by name, email, or linked student..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10"
-            />
-          </div>
-          <Select value={statusFilter} onValueChange={setStatusFilter}>
-            <SelectTrigger className="w-[150px]">
-              <SelectValue placeholder="Status" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Status</SelectItem>
-              <SelectItem value="active">Active</SelectItem>
-              <SelectItem value="inactive">Inactive</SelectItem>
-            </SelectContent>
-          </Select>
-          <Select value={activationFilter} onValueChange={setActivationFilter}>
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Activation" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Accounts</SelectItem>
-              <SelectItem value="activated">Activated</SelectItem>
-              <SelectItem value="pending">Pending Activation</SelectItem>
-            </SelectContent>
-          </Select>
-          <div className="flex gap-2">
-            <Button
-              variant="outline"
-              onClick={() => navigate('/admin/parents/bulk-link')}
-              className="border-border-default"
-            >
-              <Link2 className="h-4 w-4 mr-2" />
-              Bulk Link
-            </Button>
-            <Button
-              onClick={() => navigate('/admin/parents/new')}
-              className="bg-brand hover:bg-brand-dark"
-            >
-              <Plus className="h-4 w-4 mr-2" />
-              Add Parent
-            </Button>
+        <div className="bg-surface-card border border-surface-card-border rounded-lg p-4 mb-6">
+          <div className="flex flex-col md:flex-row gap-3">
+            <div className="flex-1 relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-text-body" />
+              <Input
+                type="text"
+                placeholder="Search by name, email, or linked student..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10"
+              />
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <Select value={statusFilter} onValueChange={setStatusFilter}>
+                <SelectTrigger className="w-full md:w-[150px]">
+                  <SelectValue placeholder="Status" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Status</SelectItem>
+                  <SelectItem value="active">Active</SelectItem>
+                  <SelectItem value="inactive">Inactive</SelectItem>
+                </SelectContent>
+              </Select>
+              <Select value={activationFilter} onValueChange={setActivationFilter}>
+                <SelectTrigger className="w-full md:w-[180px]">
+                  <SelectValue placeholder="Activation" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Accounts</SelectItem>
+                  <SelectItem value="activated">Activated</SelectItem>
+                  <SelectItem value="pending">Pending Activation</SelectItem>
+                </SelectContent>
+              </Select>
+              <Button
+                variant="outline"
+                onClick={() => navigate('/admin/parents/bulk-link')}
+                className="border-border-default"
+              >
+                <Link2 className="h-4 w-4 md:mr-2" />
+                <span className="hidden md:inline">Bulk Link</span>
+              </Button>
+              <Button
+                onClick={() => navigate('/admin/parents/new')}
+                className="bg-brand hover:bg-brand-dark text-white"
+              >
+                <Plus className="h-4 w-4 md:mr-2" />
+                <span className="hidden md:inline">Add Parent</span>
+              </Button>
+            </div>
           </div>
         </div>
 
-        {/* Parents Table */}
-        <Card className="border-border-default">
-          <CardContent className="p-0">
-            <Table>
-              <TableHeader>
-                <TableRow className="bg-surface-page">
-                  <TableHead>Name</TableHead>
-                  <TableHead>Contact</TableHead>
-                  <TableHead>Linked Students</TableHead>
-                  <TableHead>Activated</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead className="w-[80px]">Actions</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {filteredParents.map((parent) => (
-                  <TableRow key={parent.id}>
-                    <TableCell>
-                      <p className="text-sm">{parent.name}</p>
-                    </TableCell>
-                    <TableCell>
-                      <div className="text-sm">
-                        <p className="text-text-label">{parent.email}</p>
-                        <p className="text-text-body text-xs">{parent.phone}</p>
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      <div className="text-sm">
-                        {parent.linkedStudents.map((student, idx) => (
-                          <p key={idx} className="text-text-label">
-                            {student}
-                          </p>
-                        ))}
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      <Badge
-                        variant="secondary"
-                        className={`${
-                          parent.isActivated
-                            ? 'bg-badge-medium text-white'
-                            : 'bg-badge-low-bg text-badge-low-text'
-                        }`}
-                      >
-                        {parent.isActivated ? 'Yes' : 'Pending'}
-                      </Badge>
-                    </TableCell>
-                    <TableCell>
-                      <Badge
-                        variant="secondary"
-                        className={`${
-                          parent.status === 'Active'
-                            ? 'bg-badge-medium text-white'
-                            : 'bg-badge-low-bg text-badge-low-text'
-                        }`}
-                      >
-                        {parent.status}
-                      </Badge>
-                    </TableCell>
-                    <TableCell>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button variant="ghost" size="sm">
-                            <MoreVertical className="h-4 w-4" />
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                          <DropdownMenuItem onClick={() => navigate(`/admin/parents/${parent.id}/edit`)}>
-                            Edit
+        {/* Mobile Card View */}
+        <div className="md:hidden space-y-3">
+          {filteredParents.map((parent) => (
+            <div key={parent.id} className="bg-surface-card border border-border-default rounded-lg p-4">
+              <div className="flex items-start justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 rounded-full bg-surface-elevated flex items-center justify-center flex-shrink-0">
+                    <User className="w-5 h-5 text-text-body" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-text-heading">{parent.name}</h3>
+                    <p className="text-sm text-text-body">{parent.email}</p>
+                  </div>
+                </div>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" size="sm">
+                      <MoreVertical className="h-4 w-4" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuItem onClick={() => navigate(`/admin/parents/${parent.id}/edit`)}>
+                      Edit
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => navigate(`/admin/parents/${parent.id}/view`)}>
+                      View Account
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => navigate(`/admin/parents/${parent.id}/link`)}>
+                      Link to Student
+                    </DropdownMenuItem>
+                    {!parent.isActivated && (
+                      <DropdownMenuItem onClick={() => toast.success('Activation email resent successfully')}>
+                        Resend Activation
+                      </DropdownMenuItem>
+                    )}
+                    <DropdownMenuItem onClick={() => handleResetPassword(parent)}>
+                      Reset Password
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => handleDeactivate(parent)}>
+                      {parent.status === 'Active' ? 'Deactivate' : 'Reactivate'}
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+              <div className="mt-3 pt-3 border-t border-border-light">
+                <div className="flex items-center justify-between text-sm mb-2">
+                  <span className="text-text-body">{parent.phone}</span>
+                  <Badge className={parent.status === 'Active'
+                    ? 'bg-status-success-soft text-status-success border border-status-success-border'
+                    : 'bg-status-error-soft text-status-error border border-status-error-border'
+                  }>
+                    {parent.status}
+                  </Badge>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <span className="text-text-label">Students:</span>
+                  <span className="text-text-heading">{parent.linkedStudents.join(', ')}</span>
+                </div>
+                <div className="mt-1">
+                  <Badge className={parent.isActivated
+                    ? 'bg-status-success-soft text-status-success border border-status-success-border text-xs'
+                    : 'bg-status-warning-soft text-status-warning border border-status-warning-border text-xs'
+                  }>
+                    {parent.isActivated ? 'Activated' : 'Pending'}
+                  </Badge>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop Table View */}
+        <div className="hidden md:block bg-surface-card border border-surface-card-border rounded-lg overflow-hidden">
+          <table className="w-full">
+            <thead>
+              <tr className="bg-table-header-bg">
+                <th className="text-left p-4 text-sm font-semibold text-table-header-text">Name</th>
+                <th className="text-left p-4 text-sm font-semibold text-table-header-text">Contact</th>
+                <th className="text-left p-4 text-sm font-semibold text-table-header-text">Linked Students</th>
+                <th className="text-left p-4 text-sm font-semibold text-table-header-text">Activated</th>
+                <th className="text-left p-4 text-sm font-semibold text-table-header-text">Status</th>
+                <th className="text-left p-4 text-sm font-semibold text-table-header-text w-[80px]">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredParents.map((parent, index) => (
+                <tr
+                  key={parent.id}
+                  className={`border-b border-border-light hover:bg-table-row-hover ${
+                    index % 2 === 0 ? 'bg-surface-card' : 'bg-table-stripe'
+                  }`}
+                >
+                  <td className="p-4 text-text-heading font-medium">{parent.name}</td>
+                  <td className="p-4">
+                    <div className="text-sm">
+                      <p className="text-text-label">{parent.email}</p>
+                      <p className="text-text-body text-xs">{parent.phone}</p>
+                    </div>
+                  </td>
+                  <td className="p-4">
+                    <div className="text-sm">
+                      {parent.linkedStudents.map((student, idx) => (
+                        <p key={idx} className="text-text-label">
+                          {student}
+                        </p>
+                      ))}
+                    </div>
+                  </td>
+                  <td className="p-4">
+                    <Badge className={parent.isActivated
+                      ? 'bg-status-success-soft text-status-success border border-status-success-border'
+                      : 'bg-status-warning-soft text-status-warning border border-status-warning-border'
+                    }>
+                      {parent.isActivated ? 'Yes' : 'Pending'}
+                    </Badge>
+                  </td>
+                  <td className="p-4">
+                    <Badge className={parent.status === 'Active'
+                      ? 'bg-status-success-soft text-status-success border border-status-success-border'
+                      : 'bg-status-error-soft text-status-error border border-status-error-border'
+                    }>
+                      {parent.status}
+                    </Badge>
+                  </td>
+                  <td className="p-4">
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button variant="ghost" size="sm">
+                          <MoreVertical className="h-4 w-4" />
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="end">
+                        <DropdownMenuItem onClick={() => navigate(`/admin/parents/${parent.id}/edit`)}>
+                          Edit
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => navigate(`/admin/parents/${parent.id}/view`)}>
+                          View Account
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => navigate(`/admin/parents/${parent.id}/link`)}>
+                          Link to Student
+                        </DropdownMenuItem>
+                        {!parent.isActivated && (
+                          <DropdownMenuItem onClick={() => toast.success('Activation email resent successfully')}>
+                            Resend Activation
                           </DropdownMenuItem>
-                          <DropdownMenuItem onClick={() => navigate(`/admin/parents/${parent.id}/view`)}>
-                            View Account
-                          </DropdownMenuItem>
-                          <DropdownMenuItem onClick={() => navigate(`/admin/parents/${parent.id}/link`)}>
-                            Link to Student
-                          </DropdownMenuItem>
-                          {!parent.isActivated && (
-                            <DropdownMenuItem onClick={() => alert('Activation email resent successfully')}>
-                              Resend Activation
-                            </DropdownMenuItem>
-                          )}
-                          <DropdownMenuItem onClick={() => handleResetPassword(parent)}>
-                            Reset Password
-                          </DropdownMenuItem>
-                          <DropdownMenuItem onClick={() => handleDeactivate(parent)}>
-                            {parent.status === 'Active' ? 'Deactivate' : 'Reactivate'}
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </CardContent>
-        </Card>
+                        )}
+                        <DropdownMenuItem onClick={() => handleResetPassword(parent)}>
+                          Reset Password
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => handleDeactivate(parent)}>
+                          {parent.status === 'Active' ? 'Deactivate' : 'Reactivate'}
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
 
         {filteredParents.length === 0 && (
-          <Card className="border-border-default mt-4">
-            <CardContent className="py-12 text-center">
+          <Card className="border-border-default mt-4 p-12">
+            <div className="text-center">
               <p className="text-text-body">No parent accounts found matching your criteria</p>
-            </CardContent>
+            </div>
           </Card>
         )}
 
         {/* Info Card */}
-        <Card className="mt-6 border-border-default bg-surface-page">
-          <CardContent className="py-4">
-            <p className="text-sm text-text-label">
-              <strong>Parent Activation:</strong> New parent accounts require activation via email.
-              Parents must set their password and complete activation before accessing the portal.
-              You can resend activation emails for accounts that haven't been activated yet.
-            </p>
-          </CardContent>
+        <Card className="mt-6 bg-surface-card border border-surface-card-border p-4">
+          <p className="text-sm text-text-label">
+            <strong>Parent Activation:</strong> New parent accounts require activation via email.
+            Parents must set their password and complete activation before accessing the portal.
+            You can resend activation emails for accounts that haven't been activated yet.
+          </p>
         </Card>
       </div>
 
@@ -386,7 +447,7 @@ export default function ParentManagement() {
             <DialogTitle className="text-text-heading">Reset Password</DialogTitle>
           </DialogHeader>
           <div className="space-y-4 py-4">
-            <div className="bg-surface-page p-3 rounded-lg">
+            <div className="bg-card p-3 rounded-lg">
               <p className="text-sm text-text-body">Account</p>
               <p className="text-text-heading font-medium">{selectedParent?.name}</p>
               <p className="text-sm text-text-body">{selectedParent?.email}</p>

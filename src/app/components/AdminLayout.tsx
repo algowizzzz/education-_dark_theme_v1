@@ -46,7 +46,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
   };
 
   return (
-    <div className="min-h-screen flex bg-surface-page">
+    <div className="min-h-screen flex">
       {/* Desktop Sidebar */}
       <aside
         className={`fixed inset-y-0 left-0 z-50 bg-sidebar transition-all duration-300 shadow-lg ${
@@ -55,7 +55,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
       >
         <div className="h-full flex flex-col">
           {/* Logo & Toggle */}
-          <div className="p-5 border-b border-white/15 flex-shrink-0">
+          <div className="p-5 border-b border-sidebar-border flex-shrink-0">
             <div className="flex items-center justify-between">
               {sidebarOpen ? (
                 <div className="flex items-center gap-3">
@@ -75,9 +75,9 @@ export function AdminLayout({ children }: AdminLayoutProps) {
           </div>
 
           {/* User Profile */}
-          <div className="p-4 border-b border-white/15 flex-shrink-0">
+          <div className="p-4 border-b border-sidebar-border flex-shrink-0">
             <div className={`flex items-center px-3 py-2 ${!sidebarOpen && 'justify-center'}`}>
-              <div className={`rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 ${
+              <div className={`rounded-full bg-surface-elevated flex items-center justify-center flex-shrink-0 ${
                 sidebarOpen ? 'w-9 h-9' : 'w-11 h-11'
               }`}>
                 <UserCircle className={sidebarOpen ? "w-5 h-5 text-white" : "w-7 h-7 text-white"} />
@@ -102,7 +102,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
                   onClick={() => navigate(item.path)}
                   className={`flex items-center w-full rounded-lg transition-all duration-200 ${
                     isActive
-                      ? 'bg-white/20 text-white shadow-sm'
+                      ? 'bg-brand-dark/40 text-white shadow-sm border-l-3 border-brand'
                       : 'text-white/70 hover:bg-white/10 hover:text-white'
                   } ${sidebarOpen ? 'px-4 py-2.5' : 'py-3 justify-center'}`}
                 >
@@ -114,7 +114,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
           </nav>
 
           {/* Logout */}
-          <div className={sidebarOpen ? "p-3 border-t border-white/15 flex-shrink-0" : "px-2 py-3 border-t border-white/15 flex-shrink-0"}>
+          <div className={sidebarOpen ? "p-3 border-t border-sidebar-border flex-shrink-0" : "px-2 py-3 border-t border-sidebar-border flex-shrink-0"}>
             <button
               onClick={handleLogout}
               className={`flex items-center w-full rounded-lg transition-colors text-white/70 hover:bg-white/10 hover:text-white ${
@@ -144,7 +144,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
             <img src="/logos/png-transparent/2.png" alt="BB" className="w-7 h-7" />
             <h1 className="font-bold text-lg text-white">BehaveBridge</h1>
           </div>
-          <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-full bg-surface-elevated flex items-center justify-center">
             <UserCircle className="w-5 h-5 text-white" />
           </div>
         </header>
@@ -160,7 +160,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
         }`}
       >
         <div className="h-full flex flex-col">
-          <div className="p-5 border-b border-white/15 flex-shrink-0">
+          <div className="p-5 border-b border-sidebar-border flex-shrink-0">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <img src="/logos/png-transparent/2.png" alt="BehaveBridge" className="w-9 h-9" />
@@ -175,9 +175,9 @@ export function AdminLayout({ children }: AdminLayoutProps) {
             </div>
           </div>
 
-          <div className="p-4 border-b border-white/15 flex-shrink-0">
+          <div className="p-4 border-b border-sidebar-border flex-shrink-0">
             <div className="flex items-center px-3 py-2">
-              <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+              <div className="w-9 h-9 rounded-full bg-surface-elevated flex items-center justify-center flex-shrink-0">
                 <UserCircle className="w-5 h-5 text-white" />
               </div>
               <div className="ml-3">
@@ -200,7 +200,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
                   }}
                   className={`flex items-center w-full px-4 py-2.5 rounded-lg transition-all duration-200 ${
                     isActive
-                      ? 'bg-white/20 text-white shadow-sm'
+                      ? 'bg-brand-dark/40 text-white shadow-sm border-l-3 border-brand'
                       : 'text-white/70 hover:bg-white/10 hover:text-white'
                   }`}
                 >
@@ -211,7 +211,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
             })}
           </nav>
 
-          <div className="p-3 border-t border-white/15 flex-shrink-0">
+          <div className="p-3 border-t border-sidebar-border flex-shrink-0">
             <button
               onClick={handleLogout}
               className="flex items-center w-full px-4 py-2.5 text-white/70 hover:bg-white/10 hover:text-white rounded-lg transition-colors"

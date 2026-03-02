@@ -39,8 +39,12 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
+      {/* Decorative blurred circles */}
+      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-brand/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-brand-light/8 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="w-full max-w-md relative z-10">
         {/* Back to Portal Selection */}
         <Link
           to="/"
@@ -50,14 +54,13 @@ export default function AdminLogin() {
           Back to Portal Selection
         </Link>
 
-        <Card className="p-8 glass-card rounded-xl">
-          {/* Header */}
+        <Card className="p-8 glass-card rounded-xl border-t-2 border-t-brand">
+          {/* Header — 1.png full logo with tagline */}
           <div className="text-center mb-8">
-            <img src="/logos/png-transparent/1.png" alt="BehaveBridge" className="w-20 h-20 mx-auto mb-3" />
-            <h1 className="text-2xl font-bold text-text-heading mb-1">
-              BehaveBridge
-            </h1>
-            <h2 className="text-lg text-text-label">School Admin Panel</h2>
+            <img src="/logos/png-transparent/1.png" alt="BehaveBridge" className="w-48 h-auto mx-auto mb-4" />
+            <span className="inline-block px-4 py-1.5 bg-brand-dark/30 border border-brand/30 rounded-full text-sm text-brand-light font-medium">
+              School Admin Panel
+            </span>
           </div>
 
           {/* Login Form */}

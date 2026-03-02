@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AdminLayout } from '@/app/components/AdminLayout';
 import { Button } from '@/app/components/ui/button';
 import { Input } from '@/app/components/ui/input';
@@ -19,7 +19,7 @@ import {
   DropdownMenuTrigger,
 } from '@/app/components/ui/dropdown-menu';
 import { ConfirmationModal } from '@/app/components/ConfirmationModal';
-import { Search, Plus, MoreVertical, CheckSquare, Upload, Users, Brain, User, ChevronRight } from 'lucide-react';
+import { Search, Plus, MoreVertical, CheckSquare, Upload, Users, Brain, User, UserX } from 'lucide-react';
 import { Checkbox } from '@/app/components/ui/checkbox';
 import { STUDENTS } from '@/data/constants';
 import { toast } from 'sonner';
@@ -45,7 +45,7 @@ export default function StudentManagement() {
       searchTerm === '' ||
       student.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       student.id.toLowerCase().includes(searchTerm.toLowerCase());
-    
+
     const matchesGrade = gradeFilter === 'all' || student.grade.toString() === gradeFilter;
     const matchesStatus = statusFilter === 'all' || student.status === statusFilter;
 
@@ -101,6 +101,10 @@ export default function StudentManagement() {
     setSelectedStudents([]);
   };
 
+  const totalStudents = studentsWithStatus.length;
+  const activeStudents = studentsWithStatus.filter(s => s.status === 'Active').length;
+  const suspendedStudents = studentsWithStatus.filter(s => s.status === 'Suspended').length;
+
   return (
     <AdminLayout>
       <div className="p-6 max-w-7xl mx-auto">
@@ -145,45 +149,85 @@ export default function StudentManagement() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-4 mb-6">
-          <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-text-body" />
-            <Input
-              placeholder="Search by name or ID..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 border-border-default text-text-heading"
-            />
-          </div>
-          <div className="flex gap-2">
-            <Select value={gradeFilter} onValueChange={setGradeFilter}>
-              <SelectTrigger className="w-full md:w-36 border-border-default text-text-heading">
-                <SelectValue placeholder="Grade" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Grades</SelectItem>
-                <SelectItem value="2">Grade 2</SelectItem>
-                <SelectItem value="3">Grade 3</SelectItem>
-                <SelectItem value="4">Grade 4</SelectItem>
-                <SelectItem value="5">Grade 5</SelectItem>
-              </SelectContent>
-            </Select>
-            <Select value={statusFilter} onValueChange={setStatusFilter}>
-              <SelectTrigger className="w-full md:w-36 border-border-default text-text-heading">
-                <SelectValue placeholder="Status" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Status</SelectItem>
-                <SelectItem value="Active">Active</SelectItem>
-                <SelectItem value="Suspended">Suspended</SelectItem>
-              </SelectContent>
-            </Select>
+        {/* Stats Row */}
+        <div className="grid grid-cols-3 gap-2 md:gap-4 mb-6">
+          <Card className="bg-surface-card border border-surface-card-border p-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-text-body">Total</p>
+                <p className="text-2xl font-bold text-text-heading">{totalStudents}</p>
+              </div>
+              <div className="w-10 h-10 rounded-full bg-surface-elevated flex items-center justify-center">
+                <Users className="w-5 h-5 text-brand" />
+              </div>
+            </div>
+          </Card>
+          <Card className="bg-surface-card border border-surface-card-border p-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-text-body">Active</p>
+                <p className="text-2xl font-bold text-text-heading">{activeStudents}</p>
+              </div>
+              <div className="w-10 h-10 rounded-full bg-surface-elevated flex items-center justify-center">
+                <User className="w-5 h-5 text-status-success" />
+              </div>
+            </div>
+          </Card>
+          <Card className="bg-surface-card border border-surface-card-border p-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm text-text-body">Suspended</p>
+                <p className="text-2xl font-bold text-text-heading">{suspendedStudents}</p>
+              </div>
+              <div className="w-10 h-10 rounded-full bg-surface-elevated flex items-center justify-center">
+                <UserX className="w-5 h-5 text-status-error" />
+              </div>
+            </div>
+          </Card>
+        </div>
+
+        {/* Search & Filters */}
+        <div className="bg-surface-card border border-surface-card-border rounded-lg p-4 mb-6">
+          <div className="flex flex-col md:flex-row gap-4">
+            <div className="relative flex-1">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-text-body" />
+              <Input
+                placeholder="Search by name or ID..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10 border-border-default text-text-heading"
+              />
+            </div>
+            <div className="flex gap-2">
+              <Select value={gradeFilter} onValueChange={setGradeFilter}>
+                <SelectTrigger className="w-full md:w-36 border-border-default text-text-heading">
+                  <SelectValue placeholder="Grade" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Grades</SelectItem>
+                  <SelectItem value="2">Grade 2</SelectItem>
+                  <SelectItem value="3">Grade 3</SelectItem>
+                  <SelectItem value="4">Grade 4</SelectItem>
+                  <SelectItem value="5">Grade 5</SelectItem>
+                </SelectContent>
+              </Select>
+              <Select value={statusFilter} onValueChange={setStatusFilter}>
+                <SelectTrigger className="w-full md:w-36 border-border-default text-text-heading">
+                  <SelectValue placeholder="Status" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Status</SelectItem>
+                  <SelectItem value="Active">Active</SelectItem>
+                  <SelectItem value="Suspended">Suspended</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
           </div>
         </div>
 
         {/* Bulk Actions Bar */}
         {selectedStudents.length > 0 && (
-          <div className="mb-4 p-3 bg-surface-page border border-border-default rounded-lg flex items-center justify-between">
+          <div className="mb-4 p-3 bg-surface-card border border-border-default rounded-lg flex items-center justify-between">
             <div className="flex items-center gap-2">
               <CheckSquare className="w-5 h-5 text-text-heading" />
               <span className="text-sm font-medium text-text-heading">
@@ -311,17 +355,17 @@ export default function StudentManagement() {
                   <div className="flex items-center justify-between text-sm border-t border-border-light pt-3">
                     <div className="text-text-body">
                       <span>{student.id}</span>
-                      <span className="mx-2">•</span>
+                      <span className="mx-2">&middot;</span>
                       <span>{student.primaryTeacher}</span>
                     </div>
-                    <Badge className="bg-brand text-white">{student.status}</Badge>
+                    <Badge className="bg-status-success-soft text-status-success border border-status-success-border">{student.status}</Badge>
                   </div>
                 </div>
               ))}
             </div>
 
             {/* Desktop Table View */}
-            <div className="hidden md:block bg-surface-card border border-border-default rounded-lg overflow-hidden">
+            <div className="hidden md:block bg-surface-card border border-surface-card-border rounded-lg overflow-hidden">
               <table className="w-full">
                 <thead>
                   <tr className="bg-table-header-bg">
@@ -358,7 +402,7 @@ export default function StudentManagement() {
                       <td className="p-4 text-text-label">Grade {student.grade}</td>
                       <td className="p-4 text-text-label">{student.primaryTeacher}</td>
                       <td className="p-4">
-                        <Badge className="bg-brand text-white">{student.status}</Badge>
+                        <Badge className="bg-status-success-soft text-status-success border border-status-success-border">{student.status}</Badge>
                       </td>
                       <td className="p-4">
                         <DropdownMenu>

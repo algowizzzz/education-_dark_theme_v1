@@ -48,7 +48,7 @@ export function TeacherLayout({ children }: TeacherLayoutProps) {
   };
 
   return (
-    <div className="min-h-screen flex bg-surface-page">
+    <div className="min-h-screen flex">
       {/* Sidebar */}
       <aside
         className={`fixed inset-y-0 left-0 z-50 bg-sidebar shadow-lg transition-all duration-300 ${

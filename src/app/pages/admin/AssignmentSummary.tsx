@@ -4,15 +4,7 @@ import { AdminLayout } from '@/app/components/AdminLayout';
 import { Button } from '@/app/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/app/components/ui/card';
 import { Badge } from '@/app/components/ui/badge';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/app/components/ui/select';
 import { AlertTriangle, Users, UserCheck, Link2, ChevronRight } from 'lucide-react';
-import { STUDENTS } from '@/data/constants';
 
 // Mock data for demonstration
 const ASSIGNMENT_DATA = {
@@ -52,17 +44,29 @@ export default function AssignmentSummary() {
       <div className="p-6 max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-6">
-          <h1 className="text-2xl mb-2">Assignment Summary</h1>
-          <p className="text-text-body">
+          <h1 className="text-2xl md:text-3xl font-bold text-text-heading mb-2">Assignment Summary</h1>
+          <p className="text-sm md:text-base text-text-body">
             Overview of students and parents requiring attention
           </p>
         </div>
 
+        {/* Warning Banner */}
+        {totalIssues > 0 && (
+          <div className="mb-6 p-4 bg-status-warning-soft border border-status-warning-border rounded-lg flex items-center gap-3">
+            <AlertTriangle className="w-5 h-5 text-status-warning flex-shrink-0" />
+            <p className="text-sm text-text-heading">
+              <span className="font-semibold">{totalIssues} items</span> require your attention
+            </p>
+          </div>
+        )}
+
         {/* Summary Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           <Card
-            className={`border-border-default cursor-pointer transition-colors ${
-              category === 'unassignedTeacher' ? 'border-brand bg-surface-page' : 'hover:border-border-strong'
+            className={`bg-surface-card border cursor-pointer transition-all ${
+              category === 'unassignedTeacher'
+                ? 'ring-2 ring-brand border-brand'
+                : 'border-surface-card-border hover:border-border-strong'
             }`}
             onClick={() => setCategory(category === 'unassignedTeacher' ? 'all' : 'unassignedTeacher')}
           >
@@ -82,8 +86,10 @@ export default function AssignmentSummary() {
           </Card>
 
           <Card
-            className={`border-border-default cursor-pointer transition-colors ${
-              category === 'unassignedExpert' ? 'border-brand bg-surface-page' : 'hover:border-border-strong'
+            className={`bg-surface-card border cursor-pointer transition-all ${
+              category === 'unassignedExpert'
+                ? 'ring-2 ring-brand border-brand'
+                : 'border-surface-card-border hover:border-border-strong'
             }`}
             onClick={() => setCategory(category === 'unassignedExpert' ? 'all' : 'unassignedExpert')}
           >
@@ -103,8 +109,10 @@ export default function AssignmentSummary() {
           </Card>
 
           <Card
-            className={`border-border-default cursor-pointer transition-colors ${
-              category === 'noParent' ? 'border-brand bg-surface-page' : 'hover:border-border-strong'
+            className={`bg-surface-card border cursor-pointer transition-all ${
+              category === 'noParent'
+                ? 'ring-2 ring-brand border-brand'
+                : 'border-surface-card-border hover:border-border-strong'
             }`}
             onClick={() => setCategory(category === 'noParent' ? 'all' : 'noParent')}
           >
@@ -124,8 +132,10 @@ export default function AssignmentSummary() {
           </Card>
 
           <Card
-            className={`border-border-default cursor-pointer transition-colors ${
-              category === 'orphanParent' ? 'border-brand bg-surface-page' : 'hover:border-border-strong'
+            className={`bg-surface-card border cursor-pointer transition-all ${
+              category === 'orphanParent'
+                ? 'ring-2 ring-brand border-brand'
+                : 'border-surface-card-border hover:border-border-strong'
             }`}
             onClick={() => setCategory(category === 'orphanParent' ? 'all' : 'orphanParent')}
           >
@@ -167,14 +177,14 @@ export default function AssignmentSummary() {
         {/* Students Without Teacher */}
         {(category === 'all' || category === 'unassignedTeacher') &&
           ASSIGNMENT_DATA.unassignedToTeacher.length > 0 && (
-            <Card className="border-border-default mb-4">
+            <Card className="bg-surface-card border border-surface-card-border mb-4">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-lg flex items-center gap-2">
                     <Users className="w-5 h-5 text-status-warning" />
                     Students Without Teacher
                   </CardTitle>
-                  <Badge variant="secondary" className="bg-status-warning-soft text-status-warning">
+                  <Badge variant="secondary" className="bg-status-warning-soft text-status-warning border border-status-warning-border">
                     {ASSIGNMENT_DATA.unassignedToTeacher.length}
                   </Badge>
                 </div>
@@ -184,7 +194,7 @@ export default function AssignmentSummary() {
                   {ASSIGNMENT_DATA.unassignedToTeacher.map((student) => (
                     <div
                       key={student.id}
-                      className="flex items-center justify-between p-3 border border-border-light rounded-lg hover:bg-table-row-hover"
+                      className="flex items-center justify-between p-3 bg-card border border-border-light rounded-lg hover:bg-table-row-hover"
                     >
                       <div>
                         <p className="font-medium text-text-heading">{student.name}</p>
@@ -211,14 +221,14 @@ export default function AssignmentSummary() {
         {/* Students Without Expert */}
         {(category === 'all' || category === 'unassignedExpert') &&
           ASSIGNMENT_DATA.unassignedToExpert.length > 0 && (
-            <Card className="border-border-default mb-4">
+            <Card className="bg-surface-card border border-surface-card-border mb-4">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-lg flex items-center gap-2">
                     <UserCheck className="w-5 h-5 text-status-info" />
                     Students Without Behavioral Expert
                   </CardTitle>
-                  <Badge variant="secondary" className="bg-status-info-soft text-status-info">
+                  <Badge variant="secondary" className="bg-status-info-soft text-status-info border border-status-info-border">
                     {ASSIGNMENT_DATA.unassignedToExpert.length}
                   </Badge>
                 </div>
@@ -228,7 +238,7 @@ export default function AssignmentSummary() {
                   {ASSIGNMENT_DATA.unassignedToExpert.map((student) => (
                     <div
                       key={student.id}
-                      className="flex items-center justify-between p-3 border border-border-light rounded-lg hover:bg-table-row-hover"
+                      className="flex items-center justify-between p-3 bg-card border border-border-light rounded-lg hover:bg-table-row-hover"
                     >
                       <div>
                         <p className="font-medium text-text-heading">{student.name}</p>
@@ -255,14 +265,14 @@ export default function AssignmentSummary() {
         {/* Students Without Parent */}
         {(category === 'all' || category === 'noParent') &&
           ASSIGNMENT_DATA.noParentLinked.length > 0 && (
-            <Card className="border-border-default mb-4">
+            <Card className="bg-surface-card border border-surface-card-border mb-4">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-lg flex items-center gap-2">
                     <Link2 className="w-5 h-5 text-status-error" />
                     Students Without Parent Linked
                   </CardTitle>
-                  <Badge variant="secondary" className="bg-status-error-soft text-status-error">
+                  <Badge variant="secondary" className="bg-status-error-soft text-status-error border border-status-error-border">
                     {ASSIGNMENT_DATA.noParentLinked.length}
                   </Badge>
                 </div>
@@ -272,7 +282,7 @@ export default function AssignmentSummary() {
                   {ASSIGNMENT_DATA.noParentLinked.map((student) => (
                     <div
                       key={student.id}
-                      className="flex items-center justify-between p-3 border border-border-light rounded-lg hover:bg-table-row-hover"
+                      className="flex items-center justify-between p-3 bg-card border border-border-light rounded-lg hover:bg-table-row-hover"
                     >
                       <div>
                         <p className="font-medium text-text-heading">{student.name}</p>
@@ -299,14 +309,14 @@ export default function AssignmentSummary() {
         {/* Orphan Parents */}
         {(category === 'all' || category === 'orphanParent') &&
           ASSIGNMENT_DATA.orphanParents.length > 0 && (
-            <Card className="border-border-default mb-4">
+            <Card className="bg-surface-card border border-surface-card-border mb-4">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-lg flex items-center gap-2">
                     <AlertTriangle className="w-5 h-5 text-status-warning" />
                     Parents Without Students Linked
                   </CardTitle>
-                  <Badge variant="secondary" className="bg-status-warning-soft text-status-warning">
+                  <Badge variant="secondary" className="bg-status-warning-soft text-status-warning border border-status-warning-border">
                     {ASSIGNMENT_DATA.orphanParents.length}
                   </Badge>
                 </div>
@@ -316,7 +326,7 @@ export default function AssignmentSummary() {
                   {ASSIGNMENT_DATA.orphanParents.map((parent) => (
                     <div
                       key={parent.id}
-                      className="flex items-center justify-between p-3 border border-border-light rounded-lg hover:bg-table-row-hover"
+                      className="flex items-center justify-between p-3 bg-card border border-border-light rounded-lg hover:bg-table-row-hover"
                     >
                       <div>
                         <p className="font-medium text-text-heading">{parent.name}</p>
@@ -326,8 +336,8 @@ export default function AssignmentSummary() {
                             variant="secondary"
                             className={`ml-2 text-xs ${
                               parent.status === 'Active'
-                                ? 'bg-status-success-soft text-status-success'
-                                : 'bg-status-warning-soft text-status-warning'
+                                ? 'bg-status-success-soft text-status-success border border-status-success-border'
+                                : 'bg-status-warning-soft text-status-warning border border-status-warning-border'
                             }`}
                           >
                             {parent.status}
