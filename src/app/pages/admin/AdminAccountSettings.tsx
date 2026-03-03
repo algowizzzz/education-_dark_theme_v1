@@ -72,28 +72,30 @@ export function AdminAccountSettings() {
         {/* Profile Hero Card */}
         <Card className="bg-surface-card border border-surface-card-border overflow-hidden mb-6">
           <div className="relative">
-            {/* Accent stripe */}
-            <div className="h-24 bg-gradient-to-r from-brand-dark via-brand to-brand-light" />
+            {/* Accent stripe with glow */}
+            <div className="h-28 bg-gradient-to-r from-brand-dark via-brand to-brand-light relative">
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-surface-card/60" />
+            </div>
             <CardContent className="relative -mt-10 px-6 pb-6">
               <div className="flex flex-col md:flex-row md:items-end gap-4">
-                {/* Avatar */}
-                <div className="w-20 h-20 rounded-full bg-surface-elevated border-4 border-surface-card flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <User className="w-10 h-10 text-brand" />
+                {/* Avatar with glowing ring */}
+                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-brand to-brand-light border-4 border-surface-card flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-brand/40">
+                  <User className="w-10 h-10 text-primary-foreground" />
                 </div>
-                <div className="flex-1 pt-2 md:pt-0">
+                <div className="flex-1 pt-2 md:pt-6">
                   <h2 className="text-xl font-bold text-text-heading">{adminInfo.name}</h2>
-                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1">
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1">
                     <span className="inline-flex items-center text-sm text-text-label">
-                      <IdCard className="w-3.5 h-3.5 mr-1.5 text-brand" />
+                      <IdCard className="w-3.5 h-3.5 mr-1.5 text-brand-light" />
                       {adminInfo.adminId}
                     </span>
                     <span className="inline-flex items-center text-sm text-text-label">
-                      <Mail className="w-3.5 h-3.5 mr-1.5 text-brand" />
+                      <Mail className="w-3.5 h-3.5 mr-1.5 text-brand-light" />
                       {adminInfo.email}
                     </span>
                   </div>
                 </div>
-                <span className="inline-flex items-center self-start md:self-end px-3 py-1 bg-brand-dark/30 border border-brand/30 rounded-full text-xs font-medium text-brand-light">
+                <span className="inline-flex items-center self-start md:self-end px-3 py-1.5 bg-brand/20 border border-brand/40 rounded-full text-xs font-semibold text-brand tracking-wide">
                   {adminInfo.role}
                 </span>
               </div>
@@ -108,62 +110,68 @@ export function AdminAccountSettings() {
             <Card className="bg-surface-card border border-surface-card-border">
               <CardHeader className="pb-3">
                 <CardTitle className="text-base text-text-heading flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-md bg-surface-elevated flex items-center justify-center">
-                    <User className="w-4 h-4 text-brand" />
+                  <div className="w-7 h-7 rounded-md bg-foreground flex items-center justify-center shadow-sm">
+                    <User className="w-4 h-4 text-brand-dark" />
                   </div>
                   Account Information
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {/* Name */}
                   <div className="bg-card rounded-lg p-4 border border-border-light flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-md bg-surface-elevated flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <User className="w-4 h-4 text-text-label" />
+                    <div className="w-8 h-8 rounded-md bg-foreground flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                      <User className="w-4 h-4 text-brand-dark" />
                     </div>
                     <div>
                       <Label className="text-xs text-text-muted uppercase tracking-wide">Name</Label>
                       <p className="text-text-heading font-medium">{adminInfo.name}</p>
                     </div>
                   </div>
+                  {/* Admin ID */}
                   <div className="bg-card rounded-lg p-4 border border-border-light flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-md bg-surface-elevated flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <IdCard className="w-4 h-4 text-text-label" />
+                    <div className="w-8 h-8 rounded-md bg-foreground flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                      <IdCard className="w-4 h-4 text-brand" />
                     </div>
                     <div>
                       <Label className="text-xs text-text-muted uppercase tracking-wide">Admin ID</Label>
                       <p className="text-text-heading font-medium">{adminInfo.adminId}</p>
                     </div>
                   </div>
+                  {/* Email */}
                   <div className="bg-card rounded-lg p-4 border border-border-light flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-md bg-surface-elevated flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Mail className="w-4 h-4 text-text-label" />
+                    <div className="w-8 h-8 rounded-md bg-foreground flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                      <Mail className="w-4 h-4 text-brand-light" />
                     </div>
                     <div>
                       <Label className="text-xs text-text-muted uppercase tracking-wide">Email</Label>
                       <p className="text-text-heading font-medium">{adminInfo.email}</p>
                     </div>
                   </div>
+                  {/* Role */}
                   <div className="bg-card rounded-lg p-4 border border-border-light flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-md bg-surface-elevated flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Shield className="w-4 h-4 text-text-label" />
+                    <div className="w-8 h-8 rounded-md bg-foreground flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                      <Shield className="w-4 h-4 text-brand-dark" />
                     </div>
                     <div>
                       <Label className="text-xs text-text-muted uppercase tracking-wide">Role</Label>
                       <p className="text-text-heading font-medium">{adminInfo.role}</p>
                     </div>
                   </div>
+                  {/* Last Login */}
                   <div className="bg-card rounded-lg p-4 border border-border-light flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-md bg-surface-elevated flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Clock className="w-4 h-4 text-text-label" />
+                    <div className="w-8 h-8 rounded-md bg-foreground flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                      <Clock className="w-4 h-4 text-brand" />
                     </div>
                     <div>
                       <Label className="text-xs text-text-muted uppercase tracking-wide">Last Login</Label>
                       <p className="text-text-heading font-medium">{adminInfo.lastLogin}</p>
                     </div>
                   </div>
+                  {/* Account Created */}
                   <div className="bg-card rounded-lg p-4 border border-border-light flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-md bg-surface-elevated flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <CalendarDays className="w-4 h-4 text-text-label" />
+                    <div className="w-8 h-8 rounded-md bg-foreground flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                      <CalendarDays className="w-4 h-4 text-brand-light" />
                     </div>
                     <div>
                       <Label className="text-xs text-text-muted uppercase tracking-wide">Account Created</Label>
@@ -184,7 +192,7 @@ export function AdminAccountSettings() {
             <Card className="bg-surface-card border border-surface-card-border">
               <CardHeader className="pb-3">
                 <CardTitle className="text-base text-text-heading flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-md bg-surface-elevated flex items-center justify-center">
+                  <div className="w-7 h-7 rounded-md bg-foreground shadow-sm flex items-center justify-center">
                     <Shield className="w-4 h-4 text-status-success" />
                   </div>
                   Security
@@ -193,7 +201,7 @@ export function AdminAccountSettings() {
               <CardContent className="space-y-3">
                 <div className="bg-card rounded-lg p-4 border border-border-light">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-9 h-9 rounded-full bg-surface-elevated flex items-center justify-center">
+                    <div className="w-9 h-9 rounded-full bg-foreground flex items-center justify-center shadow-sm">
                       <Key className="w-4 h-4 text-status-warning" />
                     </div>
                     <div>
@@ -205,7 +213,7 @@ export function AdminAccountSettings() {
                     onClick={() => setShowPasswordDialog(true)}
                     variant="outline"
                     size="sm"
-                    className="w-full gap-2"
+                    className="w-full gap-2 border-brand/30 text-brand hover:bg-brand/10"
                   >
                     <Key className="w-3.5 h-3.5" />
                     Change Password
@@ -214,7 +222,7 @@ export function AdminAccountSettings() {
 
                 <div className="bg-card rounded-lg p-4 border border-border-light">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-9 h-9 rounded-full bg-surface-elevated flex items-center justify-center">
+                    <div className="w-9 h-9 rounded-full bg-foreground flex items-center justify-center shadow-sm">
                       <Monitor className="w-4 h-4 text-brand" />
                     </div>
                     <div>
@@ -226,7 +234,7 @@ export function AdminAccountSettings() {
                     onClick={() => setShowLogoutAllDialog(true)}
                     variant="outline"
                     size="sm"
-                    className="w-full"
+                    className="w-full border-brand/30 text-brand hover:bg-brand/10"
                   >
                     Logout All Devices
                   </Button>
@@ -238,7 +246,7 @@ export function AdminAccountSettings() {
             <Card className="bg-surface-card border border-surface-card-border">
               <CardContent className="p-5">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-9 h-9 rounded-full bg-status-error-soft flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-full bg-foreground flex items-center justify-center shadow-sm">
                     <LogOut className="w-4 h-4 text-status-error" />
                   </div>
                   <div>

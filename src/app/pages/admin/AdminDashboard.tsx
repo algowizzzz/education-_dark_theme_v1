@@ -46,7 +46,7 @@ export default function AdminDashboard() {
               <div className="flex-1 p-5">
                 <div className="flex items-center justify-between mb-3">
                   <p className="text-sm text-text-label">Students</p>
-                  <div className="w-10 h-10 rounded-full bg-surface-elevated flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-foreground shadow-sm flex items-center justify-center">
                     <Users className="w-5 h-5 text-brand" />
                   </div>
                 </div>
@@ -61,7 +61,7 @@ export default function AdminDashboard() {
               <div className="flex-1 p-5">
                 <div className="flex items-center justify-between mb-3">
                   <p className="text-sm text-text-label">Teachers</p>
-                  <div className="w-10 h-10 rounded-full bg-surface-elevated flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-foreground shadow-sm flex items-center justify-center">
                     <GraduationCap className="w-5 h-5 text-status-success" />
                   </div>
                 </div>
@@ -76,7 +76,7 @@ export default function AdminDashboard() {
               <div className="flex-1 p-5">
                 <div className="flex items-center justify-between mb-3">
                   <p className="text-sm text-text-label">Experts</p>
-                  <div className="w-10 h-10 rounded-full bg-surface-elevated flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-foreground shadow-sm flex items-center justify-center">
                     <Brain className="w-5 h-5 text-status-warning" />
                   </div>
                 </div>
@@ -91,7 +91,7 @@ export default function AdminDashboard() {
               <div className="flex-1 p-5">
                 <div className="flex items-center justify-between mb-3">
                   <p className="text-sm text-text-label">Parents</p>
-                  <div className="w-10 h-10 rounded-full bg-surface-elevated flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-foreground shadow-sm flex items-center justify-center">
                     <UserCircle className="w-5 h-5 text-brand-light" />
                   </div>
                 </div>
@@ -157,7 +157,7 @@ export default function AdminDashboard() {
             <div className="space-y-3">
               <div className="flex items-center justify-between p-3 bg-card rounded-lg border border-border-light">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-status-warning-soft flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-full bg-foreground shadow-sm flex items-center justify-center">
                     <Users className="w-4 h-4 text-status-warning" />
                   </div>
                   <span className="text-sm text-text-heading">No Teacher Assigned</span>
@@ -166,7 +166,7 @@ export default function AdminDashboard() {
               </div>
               <div className="flex items-center justify-between p-3 bg-card rounded-lg border border-border-light">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-status-info-soft flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-full bg-foreground shadow-sm flex items-center justify-center">
                     <Brain className="w-4 h-4 text-status-info" />
                   </div>
                   <span className="text-sm text-text-heading">No Expert Assigned</span>
@@ -175,7 +175,7 @@ export default function AdminDashboard() {
               </div>
               <div className="flex items-center justify-between p-3 bg-card rounded-lg border border-border-light">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-status-error-soft flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-full bg-foreground shadow-sm flex items-center justify-center">
                     <UserCircle className="w-4 h-4 text-status-error" />
                   </div>
                   <span className="text-sm text-text-heading">No Parent Linked</span>
@@ -193,7 +193,7 @@ export default function AdminDashboard() {
                 const Icon = item.icon;
                 return (
                   <div key={index} className="flex items-start gap-3 p-3 bg-card rounded-lg border border-border-light">
-                    <div className="w-8 h-8 rounded-full bg-surface-elevated flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div className="w-8 h-8 rounded-full bg-foreground shadow-sm flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Icon className={`w-4 h-4 ${item.color}`} />
                     </div>
                     <div className="flex-1 min-w-0">

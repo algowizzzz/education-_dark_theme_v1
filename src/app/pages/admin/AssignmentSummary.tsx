@@ -78,7 +78,7 @@ export default function AssignmentSummary() {
                     {ASSIGNMENT_DATA.unassignedToTeacher.length}
                   </p>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-status-warning-soft flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-foreground shadow-sm flex items-center justify-center">
                   <Users className="w-6 h-6 text-status-warning" />
                 </div>
               </div>
@@ -101,7 +101,7 @@ export default function AssignmentSummary() {
                     {ASSIGNMENT_DATA.unassignedToExpert.length}
                   </p>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-status-info-soft flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-foreground shadow-sm flex items-center justify-center">
                   <UserCheck className="w-6 h-6 text-status-info" />
                 </div>
               </div>
@@ -124,7 +124,7 @@ export default function AssignmentSummary() {
                     {ASSIGNMENT_DATA.noParentLinked.length}
                   </p>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-status-error-soft flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-foreground shadow-sm flex items-center justify-center">
                   <Link2 className="w-6 h-6 text-status-error" />
                 </div>
               </div>
@@ -147,7 +147,7 @@ export default function AssignmentSummary() {
                     {ASSIGNMENT_DATA.orphanParents.length}
                   </p>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-status-warning-soft flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-foreground shadow-sm flex items-center justify-center">
                   <AlertTriangle className="w-6 h-6 text-status-warning" />
                 </div>
               </div>
@@ -364,7 +364,7 @@ export default function AssignmentSummary() {
         {totalIssues === 0 && (
           <Card className="border-border-default p-12">
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-status-success-soft flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 rounded-full bg-foreground shadow-sm flex items-center justify-center mx-auto mb-4">
                 <UserCheck className="w-8 h-8 text-status-success" />
               </div>
               <h3 className="text-lg font-medium text-text-heading mb-2">All Assignments Complete</h3>
