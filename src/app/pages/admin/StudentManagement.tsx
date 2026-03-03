@@ -368,19 +368,19 @@ export default function StudentManagement() {
             <div className="hidden md:block bg-surface-card border border-surface-card-border rounded-lg overflow-hidden">
               <table className="w-full">
                 <thead>
-                  <tr className="bg-table-header-bg">
-                    <th className="text-left p-4 text-sm font-semibold text-table-header-text w-12">
+                  <tr className="bg-foreground">
+                    <th className="text-left p-4 text-sm font-semibold text-brand-dark w-12">
                       <Checkbox
                         checked={selectedStudents.length === filteredStudents.length && filteredStudents.length > 0}
                         onCheckedChange={toggleAllStudents}
                       />
                     </th>
-                    <th className="text-left p-4 text-sm font-semibold text-table-header-text">Name</th>
-                    <th className="text-left p-4 text-sm font-semibold text-table-header-text">Student ID</th>
-                    <th className="text-left p-4 text-sm font-semibold text-table-header-text">Grade</th>
-                    <th className="text-left p-4 text-sm font-semibold text-table-header-text">Primary Teacher</th>
-                    <th className="text-left p-4 text-sm font-semibold text-table-header-text">Status</th>
-                    <th className="text-left p-4 text-sm font-semibold text-table-header-text">Actions</th>
+                    <th className="text-left p-4 text-sm font-semibold text-brand-dark">Name</th>
+                    <th className="text-left p-4 text-sm font-semibold text-brand-dark">Student ID</th>
+                    <th className="text-left p-4 text-sm font-semibold text-brand-dark">Grade</th>
+                    <th className="text-left p-4 text-sm font-semibold text-brand-dark">Primary Teacher</th>
+                    <th className="text-left p-4 text-sm font-semibold text-brand-dark">Status</th>
+                    <th className="text-left p-4 text-sm font-semibold text-brand-dark">Actions</th>
                   </tr>
                 </thead>
                 <tbody>

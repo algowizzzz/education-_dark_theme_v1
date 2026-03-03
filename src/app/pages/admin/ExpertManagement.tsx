@@ -277,14 +277,14 @@ export default function ExpertManagement() {
         <div className="hidden md:block bg-surface-card border border-surface-card-border rounded-lg overflow-hidden">
           <table className="w-full">
             <thead>
-              <tr className="bg-table-header-bg">
-                <th className="text-left p-4 text-sm font-semibold text-table-header-text">Name</th>
-                <th className="text-left p-4 text-sm font-semibold text-table-header-text">Expert ID</th>
-                <th className="text-left p-4 text-sm font-semibold text-table-header-text">Role</th>
-                <th className="text-left p-4 text-sm font-semibold text-table-header-text">Assigned Students</th>
-                <th className="text-left p-4 text-sm font-semibold text-table-header-text">Active Cases</th>
-                <th className="text-left p-4 text-sm font-semibold text-table-header-text">Status</th>
-                <th className="text-left p-4 text-sm font-semibold text-table-header-text w-[80px]">Actions</th>
+              <tr className="bg-foreground">
+                <th className="text-left p-4 text-sm font-semibold text-brand-dark">Name</th>
+                <th className="text-left p-4 text-sm font-semibold text-brand-dark">Expert ID</th>
+                <th className="text-left p-4 text-sm font-semibold text-brand-dark">Role</th>
+                <th className="text-left p-4 text-sm font-semibold text-brand-dark">Assigned Students</th>
+                <th className="text-left p-4 text-sm font-semibold text-brand-dark">Active Cases</th>
+                <th className="text-left p-4 text-sm font-semibold text-brand-dark">Status</th>
+                <th className="text-left p-4 text-sm font-semibold text-brand-dark w-[80px]">Actions</th>
               </tr>
             </thead>
             <tbody>
